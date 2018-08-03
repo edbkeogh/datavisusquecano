@@ -1,0 +1,134 @@
+#map {
+  width:1200px;
+  height:700px;
+}
+#legend {
+  position: absolute;
+  top: 3px;
+  left: 980px;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 100;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: sans-serif;
+  width: 165px;
+  background: rgba(255,255,255,0.3);
+}
+.legendheading {
+  position: relative;
+  height: 25px;
+  padding: 5px 2px 0px 2px;
+  font-size: larger;
+  font-weight: bold;
+}
+.legenditem {
+  padding: 2px;
+  margin-bottom: 2px;
+}
+
+/*Marker clusters*/
+.marker-cluster-pie g.arc{
+  fill-opacity: 0.5;
+}
+.marker-cluster-pie-label {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/*Markers*/
+.marker {
+  width: 18px;
+  height: 18px;
+  border-width: 2px;
+  border-radius:10px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-style: solid;
+  fill: #CCC;
+  stroke: #444;
+  background: #CCC;
+  border-color: #444;
+}
+.marker div{
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/*marker categories*/
+.category-5{
+  fill: #230F11;
+  stroke: #170A0B;
+  background: #230F11;
+  border-color: #170A0B;
+}
+.category-0{
+  fill: #56191E;
+  stroke: #450308;
+  background: #56191E;
+  border-color: #450308;
+}
+.category-1{
+  fill: #A22E37;
+  stroke: #681E23;
+  background: #A22E37;
+  border-color: #681E23;
+}
+.category-2{
+  fill: #C1747A;
+  stroke: #743036;
+  background: #C1747A;
+  border-color: #743036;
+}
+.category-3{
+  fill: #E5C6C8;
+  stroke: #8A565B;
+  background: #E5C6C8;
+  border-color: #8A565B;
+}
+.category-4{
+  fill: #DDB3B7;
+  stroke: #8D7275;
+  background: #DDB3B7;
+  border-color: #8D7275;
+}
+
+/*marker icons*/
+.icon-1{
+  background-image: url('running-16.png');
+  background-repeat: no-repeat;
+  background-position: 0px 1px;
+}
+.icon-2{
+  background-image: url('bicycle-16.png');
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+.icon-3{
+  background-image: url('motorcycle-16.png');
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+.icon-4{
+  background-image: url('car-16.png');
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+
+/*Popup*/
+.map-popup span.heading {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.map-popup span.attribute {
+  display: block;
+}
+.map-popup span.label {
+  font-weight: bold;
+}
