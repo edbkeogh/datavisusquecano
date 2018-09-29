@@ -11,9 +11,42 @@ text {
   pointer-events: none;
 }
 
+#legend {
+  width: ;
+  height: ;
+  position: absolute;
+  top: 70px;
+  left: 0px;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 100;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: sans-serif;
+  width: 165px;
+  background: rgba(255,255,255,0.3);
+  overflow: hidden;
+}
+.legendheading {
+  color: black;
+  position: relative;
+  height: 25px;
+  padding: 5px 2px 0px 2px;
+  font-size: larger;
+  font-weight: bold;
+}
+.legenditem {
+  padding: 2px;
+  margin-bottom: 2px;
+}
+
 </style>
 <body>
 <script src="https://d3js.org/d3.v3.min.js"></script>
+<!-- <script src="d3.legend.js"></script> -->
+<!-- <link rel="stylesheet"  href="legends.css"> -->
 <script>
 var w = window.innerWidth;
 var h = window.innerHeight;
@@ -44,6 +77,8 @@ var force = d3.layout.force()
   .charge(-300)
   .size([w,h]);
 
+var metadata = [{"score": {"lookup": {"0": "Aeschylus", "1": "Aristophanes", "2": "Euripides", "3": "Sophocles"}, "name": "Author"}, "type": {"lookup": {"circle": "Tragedy", "square": "Comedy", "diamond": "Fragmentary"}, "name": "Genre"}}]
+
 var default_node_color = "#ccc";
 //var default_node_color = "rgb(3,190,100)";
 var default_link_color = "#888";
@@ -60,7 +95,7 @@ var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 var g = svg.append("g");
 svg.style("cursor","move");
 
-d3.json("test.json", function(error, graph) {
+d3.json("test2.json", function(error, graph) {
 
 var linkedByIndex = {};
     graph.links.forEach(function(d) {
@@ -111,8 +146,25 @@ var linkedByIndex = {};
 
 	});
 
+//legend Space
+function renderLegend() {
+    var data = d3.entries(metadata["score"].lookup),
+      legenddiv = d3.select('body').append('div')
+        .attr('id','legend');
+    var heading = legenddiv.append('div')
+        .classed('legendheading', true)
+        .text(metadata["score"].name);
+    var legenditems = legenddiv.selectAll('.legenditem')
+        .data(data);
+    legenditems
+        .enter()
+        .append('div')
+        .attr('class',function(d){return 'category-'+d.key;})
+        .classed({'legenditem': true})
+        .text(function(d){return d.value;});
+}
 
-
+// end legend space
 
 	var tocolor = "fill";
 	var towhite = "stroke";
@@ -327,6 +379,7 @@ function set_highlight(d)
 
 }
 }
+renderLegend();
 
 });
 
