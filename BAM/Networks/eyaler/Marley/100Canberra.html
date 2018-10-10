@@ -42,7 +42,7 @@ var highlight_trans = 0.1;
 
 var size = d3.scale.pow().exponent(1)
   .domain([1,100])
-  .range([8,24]);
+  .range([6,40]);
 
 var force = d3.layout.force()
   .linkDistance(function(d) {
@@ -57,12 +57,12 @@ var force = d3.layout.force()
 var default_node_color = "#ccc";
 //var default_node_color = "rgb(3,190,100)";
 var default_link_color = "#888";
-var nominal_base_node_size = 8;
+var nominal_base_node_size = 6;
 var nominal_text_size = 12;
 var max_text_size = 24;
 var nominal_stroke = 1.5;
 var max_stroke = 4.5;
-var max_base_node_size = 36;
+var max_base_node_size = 70;
 var min_zoom = 0.1;
 var max_zoom = 7;
 var svg = d3.select("body").append("svg");
@@ -138,7 +138,7 @@ var linkedByIndex = {};
 
 
       .attr("d", d3.svg.symbol()
-        .size(function(d) { return Math.PI*Math.pow(size((d.size/100))||nominal_base_node_size,2); })
+        .size(function(d) { return Math.PI*Math.pow(size((d.size/6000))||nominal_base_node_size,2); })
         .type(function(d) { return d.type; }))
 
 	.style(tocolor, function(d) {
@@ -159,7 +159,7 @@ var linkedByIndex = {};
 	 text.text(function(d) { return d.id; })
 	.style("text-anchor", "middle");
 	else
-	text.attr("dx", function(d) {return (size((d.size/100))||nominal_base_node_size);})
+	text.attr("dx", function(d) {return (size((d.size/6000))||nominal_base_node_size);})
     .text(function(d) { return '\u2002'+d.id; });
 
 	node.on("mouseover", function(d) {
@@ -257,11 +257,11 @@ function set_highlight(d)
 	var base_radius = nominal_base_node_size;
     if (nominal_base_node_size*zoom.scale()>max_base_node_size) base_radius = max_base_node_size/zoom.scale();
         circle.attr("d", d3.svg.symbol()
-        .size(function(d) { return Math.PI*Math.pow(size((d.size/100))*base_radius/nominal_base_node_size||base_radius,2); })
+        .size(function(d) { return Math.PI*Math.pow(size((d.size/6000))*base_radius/nominal_base_node_size||base_radius,2); })
         .type(function(d) { return d.type; }))
 
 	//circle.attr("r", function(d) { return (size(d.size)*base_radius/nominal_base_node_size||base_radius); })
-	if (!text_center) text.attr("dx", function(d) { return (size((d.size/100))*base_radius/nominal_base_node_size||base_radius); });
+	if (!text_center) text.attr("dx", function(d) { return (size((d.size/6000))*base_radius/nominal_base_node_size||base_radius); });
 
 	var text_size = nominal_text_size;
     if (nominal_text_size*zoom.scale()>max_text_size) text_size = max_text_size/zoom.scale();
