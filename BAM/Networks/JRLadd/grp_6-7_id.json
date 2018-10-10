@@ -1,0 +1,4556 @@
+{
+"nodes": [
+ {
+   "Id": 5,
+   "name": "Alison Rosenblitt",
+   "a_rank": 2,
+   "eigencentrality": 0.928626,
+   "eccentricity": 3,
+   "degree": 228,
+   "weighted_degree": 398,
+   "closness_centrality": 0.838806,
+   "harmonic_closness_centrality": 0.905101,
+   "betweeness_centrality": 98.266521,
+   "group": 6,
+   "color": "#a65628",
+   "position": "College Lecturer",
+   "affiliation": "Regent's Park College - University of Oxford",
+   "interests": "Sallust, late Republican political history, Roman historiography",
+   "website": "http://www.rpc.ox.ac.uk/alison-rosenblitt/",
+   "lat": 51.756789,
+   "lon": -1.263202
+ },
+ {
+   "Id": 8,
+   "name": "Amy Richlin",
+   "a_rank": 5,
+   "eigencentrality": 0.766394,
+   "eccentricity": 3,
+   "degree": 184,
+   "weighted_degree": 220,
+   "closness_centrality": 0.741425,
+   "harmonic_closness_centrality": 0.826809,
+   "betweeness_centrality": 61.875958,
+   "group": 7,
+   "color": "#4daf4a",
+   "position": "Professor of Classics",
+   "affiliation": "University of California, Los Angeles",
+   "interests": "Latin Literature, History of Sexuality, Feminist Theory",
+   "website": "http://classics.ucla.edu/person/amy-richlin/",
+   "lat": 34.413963,
+   "lon": -119.851136
+ },
+ {
+   "Id": 9,
+   "name": "Amy Russell",
+   "a_rank": 3,
+   "eigencentrality": 0.921576,
+   "eccentricity": 3,
+   "degree": 226,
+   "weighted_degree": 369,
+   "closness_centrality": 0.833828,
+   "harmonic_closness_centrality": 0.901542,
+   "betweeness_centrality": 100.137182,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Lecturer (Assistant Professor)",
+   "affiliation": "Durham University",
+   "interests": "Political history, topography, Roman Republic and early empire",
+   "website": "https://www.dur.ac.uk/classics/staff/?id=10646",
+   "lat": 54.764986,
+   "lon": -1.580392
+ },
+ {
+   "Id": 14,
+   "name": "Anise K Strong",
+   "a_rank": 3,
+   "eigencentrality": 0.897952,
+   "eccentricity": 3,
+   "degree": 213,
+   "weighted_degree": 354,
+   "closness_centrality": 0.802857,
+   "harmonic_closness_centrality": 0.87841,
+   "betweeness_centrality": 54.635251,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Assistant Professor of History",
+   "affiliation": "Western Michigan University",
+   "interests": "Roman history, gender and sexuality, reception studies",
+   "website": "https://www.wmich.edu/history/directory/strong",
+   "lat": 42.283178,
+   "lon": -85.617407
+ },
+ {
+   "Id": 15,
+   "name": "Anna Clark",
+   "a_rank": 4,
+   "eigencentrality": 0.896371,
+   "eccentricity": 3,
+   "degree": 209,
+   "weighted_degree": 325,
+   "closness_centrality": 0.793785,
+   "harmonic_closness_centrality": 0.871293,
+   "betweeness_centrality": 35.607814,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Associate Professor",
+   "affiliation": "Christ Church, University of Oxford",
+   "interests": "Roman religion, Roman Republican history",
+   "website": "http://www.classics.ox.ac.uk/annaclark.html",
+   "lat": 51.749805,
+   "lon": -1.257907
+ },
+ {
+   "Id": 24,
+   "name": "Aven McMaster",
+   "a_rank": 3,
+   "eigencentrality": 0.899842,
+   "eccentricity": 3,
+   "degree": 213,
+   "weighted_degree": 368,
+   "closness_centrality": 0.802857,
+   "harmonic_closness_centrality": 0.87841,
+   "betweeness_centrality": 51.04255,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Assistant Professor",
+   "affiliation": "Thorneloe University at Laurentian",
+   "interests": "Roman poetry, Roman social history, gift exchange & amicitia, gender & sexuality",
+   "website": "http://www.thorneloe.ca/faculty/dr-aven-mcmaster",
+   "lat": 46.470209,
+   "lon": -80.971132
+ },
+ {
+   "Id": 26,
+   "name": "Ayelet Haimson Lushkov",
+   "a_rank": 4,
+   "eigencentrality": 0.871458,
+   "eccentricity": 3,
+   "degree": 200,
+   "weighted_degree": 311,
+   "closness_centrality": 0.774105,
+   "harmonic_closness_centrality": 0.855279,
+   "betweeness_centrality": 28.128345,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Associate Professor",
+   "affiliation": "UT-Austin",
+   "interests": "Roman political history during the Republic",
+   "website": "http://liberalarts.utexas.edu/classics/faculty/al27265",
+   "lat": 30.285868,
+   "lon": -97.737843
+ },
+ {
+   "Id": 28,
+   "name": "Beate Dignas",
+   "a_rank": 4,
+   "eigencentrality": 0.684521,
+   "eccentricity": 2,
+   "degree": 151,
+   "weighted_degree": 160,
+   "closness_centrality": 0.683698,
+   "harmonic_closness_centrality": 0.768683,
+   "betweeness_centrality": 10.207254,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Associate Professor",
+   "affiliation": "Somerville College, University of Oxford",
+   "interests": "Asia Minor, religious history",
+   "website": "http://www.some.ox.ac.uk/people/beate-dignas/; http://www.classics.ox.ac.uk/beatedignas.html",
+   "lat": 51.759746,
+   "lon": -1.263562
+ },
+ {
+   "Id": 40,
+   "name": "Catherine Steel",
+   "a_rank": 6,
+   "eigencentrality": 0.868384,
+   "eccentricity": 3,
+   "degree": 198,
+   "weighted_degree": 293,
+   "closness_centrality": 0.769863,
+   "harmonic_closness_centrality": 0.85172,
+   "betweeness_centrality": 19.621003,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Professor of Classics",
+   "affiliation": "University of Glasgow, UK",
+   "interests": "Roman Republican History; Cicero; Roman Oratory",
+   "website": "http://www.gla.ac.uk/schools/humanities/staff/catherinesteel/",
+   "lat": 55.872121,
+   "lon": -4.290389
+ },
+ {
+   "Id": 42,
+   "name": "Celia Schultz",
+   "a_rank": 5,
+   "eigencentrality": 0.896371,
+   "eccentricity": 3,
+   "degree": 209,
+   "weighted_degree": 318,
+   "closness_centrality": 0.793785,
+   "harmonic_closness_centrality": 0.871293,
+   "betweeness_centrality": 35.607814,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Professor of Classical Studies,",
+   "affiliation": "University of Michigan",
+   "interests": "Roman History, Roman Religion",
+   "website": "https://lsa.umich.edu/classics/people/departmental-faculty/celiaes.html",
+   "lat": 42.278044,
+   "lon": -83.740413
+ },
+ {
+   "Id": 43,
+   "name": "Christelle Fischer-Bovet",
+   "a_rank": 4,
+   "eigencentrality": 0.703008,
+   "eccentricity": 2,
+   "degree": 157,
+   "weighted_degree": 173,
+   "closness_centrality": 0.693827,
+   "harmonic_closness_centrality": 0.779359,
+   "betweeness_centrality": 25.880322,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Associate Professor",
+   "affiliation": "University of Southern California",
+   "interests": "Hellenistic and Egyptian history, Hellenistic demography and identity",
+   "website": "https://dornsife.usc.edu/cf/faculty-and-staff/faculty.cfm?pid=1024522",
+   "lat": 34.022352,
+   "lon": -118.287306
+ },
+ {
+   "Id": 52,
+   "name": "Colleen Donahoe",
+   "a_rank": 0,
+   "eigencentrality": 0.868384,
+   "eccentricity": 3,
+   "degree": 198,
+   "weighted_degree": 291,
+   "closness_centrality": 0.769863,
+   "harmonic_closness_centrality": 0.85172,
+   "betweeness_centrality": 19.621003,
+   "group": 6,
+   "color": "#a65628",
+   "position": "PhD Candidate",
+   "affiliation": "Brown University",
+   "interests": "Roman military history, archeology",
+   "website": "https://brown.academia.edu/ColleenDonahoe",
+   "lat": 41.826772,
+   "lon": -71.404737
+ },
+ {
+   "Id": 56,
+   "name": "Cynthia Bannon",
+   "a_rank": 5,
+   "eigencentrality": 0.876452,
+   "eccentricity": 3,
+   "degree": 202,
+   "weighted_degree": 308,
+   "closness_centrality": 0.778393,
+   "harmonic_closness_centrality": 0.858837,
+   "betweeness_centrality": 29.41535,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Professor",
+   "affiliation": "Indiana University",
+   "interests": "Roman History, Roman Law, Roman economy, Environmental History",
+   "website": "http://classics.indiana.edu/faculty/bannon.shtml; http://indiana.academia.edu/CynthiaBannon",
+   "lat": 39.167047,
+   "lon": -86.526937
+ },
+ {
+   "Id": 61,
+   "name": "Debbie Felton",
+   "a_rank": 5,
+   "eigencentrality": 0.132918,
+   "eccentricity": 3,
+   "degree": 40,
+   "weighted_degree": 43,
+   "closness_centrality": 0.537285,
+   "harmonic_closness_centrality": 0.570581,
+   "betweeness_centrality": 9.384707,
+   "group": 7,
+   "color": "#4daf4a",
+   "position": "Professor",
+   "affiliation": "University of Massachusetts Amherst",
+   "interests": "Folklore in classical literature, Deformity and monstrosity in classical literature, Classical tradition",
+   "website": "https://www.umass.edu/classics/member/debbie-felton; https://umass.academia.edu/DebbieFelton",
+   "lat": 42.391157,
+   "lon": -72.528901
+ },
+ {
+   "Id": 65,
+   "name": "Eleanor Cowan",
+   "a_rank": 3,
+   "eigencentrality": 0.887607,
+   "eccentricity": 3,
+   "degree": 207,
+   "weighted_degree": 315,
+   "closness_centrality": 0.789326,
+   "harmonic_closness_centrality": 0.867734,
+   "betweeness_centrality": 40.260015,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Lecturer",
+   "affiliation": "University of Sydney",
+   "interests": "Roman history, Augustan-Tiberian periods, historiography",
+   "website": "http://sydney.edu.au/arts/classics_ancient_history/staff/profiles/eleanor.cowan.php; http://sydney.academia.edu/EleanorCowan",
+   "lat": -33.886322,
+   "lon": 151.188667
+ },
+ {
+   "Id": 68,
+   "name": "Elena Torregaray Pagola",
+   "a_rank": 5,
+   "eigencentrality": 0.888677,
+   "eccentricity": 3,
+   "degree": 208,
+   "weighted_degree": 324,
+   "closness_centrality": 0.791549,
+   "harmonic_closness_centrality": 0.869514,
+   "betweeness_centrality": 45.027536,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Professor",
+   "affiliation": "University of the Basque Country",
+   "interests": "Roman Republican History; Roman diplomacy, historiography",
+   "website": "?",
+   "lat": 43.330943,
+   "lon": -2.967892
+ },
+ {
+   "Id": 75,
+   "name": "Elizabeth Keitel",
+   "a_rank": 4,
+   "eigencentrality": 0.868384,
+   "eccentricity": 3,
+   "degree": 198,
+   "weighted_degree": 285,
+   "closness_centrality": 0.769863,
+   "harmonic_closness_centrality": 0.85172,
+   "betweeness_centrality": 19.621003,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Associate Professor",
+   "affiliation": "UMass Amherst",
+   "interests": "Roman history, Tacitus, Caesar",
+   "website": "https://www.umass.edu/classics/member/elizabeth-keitel",
+   "lat": 42.391157,
+   "lon": -72.528901
+ },
+ {
+   "Id": 83,
+   "name": "Emily Cole",
+   "a_rank": 2,
+   "eigencentrality": 0.695172,
+   "eccentricity": 3,
+   "degree": 155,
+   "weighted_degree": 190,
+   "closness_centrality": 0.688725,
+   "harmonic_closness_centrality": 0.775208,
+   "betweeness_centrality": 9.217983,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Visiting Assistant Professor",
+   "affiliation": "NYU",
+   "interests": "Graecoroman Egypt; history of multilingualism; social history",
+   "website": "http://isaw.nyu.edu/people/visiting-research-scholars/emily-cole; http://nyu.academia.edu/EmilyCole",
+   "lat": 40.779994,
+   "lon": -73.960505
+ },
+ {
+   "Id": 99,
+   "name": "Harriet Fertik",
+   "a_rank": 3,
+   "eigencentrality": 0.871353,
+   "eccentricity": 3,
+   "degree": 200,
+   "weighted_degree": 303,
+   "closness_centrality": 0.774105,
+   "harmonic_closness_centrality": 0.855279,
+   "betweeness_centrality": 25.969515,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Assistant Professor",
+   "affiliation": "University of New Hampshire",
+   "interests": "Roman cultural and intellectual history",
+   "website": "http://cola.unh.edu/faculty-member/harriet-fertik; https://unh.academia.edu/HarrietFertik",
+   "lat": 43.138948,
+   "lon": -70.939214
+ },
+ {
+   "Id": 113,
+   "name": "Jacqueline Carlon",
+   "a_rank": 4,
+   "eigencentrality": 0.896596,
+   "eccentricity": 2,
+   "degree": 216,
+   "weighted_degree": 366,
+   "closness_centrality": 0.812139,
+   "harmonic_closness_centrality": 0.884342,
+   "betweeness_centrality": 90.880849,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Associate Professor",
+   "affiliation": "University of Massachusetts, Boston",
+   "interests": "Roman Republican History, Women in Roman Literature, Pliny, Tacitus, Imperial Elite Identity",
+   "website": "https://www.umb.edu/academics/cla/faculty/jacqueline_carlon",
+   "lat": 42.3591,
+   "lon": -71.0934
+ },
+ {
+   "Id": 129,
+   "name": "Joanne Berry",
+   "a_rank": 4,
+   "eigencentrality": 0.871201,
+   "eccentricity": 3,
+   "degree": 200,
+   "weighted_degree": 295,
+   "closness_centrality": 0.774105,
+   "harmonic_closness_centrality": 0.855279,
+   "betweeness_centrality": 28.354004,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Senior Lecturer",
+   "affiliation": "Swansea University, UK",
+   "interests": "Roman history, domestic space, Pompeii and the Bay of Naples, history of excavations",
+   "website": "http://www.swansea.ac.uk/staff/academic/artshumanities/hc/berryjoanne/; http://swansea.academia.edu/JoanneBerry",
+   "lat": 51.621551,
+   "lon": -3.985493
+ },
+ {
+   "Id": 145,
+   "name": "Katherine Clarke",
+   "a_rank": 4,
+   "eigencentrality": 0.870796,
+   "eccentricity": 3,
+   "degree": 200,
+   "weighted_degree": 292,
+   "closness_centrality": 0.774105,
+   "harmonic_closness_centrality": 0.855279,
+   "betweeness_centrality": 39.562327,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Associate Professor",
+   "affiliation": "St Hilda''s College - Oxford",
+   "interests": "Hellenistic and Roman history",
+   "website": "http://www.classics.ox.ac.uk/katherineclarke.html",
+   "lat": 51.748581,
+   "lon": -1.247734
+ },
+ {
+   "Id": 148,
+   "name": "Kathryn Milne",
+   "a_rank": 3,
+   "eigencentrality": 0.868384,
+   "eccentricity": 3,
+   "degree": 198,
+   "weighted_degree": 296,
+   "closness_centrality": 0.769863,
+   "harmonic_closness_centrality": 0.85172,
+   "betweeness_centrality": 19.621003,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Assistant Professor of History",
+   "affiliation": "Wofford College",
+   "interests": "Roman military and intellectual history",
+   "website": "http://sites.wofford.edu/milnekh/",
+   "lat": 34.958066,
+   "lon": -81.936679
+ },
+ {
+   "Id": 150,
+   "name": "Kathryn Welch",
+   "a_rank": 4,
+   "eigencentrality": 0.127974,
+   "eccentricity": 3,
+   "degree": 32,
+   "weighted_degree": 36,
+   "closness_centrality": 0.528195,
+   "harmonic_closness_centrality": 0.555753,
+   "betweeness_centrality": 1.661361,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Associate Professor",
+   "affiliation": "University of Sydney",
+   "interests": "Republic to Empire, Appian, Pompeii, Topography of Rome",
+   "website": "http://sydney.edu.au/arts/classics_ancient_history/staff/profiles/kathryn.welch.php",
+   "lat": -33.888584,
+   "lon": 151.187347
+ },
+ {
+   "Id": 159,
+   "name": "Kristina Milnor",
+   "a_rank": 4,
+   "eigencentrality": 0.870517,
+   "eccentricity": 3,
+   "degree": 199,
+   "weighted_degree": 315,
+   "closness_centrality": 0.771978,
+   "harmonic_closness_centrality": 0.853499,
+   "betweeness_centrality": 21.450646,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Associate Professor",
+   "affiliation": "Barnard College",
+   "interests": "Roman Social history",
+   "website": "https://barnard.edu/profiles/kristina-milnor",
+   "lat": 0.8091,
+   "lon": -73.9639
+ },
+ {
+   "Id": 166,
+   "name": "Lekha Shupeck",
+   "a_rank": 0,
+   "eigencentrality": 0.87848,
+   "eccentricity": 3,
+   "degree": 203,
+   "weighted_degree": 329,
+   "closness_centrality": 0.780556,
+   "harmonic_closness_centrality": 0.860617,
+   "betweeness_centrality": 33.084227,
+   "group": 6,
+   "color": "#a65628",
+   "position": "PhD Candidate, History Department,",
+   "affiliation": "UNC-Chapel Hill",
+   "interests": "Roman Law, Roman Republic, Roman Political History",
+   "website": "http://history.unc.edu/people/graduate-students/lekha-shupeck/",
+   "lat": 35.90473,
+   "lon": -79.049978
+ },
+ {
+   "Id": 169,
+   "name": "Leonora Neville",
+   "a_rank": 6,
+   "eigencentrality": 0.823026,
+   "eccentricity": 3,
+   "degree": 201,
+   "weighted_degree": 292,
+   "closness_centrality": 0.776243,
+   "harmonic_closness_centrality": 0.857058,
+   "betweeness_centrality": 81.746074,
+   "group": 6,
+   "color": "#a65628",
+   "position": "John W. and Jeanne M. Rowe Professor of Byzantine History",
+   "affiliation": "UW-Madison",
+   "interests": null,
+   "website": "https://history.wisc.edu/faculty_ln.htm",
+   "lat": 43.076592,
+   "lon": -89.414676
+ },
+ {
+   "Id": 175,
+   "name": "Lindsay Driediger-Murphy",
+   "a_rank": 3,
+   "eigencentrality": 0.912665,
+   "eccentricity": 3,
+   "degree": 217,
+   "weighted_degree": 400,
+   "closness_centrality": 0.812139,
+   "harmonic_closness_centrality": 0.885528,
+   "betweeness_centrality": 56.72461,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Assistant Professor",
+   "affiliation": "University of Calgary",
+   "interests": "Roman social and political history, Roman religion, historiography",
+   "website": "https://grst.ucalgary.ca/profiles/lindsay-driediger-murphy; https://ucalgary.academia.edu/LindsayDriedigerMurphy",
+   "lat": 51.079948,
+   "lon": -114.125534
+ },
+ {
+   "Id": 176,
+   "name": "Lindsey Mazurek",
+   "a_rank": 1,
+   "eigencentrality": 0.888915,
+   "eccentricity": 2,
+   "degree": 209,
+   "weighted_degree": 335,
+   "closness_centrality": 0.796034,
+   "harmonic_closness_centrality": 0.871886,
+   "betweeness_centrality": 58.914506,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Postdoctoral Fellow",
+   "affiliation": "Memorial University of Newfoundland",
+   "interests": "Roman diplomatic history, globalization, Egyptian cults, digital humanities, identity studies",
+   "website": "https://www.mun.ca/classics/Our_people/lmazurek.php",
+   "lat": 47.574709,
+   "lon": -52.730652
+ },
+ {
+   "Id": 182,
+   "name": "Lisa Mignone",
+   "a_rank": 3,
+   "eigencentrality": 0.902986,
+   "eccentricity": 3,
+   "degree": 215,
+   "weighted_degree": 342,
+   "closness_centrality": 0.807471,
+   "harmonic_closness_centrality": 0.881969,
+   "betweeness_centrality": 64.924941,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Assistant Professor",
+   "affiliation": "Brown University",
+   "interests": "Roman history (esp. Republican), historiography, Roman topography, spatial studies",
+   "website": "https://vivo.brown.edu/display/lmmignon",
+   "lat": 41.826772,
+   "lon": -71.404737
+ },
+ {
+   "Id": 183,
+   "name": "Lisl Walsh",
+   "a_rank": 3,
+   "eigencentrality": 0.749854,
+   "eccentricity": 3,
+   "degree": 176,
+   "weighted_degree": 223,
+   "closness_centrality": 0.726098,
+   "harmonic_closness_centrality": 0.812574,
+   "betweeness_centrality": 38.260624,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Assistant Professor",
+   "affiliation": "Beloit College, WI",
+   "interests": "Historiography, gender and sexuality, history of self, theatre history",
+   "website": "https://www.beloit.edu/classics/faculty/",
+   "lat": 42.503033,
+   "lon": -89.033094
+ },
+ {
+   "Id": 184,
+   "name": "Liv Yarrow",
+   "a_rank": 4,
+   "eigencentrality": 0.868384,
+   "eccentricity": 3,
+   "degree": 198,
+   "weighted_degree": 294,
+   "closness_centrality": 0.769863,
+   "harmonic_closness_centrality": 0.85172,
+   "betweeness_centrality": 19.621003,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Associate Professor",
+   "affiliation": "Brooklyn College and the Graduate Center, CUNY",
+   "interests": null,
+   "website": "http://www.brooklyn.cuny.edu/web/academics/faculty/faculty_profile.jsp?faculty=566",
+   "lat": 40.631441,
+   "lon": -73.954449
+ },
+ {
+   "Id": 204,
+   "name": "Mary Deminion",
+   "a_rank": 0,
+   "eigencentrality": 0.902432,
+   "eccentricity": 3,
+   "degree": 214,
+   "weighted_degree": 347,
+   "closness_centrality": 0.805158,
+   "harmonic_closness_centrality": 0.88019,
+   "betweeness_centrality": 52.767954,
+   "group": 6,
+   "color": "#a65628",
+   "position": "PhD candidate",
+   "affiliation": "University of Western Ontario",
+   "interests": "Roman law, Imperial history, gender",
+   "website": "http://westernu.academia.edu/MaryDeminion",
+   "lat": 43.009597,
+   "lon": -81.275922
+ },
+ {
+   "Id": 205,
+   "name": "Mary Franks",
+   "a_rank": 0,
+   "eigencentrality": 0.913501,
+   "eccentricity": 3,
+   "degree": 218,
+   "weighted_degree": 382,
+   "closness_centrality": 0.814493,
+   "harmonic_closness_centrality": 0.887307,
+   "betweeness_centrality": 62.057308,
+   "group": 6,
+   "color": "#a65628",
+   "position": "PhD candidate",
+   "affiliation": "York University",
+   "interests": "\"Roman political and cultural history, Roman religion, and historiography\" from https://libraryofantiquity.wordpress.com/about/ on 6-13-17.",
+   "website": "https://libraryofantiquity.wordpress.com/about/; http://history.gradstudies.yorku.ca/students/",
+   "lat": 43.773454,
+   "lon": -79.504057
+ },
+ {
+   "Id": 210,
+   "name": "Melissa Bailey",
+   "a_rank": 2,
+   "eigencentrality": 0.872875,
+   "eccentricity": 3,
+   "degree": 200,
+   "weighted_degree": 301,
+   "closness_centrality": 0.774105,
+   "harmonic_closness_centrality": 0.855279,
+   "betweeness_centrality": 22.908088,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Visiting Assistant Professor",
+   "affiliation": "University of Maryland, Baltimore County",
+   "interests": "Numeracy and measurement, Roman economic history, Domestic space, Cognitive history",
+   "website": "http://ancientstudies.umbc.edu/faculty/mbailey/; https://classics.stanford.edu/people/melissa-bailey-kutner; http://umbc.academia.edu/MelissaBailey",
+   "lat": 39.2551,
+   "lon": -76.7112
+ },
+ {
+   "Id": 214,
+   "name": "Michele R. Salzman",
+   "a_rank": 5,
+   "eigencentrality": 1,
+   "eccentricity": 3,
+   "degree": 266,
+   "weighted_degree": 641,
+   "closness_centrality": 0.946128,
+   "harmonic_closness_centrality": 0.972716,
+   "betweeness_centrality": 254.355929,
+   "group": 7,
+   "color": "#4daf4a",
+   "position": "Professor",
+   "affiliation": "UC-Riverside",
+   "interests": "Roman and Greek History; Late Antiquity; Religion in the Ancient World; Social History; Latin Literature",
+   "website": "http://history.ucr.edu/People/Faculty/Salzman/index.html",
+   "lat": 33.973706,
+   "lon": -117.330253
+ },
+ {
+   "Id": 225,
+   "name": "Nina C. Coppolino",
+   "a_rank": 3,
+   "eigencentrality": 0.859223,
+   "eccentricity": 3,
+   "degree": 214,
+   "weighted_degree": 313,
+   "closness_centrality": 0.802857,
+   "harmonic_closness_centrality": 0.879597,
+   "betweeness_centrality": 103.572259,
+   "group": 7,
+   "color": "#4daf4a",
+   "position": "Assistant Professor",
+   "affiliation": "University of Connecticut (Storrs)",
+   "interests": "Latin epic and didactic poetry; Greek and Latin languages; Greek and Roman Civilizations; Greek and Latin literature in translation; Greek rhetoric and historiography",
+   "website": "http://languages.uconn.edu/person/nina-coppolino/",
+   "lat": 41.807741,
+   "lon": -72.256169
+ },
+ {
+   "Id": 244,
+   "name": "Roberta Stewart",
+   "a_rank": 5,
+   "eigencentrality": 0.988395,
+   "eccentricity": 3,
+   "degree": 259,
+   "weighted_degree": 548,
+   "closness_centrality": 0.924342,
+   "harmonic_closness_centrality": 0.960261,
+   "betweeness_centrality": 219.451154,
+   "group": 7,
+   "color": "#4daf4a",
+   "position": "Professor of Classical Studies",
+   "affiliation": "Dartmouth College",
+   "interests": "Roman history, literature and culture / comparative slavery / Roman coins / Roman women / Roman priesthood and the holy / Greek and Latin Literature / Ancient Religion",
+   "website": "https://dartmouth.edu/faculty-directory/roberta-l-stewart",
+   "lat": 43.704441,
+   "lon": -72.290882
+ },
+ {
+   "Id": 257,
+   "name": "Saskia Roselaar",
+   "a_rank": 2,
+   "eigencentrality": 0.881764,
+   "eccentricity": 2,
+   "degree": 205,
+   "weighted_degree": 332,
+   "closness_centrality": 0.787115,
+   "harmonic_closness_centrality": 0.864769,
+   "betweeness_centrality": 46.480099,
+   "group": 6,
+   "color": "#a65628",
+   "position": "Independent Scholar",
+   "affiliation": "self-employed",
+   "interests": "Roman socio-economic history, Roman law, identity & integration in the Roman world",
+   "website": "https://sites.google.com/site/romanrepublicresearch/home",
+   "lat": 52.156971,
+   "lon": 4.484651
+ },
+ {
+   "Id": 260,
+   "name": "Serena Connolly",
+   "a_rank": 4,
+   "eigencentrality": 0.934164,
+   "eccentricity": 3,
+   "degree": 234,
+   "weighted_degree": 442,
+   "closness_centrality": 0.854103,
+   "harmonic_closness_centrality": 0.915777,
+   "betweeness_centrality": 127.98529,
+   "group": 7,
+   "color": "#4daf4a",
+   "position": "Associate Professor",
+   "affiliation": "Rutgers",
+   "interests": "Roman history, especially late Roman social, political, and legal history; non-elite Latin literature.",
+   "website": "http://classics.rutgers.edu/people/52-people-individual-categories/80-people-serena-connolly; http://rutgers.academia.edu/SerenaConnolly",
+   "lat": 40.501743,
+   "lon": -74.44756
+ },
+ {
+   "Id": 273,
+   "name": "Teresa Ramsby",
+   "a_rank": 4,
+   "eigencentrality": 0.71839,
+   "eccentricity": 3,
+   "degree": 173,
+   "weighted_degree": 229,
+   "closness_centrality": 0.720513,
+   "harmonic_closness_centrality": 0.807236,
+   "betweeness_centrality": 51.89395,
+   "group": 7,
+   "color": "#4daf4a",
+   "position": "Associate Professor",
+   "affiliation": "University of Massachusetts Amherst",
+   "interests": "Latin poetry, particularly the works of Ovid; Roman social interactions and their manifestations in literature ; Latin pedagogy and teacher training",
+   "website": "http://www.umass.edu/classics/member/teresa-ramsby",
+   "lat": 42.391157,
+   "lon": -72.528901
+ }
+],
+"links": [
+ {
+   "source": 5,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 5,
+   "target": 9,
+   "weight": 3
+ },
+ {
+   "source": 8,
+   "target": 9,
+   "weight": 1
+ },
+ {
+   "source": 5,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 15,
+   "weight": 3
+ },
+ {
+   "source": 8,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 8,
+   "target": 15,
+   "weight": 1
+ },
+ {
+   "source": 9,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 9,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 14,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 26,
+   "weight": 3
+ },
+ {
+   "source": 8,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 24,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 8,
+   "target": 26,
+   "weight": 1
+ },
+ {
+   "source": 9,
+   "target": 26,
+   "weight": 4
+ },
+ {
+   "source": 8,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 9,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 24,
+   "target": 14,
+   "weight": 4
+ },
+ {
+   "source": 24,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 26,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 26,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 28,
+   "target": 14,
+   "weight": 1
+ },
+ {
+   "source": 28,
+   "target": 15,
+   "weight": 1
+ },
+ {
+   "source": 5,
+   "target": 40,
+   "weight": 3
+ },
+ {
+   "source": 5,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 8,
+   "target": 40,
+   "weight": 1
+ },
+ {
+   "source": 40,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 8,
+   "target": 42,
+   "weight": 1
+ },
+ {
+   "source": 24,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 8,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 9,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 9,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 24,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 40,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 26,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 40,
+   "target": 15,
+   "weight": 3
+ },
+ {
+   "source": 42,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 5,
+   "weight": 2
+ },
+ {
+   "source": 43,
+   "target": 14,
+   "weight": 1
+ },
+ {
+   "source": 42,
+   "target": 15,
+   "weight": 3
+ },
+ {
+   "source": 43,
+   "target": 15,
+   "weight": 1
+ },
+ {
+   "source": 52,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 5,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 8,
+   "target": 56,
+   "weight": 1
+ },
+ {
+   "source": 24,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 56,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 24,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 40,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 24,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 52,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 26,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 40,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 26,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 8,
+   "target": 61,
+   "weight": 1
+ },
+ {
+   "source": 65,
+   "target": 5,
+   "weight": 3
+ },
+ {
+   "source": 42,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 56,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 43,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 56,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 5,
+   "weight": 4
+ },
+ {
+   "source": 65,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 65,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 68,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 24,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 40,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 56,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 8,
+   "target": 75,
+   "weight": 1
+ },
+ {
+   "source": 40,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 68,
+   "target": 15,
+   "weight": 3
+ },
+ {
+   "source": 9,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 56,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 42,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 83,
+   "target": 5,
+   "weight": 1
+ },
+ {
+   "source": 75,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 75,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 65,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 9,
+   "weight": 1
+ },
+ {
+   "source": 68,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 52,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 40,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 83,
+   "target": 14,
+   "weight": 1
+ },
+ {
+   "source": 56,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 15,
+   "weight": 1
+ },
+ {
+   "source": 56,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 24,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 26,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 75,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 5,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 65,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 40,
+   "weight": 3
+ },
+ {
+   "source": 99,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 83,
+   "target": 26,
+   "weight": 1
+ },
+ {
+   "source": 68,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 68,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 40,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 42,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 52,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 5,
+   "weight": 3
+ },
+ {
+   "source": 43,
+   "target": 75,
+   "weight": 1
+ },
+ {
+   "source": 52,
+   "target": 68,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 8,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 40,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 42,
+   "weight": 1
+ },
+ {
+   "source": 83,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 15,
+   "weight": 3
+ },
+ {
+   "source": 56,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 68,
+   "weight": 3
+ },
+ {
+   "source": 129,
+   "target": 5,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 52,
+   "weight": 1
+ },
+ {
+   "source": 129,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 56,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 129,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 83,
+   "weight": 1
+ },
+ {
+   "source": 145,
+   "target": 5,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 52,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 68,
+   "weight": 1
+ },
+ {
+   "source": 148,
+   "target": 5,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 129,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 40,
+   "weight": 3
+ },
+ {
+   "source": 145,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 43,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 83,
+   "target": 75,
+   "weight": 1
+ },
+ {
+   "source": 150,
+   "target": 9,
+   "weight": 3
+ },
+ {
+   "source": 145,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 99,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 52,
+   "weight": 2
+ },
+ {
+   "source": 8,
+   "target": 159,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 68,
+   "weight": 2
+ },
+ {
+   "source": 9,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 166,
+   "weight": 3
+ },
+ {
+   "source": 129,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 145,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 14,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 169,
+   "weight": 3
+ },
+ {
+   "source": 166,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 61,
+   "weight": 1
+ },
+ {
+   "source": 148,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 15,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 166,
+   "target": 9,
+   "weight": 4
+ },
+ {
+   "source": 150,
+   "target": 26,
+   "weight": 1
+ },
+ {
+   "source": 148,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 8,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 9,
+   "target": 169,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 113,
+   "weight": 2
+ },
+ {
+   "source": 166,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 175,
+   "weight": 4
+ },
+ {
+   "source": 129,
+   "target": 52,
+   "weight": 2
+ },
+ {
+   "source": 166,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 68,
+   "weight": 3
+ },
+ {
+   "source": 176,
+   "target": 5,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 99,
+   "weight": 1
+ },
+ {
+   "source": 24,
+   "target": 159,
+   "weight": 3
+ },
+ {
+   "source": 8,
+   "target": 175,
+   "weight": 1
+ },
+ {
+   "source": 169,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 169,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 9,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 176,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 176,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 26,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 182,
+   "weight": 4
+ },
+ {
+   "source": 145,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 28,
+   "target": 159,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 75,
+   "weight": 3
+ },
+ {
+   "source": 148,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 43,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 183,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 14,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 14,
+   "weight": 3
+ },
+ {
+   "source": 15,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 182,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 166,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 8,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 9,
+   "weight": 3
+ },
+ {
+   "source": 176,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 166,
+   "target": 26,
+   "weight": 4
+ },
+ {
+   "source": 183,
+   "target": 9,
+   "weight": 1
+ },
+ {
+   "source": 8,
+   "target": 184,
+   "weight": 1
+ },
+ {
+   "source": 184,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 24,
+   "target": 169,
+   "weight": 2
+ },
+ {
+   "source": 166,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 65,
+   "target": 129,
+   "weight": 2
+ },
+ {
+   "source": 169,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 14,
+   "weight": 3
+ },
+ {
+   "source": 113,
+   "target": 83,
+   "weight": 1
+ },
+ {
+   "source": 169,
+   "target": 28,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 52,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 15,
+   "weight": 3
+ },
+ {
+   "source": 129,
+   "target": 68,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 14,
+   "weight": 3
+ },
+ {
+   "source": 184,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 15,
+   "weight": 1
+ },
+ {
+   "source": 24,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 184,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 40,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 148,
+   "weight": 3
+ },
+ {
+   "source": 42,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 26,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 145,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 43,
+   "target": 159,
+   "weight": 1
+ },
+ {
+   "source": 176,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 28,
+   "target": 175,
+   "weight": 1
+ },
+ {
+   "source": 129,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 148,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 166,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 24,
+   "weight": 3
+ },
+ {
+   "source": 24,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 166,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 26,
+   "weight": 1
+ },
+ {
+   "source": 40,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 166,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 182,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 184,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 5,
+   "target": 205,
+   "weight": 4
+ },
+ {
+   "source": 65,
+   "target": 145,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 52,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 169,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 8,
+   "target": 204,
+   "weight": 1
+ },
+ {
+   "source": 169,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 129,
+   "target": 83,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 99,
+   "weight": 2
+ },
+ {
+   "source": 184,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 8,
+   "target": 205,
+   "weight": 1
+ },
+ {
+   "source": 65,
+   "target": 148,
+   "weight": 2
+ },
+ {
+   "source": 9,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 68,
+   "weight": 2
+ },
+ {
+   "source": 9,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 56,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 40,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 5,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 148,
+   "weight": 2
+ },
+ {
+   "source": 42,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 204,
+   "target": 14,
+   "weight": 3
+ },
+ {
+   "source": 43,
+   "target": 175,
+   "weight": 1
+ },
+ {
+   "source": 176,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 52,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 205,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 204,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 43,
+   "weight": 3
+ },
+ {
+   "source": 5,
+   "target": 214,
+   "weight": 3
+ },
+ {
+   "source": 210,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 205,
+   "target": 15,
+   "weight": 3
+ },
+ {
+   "source": 52,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 182,
+   "target": 40,
+   "weight": 3
+ },
+ {
+   "source": 214,
+   "target": 8,
+   "weight": 3
+ },
+ {
+   "source": 166,
+   "target": 56,
+   "weight": 3
+ },
+ {
+   "source": 183,
+   "target": 40,
+   "weight": 1
+ },
+ {
+   "source": 148,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 40,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 42,
+   "weight": 1
+ },
+ {
+   "source": 210,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 56,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 184,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 68,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 184,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 52,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 99,
+   "weight": 2
+ },
+ {
+   "source": 24,
+   "target": 204,
+   "weight": 3
+ },
+ {
+   "source": 145,
+   "target": 83,
+   "weight": 1
+ },
+ {
+   "source": 176,
+   "target": 52,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 15,
+   "weight": 3
+ },
+ {
+   "source": 24,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 5,
+   "weight": 2
+ },
+ {
+   "source": 26,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 56,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 26,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 83,
+   "target": 148,
+   "weight": 1
+ },
+ {
+   "source": 28,
+   "target": 204,
+   "weight": 1
+ },
+ {
+   "source": 176,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 28,
+   "target": 205,
+   "weight": 1
+ },
+ {
+   "source": 225,
+   "target": 8,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 169,
+   "weight": 2
+ },
+ {
+   "source": 75,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 9,
+   "weight": 1
+ },
+ {
+   "source": 52,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 52,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 169,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 24,
+   "weight": 3
+ },
+ {
+   "source": 210,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 182,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 14,
+   "weight": 1
+ },
+ {
+   "source": 183,
+   "target": 56,
+   "weight": 1
+ },
+ {
+   "source": 65,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 56,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 15,
+   "weight": 1
+ },
+ {
+   "source": 166,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 65,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 129,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 169,
+   "target": 75,
+   "weight": 1
+ },
+ {
+   "source": 145,
+   "target": 99,
+   "weight": 2
+ },
+ {
+   "source": 40,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 68,
+   "weight": 2
+ },
+ {
+   "source": 40,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 42,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 42,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 43,
+   "target": 204,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 148,
+   "weight": 3
+ },
+ {
+   "source": 65,
+   "target": 182,
+   "weight": 3
+ },
+ {
+   "source": 43,
+   "target": 205,
+   "weight": 1
+ },
+ {
+   "source": 65,
+   "target": 183,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 166,
+   "weight": 1
+ },
+ {
+   "source": 225,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 244,
+   "target": 5,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 75,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 182,
+   "weight": 4
+ },
+ {
+   "source": 225,
+   "target": 26,
+   "weight": 1
+ },
+ {
+   "source": 68,
+   "target": 183,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 244,
+   "target": 8,
+   "weight": 3
+ },
+ {
+   "source": 68,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 244,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 42,
+   "weight": 3
+ },
+ {
+   "source": 214,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 52,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 244,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 145,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 75,
+   "weight": 1
+ },
+ {
+   "source": 176,
+   "target": 83,
+   "weight": 1
+ },
+ {
+   "source": 244,
+   "target": 15,
+   "weight": 3
+ },
+ {
+   "source": 184,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 56,
+   "target": 204,
+   "weight": 3
+ },
+ {
+   "source": 113,
+   "target": 148,
+   "weight": 2
+ },
+ {
+   "source": 56,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 52,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 5,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 40,
+   "weight": 1
+ },
+ {
+   "source": 83,
+   "target": 182,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 8,
+   "weight": 1
+ },
+ {
+   "source": 260,
+   "target": 5,
+   "weight": 4
+ },
+ {
+   "source": 257,
+   "target": 9,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 210,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 83,
+   "target": 184,
+   "weight": 1
+ },
+ {
+   "source": 225,
+   "target": 42,
+   "weight": 1
+ },
+ {
+   "source": 244,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 8,
+   "weight": 3
+ },
+ {
+   "source": 99,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 65,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 9,
+   "weight": 3
+ },
+ {
+   "source": 244,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 257,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 244,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 68,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 260,
+   "target": 14,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 145,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 99,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 210,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 61,
+   "weight": 1
+ },
+ {
+   "source": 260,
+   "target": 15,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 52,
+   "weight": 1
+ },
+ {
+   "source": 129,
+   "target": 148,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 5,
+   "weight": 1
+ },
+ {
+   "source": 210,
+   "target": 68,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 75,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 150,
+   "weight": 1
+ },
+ {
+   "source": 75,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 24,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 56,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 8,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 9,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 257,
+   "target": 26,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 24,
+   "weight": 3
+ },
+ {
+   "source": 244,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 210,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 61,
+   "weight": 1
+ },
+ {
+   "source": 244,
+   "target": 42,
+   "weight": 3
+ },
+ {
+   "source": 260,
+   "target": 26,
+   "weight": 3
+ },
+ {
+   "source": 83,
+   "target": 204,
+   "weight": 1
+ },
+ {
+   "source": 244,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 14,
+   "weight": 1
+ },
+ {
+   "source": 129,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 15,
+   "weight": 1
+ },
+ {
+   "source": 260,
+   "target": 28,
+   "weight": 1
+ },
+ {
+   "source": 83,
+   "target": 205,
+   "weight": 1
+ },
+ {
+   "source": 214,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 113,
+   "weight": 3
+ },
+ {
+   "source": 65,
+   "target": 225,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 68,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 148,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 83,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 182,
+   "weight": 3
+ },
+ {
+   "source": 129,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 52,
+   "target": 244,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 24,
+   "weight": 3
+ },
+ {
+   "source": 83,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 26,
+   "weight": 1
+ },
+ {
+   "source": 257,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 244,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 40,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 43,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 75,
+   "weight": 1
+ },
+ {
+   "source": 260,
+   "target": 42,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 43,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 145,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 244,
+   "target": 61,
+   "weight": 1
+ },
+ {
+   "source": 176,
+   "target": 129,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 52,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 99,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 244,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 68,
+   "target": 244,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 52,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 40,
+   "weight": 1
+ },
+ {
+   "source": 257,
+   "target": 56,
+   "weight": 3
+ },
+ {
+   "source": 148,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 42,
+   "weight": 1
+ },
+ {
+   "source": 260,
+   "target": 56,
+   "weight": 2
+ },
+ {
+   "source": 150,
+   "target": 166,
+   "weight": 1
+ },
+ {
+   "source": 148,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 204,
+   "weight": 3
+ },
+ {
+   "source": 113,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 244,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 61,
+   "weight": 1
+ },
+ {
+   "source": 176,
+   "target": 145,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 65,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 210,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 148,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 99,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 52,
+   "weight": 1
+ },
+ {
+   "source": 166,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 68,
+   "weight": 2
+ },
+ {
+   "source": 65,
+   "target": 260,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 214,
+   "weight": 3
+ },
+ {
+   "source": 83,
+   "target": 244,
+   "weight": 1
+ },
+ {
+   "source": 145,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 260,
+   "target": 68,
+   "weight": 2
+ },
+ {
+   "source": 169,
+   "target": 159,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 56,
+   "weight": 1
+ },
+ {
+   "source": 145,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 148,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 150,
+   "target": 182,
+   "weight": 1
+ },
+ {
+   "source": 257,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 159,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 273,
+   "target": 61,
+   "weight": 1
+ },
+ {
+   "source": 129,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 75,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 166,
+   "target": 169,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 65,
+   "weight": 1
+ },
+ {
+   "source": 113,
+   "target": 225,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 210,
+   "weight": 4
+ },
+ {
+   "source": 257,
+   "target": 83,
+   "weight": 1
+ },
+ {
+   "source": 182,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 68,
+   "weight": 1
+ },
+ {
+   "source": 166,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 176,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 159,
+   "weight": 1
+ },
+ {
+   "source": 83,
+   "target": 260,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 99,
+   "target": 244,
+   "weight": 2
+ },
+ {
+   "source": 184,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 169,
+   "target": 175,
+   "weight": 4
+ },
+ {
+   "source": 176,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 75,
+   "weight": 1
+ },
+ {
+   "source": 166,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 166,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 145,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 166,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 169,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 169,
+   "weight": 3
+ },
+ {
+   "source": 148,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 184,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 129,
+   "target": 225,
+   "weight": 1
+ },
+ {
+   "source": 145,
+   "target": 210,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 83,
+   "weight": 1
+ },
+ {
+   "source": 257,
+   "target": 99,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 113,
+   "target": 244,
+   "weight": 4
+ },
+ {
+   "source": 176,
+   "target": 182,
+   "weight": 3
+ },
+ {
+   "source": 183,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 148,
+   "weight": 2
+ },
+ {
+   "source": 184,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 99,
+   "target": 260,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 148,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 204,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 205,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 183,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 184,
+   "weight": 1
+ },
+ {
+   "source": 210,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 113,
+   "weight": 3
+ },
+ {
+   "source": 166,
+   "target": 204,
+   "weight": 3
+ },
+ {
+   "source": 145,
+   "target": 225,
+   "weight": 1
+ },
+ {
+   "source": 166,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 273,
+   "target": 99,
+   "weight": 1
+ },
+ {
+   "source": 214,
+   "target": 159,
+   "weight": 3
+ },
+ {
+   "source": 225,
+   "target": 148,
+   "weight": 1
+ },
+ {
+   "source": 169,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 113,
+   "target": 260,
+   "weight": 4
+ },
+ {
+   "source": 129,
+   "target": 244,
+   "weight": 2
+ },
+ {
+   "source": 169,
+   "target": 205,
+   "weight": 4
+ },
+ {
+   "source": 210,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 204,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 176,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 205,
+   "target": 175,
+   "weight": 5
+ },
+ {
+   "source": 166,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 169,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 159,
+   "weight": 1
+ },
+ {
+   "source": 210,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 129,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 210,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 113,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 183,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 184,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 183,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 129,
+   "target": 260,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 244,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 175,
+   "weight": 4
+ },
+ {
+   "source": 184,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 166,
+   "weight": 1
+ },
+ {
+   "source": 148,
+   "target": 244,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 225,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 210,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 182,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 214,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 214,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 225,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 129,
+   "weight": 1
+ },
+ {
+   "source": 257,
+   "target": 145,
+   "weight": 2
+ },
+ {
+   "source": 244,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 148,
+   "weight": 2
+ },
+ {
+   "source": 145,
+   "target": 260,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 260,
+   "target": 148,
+   "weight": 2
+ },
+ {
+   "source": 204,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 184,
+   "weight": 1
+ },
+ {
+   "source": 244,
+   "target": 166,
+   "weight": 2
+ },
+ {
+   "source": 244,
+   "target": 169,
+   "weight": 3
+ },
+ {
+   "source": 210,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 210,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 145,
+   "weight": 1
+ },
+ {
+   "source": 214,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 159,
+   "weight": 3
+ },
+ {
+   "source": 244,
+   "target": 175,
+   "weight": 3
+ },
+ {
+   "source": 214,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 176,
+   "target": 244,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 148,
+   "weight": 1
+ },
+ {
+   "source": 257,
+   "target": 166,
+   "weight": 3
+ },
+ {
+   "source": 210,
+   "target": 214,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 169,
+   "weight": 1
+ },
+ {
+   "source": 260,
+   "target": 166,
+   "weight": 3
+ },
+ {
+   "source": 244,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 244,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 244,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 204,
+   "weight": 1
+ },
+ {
+   "source": 260,
+   "target": 169,
+   "weight": 2
+ },
+ {
+   "source": 225,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 159,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 257,
+   "weight": 3
+ },
+ {
+   "source": 260,
+   "target": 175,
+   "weight": 4
+ },
+ {
+   "source": 225,
+   "target": 210,
+   "weight": 1
+ },
+ {
+   "source": 176,
+   "target": 260,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 166,
+   "weight": 1
+ },
+ {
+   "source": 225,
+   "target": 214,
+   "weight": 4
+ },
+ {
+   "source": 257,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 257,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 182,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 183,
+   "weight": 1
+ },
+ {
+   "source": 260,
+   "target": 184,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 175,
+   "weight": 2
+ },
+ {
+   "source": 244,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 176,
+   "target": 273,
+   "weight": 1
+ },
+ {
+   "source": 244,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 210,
+   "target": 244,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 182,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 184,
+   "weight": 1
+ },
+ {
+   "source": 244,
+   "target": 214,
+   "weight": 7
+ },
+ {
+   "source": 257,
+   "target": 204,
+   "weight": 3
+ },
+ {
+   "source": 257,
+   "target": 205,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 204,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 205,
+   "weight": 3
+ },
+ {
+   "source": 257,
+   "target": 210,
+   "weight": 3
+ },
+ {
+   "source": 225,
+   "target": 244,
+   "weight": 4
+ },
+ {
+   "source": 210,
+   "target": 260,
+   "weight": 2
+ },
+ {
+   "source": 257,
+   "target": 214,
+   "weight": 3
+ },
+ {
+   "source": 260,
+   "target": 214,
+   "weight": 6
+ },
+ {
+   "source": 273,
+   "target": 204,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 205,
+   "weight": 1
+ },
+ {
+   "source": 257,
+   "target": 225,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 210,
+   "weight": 1
+ },
+ {
+   "source": 225,
+   "target": 260,
+   "weight": 3
+ },
+ {
+   "source": 273,
+   "target": 214,
+   "weight": 4
+ },
+ {
+   "source": 273,
+   "target": 225,
+   "weight": 4
+ },
+ {
+   "source": 257,
+   "target": 244,
+   "weight": 2
+ },
+ {
+   "source": 260,
+   "target": 244,
+   "weight": 4
+ },
+ {
+   "source": 257,
+   "target": 260,
+   "weight": 2
+ },
+ {
+   "source": 273,
+   "target": 244,
+   "weight": 3
+ },
+ {
+   "source": 257,
+   "target": 273,
+   "weight": 1
+ },
+ {
+   "source": 273,
+   "target": 260,
+   "weight": 4
+ }
+]
+}
