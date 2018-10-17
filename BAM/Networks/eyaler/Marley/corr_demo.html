@@ -44,6 +44,10 @@ var size = d3.scale.pow().exponent(.5)
   .domain([1,100])
   .range([8,36]);
 
+var linkw = d3.scale.linear()
+  .domain([1,26])
+  .range([1.5,12])
+
 var force = d3.layout.force()
   .linkDistance(function(d) {
                     return ((300 / d.weight) + 40)
@@ -67,7 +71,7 @@ var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 var g = svg.append("g");
 svg.style("cursor","move");
 
-d3.json("cicero_corr.json", function(error, graph) {
+d3.json("cicero_corr_undir.json", function(error, graph) {
 
 var linkedByIndex = {};
     graph.links.forEach(function(d) {
@@ -95,7 +99,7 @@ var linkedByIndex = {};
     .data(graph.links)
     .enter().append("line")
     .attr("class", "link")
-	.style("stroke-width", function(d) { return d.weight })
+	.style("stroke-width", function(d) { return linkw(d.weight) })
   .style("opacity", .25)
 	.style("stroke", function(d) {
 	if (isNumber(d.score) && d.score>=0) return color(d.score);
@@ -182,7 +186,7 @@ var linkedByIndex = {};
 
 		circle.style("opacity", 1);
 	  text.style("opacity", 1);
-	  link.style("opacity", .5);
+	  link.style("opacity", .25);
 	}
 		}
 
@@ -248,7 +252,7 @@ function set_highlight(d)
 
     var stroke = nominal_stroke;
     if (nominal_stroke*zoom.scale()>max_stroke) stroke = max_stroke/zoom.scale();
-    link.style("stroke-width", function(d) { return d.weight });
+    link.style("stroke-width", function(d) { return linkw(d.weight) });
     circle.style("stroke-width",stroke);
 
 	var base_radius = nominal_base_node_size;
