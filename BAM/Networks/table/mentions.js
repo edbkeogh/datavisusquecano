@@ -67,7 +67,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
         .data(graph.links)
         .enter().append("line")
         .attr("stroke-opacity", .3 )
-        .attr("stroke-width", function(d) { return Math.abs(d.weight) * .5 });
+        .attr("stroke-width", function(d) { return Math.abs(d.weight) * .3 });
 
         var gBrushHolder = gDraw.append('g');
         var gBrush = null;
