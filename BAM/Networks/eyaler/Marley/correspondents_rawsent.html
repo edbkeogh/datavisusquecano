@@ -34,19 +34,19 @@ var min_score = 0;
 var max_score = 1;
 
 var color = d3.scale.linear()
-  .domain([0,.16666,.33333,.5,.66666,.83333,1])
+  .domain([-14,0,10,60,200,350,500])
   .range(["#4575b4","#91bfdb","#e0f3f8","#ffffbf","#fee090","#fc8d59", "#d73027"]);
       //["#d73027","#fc8d59","#fee090","#ffffbf","#e0f3f8","#91bfdb", "#4575b4"]
 var highlight_color = "blue";
 var highlight_trans = 0.1;
 
-var size = d3.scale.pow().exponent(1)
+var size = d3.scale.pow().exponent(.5)
   .domain([1,100])
   .range([8,36]);
 
 var force = d3.layout.force()
   .linkDistance(function(d) {
-                    return 500 / d.weight
+                    return ((300 / d.weight) + 40)
                         })
   .charge(-300)
   .size([w,h]);
@@ -67,7 +67,7 @@ var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 var g = svg.append("g");
 svg.style("cursor","move");
 
-d3.json("cicero_corr.json", function(error, graph) {
+d3.json("cicero_corr_rawsent.json", function(error, graph) {
 
 var linkedByIndex = {};
     graph.links.forEach(function(d) {

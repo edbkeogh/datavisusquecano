@@ -40,18 +40,18 @@ var color = d3.scale.linear()
 var highlight_color = "blue";
 var highlight_trans = 0.1;
 
-var size = d3.scale.pow().exponent(1)
+var size = d3.scale.pow().exponent(.5)
   .domain([1,100])
   .range([8,36]);
 
 var force = d3.layout.force()
   .linkDistance(function(d) {
-                    return 500 / d.weight
+                    return ((300 / d.weight) + 40)
                         })
   .charge(-300)
   .size([w,h]);
 
-var default_node_color = "#ccc";
+var default_node_color = "#616161";
 //var default_node_color = "rgb(3,190,100)";
 var default_link_color = "#888";
 var nominal_base_node_size = 8;
