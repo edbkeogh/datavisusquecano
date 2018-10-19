@@ -10,7 +10,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
 
         var degreeSize = d3.scaleLinear()
         	.domain([d3.min(graph.nodes, function(d) {return d.degree; }),d3.max(graph.nodes, function(d) {return d.degree; })])
-        	.range([5,20]);
+        	.range([3,20]);
 
     let parentWidth = d3v4.select('svg').node().parentNode.clientWidth;
     let parentHeight = d3v4.select('svg').node().parentNode.clientHeight;
@@ -59,16 +59,18 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
 
     // the brush needs to go before the nodes so that it doesn't
     // get called when the mouse is over a node
-    var gBrushHolder = gDraw.append('g');
-    var gBrush = null;
+
 
     var link = gDraw.append("g")
         .attr("class", "link")
         .selectAll("line")
         .data(graph.links)
         .enter().append("line")
-        .attr("stroke-opacity", .25 })
-        .attr("stroke-width", function(d) { return Math.abs(d.weight) });
+        .attr("stroke-opacity", .3 )
+        .attr("stroke-width", function(d) { return Math.abs(d.weight) * .8 });
+
+        var gBrushHolder = gDraw.append('g');
+        var gBrush = null;
 
     var node = gDraw.append("g")
         .attr("class", "node")
@@ -129,7 +131,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
     node.append("title")
         .text(function(d) {
             if ('name' in d)
-                return d.name.concat("\n", d.type, "\n", d.OwnerPatron, "\n", d.family, "\n", d.School);
+                return d.name.concat("\n Type: ", d.type, "\n Owner or Patron: ", d.OwnerPatron, "\n Family: ", d.family, "\n School: ", d.School, "\n Modularity Class: ", d.Mod_Class, "\n Eigenvector Centrality: ", d.Eigen_Cent);
             else
                 return d.id;
         });
@@ -139,14 +141,14 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
         .force("link", d3v4.forceLink()
                 .id(function(d) { return d.id; })
                 .distance(function(d) {
-                    return 200 / d.weight
+                    return 100 / d.weight
                         })
-                .strength(function(d) {
-                  return .01 * d.weight
-                })
+                // .strength(function(d) {
+                //   return .1 * d.weight
+                // })
               )
         .force("charge", d3v4.forceManyBody()
-      .strength([-70]).distanceMax([900]))
+      .strength([-110]).distanceMax([500]))
         .force("center", d3v4.forceCenter(parentWidth / 2, parentHeight / 2))
     //    .force("x", d3v4.forceX(parentWidth/2))
       //  .force("y", d3v4.forceY(parentHeight/2));
@@ -406,6 +408,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
                             d_row.type,
                             d_row.OwnerPatron,
                             d_row.family,
+                            d_row.School,
                             d_row.Mod_Class,
                             d_row.Eigen_Cent
                         ];
