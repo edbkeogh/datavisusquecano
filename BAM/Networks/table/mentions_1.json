@@ -305,7 +305,7 @@
 {"id": 303, "name": "Hipponax of Ephesus", "type": "author", "OwnerPatron": "", "Family": "", "School": "", "color": "#ffff33", "Mod_Class": 9, "degree": 1, "Eigen_Cent": 0.011229},
 {"id": 304, "name": "Epicurus", "type": "Philosopher", "OwnerPatron": "", "Family": "", "School": "Epicurean", "color": "#ffff33", "Mod_Class": 9, "degree": 4, "Eigen_Cent": 0.032367},
 {"id": 305, "name": "Chrysippus of Soli", "type": "Philosopher", "OwnerPatron": "", "Family": "", "School": "Stoic", "color": "#377eb8", "Mod_Class": 2, "degree": 1, "Eigen_Cent": 0.029145},
-{"id": 306, "name": "Diodorus Cronus", "type": "Philosopher", "OwnerPatron": "", "Family": "", "School": "Megarian", "color": "#377eb8", "Mod_Class": 2, "degree": 1, "Eigen_Cent": 0.029145},
+{"id": 306, "name": "Diodorus Cronus", "type": "Philosopher", "OwnerPatron": "", "Family": "", "School": "Megarian School", "color": "#377eb8", "Mod_Class": 2, "degree": 1, "Eigen_Cent": 0.029145},
 {"id": 307, "name": "Antiochus of Ascalon", "type": "Philosopher", "OwnerPatron": "", "Family": "", "School": "Academic", "color": "#377eb8", "Mod_Class": 2, "degree": 1, "Eigen_Cent": 0.029145},
 {"id": 308, "name": "Philo of Larissa", "type": "Philosopher", "OwnerPatron": "", "Family": "", "School": "Academic", "color": "#ffff33", "Mod_Class": 9, "degree": 2, "Eigen_Cent": 0.031754},
 {"id": 309, "name": "C. Lucilius", "type": "author", "OwnerPatron": "", "Family": "", "School": "", "color": "#ffff33", "Mod_Class": 9, "degree": 1, "Eigen_Cent": 0.002609},
