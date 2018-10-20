@@ -115,8 +115,8 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
               .range([4,12]);
             node.attr('r', function(d) { return centralitySize(d[centrality]); } );
             // Recalculate collision detection based on selected centrality.
-            // simulation.force("collide", d3.forceCollide().radius( function (d) { return centralitySize(d[centrality]); }));
-            // simulation.alphaTarget(0.1).restart();
+            simulation.force("collide", d3.forceCollide().radius( function (d) { return centralitySize(d[centrality]); }));
+            simulation.alphaTarget(0.1).restart();
           });
 
         dropdown.selectAll('option')
