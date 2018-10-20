@@ -152,7 +152,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
     node.append("title")
         .text(function(d) {
             if ('name' in d)
-                return d.name.concat("\n Other Info: ", d.type, " ", d.OwnerPatron, " ", d.Family, " ", d.School, "\n Modularity Class: ", d.Mod_Class, "\n Eigenvector Centrality: ", d.Eigen_Cent);
+                return d.name.concat("\n Other Info: ", d.type, " ", d.OwnerPatron, " ", d.Family, " ", d.School, "\n Modularity Class: ", d.Mod_Class, "\n Eigenvector Centrality: ", d.eigen_cent);
             else
                 return d.id;
         });
@@ -431,7 +431,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
                             d_row.family,
                             d_row.School,
                             d_row.Mod_Class,
-                            d_row.Eigen_Cent
+                            d_row.eigen_cent
                         ];
 
         d3.select("table")
