@@ -10,7 +10,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
 
         var degreeSize = d3.scaleLinear()
         	.domain([d3.min(graph.nodes, function(d) {return d.degree; }),d3.max(graph.nodes, function(d) {return d.degree; })])
-        	.range([5,20]);
+        	.range([5,35]);
 
     let parentWidth = d3v4.select('svg').node().parentNode.clientWidth;
     let parentHeight = d3v4.select('svg').node().parentNode.clientHeight;
@@ -112,7 +112,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
                     var centrality = this.value;
                     var centralitySize = d3.scaleLinear()
                       .domain([d3.min(graph.nodes, function(d) { return d[centrality]; }), d3.max(graph.nodes, function(d) { return d[centrality]; })])
-                      .range([5,20]);
+                      .range([5,35]);
                     node.attr('r', function(d) { return centralitySize(d[centrality]); } );
                     // Recalculate collision detection based on selected centrality.
                     simulation.force("collide", d3.forceCollide().radius( function (d) { return centralitySize(d[centrality]); }));
