@@ -119,7 +119,7 @@ function defaultFilter() {
 
 function defaultExtent() {
   var svg = this.ownerSVGElement || this;
-  return [[-500, -500], [svg.width.baseVal.value + 500, svg.height.baseVal.value + 500]];
+  return [[-2500, -2500], [svg.width.baseVal.value + 2500, svg.height.baseVal.value + 2500]];
 }
 
 // Like d3.local, but with the name “__brush” rather than auto-generated.
