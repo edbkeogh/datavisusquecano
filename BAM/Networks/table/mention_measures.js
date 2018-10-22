@@ -127,25 +127,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
                   .attr('value', function(d) { return d.split(' ')[0].toLowerCase(); })
                   .text(function(d) { return d; });
 
-//TODO this section added words, but in the wrong place (just in the top left corner)
 
-
-        // var label = gDraw.append("g")
-        //     .attr("class", "label")
-        //     .selectAll('text')
-        //     .data(graph.nodes)
-        //     .enter()
-        //     .append("text")
-        //     .text(function (d) { return d.name; })
-        //      .style("text-anchor", "start")
-        //     .style("fill", "#555")
-        //     .style("font-family", "Arial")
-        //     .style("font-size", 52)
-        //     // .attr('cx', function(d) { return d.x; })
-        //     // .attr('cy', function(d) { return d.y; })
-        //     ;
-
-//resume normal here
 
     // add titles for mouseover blurbs
     node.append("title")
@@ -445,60 +427,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
           .text(d => d);
     }
 
-    // }
-//Begin table mess TODO
-    // function tabulate(data, columns) {
-  	// 	var table = d3.select('body').append('table')
-  	// 	var thead = table.append('thead')
-  	// 	var	tbody = table.append('tbody');
-    //
-  	// 	// append the header row
-  	// 	thead.append('tr')
-  	// 	  .selectAll('th')
-  	// 	  .data(columns).enter()
-  	// 	  .append('th')
-  	// 	    .text(function (column) { return column; });
-
-  		// create a row for each object in the data
-  		// var rows = tbody.selectAll('tr')
-  		//   .data(data)
-  		//   .enter()
-  		//   .append('tr');
-      //
-  		// // create a cell in each row for each column
-  		// var cells = rows.selectAll('td')
-  		//   .data(function (row) {
-  		//     return columns.map(function (column) {
-  		//       return {column: column, value: row[column]};
-  		//     });
-  		//   })
-  		//   .enter()
-  		//   .append('td')
-  		//     .text(function (d) { return d.value; });
-
-//       table.append('tbody')
-//           .selectAll('tr')
-//           .data(nodes).enter()
-//           .append('tr')
-//           .selectAll('td')
-//           .data(function(row, i) {
-//               return columns.map(function(c) {
-//                   // compute cell values for this specific row
-//                   var cell = {};
-//                   d3.keys(c).forEach(function(k) {
-//                       cell[k] = typeof c[k] == 'function' ? c[k](row,i) : c[k];
-//                   });
-//                   return cell;
-//               });
-//           }).enter()
-//           .append('td')
-//           .html(ƒ('html'))
-//           .attr('class', ƒ('cl'));
-//
-//   	  return table;
-// };
-//
-// tabulate(nodes, ['name', 'position', 'affiliation', 'interests']);
+//TODO add the slider for force power
 
 var button = d3.select("#controls")
   .append('input')
