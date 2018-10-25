@@ -1,0 +1,25 @@
+.splashTagImage{
+            width: 25px;
+            height: 25px;
+}
+
+
+.WHGButton {
+    background-image: url(../images/pitt_world_history_logo_brickless.svg);
+}
+
+.formRight {
+  overflow: hidden;
+}
+.formRight input {
+  float: right;
+  clear: both;
+}
+
+.formRight select {
+text-align-last: right;
+  float: right;
+  clear: both;
+}
+
+.formRight option { direction: rtl; }
