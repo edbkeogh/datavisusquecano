@@ -1,0 +1,55 @@
+<head>
+  <style>
+  #results {
+    table, th, td {
+   border: 1px solid black;
+}
+}
+</style>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="reqtest.js"></script>
+</head>
+<body>
+  <button onclick="request1()">test1</button><br />
+  <button onclick="request2()">test2</button><br />
+  <button onclick="request3()">test3</button><br />
+  <button onclick="request4()">test4</button><br />
+  <button onclick="request5()">test5</button><br />
+  <button onclick="request6()">test6</button><br />
+  <button onclick="request7()">test7</button><br />
+  <button onclick="request8()">test8</button><br />
+  <div id="results"></div>
+
+  <div id="2">
+    <form><input type="checkbox" id="lemmatized" onclick="changeLemm()"> lemmatized</form>
+    <form><input type="checkbox" id="regex" onclick="changeregex()"> regex</form>
+
+
+    <input type="text" id="term" value="Search Term">
+
+<p>Search text field</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+<div id="showData">
+
+</div>
+<script>
+
+function myFunction() {
+  var x = document.getElementById("term").value;
+  document.getElementById("demo").innerHTML = x;
+  	termOccurrence(
+  		x,
+  		['L108', 'L897'],
+  		'latin',
+  		true,
+  		false
+  	);
+
+    	}
+</script>
+
+</body>
+</html>
