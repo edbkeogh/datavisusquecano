@@ -22,7 +22,7 @@ body {
 
 </style>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="histogram.js"></script>
 <div id="results"></div>
@@ -130,7 +130,7 @@ function refresh(values){
   var data = d3.layout.histogram()
     .bins(x.ticks(20))
     (values);
-    
+
 
   // Reset y domain using new data
   var yMax = d3.max(data, function(d){return d.length});
