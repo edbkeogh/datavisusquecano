@@ -237,7 +237,7 @@ function set_highlight(d)
 	if (highlight_color!="white")
 	{
 		  circle.style(towhite, function(o) {
-                return isConnected(d, o) ? highlight_color : "white";});
+                return isConnected(d, o) ? highlight_color : "lightgray";});
 			text.style("font-weight", function(o) {
                 return isConnected(d, o) ? "bold" : "normal";});
             link.style("stroke", function(o) {
