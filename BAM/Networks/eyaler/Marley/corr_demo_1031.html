@@ -18,10 +18,7 @@ text {
 
 </style>
 <body>
-  <div id="controls">
-  <p>Control Panel</p>
   <form><input type="checkbox" id="squares" onclick="changeKeyS()">Squares</form>
-  </div>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
 var w = window.innerWidth;
@@ -343,6 +340,15 @@ function buttonpress() {
 
 }
 
+function changeKeyS() {
+//I don't know what to put in here
+buttonholder = 'S'
+// buttonpress()
+console.log(keys)
+
+
+}
+
 	function keydown() {
 	if (d3.event.keyCode==32) {  force.stop();}
 	else if (d3.event.keyCode>=48 && d3.event.keyCode<=90 && !d3.event.ctrlKey && !d3.event.altKey && !d3.event.metaKey)
@@ -423,14 +429,7 @@ function vis_by_link_score(score)
 function isNumber(n) {
   return !isNaN(parseFloat(n)) && isFinite(n);
 }
-function changeKeyS() {
-//I don't know what to put in here
-buttonholder = 'S'
-buttonpress()
-console.log(keys)
 
-
-}
 
 
 </script>

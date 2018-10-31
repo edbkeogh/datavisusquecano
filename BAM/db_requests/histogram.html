@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+body {
+  font: 10px sans-serif;
+}
+
+.bar rect {
+  shape-rendering: crispEdges;
+}
+
+.bar text {
+  fill: #999999;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+</style>
+<body>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="histogram.js"></script>
+<div id="results"></div>
+<p>Search terms in the Aeneid</p>
+<input type="text" id="term" value="rex">
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("term").value;
+    document.getElementById("demo").innerHTML = x;
+    	termOccurrence(
+    		x,
+    		['L5201'],
+    		'latin',
+    		true,
+    		false
+    	);
+
+      	}
+
+
+
+var color = "steelblue";
+
+var workLength = 63716
+
+//var values = [135,245,333,395,424,1575,3518,3616,3689,3719,5251,5375,5451,7974,8481,9034,10558,10560,12281,12426,15831,22556,25077,29682,29683,30853,31079,31670,31917,31962,32165,32599,33278,33343,33405,33479,33572,34144,34910,35030,35850,36108,36440,36589,36971,37722,37754,38742,38821,38903,39346,41873,42202,42550,42946,45138,45721,45942,46432,46664,47141,49213,49713,49943,50533,51710,52320,53091,53488,53534,53816,53877,57576,58433,59251,59403,61305,61773,62644,63037]
+
+var values = []
+
+// Generate a 1000 data points using normal distribution with mean=20, deviation=5
+//var values = d3.range(1000).map(d3.random.normal(20, 5));
+
+
+// A formatter for counts.
+var formatCount = d3.format(",.0f");
+
+var margin = {top: 20, right: 30, bottom: 30, left: 30},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var max = workLength;
+var min = 0;
+var x = d3.scale.linear()
+      .domain([min, max])
+      .range([0, width]);
+
+// Generate a histogram using twenty uniformly-spaced bins.
+var data = d3.layout.histogram()
+    .bins(x.ticks(20))
+    (values);
+
+var yMax = d3.max(data, function(d){return d.length});
+var yMin = d3.min(data, function(d){return d.length});
+var colorScale = d3.scale.linear()
+            .domain([yMin, yMax])
+            .range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);
+
+var y = d3.scale.linear()
+    .domain([0, yMax])
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+var bar = svg.selectAll(".bar")
+    .data(data)
+  .enter().append("g")
+    .attr("class", "bar")
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+bar.append("rect")
+    .attr("x", 1)
+    .attr("width", (x(data[0].dx) - x(0)) - 1)
+    .attr("height", function(d) { return height - y(d.y); })
+    .attr("fill", function(d) { return colorScale(d.y) });
+
+bar.append("text")
+    .attr("dy", ".75em")
+    .attr("y", -12)
+    .attr("x", (x(data[0].dx) - x(0)) / 2)
+    .attr("text-anchor", "middle")
+    .text(function(d) { return formatCount(d.y); });
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+/*
+* Adding refresh method to reload new data
+*/
+function refresh(values){
+  // var values = d3.range(1000).map(d3.random.normal(20, 5));
+  var data = d3.layout.histogram()
+    .bins(x.ticks(20))
+    (values);
+    
+
+  // Reset y domain using new data
+  var yMax = d3.max(data, function(d){return d.length});
+  var yMin = d3.min(data, function(d){return d.length});
+  y.domain([0, yMax]);
+  var colorScale = d3.scale.linear()
+              .domain([yMin, yMax])
+              .range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);
+
+  var bar = svg.selectAll(".bar").data(data);
+
+  // Remove object with data
+  bar.exit().remove();
+
+  bar.transition()
+    .duration(1000)
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+  bar.select("rect")
+      .transition()
+      .duration(1000)
+      .attr("height", function(d) { return height - y(d.y); })
+      .attr("fill", function(d) { return colorScale(d.y) });
+
+  bar.select("text")
+      .transition()
+      .duration(1000)
+      .text(function(d) { return formatCount(d.y); });
+
+}
+// console.log(values)
+// Calling refresh repeatedly.
+// setInterval(function() {
+//   var values = d3.range(1000).map(d3.random.normal(20, 5));
+//   refresh(values);
+// }, 2000);
+
+</script>
