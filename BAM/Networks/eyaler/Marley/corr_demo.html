@@ -147,7 +147,7 @@ var linkedByIndex = {};
 	else return default_node_color; })
     //.attr("r", function(d) { return size(d.size)||nominal_base_node_size; })
 	.style("stroke-width", nominal_stroke)
-	.style(towhite, "white");
+	.style(towhite, 'lightgray');
 
 
   var text = g.selectAll(".text")
@@ -201,7 +201,7 @@ function exit_highlight()
 		svg.style("cursor","move");
 		if (highlight_color!="white")
 	{
-  	  circle.style(towhite, "white");
+  	  circle.style(towhite, 'lightgray');
 	  text.style("font-weight", "normal");
 	  link.style("stroke", function(o) {return (isNumber(o.score) && o.score>=0)?color(o.score):default_link_color})
 
