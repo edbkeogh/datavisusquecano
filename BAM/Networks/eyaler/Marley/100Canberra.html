@@ -35,7 +35,7 @@ var max_score = 1;
 
 var color = d3.scale.linear()
   .domain([1,2,3,4,5,6,7,8,9])
-  .range(["#1f78b4","#33a02c","#e31a1c","#ff7f00","#cab2d6","#fdbf6f", "#fb9a99", "#b2df8a", "#a6cee3"]);
+  .range(["#1f78b4","#194B15","#e31a1c","#ff7f00","#cab2d6","#fdbf6f", "#fb9a99", "#92B771", "#a6cee3"]);
 
 var highlight_color = "blue";
 var highlight_trans = 0.1;
@@ -70,7 +70,7 @@ var zoom = d3.behavior.zoom().scaleExtent([min_zoom,max_zoom])
 var g = svg.append("g");
 svg.style("cursor","move");
 
-d3.json("100Canberra.json", function(error, graph) {
+d3.json("100Can_1031.json", function(error, graph) {
 
 var linkedByIndex = {};
     graph.links.forEach(function(d) {
