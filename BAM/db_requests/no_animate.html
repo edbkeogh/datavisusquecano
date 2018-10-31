@@ -142,68 +142,69 @@ svg.append("g")
 function refresh(values){
   // var values = d3.range(1000).map(d3.random.normal(20, 5));
   //this region is a bit broken
+
+  // A formatter for counts.
+  var formatCount = d3.format(",.0f");
+
+  var margin = {top: 20, right: 30, bottom: 30, left: 30},
+      width = 960 - margin.left - margin.right,
+      height = 500 - margin.top - margin.bottom;
+
   var max = workLength;
   var min = 0;
   var x = d3.scale.linear()
         .domain([min, max])
         .range([0, width]);
 
+  // Generate a histogram using twenty uniformly-spaced bins.
   var data = d3.layout.histogram()
-    .bins(x.ticks(20))
-    (values);
+      .bins(x.ticks(20))
+      (values);
 
-    var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom");
-
-
-
-    svg.select("#x axis")
-    	.transition()
-      .duration(1000)
-    	.call(xAxis);
-//better below
-
-
-  // Reset y domain using new data
   var yMax = d3.max(data, function(d){return d.length});
   var yMin = d3.min(data, function(d){return d.length});
-  y.domain([0, yMax]);
   var colorScale = d3.scale.linear()
               .domain([yMin, yMax])
               .range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);
 
+  var y = d3.scale.linear()
+      .domain([0, yMax])
+      .range([height, 0]);
 
-//something here
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom");
 
+  var svg = d3.select("body").append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var bar = svg.selectAll(".bar").data(data);
+  var bar = svg.selectAll(".bar")
+      .data(data)
+    .enter().append("g")
+      .attr("class", "bar")
+      .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
-
-  // Remove object with data
-  bar.exit().remove();
-
-  bar.transition()
-    .duration(1000)
-    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
-
-  bar.select("rect")
-      .transition()
-      .duration(1000)
+  bar.append("rect")
       .attr("x", 1)
       .attr("width", (x(data[0].dx) - x(0)) - 1)
       .attr("height", function(d) { return height - y(d.y); })
       .attr("fill", function(d) { return colorScale(d.y) });
 
-
-  bar.select("text")
-      .transition()
-      .duration(1000)
+  bar.append("text")
       .attr("dy", ".75em")
       .attr("y", -12)
       .attr("x", (x(data[0].dx) - x(0)) / 2)
       .attr("text-anchor", "middle")
       .text(function(d) { return formatCount(d.y); });
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
 
 }
 // console.log(values)
