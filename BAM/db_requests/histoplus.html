@@ -26,28 +26,20 @@ body {
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="histogram.js"></script>
 <div id="results"></div>
-<p>Voyant inspired <a href="http://docs.voyant-tools.org/tools/termsradio/">Terms Radio</a> for the Iowa Latin Canon database (L5201 is the Aeneid):</p>
-Number of bars <input type="number" id="bins" min="5" max="30" value="12">
+<p>Search terms in the Aeneid</p>
 <input type="checkbox" id="lemm" checked/>Lemmatized
 <input type="checkbox" id="regex">Regex
-<input type="text" id="term" value="rex">
+<input type="text" id="term" value="regina">
 <input type="text" id="workId" value="L5201">
 <button onclick="myFunction()">Try it</button>
-<!-- Select number of bars <input type="number" id="bins" min="5" max="30" value="20"> -->
-<!-- <button onclick="setbins()">Set bars #</button> -->
-
 
 <p id="demo"></p>
 
 <script>
-var bins = document.getElementById("bins").value;
-// function setbins() {
-//   bins = document.getElementById("bins").value;
-// }
   var b = true
   var c = false
   function myFunction() {
-    var t = document.getElementById("term").value;
+    var x = document.getElementById("term").value;
     // document.getElementById("demo").innerHTML = x;
     var a = document.getElementById("workId").value;
 if (document.getElementById("lemm").checked == true) {b = true} else {b = false};
@@ -59,7 +51,7 @@ console.log(c)
 
 
     	termOccurrence(
-    		t,
+    		x,
     		[a],
     		'latin',
     		b,
@@ -95,13 +87,9 @@ var x = d3.scale.linear()
       .domain([min, max])
       .range([0, width]);
 
-//var bins = 20
-var      tempScale = d3.scale.linear().domain([0, bins]).range([min, max]);
-var      tickArray = d3.range(bins + 1).map(tempScale);
-
 // Generate a histogram using twenty uniformly-spaced bins.
 var data = d3.layout.histogram()
-    .bins(tickArray)
+    .bins(x.ticks(20))
     (values);
 
 var yMax = d3.max(data, function(d){return d.length});
@@ -154,24 +142,15 @@ svg.append("g")
 function refresh(values){
   // var values = d3.range(1000).map(d3.random.normal(20, 5));
   //this region is a bit broken
-  var bins = document.getElementById("bins").value;
   var max = workLength;
   var min = 0;
   var x = d3.scale.linear()
         .domain([min, max])
         .range([0, width]);
 
-        var      tempScale = d3.scale.linear().domain([0, bins]).range([min, max]);
-        var      tickArray = d3.range(bins + 1).map(tempScale);
-
-        // Generate a histogram using twenty uniformly-spaced bins.
-        var data = d3.layout.histogram()
-            .bins(tickArray)
-            (values);
-
-  // var data = d3.layout.histogram()
-  //   .bins(x.ticks(10))
-  //   (values);
+  var data = d3.layout.histogram()
+    .bins(x.ticks(20))
+    (values);
 
     var xAxis = d3.svg.axis()
         .scale(x)
@@ -179,9 +158,10 @@ function refresh(values){
 
 
 
-        svg.selectAll("g.x.axis")
-        .attr("transform", "translate(0," + y.range()[0] + ")")
-              .call(xAxis);
+    svg.select("#x axis")
+    	.transition()
+      .duration(1000)
+    	.call(xAxis);
 //better below
 
 
