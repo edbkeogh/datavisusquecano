@@ -26,16 +26,24 @@ body {
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="histogram.js"></script>
 <div id="results"></div>
-<p>Voyant inspired Terms Radio for the Iowa Latin Canon database (L5201 is the Aeneid):</p>
+<p>Voyant inspired <a href="http://docs.voyant-tools.org/tools/termsradio/">Terms Radio</a> for the Iowa Latin Canon database (L5201 is the Aeneid):</p>
+Number of bars <input type="number" id="bins" min="5" max="30" value="12">
 <input type="checkbox" id="lemm" checked/>Lemmatized
 <input type="checkbox" id="regex">Regex
 <input type="text" id="term" value="rex">
 <input type="text" id="workId" value="L5201">
 <button onclick="myFunction()">Try it</button>
+<!-- Select number of bars <input type="number" id="bins" min="5" max="30" value="20"> -->
+<!-- <button onclick="setbins()">Set bars #</button> -->
+
 
 <p id="demo"></p>
 
 <script>
+var bins = document.getElementById("bins").value;
+// function setbins() {
+//   bins = document.getElementById("bins").value;
+// }
   var b = true
   var c = false
   function myFunction() {
@@ -87,7 +95,7 @@ var x = d3.scale.linear()
       .domain([min, max])
       .range([0, width]);
 
-var bins = 20
+//var bins = 20
 var      tempScale = d3.scale.linear().domain([0, bins]).range([min, max]);
 var      tickArray = d3.range(bins + 1).map(tempScale);
 
@@ -146,6 +154,7 @@ svg.append("g")
 function refresh(values){
   // var values = d3.range(1000).map(d3.random.normal(20, 5));
   //this region is a bit broken
+  var bins = document.getElementById("bins").value;
   var max = workLength;
   var min = 0;
   var x = d3.scale.linear()
