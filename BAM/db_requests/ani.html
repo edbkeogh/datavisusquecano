@@ -24,9 +24,9 @@ body {
 <body>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="histogram.js"></script>
+<script type="text/javascript" src="no_anim.js"></script>
 <div id="results"></div>
-<p>Voyant inspired Terms Radio for the Iowa Latin Canon database (L5201 is the Aeneid):</p>
+<p>Search terms in the Aeneid</p>
 <input type="checkbox" id="lemm" checked/>Lemmatized
 <input type="checkbox" id="regex">Regex
 <input type="text" id="term" value="rex">
@@ -39,7 +39,7 @@ body {
   var b = true
   var c = false
   function myFunction() {
-    var t = document.getElementById("term").value;
+    var x = document.getElementById("term").value;
     // document.getElementById("demo").innerHTML = x;
     var a = document.getElementById("workId").value;
 if (document.getElementById("lemm").checked == true) {b = true} else {b = false};
@@ -51,7 +51,7 @@ console.log(c)
 
 
     	termOccurrence(
-    		t,
+    		x,
     		[a],
     		'latin',
     		b,
@@ -87,13 +87,9 @@ var x = d3.scale.linear()
       .domain([min, max])
       .range([0, width]);
 
-var bins = 20
-var      tempScale = d3.scale.linear().domain([0, bins]).range([min, max]);
-var      tickArray = d3.range(bins + 1).map(tempScale);
-
 // Generate a histogram using twenty uniformly-spaced bins.
 var data = d3.layout.histogram()
-    .bins(tickArray)
+    .bins(x.ticks(20))
     (values);
 
 var yMax = d3.max(data, function(d){return d.length});
@@ -146,75 +142,74 @@ svg.append("g")
 function refresh(values){
   // var values = d3.range(1000).map(d3.random.normal(20, 5));
   //this region is a bit broken
+
+  // A formatter for counts.
+  // var formatCount = d3.format(",.0f");
+  //
+  // var margin = {top: 20, right: 30, bottom: 30, left: 30},
+  //     width = 960 - margin.left - margin.right,
+  //     height = 500 - margin.top - margin.bottom;
+
   var max = workLength;
   var min = 0;
   var x = d3.scale.linear()
         .domain([min, max])
         .range([0, width]);
 
-        var      tempScale = d3.scale.linear().domain([0, bins]).range([min, max]);
-        var      tickArray = d3.range(bins + 1).map(tempScale);
+  // Generate a histogram using twenty uniformly-spaced bins.
+  var data = d3.layout.histogram()
+      .bins(x.ticks(20))
+      (values);
 
-        // Generate a histogram using twenty uniformly-spaced bins.
-        var data = d3.layout.histogram()
-            .bins(tickArray)
-            (values);
-
-  // var data = d3.layout.histogram()
-  //   .bins(x.ticks(10))
-  //   (values);
-
-    var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom");
-
-
-
-        svg.selectAll("g.x.axis")
-        .attr("transform", "translate(0," + y.range()[0] + ")")
-              .call(xAxis);
-//better below
-
-
-  // Reset y domain using new data
   var yMax = d3.max(data, function(d){return d.length});
   var yMin = d3.min(data, function(d){return d.length});
-  y.domain([0, yMax]);
   var colorScale = d3.scale.linear()
               .domain([yMin, yMax])
               .range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);
 
+  var y = d3.scale.linear()
+      .domain([0, yMax])
+      .range([height, 0]);
 
-//something here
+  // var xAxis = d3.svg.axis()
+  //     .scale(x)
+  //     .orient("bottom");
 
 
-  var bar = svg.selectAll(".bar").data(data);
 
+  var svg = d3.select("body").select("svg")
+      // .attr("width", width + margin.left + margin.right)
+      // .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  // Remove object with data
-  bar.exit().remove();
-
-  bar.transition()
-    .duration(1000)
-    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+  var bar = svg.selectAll(".bar")
+      .data(data)
+    .transition()
+      .attr("class", "bar")
+      .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
   bar.select("rect")
-      .transition()
-      .duration(1000)
+  .transition()
       .attr("x", 1)
       .attr("width", (x(data[0].dx) - x(0)) - 1)
       .attr("height", function(d) { return height - y(d.y); })
       .attr("fill", function(d) { return colorScale(d.y) });
 
-
   bar.select("text")
-      .transition()
-      .duration(1000)
+  .transition()
       .attr("dy", ".75em")
       .attr("y", -12)
       .attr("x", (x(data[0].dx) - x(0)) / 2)
       .attr("text-anchor", "middle")
       .text(function(d) { return formatCount(d.y); });
+
+  svg.select("g")
+  .transition()
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
 
 }
 // console.log(values)
