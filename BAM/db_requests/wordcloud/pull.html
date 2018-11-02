@@ -6,15 +6,20 @@
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script type="text/javascript" src="wordcloud.js"></script>
   <div id="results"></div>
+  <div id="controls">
   <p>Voyant inspired <a href="http://docs.voyant-tools.org/tools/termsradio/">Terms Radio</a> for the Iowa Latin Canon database (L5201 is the Aeneid):</p>
   <!-- Number of words <input type="range" id="words" min="1" max="100" value="5"> -->
-  Number of words <input type="number" id="words" min="1" max="50" value="5">
+  Number of words <input type="number" id="words" min="1" max="50" value="100">
   <input type="checkbox" id="lemm" checked/>Lemmatized
   <input type="checkbox" id="stop">Stop Words
   <!-- <input type="text" id="term" value="regina"> -->
   <input type="text" id="workId" value="L5201">
   <button onclick="myFunction()">Try it</button>
+</div>
   <script>
+var w = 1100
+var h = 600
+
   var ww = document.getElementById("words").value;
   // function setbins() {
   //   bins = document.getElementById("bins").value;
@@ -49,10 +54,10 @@ function wordCloud(selector) {
 
     //Construct the word cloud's SVG element
     var svg = d3.select(selector).append("svg")
-        .attr("width", 500)
-        .attr("height", 500)
+        .attr("width", w)
+        .attr("height", h)
         .append("g")
-        .attr("transform", "translate(250,250)");
+        .attr("transform", "translate(565,315)");
 
 
     //Draw the word cloud
@@ -98,7 +103,7 @@ function wordCloud(selector) {
         //The outside world will need to call this function, so make it part
         // of the wordCloud return value.
         update: function(words) {
-            d3.layout.cloud().size([500, 500])
+            d3.layout.cloud().size([w, h])
                 .words(words)
                 .padding(5)
                 .rotate(function() { return ~~(Math.random() * 2) * 90; })
