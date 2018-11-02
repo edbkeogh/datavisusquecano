@@ -127,14 +127,24 @@ var words = [
 //Prepare one of the sample sentences by removing punctuation,
 // creating an array of words and computing a random size attribute.
 function getWords(i) {
+  console.log(occ);
+  var max = d3.max(occ);
+  var min = d3.min(occ);
 
-    return words[i]
-            .replace(/[!\.,:;\?]/g, '')
-            .split(' ')
-            .map(function(d) {
-                // return {text: d, size: occ[i]};
-                return {text: d, size: 10 + Math.random() * 60};
-            })
+        var rs =  d3.scale.linear(occ)
+                  .domain([min, max])
+                  .range([5, 30]);
+// console.log(min)
+// console.log(rs(occ[3]))
+//         var rsocc = rs(occ)
+//         console.log(rsocc[3])
+            return words[i]
+                    .replace(/[!\.,:;\?]/g, '')
+                    .split(' ')
+                    .map(function(d) {
+                        return {text: d, size: Object.values[i]};
+                    })
+console.log(words.size)
 }
 
 //This method tells the word cloud to redraw with a new set of words.

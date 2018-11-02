@@ -29,6 +29,8 @@ function topK(workIds, k, language, lemmatized, removeStopWords, frequency) {
  var test = ws.join(' ');
  console.log(test)
  words = [test]
+ occ = Object.values(values)
+ console.log(occ)
               var $tr = $('<tr>').append(
                    $('<td>').text("Work ID: " + i),
                   $('<td>').text(" Document total word count: " + item.wordCount + " "),
