@@ -53,7 +53,7 @@ function topK(workIds, k, language, lemmatized, removeStopWords, frequency) {
               // console.log($tr.wrap('<p>').html());
           });
           // console.log(values)
-draw(words);
+showNewWords(myWordCloud);
       });
 
 		},
