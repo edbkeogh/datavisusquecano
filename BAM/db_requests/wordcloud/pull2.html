@@ -4,7 +4,7 @@
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" src="wordcloud.js"></script>
+  <script type="text/javascript" src="wordcloud2.js"></script>
   <div id="results"></div>
   <div id="controls">
   <p>Voyant inspired <a href="http://docs.voyant-tools.org/tools/termsradio/">Terms Radio</a> for the Iowa Latin Canon database (L5201 is the Aeneid):</p>
@@ -17,16 +17,13 @@
   <button onclick="myFunction()">Try it</button>
 </div>
   <script>
+  rs = []
 var w = 1100
 var h = 600
 
-var attributeName = "size";
+// var data = [{text: "called", size: 59}]
 
-var occ = [10,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]
-
-var words = [
-    "You don't know about me without you have read a book called The Adventures of Tom Sawyer but that ain't no matter.",
-    ]
+var occ = [100,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]
 
   var ww = document.getElementById("words").value;
   // function setbins() {
@@ -82,7 +79,7 @@ function wordCloud(selector) {
             .attr("text-anchor", "middle")
             .attr('font-size', 1)
             .text(function(d) { return d.text; });
-
+console.log(words)
         //Entering and existing words
         cloud
             .transition()
@@ -126,28 +123,30 @@ function wordCloud(selector) {
 }
 
 //Some sample data - http://en.wikiquote.org/wiki/Opening_lines
-
+var words = [
+    "You don't know about me without you have read a book called The Adventures of Tom Sawyer but that ain't no matter.",
+    ]
 
 //Prepare one of the sample sentences by removing punctuation,
 // creating an array of words and computing a random size attribute.
 function getWords(i) {
-if (occ == [10,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]) {
-            return words[i]
-                    .replace(/[!\.,:;\?]/g, '')
-                    .split(' ')
-                    .map(function(d) {
-                        return {text: d, size: 10 + Math.random() * 60};
-                    });
-                    console.log(words.size);
-}
-                    else {
-                      // var myarr = [];
-words.forEach(function (d) {
-  if(+d[attributeName] > 0)
-  occ.push(+d[attributeName]);
-});
-                    }
-// console.log(words.size)
+
+    return words[i]
+            .replace(/[!\.,:;\?]/g, '')
+            .split(' ')
+            .map(function(d) { // so this anonymous function can't see the 'i' variable - see if I can use the below
+
+            // var list = [ 'h', 'e', 'l', 'l', 'o'];
+            // list.map((currElement, index) => {
+            //   console.log("The current iteration is: " + index);
+            //   console.log("The current element is: " + currElement);
+            //   console.log("\n");
+            //   return 'X';
+            // });
+
+                // return {text: d, size: occ[i]};
+                return {text: d, size: "" + occ[i] + ""};
+            })
 }
 
 //This method tells the word cloud to redraw with a new set of words.

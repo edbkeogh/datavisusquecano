@@ -10,7 +10,7 @@ if (occ == [0]) {
 var max = d3.max(occ)
 var min = d3.min(occ)
 
-      var rsocc =  d3.scale.linear()
+      var rs =  d3.scale.linear()
                 .domain([min, max])
                 .range([10, 50]);
 
