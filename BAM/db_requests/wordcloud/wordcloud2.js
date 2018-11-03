@@ -34,16 +34,16 @@ function topK(workIds, k, language, lemmatized, removeStopWords, frequency) {
 //{text: "called", size: 59}
 console.log(ws[3])
 console.log(occ[3])
-var max = d3.max(occ)
-var min = d3.min(occ);
+// var max = d3.max(occ)
+// var min = d3.min(occ);
+//
+//        rs =  d3.scale.linear(occ)
+//                 .domain([min, max])
+//                 .range([10, 50]);
 
-       rs =  d3.scale.linear(occ)
-                .domain([min, max])
-                .range([10, 50]);
-
-for (i in ws) {
-     data += JSON.parse("{text: \"" + ws[i] + "\", size: " + occ[i] + "}")
-};
+// for (i in ws) {
+//      data += JSON.parse("{text: \"" + ws[i] + "\", size: " + occ[i] + "}")
+// };
               var $tr = $('<tr>').append(
                    $('<td>').text("Work ID: " + i),
                   $('<td>').text(" Document total word count: " + item.wordCount + " "),

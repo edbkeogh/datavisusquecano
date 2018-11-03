@@ -17,13 +17,21 @@
   <button onclick="myFunction()">Try it</button>
 </div>
   <script>
-  rs = []
+  var occ = [100,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]
+  var max = d3.max(occ)
+  var min = d3.min(occ);
+
+var rs =  d3.scale.linear()
+              .domain([min, max])
+              .range([20, 150]);
+// var tron = rs(occ[4])
+
 var w = 1100
 var h = 600
-
+// console.log(tron)
 // var data = [{text: "called", size: 59}]
 
-var occ = [100,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]
+// var occ = [100,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]
 
   var ww = document.getElementById("words").value;
   // function setbins() {
@@ -130,11 +138,18 @@ var words = [
 //Prepare one of the sample sentences by removing punctuation,
 // creating an array of words and computing a random size attribute.
 function getWords(i) {
-
+// console.log(max)
+// console.log("get words was executed")
+max = d3.max(occ);
+min = d3.min(occ);
+rs =  d3.scale.linear()
+              .domain([min, max])
+              .range([20, 150]);
+// console.log(max)
     return words[i]
             .replace(/[!\.,:;\?]/g, '')
             .split(' ')
-            .map(function(d) { // so this anonymous function can't see the 'i' variable - see if I can use the below
+            .map((currElement, index) => { // so this anonymous function can't see the 'i' variable - see if I can use the below
 
             // var list = [ 'h', 'e', 'l', 'l', 'o'];
             // list.map((currElement, index) => {
@@ -145,7 +160,7 @@ function getWords(i) {
             // });
 
                 // return {text: d, size: occ[i]};
-                return {text: d, size: "" + occ[i] + ""};
+                return {text: currElement, size: "" + rs(occ[index]) + ""};
             })
 }
 
