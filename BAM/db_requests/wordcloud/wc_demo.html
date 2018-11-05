@@ -7,14 +7,18 @@
   <script type="text/javascript" src="wc_demo.js"></script>
   <div id="results"></div>
   <div id="controls">
-  <p>Voyant inspired <a href="http://docs.voyant-tools.org/tools/termsradio/">Terms Radio</a> for the Iowa Latin Canon database (L5201 is the Aeneid):</p>
+  <p>Voyant inspired <a href="http://docs.voyant-tools.org/tools/cirrus/">Word Cloud</a> for the Iowa Latin Canon database (L5201 is the Aeneid):</p>
+  <p>Code adapted from <a href="https://bl.ocks.org/jyucsiro/767539a876836e920e38bc80d2031ba7">Jonathan Yu's Block</a></p>
   <!-- Number of words <input type="range" id="words" min="1" max="100" value="5"> -->
+  <button onclick="showNewWords(myWordCloud)">Shuffle Words</button>
   Number of words <input type="number" id="words" min="1" max="50" value="100">
   <input type="checkbox" id="lemm">Lemmatized
   <input type="checkbox" id="stop" checked/>Stop Words Removed
   <!-- <input type="text" id="term" value="regina"> -->
   <input type="text" id="workId" value="L5201">
   <button onclick="myFunction()">Try it</button>
+
+
 </div>
   <script>
   var occ = [100,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]
@@ -171,7 +175,7 @@ function showNewWords(vis, i) {
     i = i || 0;
 
     vis.update(getWords(i ++ % words.length))
-    setTimeout(function() { showNewWords(vis, i + 1)}, 6000)
+    // setTimeout(function() { showNewWords(vis, i + 1)}, 6000)
 }
 
 //Create a new instance of the word cloud visualisation.

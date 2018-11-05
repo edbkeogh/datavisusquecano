@@ -53,7 +53,7 @@ console.log(occ[3])
               console.log($tr.wrap('<p>').html());
           });
           // console.log(values)
-draw(words);
+  showNewWords(myWordCloud);
       });
 
 		},
