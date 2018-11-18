@@ -1,0 +1,69 @@
+<head>
+  <style>
+  #results {
+    table, th, td {
+   border: 1px solid black;
+}
+}
+</style>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="requests.js"></script>
+  <script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+  <!-- <script src="L_Canon_workIds.csv"></script> -->
+</head>
+<body>
+  <!-- <button onclick="request1()">test1</button><br />
+  <button onclick="request2()">test2</button><br />
+  <button onclick="request3()">test3</button><br />
+  <button onclick="request4()">test4</button><br />
+  <button onclick="request5()">test5</button><br />
+  <button onclick="request6()">test6</button><br />
+  <button onclick="request7()">test7</button><br />
+  <button onclick="request8()">test8</button><br /> -->
+  <div id="results"></div>
+
+  <div id="2">
+    <form><input type="checkbox" id="lemm"  checked/> lemmatized</form>
+    <form><input type="checkbox" id="regex"> regex</form>
+
+
+    <input type="text" id="term" value="Search Term">
+
+<p>Search text field</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+<div id="showData">
+
+</div>
+<script>
+var workdata = []
+// console.log(workdata)
+d3.csv("L_Canon_workIds.csv", function(data) {
+  workdata = data
+// console.log(workdata)
+});
+// console.log(workdata)
+var a = null
+var b = true
+var c = false
+function myFunction() {
+  var x = document.getElementById("term").value;
+  if (document.getElementById("lemm").checked == true) {b = true} else {b = false};
+  if (document.getElementById("regex").checked == true) {c = true} else {c = false};
+  document.getElementById("demo").innerHTML = x;
+  	corpusOccurrences(
+  		x,
+  		a,
+  		'latin',
+  		b,
+  		c,
+      handleResults2,
+  		function(err) { console.log(JSON.stringify(err));}
+      );
+      }
+</script>
+
+</body>
+</html>
