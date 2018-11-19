@@ -131,14 +131,16 @@ function handleResults1(results) { console.log("Object X needs to call this func
 function handleResults2(results) { console.log(Object.keys($.parseJSON(results)));
 var response = $.parseJSON(results)
 console.log(response)
+console.log(workdata)
   $(function() {
       $.each(response, function(i, item) {
-        console.log(workdata)
+
   // workLength = item.wordCount
   // values = item.occurrences
   var y = document.getElementById("term").value;
   // console.log(item[y])
   // console.log(item)
+
           var $tr = $('<tr>').append(
                $('<td>').text("Work ID: " + i + ", "),
               $('<td>').text("Document total word count: " + item.wordCount + ","),
