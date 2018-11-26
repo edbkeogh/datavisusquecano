@@ -11,7 +11,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
         <link rel="stylesheet" type="text/css" href="css/custom.css" />
-				<!-- <link rel="stylesheet" type="text/css" href="css/iclaw.css" /> -->
     <style>
         html,
         body {
@@ -50,12 +49,6 @@
         a:hover {
             color: #cccccc;
         }
-
-/* TODO not working ideally, oh well
-				option {
-				  text-align: left;
-				} */
-
 
         .popupBaseButton {
             background-size: 30px 30px;
@@ -114,7 +107,6 @@
             pointer-events: none;
         }
 
-	
         #d3MainChart {
             position: fixed;
             left: 0px;
@@ -433,6 +425,7 @@
     background-image: url(images/pitt_world_history_logo_brickless.svg);
 }
 
+
     </style>
 
     <!-- All the various libraries we will need  -->
@@ -512,19 +505,14 @@
 			<div id="bamButtonHolder">
 				</div>
 
-				<button id="searchButton" class="accordion accordionExp"><img src="images/open-iconic/clock.svg" class="accordianImage" alt="magnifying-glass">&nbsp;&nbsp;&nbsp;&nbsp;Search The Canon(demo)</button>
+				<button id="searchButton" class="accordion accordionExp"><img src="images/open-iconic/clock.svg" class="accordianImage" alt="magnifying-glass">&nbsp;&nbsp;&nbsp;&nbsp;Search The Canon</button>
 				<div class="panel">
 
 			<div id="timelineText" class="darkText formRight">
 			<br />
-	    	<label> Search Term</label>&nbsp;&nbsp;&nbsp;&nbsp;<input id="term" type="text" value="religio"> <!--name="authorSearch" size="10"-->
+	    	<label> Author:</label>&nbsp;&nbsp;&nbsp;&nbsp;<input id="authorSearch" type="text" name="authorSearch" value="" size="10" />
             <br />
-						<br />
-
-						<label> Lemmatized</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="lemm"  checked/>
-						<br/>
-						<label> Regex</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="regex">
-						<br/>
+            <br/>
            <!--    <label> Time Period Start:</label>&nbsp;&nbsp;&nbsp;&nbsp; <input id="timeStart" type="text" name="timeStart" value="" size="10" />
             <br />
                         <br/>
@@ -537,83 +525,58 @@
             <label> Author Death:</label>&nbsp;&nbsp;&nbsp;&nbsp; <input id="timeDeath" type="text" name="timeDeath" value="" size="10" />
             <br />
                         <br/> -->
-            <!-- <label> Location(s):</label>&nbsp;&nbsp;&nbsp;&nbsp; <input id="locSearch" type="text" name="locSearch" value="" size="10" />
+            <label> Location(s):</label>&nbsp;&nbsp;&nbsp;&nbsp; <input id="locSearch" type="text" name="locSearch" value="" size="10" />
             <br />
                         <br/>
             <label> Work Title:</label>&nbsp;&nbsp;&nbsp;&nbsp; <input id="workSearch" type="text" name="workSearch" value="" size="10" />
             <br />
-                        <br/> -->
+                        <br/>
            <!-- <label> Genre:</label>&nbsp;&nbsp;&nbsp;&nbsp; <select id="genreSearch"></select>
                             <br />
                         <br/> -->
-                         <!-- <label> Genre:</label>&nbsp;&nbsp;&nbsp;&nbsp; <select id="genreSearch" type="text" name="genreSearch" value="" size="10" /> <!-- TODO should allow multiple options -->
-												 			<!-- <option value="">(Default - any and all)</option>
-															<option value="Biblical">Biblical</option>
-															<option value="Biography">Biography</option>
-															<option value="Comedy">Comedy</option>
-															<option value="Commentary">Commentary</option>
-															<option value="Elegy">Elegy</option>
-															<option value="Epic">Epic</option>
-															<option value="Epigram">Epigram</option>
-															<option value="Epistle">Epistle</option>
-															<option value="Geography/Travel">Geography/Travel</option>
-															<option value="Grammar">Grammar</option>
-															<option value="History">History</option>
-															<option value="Hymn">Hymn</option>
-															<option value="Law">Law</option>
-															<option value="Lyric">Lyric</option>
-															<option value="Mythography">Mythography</option>
-															<option value="Novel">Novel</option>
-															<option value="Rhetoric">Rhetoric</option>
-															<option value="Scientific">Scientific</option>
-															<option value="Technical">Technical</option>
-															<option value="Tragedy">Tragedy</option>
-															<option value="Treatise">Treatise</option>
-															<option value="Wisdom/Pedagogical">Wisdom/Pedagogical</option>
-															<option value="Learned Treatise/Catalogue">Learned Treatise/Catalogue</option>
-									</select> -->
+                         <label> Genre:</label>&nbsp;&nbsp;&nbsp;&nbsp; <input id="genreSearch" type="text" name="genreSearch" value="" size="10" />
             <br />
                         <br/>
 
 
-<!-- Hold down the Ctrl (windows) / Command (Mac) button to select multiple options. -->
-                        <input id = "iclawSubmit" type="submit" value="Submit"/>
+
+                        <input id = "iclawSubmit" type="submit" value="submit"/>
         </div>
         <br />
 		</div>
 
-						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/list.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Demo Work List</button>
+						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/list.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Genre List</button>
 <div class="panel allow-scroll">
 <div id="genreText" class="darkText allow-scroll">
 <br />
-Augustine, De civitate Dei
+Biblical
 <br />
-Augustine, Confessions
+Biography
 <br />
-Caesar, De Bello Civili
+Comedy
 <br />
-Caesar, De Bello Gallico
+Commentary
 <br />
-Cicero, Ad Familiares
+Elegy
 <br />
-Lucan, Pharsalia
+Epic
 <br />
-Lucretius, De rerum natura
+Epigram
 <br />
-Minucius Felix, Octavius
+Epistle
 <br />
-Ovid, Metamorphoses
+Geography/Travel
 <br />
-Sallust, Catlinae Coniuratio
+Grammar
 <br />
-Seneca, De Constantia
+History
 <br />
-Vergil, Aeneid
+Hymn
 <br />
-Vergil, Eclogues
+Law
 <br />
-Vergil, Georgics
-<!-- <br />
+Lyric
+<br />
 Mythography
 <br />
 Novel
@@ -634,7 +597,7 @@ Technical
 <br />
 Tragedy
 <br />
-Treatise -->
+Treatise
 <br />
 </div>
 </div>
@@ -664,13 +627,13 @@ Treatise -->
     <script src="js/BAM-core-functionality.js"></script>
     <script src="js/BAM-custom-panels.js"></script>
     <script src="js/BAM-custom-menu.js"></script>
-    <!-- <script src="js/BAM-datatables.js"></script> -->
+    <script src="js/BAM-datatables.js"></script>
     <!-- <script src="js/BAM-map-functionality.js"></script> -->
 		<!-- <script src="maptest/ TODO this will need to point to a new JavaScripted version of my woah canon map-->
    <!-- <script src="../BAM/BAM-d3-functionality.js"></script> -->
     <script src="js/BAM-layers.js"></script>
     <!--<script src="../BAM/BAM-timeline.js"></script>-->
-    <script src="js/BAM-custom-functionality.new.js"></script>
+    <script src="js/BAM-custom-functionality.js"></script>
     <script src="js/BAM-cleanup.js"></script>
 
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->

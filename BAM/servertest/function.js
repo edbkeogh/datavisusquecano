@@ -38,7 +38,7 @@ var tableMain = $('#bamMainTable').DataTable({
         },
         {
             data: 'century',
-            title: 'Birth Century'
+            title: 'Century'
         },
         {
             data: 'death',

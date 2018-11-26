@@ -7,6 +7,7 @@ var urlFacet = 'http://s-lib024.lib.uiowa.edu/greekandlatincanons/latin/search_f
 //getGenres();
 //wait until API gets moved
 
+var demodata = []
 
 
 //get from form
@@ -25,6 +26,11 @@ var tableMain = $('#bamMainTable').DataTable({
         'colvis', 'copy', 'csv','print'
     ],
     columns: [{
+            data: 'workId',
+            title: 'BAMId'
+        },
+
+        {
             data: 'author',
             title: 'Author'
         },
@@ -98,6 +104,7 @@ function searchDB(authors, centRange, lifeRange, locations, works, genres) {
         },
         success: function(obj, textStatus) {
             //populate table
+            console.log(obj)
             tableMain.rows.add(obj);
             if (!("error" in obj)) {
                 //callback(obj.genres);

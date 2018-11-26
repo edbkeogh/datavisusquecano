@@ -6,7 +6,7 @@
 
 var mainMenuButtonHolder = {};
 
-mainMenuButtonHolder.infoButton = '<button id="infoButton" class="accordion"><img src="../BAM/images/open-iconic/info.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Application Information</button>';
+mainMenuButtonHolder.infoButton = '<button id="infoButton" class="accordion"><img src="images/open-iconic/info.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Application Information</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
 
@@ -16,7 +16,7 @@ $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
             });
 
 
-mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="../BAM/images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Show Results</button>';
+mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Show Results</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.databaseLaunchButton);
 

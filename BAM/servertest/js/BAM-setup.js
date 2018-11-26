@@ -6,7 +6,7 @@ var bamConfigJson = {
     //this sets the application title, favicon, license, and other non programatic information
     "bamBaseInfo": {
         "pageTitle": "ICAAW: Iowa Canon of Ancient Authors and Works",
-        "favIocn": "../BAM/images/favicon.ico",
+        "favIocn": "images/favicon.ico",
         //html for the license and image. We default to cc by 4.0, and highly suggest you do the same
         "applicationLicenseHtml": "<a rel=\"license\" href=\"http://creativecommons.org/licenses/by/4.0/\" target=\"_blank\"><img width=\"80px\" alt=\"Creative Commons License\" style=\"border-width:0\" src=\"https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg\"/></a>",
         "projectGitHubLocation": "https://github.com/Big-Ancient-Mediterranean"
@@ -15,7 +15,7 @@ var bamConfigJson = {
     "bamNavigationPanel": {
         //tells the program what ID the main navigation lives under. Set this to the ID you create in the index file.
         "panelID": "left-side-panel",
-        "splashImage": "<a href=\"http://bam.lib.uiowa.edu/\" target=\"_blank\"> <img src=\"../BAM/images/BAM-icon.svg\" title=\"BAM logo\" alt=\"BAM logo\"></a>",
+        "splashImage": "<a href=\"http://bam.lib.uiowa.edu/\" target=\"_blank\"> <img src=\"images/BAM-icon.svg\" title=\"BAM logo\" alt=\"BAM logo\"></a>",
         "panelTitle": "<br /><b>ICAAW: Iowa Canon of Ancient Authors and Works</b>",
         //need to move these
         "NavButtons": {
