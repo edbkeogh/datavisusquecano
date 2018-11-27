@@ -29,6 +29,23 @@ var demodata = [
 { "workId": "L5200", "wordCount": "",  "author": "Publius Vergilius Maro", "author_location": "Mantova, Italy (born) / Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "Georgica"}
 ]
 
+var demo2 = [
+  { "workId": "L630", "wordCount": "", "author": "Augustinus Hipponensis", "author_location": "Annaba, Algeria", "century": "CE 4", "genre1": "Treatise", "work": "De civitate Dei, I-III", "otherref": "<a href=\"http://www.mlat.uzh.ch/MLS/xanfang.php?tabelle=Augustinus_Hipponensis_cps2&corpus=2&allow_download=0&lang=0\" target=\"_blank\">Get text</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:stoa0040.stoa003\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L615", "wordCount": "", "author": "Augustinus Hipponensis", "author_location": "Annaba, Algeria", "century": "CE 4", "genre1": "Treatise", "work": "Confessiones", "otherref": "<a href=\"http://www.mlat.uzh.ch/MLS/xanfang.php?tabelle=Augustinus_Hipponensis_cps2&corpus=2&allow_download=0&lang=0\" target=\"_blank\">CPL 251; PL 32 (659-869)</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:stoa0040.stoa001\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L1155", "wordCount": "", "author": "Caesar, Gaius Iulius ", "author_location": "Rome, Italy", "century": "BCE 1", "genre1": "History", "work": "Comentarii de Bello Civili", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0075\" target=\"_blank\">p0448001</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0448.phi002.perseus-eng1\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L1156", "wordCount": "", "author": "Caesar, Gaius Iulius ", "author_location": "Rome, Italy", "century": "BCE 1", "genre1": "History", "work": "Comentarii de Bello Gallico", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0002\" target=\"_blank\">p0448002</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0448.phi001\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L1463", "wordCount": "", "author": "Marcus Tullius Cicero", "author_location": "Rome, Italy", "century": "BCE 1", "genre1": "Epistle", "work": "Epistolae ad Familiares", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0009\" target=\"_blank\">p0474056</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0474.phi056\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L3392", "wordCount": "", "author": "Marcus Annaeus Lucanus", "author_location": "Cordoba, Spain / Rome, Italy", "century": "CE 1", "genre1": "Epic", "work": "De Bello Civili / Bellum Civile / Pharsalia", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0133\" target=\"_blank\">p0917 001</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0917.phi001\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L3418", "wordCount": "", "author": "Titus Lucretius Carus", "author_location": "Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "De Rerum Natura", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0130\" target=\"_blank\">p0550 001</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0550.phi001\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L3631", "wordCount": "", "author": "Marcus Minucius Felix", "author_location": "Rome, Italy", "century": "CE 2-3", "genre1": "Treatise", "work": "Octavius", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a2008.01.0569\" target=\"_blank\">Get text</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:stoa0203.stoa001\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L3824", "wordCount": "", "author": "Publius Ovidius Naso", "author_location": "Sulmo, Italy", "century": "BCE 1-1 CE", "genre1": "Epic", "work": "Metamorphoses", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0029\" target=\"_blank\">p0959 006</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi1212.phi002\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L4595", "wordCount": "", "author": "Gaius Sallustius Crispus", "author_location": "Rome, Italy", "century": "BCE 1", "genre1": "History", "work": "Catilinae Coniuratio / Bellum Catilinae / De Catilinae Coniuratione", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a2008.01.0002%3atext%3dCat.\" target=\"_blank\">p0631 001</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0631.phi001\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L4664", "wordCount": "", "author": "Lucius Annaeus Seneca Iunior", "author_location": "Cordoba, Spain / Rome, Italy", "century": "CE 1", "genre1": "Philosophy", "work": "De Constantia", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a2007.01.0013\" target=\"_blank\">p1017</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:stoa0255.stoa009\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L5201", "wordCount": "", "author": "Publius Vergilius Maro", "author_location": "Mantova, Italy (born) / Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "Aeneis", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0055\" target=\"_blank\">p0690 003</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0690.phi003\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L5199", "wordCount": "", "author": "Publius Vergilius Maro", "author_location": "Mantova, Italy (born) / Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "Eclogae", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0056\" target=\"_blank\">p0690 001</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0690.phi001\" target=\"_blank\">Perseus</a>"},
+{ "workId": "L5200", "wordCount": "", "author": "Publius Vergilius Maro", "author_location": "Mantova, Italy (born) / Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "Georgica", "otherref": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0059\" target=\"_blank\">p0690 002</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0690.phi002\" target=\"_blank\">Perseus</a>"},
+]
+
 //get from form
 var authors = [];
 var centRange = [];
@@ -39,7 +56,7 @@ var genres = [];
 
 //create the table for iclaw / icaaw / ietc
 var tableMain = $('#bamMainTable').DataTable({
-    data: demodata,
+    data: demo2,
     dom: 'Bfrtip',
     buttons: [
         'colvis', 'copy', 'csv','print'
@@ -80,6 +97,14 @@ var tableMain = $('#bamMainTable').DataTable({
         {
             data: 'work',
             title: 'Work Title'
+        },
+        {
+          data: 'otherref',
+          title: 'Other Ref#'
+        },
+        {
+          data: 'catlink',
+          title: 'Catalogue Entry'
         }
     ]
 });
