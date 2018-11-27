@@ -64,7 +64,7 @@ var tableMain = $('#bamMainTable').DataTable({
     "pageLength": 20,
     columns: [{
             data: 'workId',
-            title: 'BAMId'
+            title: 'BAM Id'
         },
         {
             data: 'wordCount',
@@ -151,6 +151,61 @@ $("#iclawSubmit").click(function() {
 
 
     // searchDB(authors, centRange, lifeRange, locations, works, genres);
+});
+// this will be a cool way to manage some data links? TODO
+// $(document).ready(function() {
+//
+//     $('#bamMainTable tr').click(function() {
+//         var href = $(this).find("a").attr("href");
+//         if(href) {
+//             window.open (href, '_blank');
+//         }
+//         var fillform = $(this).find("workId");
+//         console.log(fillform);
+//     });
+//
+// });
+
+
+//also not working yet
+// $(document).ready(function() {
+//
+//     $('#bamMainTable td').click(function() {
+//       var workSelect = $(this[0]);
+//
+//         // document.getElementById("workId-WC").innerHTML = $(this);
+//         // document.getElementById("workId-TR").innerHTML = $(this);
+// console.log(workSelect)
+//     });
+//
+// });
+
+$("#TR").click(function() {
+
+  var x = document.getElementById("term").value;
+  if (document.getElementById("lemm").checked == true) {b = true} else {b = false};
+  if (document.getElementById("regex").checked == true) {c = true} else {c = false};
+  // document.getElementById("demo").innerHTML = x;
+    corpusOccurrences(
+      x,
+      a,
+      'latin',
+      b,
+      c,
+      handleResults2,
+      function(err) { console.log(JSON.stringify(err));}
+      );
+
+
+});
+
+$("#WC").click(function() {
+
+  var wnd = window.open("about:blank", "");
+        wnd.document.write(htmlStringWC);
+        wnd.document.close();
+
+
 });
 
 function searchDEMO(workIdlist) {
@@ -275,3 +330,5 @@ function getGenres() {
         }
     });
 }
+
+var htmlStringTR = '<html><head><style>body {  font: 10px sans-serif;}.bar rect {  shape-rendering: crispEdges;}.bar text {  fill: #999999;}.axis path, .axis line {  fill: none;  stroke: #000;  shape-rendering: crispEdges;}</style></head><body>TEST<script src="https://d3js.org/d3.v3.min.js"></script><script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script type="text/javascript" src="js/histogram.js"></script><div id="results"></div><p>Voyant inspired <a href="http://docs.voyant-tools.org/tools/termsradio/">Terms Radio</a> for the Iowa Latin Canon database (L5201 is the Aeneid):</p><p>Code adapted from <a href="http://bl.ocks.org/nnattawat/8916402">Nattawat Nonsung\'s Block</a></p>Number of bars <input type="number" id="bins" min="5" max="30" value="12"><input type="checkbox" id="lemm" checked/>Lemmatized<input type="checkbox" id="regex">Regex<input type="text" id="term" value="regina"><input type="text"id="workId" value="L5201"><button onclick="myFunction()">Try it</button><!-- Select number of bars <input type="number" id="bins" min="5" max="30" value="20"> --><!-- <button onclick="setbins()">Set bars #</button> --><p id="demo"></p><script>var bins = document.getElementById("bins").value;  var b = true  var c = false  function myFunction() {    var t = document.getElementById("term").value;    var a = document.getElementById("workId").value;if(document.getElementById("lemm").checked == true) {b = true} else {b = false};if (document.getElementById("regex").checked == true) {c = true} else {c = false};console.log(a);console.log(b);console.log(c);      	termOccurrence(    		t,    		[a],    		\'latin\',    		b,    		c    	);      	}var color = "steelblue";var workLength = 100var values = []var formatCount = d3.format(",.0f");var margin = {top: 20, right: 30, bottom: 30, left: 30},   width = 960 - margin.left - margin.right,    height = 500 - margin.top - margin.bottom;var max = workLength;var min = 0;var x = d3.scale.linear()      .domain([min, max])      .range([0, width]);var      tempScale = d3.scale.linear().domain([0, bins]).range([min, max]);var      tickArray = d3.range(bins + 1).map(tempScale);var data = d3.layout.histogram()    .bins(tickArray)    (values);var yMax = d3.max(data, function(d){return d.length});var yMin = d3.min(data, function(d){return d.length});var colorScale = d3.scale.linear()            .domain([yMin, yMax])            .range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);var y = d3.scale.linear()    .domain([0, yMax])    .range([height, 0]);var xAxis = d3.svg.axis()    .scale(x)    .orient("bottom");var svg = d3.select("body").append("svg")    .attr("width", width + margin.left + margin.right)    .attr("height", height + margin.top + margin.bottom)  .append("g")    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");var bar = svg.selectAll(".bar")    .data(data)  .enter().append("g")    .attr("class", "bar")    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });bar.append("rect")    .attr("x", 1)    .attr("width", (x(data[0].dx) - x(0)) - 1)    .attr("height", function(d) { return height - y(d.y); })    .attr("fill", function(d) { return colorScale(d.y) });bar.append("text")    .attr("dy", ".75em")    .attr("y", -12)    .attr("x", (x(data[0].dx) -x(0)) / 2)    .attr("text-anchor", "middle")    .text(function(d) { return formatCount(d.y); });svg.append("g")    .attr("class", "x axis")    .attr("transform", "translate(0," + height + ")")    .call(xAxis);function refresh(values){  var bins = document.getElementById("bins").value;  var max = workLength;  var min = 0;  var x = d3.scale.linear()        .domain([min, max])        .range([0, width]);        var      tempScale = d3.scale.linear().domain([0, bins]).range([min, max]);       var      tickArray = d3.range(bins + 1).map(tempScale);        var data = d3.layout.histogram()            .bins(tickArray)            (values);    var xAxis = d3.svg.axis()        .scale(x)        .orient("bottom");        svg.selectAll("g.x.axis")        .attr("transform", "translate(0," + y.range()[0] + ")")              .call(xAxis);  var yMax = d3.max(data, function(d){return d.length});  var yMin = d3.min(data, function(d){return d.length});  y.domain([0, yMax]);  var colorScale =d3.scale.linear()              .domain([yMin, yMax])              .range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);  var bar = svg.selectAll(".bar").data(data);  bar.exit().remove();  bar.transition()    .duration(1000)    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });  bar.select("rect")      .transition()      .duration(1000)      .attr("x", 1)      .attr("width", (x(data[0].dx) - x(0)) - 1)      .attr("height", function(d) { return height - y(d.y); })      .attr("fill", function(d) { return colorScale(d.y) });  bar.select("text")      .transition()      .duration(1000)      .attr("dy", ".75em")      .attr("y", -12)      .attr("x", (x(data[0].dx) - x(0)) / 2)      .attr("text-anchor", "middle")      .text(function(d) { return formatCount(d.y); });}</body></html>'
