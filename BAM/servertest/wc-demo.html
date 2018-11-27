@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://rawgit.com/jasondavies/d3-cloud/master/build/d3.layout.cloud.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/wc_demo.js"></script>
+  <div id="results"></div>
+  <div id="controls">
+  <p>Voyant inspired <a href="http://docs.voyant-tools.org/tools/cirrus/">Word Cloud</a> for the Iowa Latin Canon database:</p>
+  <p>Code adapted from <a href="https://bl.ocks.org/jyucsiro/767539a876836e920e38bc80d2031ba7">Jonathan Yu's Block</a></p>
+  <!-- Number of words <input type="range" id="words" min="1" max="100" value="5"> -->
+  <button onclick="showNewWords(myWordCloud)">Shuffle Words</button>
+  Number of words <input type="number" id="words" min="1" max="50" value="100">
+  <input type="checkbox" id="lemm">Lemmatized
+  <input type="checkbox" id="stop" checked/>Stop Words Removed
+  <!-- <input type="text" id="term" value="regina"> -->
+  <input type="text" id="workId" value="L5201">
+  <button onclick="myFunction()">Try it</button>
+
+
+</div>
+  <script>
+  var occ = [100,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]
+  var max = d3.max(occ)
+  var min = d3.min(occ);
+
+var rs =  d3.scale.linear()
+              .domain([min, max])
+              .range([20, 150]);
+// var tron = rs(occ[4])
+
+var w = 1100
+var h = 600
+// console.log(tron)
+// var data = [{text: "called", size: 59}]
+
+// var occ = [100,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]
+
+  var ww = document.getElementById("words").value;
+  // function setbins() {
+  //   bins = document.getElementById("bins").value;
+  // }
+    var b = false
+    var c = true
+//Simple animated example of d3-cloud - https://github.com/jasondavies/d3-cloud
+//Based on https://github.com/jasondavies/d3-cloud/blob/master/examples/simple.html
+
+// Encapsulate the word cloud functionality
+function myFunction() {
+  // var t = document.getElementById("term").value;
+  // document.getElementById("demo").innerHTML = x;
+  var ww = document.getElementById("words").value;
+  var a = document.getElementById("workId").value;
+  if (document.getElementById("lemm").checked == true) {b = true} else {b = false};
+  if (document.getElementById("stop").checked == true) {c = true} else {c = false};
+
+	topK(
+		[a],
+		ww,
+		'latin',
+		b,
+		c,
+		false
+	);
+}
+
+function wordCloud(selector) {
+
+    var fill = d3.scale.category20();
+
+    //Construct the word cloud's SVG element
+
+    var svg = d3.select(selector).append("svg")
+        .attr("width", w)
+        .attr("height", h)
+        .append("g")
+        .attr("transform", "translate(565,315)"); //half w +15, half h +15
+
+
+    //Draw the word cloud
+    function draw(words) {
+        var cloud = svg.selectAll("g text")
+                        .data(words, function(d) { return d.text; })
+
+        //Entering words
+        cloud.enter()
+            .append("text")
+            .style("font-family", "Impact")
+            .style("fill", function(d, i) { return fill(i); })
+            .attr("text-anchor", "middle")
+            .attr('font-size', 1)
+            .text(function(d) { return d.text; });
+// console.log(words)
+        //Entering and existing words
+        cloud
+            .transition()
+                .duration(1000)
+                .style("font-size", function(d) { return d.size + "px"; })
+                .attr("transform", function(d) {
+                    return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+                })
+                .style("fill-opacity", 1);
+
+        //Exiting words
+        cloud.exit()
+            .transition()
+                .duration(300)
+                .style('fill-opacity', 1e-6)
+                .attr('font-size', 1)
+                .remove();
+    }
+
+
+    //Use the module pattern to encapsulate the visualisation code. We'll
+    // expose only the parts that need to be public.
+    return {
+
+        //Recompute the word cloud for a new set of words. This method will
+        // asycnhronously call draw when the layout has been computed.
+        //The outside world will need to call this function, so make it part
+        // of the wordCloud return value.
+        update: function(words) {
+            d3.layout.cloud().size([w, h])
+                .words(words)
+                .padding(5)
+                .rotate(function() { return ~~(Math.random() * 2) * 90; })
+                .font("Impact")
+                .fontSize(function(d) { return d.size; })
+                .on("end", draw)
+                .start();
+        }
+    }
+
+}
+
+//Some sample data - http://en.wikiquote.org/wiki/Opening_lines
+var words = [
+    "Welcome to the ICLAW wordcloud generator, this is only a demonstration, but I hope it show functionality",
+    ]
+
+//Prepare one of the sample sentences by removing punctuation,
+// creating an array of words and computing a random size attribute.
+function getWords(i) {
+// console.log(max)
+// console.log("get words was executed")
+max = d3.max(occ);
+min = d3.min(occ);
+rs =  d3.scale.linear()
+              .domain([min, max])
+              .range([20, 150]);
+// console.log(max)
+    return words[i]
+            .replace(/[!\.,:;\?]/g, '')
+            .split(' ')
+            .map((currElement, index) => { // so this anonymous function can't see the 'i' variable - see if I can use the below
+
+            // var list = [ 'h', 'e', 'l', 'l', 'o'];
+            // list.map((currElement, index) => {
+            //   console.log("The current iteration is: " + index);
+            //   console.log("The current element is: " + currElement);
+            //   console.log("\n");
+            //   return 'X';
+            // });
+
+                // return {text: d, size: occ[i]};
+                return {text: currElement, size: "" + rs(occ[index]) + ""};
+            })
+}
+
+//This method tells the word cloud to redraw with a new set of words.
+//In reality the new words would probably come from a server request,
+// user input or some other source.
+function showNewWords(vis, i) {
+    i = i || 0;
+
+    vis.update(getWords(i ++ % words.length))
+    // setTimeout(function() { showNewWords(vis, i + 1)}, 6000)
+}
+
+//Create a new instance of the word cloud visualisation.
+var myWordCloud = wordCloud('body');
+
+//Start cycling through the demo data
+showNewWords(myWordCloud);
+
+
+</script>
