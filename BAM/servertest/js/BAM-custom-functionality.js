@@ -27,7 +27,7 @@ var tableMain = $('#bamMainTable').DataTable({
     ],
     columns: [{
             data: 'workId',
-            title: 'BAMId'
+            title: 'BAM Id'
         },
 
         {
