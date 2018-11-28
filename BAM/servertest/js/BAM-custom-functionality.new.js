@@ -205,15 +205,16 @@ $("#bamMainTable button").click(function() { // using the unique ID of the butto
 // });
 
 $("#TR").click(function() {
-
+window.open("tr-demo.html",'_blank')
 
 });
 
 $("#WC").click(function() {
 
-  var wnd = window.open("about:blank", "");
-        wnd.document.write(htmlStringWC);
-        wnd.document.close();
+window.open("wc-demo.html",'_blank')
+  //var wnd = window.open("about:blank", "");
+      //  wnd.document.write();
+      //  wnd.document.close();
 
 
 });
