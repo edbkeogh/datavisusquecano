@@ -16,7 +16,7 @@ $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
             });
 
 
-mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Show Results</button>';
+mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Databse Table</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.databaseLaunchButton);
 
@@ -24,4 +24,3 @@ $( "#bamButtonHolder" ).append(mainMenuButtonHolder.databaseLaunchButton);
                 $('.nonMapOverlay').hide(); //hide all the other overlays
                $('#databaseBox').toggle(); //display ours
             });
-   

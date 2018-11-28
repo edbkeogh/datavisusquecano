@@ -66,17 +66,19 @@ var tableMain = $('#bamMainTable').DataTable({
     "pageLength": 20,
     columns: [
       {
-            data: 'workId',
-            title: 'BAM Id'
-        },
+        data: 'author',
+        title: 'Author'
+    },
+    {
+        data: 'work',
+        title: 'Work Title'
+    },
+
         // {
         //     data: 'wordCount',
         //     title: 'Occurences'
         // },
-        {
-            data: 'author',
-            title: 'Author'
-        },
+
         {
             data: 'author_location',
             title: 'Author Location'
@@ -98,9 +100,9 @@ var tableMain = $('#bamMainTable').DataTable({
             title: 'Work Genre'
         },
         {
-            data: 'work',
-            title: 'Work Title'
-        },
+              data: 'workId',
+              title: 'BAM Id'
+          },
         {
           data: 'otherref',
           title: 'Other Ref#'
