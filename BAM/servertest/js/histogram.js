@@ -72,6 +72,45 @@ refresh(values)
 	});
 }
 
+function termOccurrence2(term, searchBy, language, lemmatized, regex) {
+	$.ajax({
+		type: "POST",
+		url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/' + language + '/search_function/inc/api.php',
+		data: {
+			'functionName': 'termOccurrence',
+			'arguments': {
+				'term': term,
+				'searchBy': searchBy
+			},
+			'lemmatized': lemmatized,
+			'regex': regex
+		},
+		success: function(res) {
+			console.log(JSON.stringify(res));
+			response = $.parseJSON(res);
+console.log(response)
+			$(function() {
+			    $.each(response, function(i, item) {
+workLength = item.wordCount
+values = item.occurrences
+							// var $tr = $('<tr>').append(
+			        //      $('<td>').text("Work ID: " + i),
+			        //     $('<td>').text(" Document total word count: " + item.wordCount),
+			        //     $('<td>').text(", \"" + term + "\", occurs at indexes: " + item.occurrences)
+			        // )
+							// .appendTo('#results');
+			        // console.log($tr.wrap('<p>').html());
+			    });
+					console.log(values)
+refresh2(values)
+			});
+
+		},
+		error: function(err) {
+			console.log(JSON.stringify(e));
+		}
+	});
+}
 
 function request1() {
 	topK(
