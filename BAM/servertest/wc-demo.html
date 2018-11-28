@@ -11,12 +11,12 @@
   <p>Code adapted from <a href="https://bl.ocks.org/jyucsiro/767539a876836e920e38bc80d2031ba7">Jonathan Yu's Block</a></p>
   <!-- Number of words <input type="range" id="words" min="1" max="100" value="5"> -->
   <button onclick="showNewWords(myWordCloud)">Shuffle Words</button>
-  Number of words <input type="number" id="words" min="1" max="50" value="100">
+  Number of words <input type="number" id="words" min="1" max="50" value="">
   <input type="checkbox" id="lemm" checked/>Lemmatized
   <input type="checkbox" id="stop" checked/>Stop Words Removed
   <!-- <input type="text" id="term" value="regina"> -->
-  <input type="text" id="workId" value="L615">
-  <button onclick="myFunction()">Try it</button>
+  <input type="text" id="workId" value="">
+  <button onclick="myFunction()">Refresh</button>
 
 
 </div>
@@ -184,5 +184,19 @@ var myWordCloud = wordCloud('body');
 //Start cycling through the demo data
 showNewWords(myWordCloud);
 
-window.onload = myFunction
+function primer() {
+  var holder = window.opener.document.getElementById("words-WC").value;
+  var input = $( "#words" );
+  input.val( input.val() + holder );
+  var holder = window.opener.document.getElementById("workId-WC").value;
+  var input = $( "#workId" );
+  input.val( input.val() + holder );
+  // var holder = window.opener.document.getElementById("bins-TR").value;
+  // var input = $( "#bins" );
+  // input.val( input.val() + holder );
+  if (window.opener.document.getElementById("lemm-WC").checked == true) {document.getElementById("lemm").checked = true} else {document.getElementById("lemm").checked = false};
+  if (window.opener.document.getElementById("stop-WC").checked == true) {document.getElementById("stop").checked = true} else {document.getElementById("regex").checked = false};
+myFunction();
+}
+window.onload = primer
 </script>
