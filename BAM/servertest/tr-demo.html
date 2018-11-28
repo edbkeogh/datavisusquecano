@@ -41,10 +41,11 @@ Number of bars <input type="number" id="bins" min="5" max="30" value="12">
 <p id="demo"></p>
 
 <script>
-var bins = document.getElementById("bins").value;
+var bins = window.opener.document.getElementById("bins").value;
 // function setbins() {
 //   bins = document.getElementById("bins").value;
 // }
+console.log(bins)
   var b = true
   var c = false
   function myFunction() {
