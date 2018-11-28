@@ -53,13 +53,13 @@ console.log(response)
 			    $.each(response, function(i, item) {
 workLength = item.wordCount
 values = item.occurrences
-							var $tr = $('<tr>').append(
-			             $('<td>').text("Work ID: " + i),
-			            $('<td>').text(" Document total word count: " + item.wordCount),
-			            $('<td>').text(", \"" + term + "\", occurs at indexes: " + item.occurrences)
-			        )
-							.appendTo('#results');
-			        console.log($tr.wrap('<p>').html());
+							// var $tr = $('<tr>').append(
+			        //      $('<td>').text("Work ID: " + i),
+			        //     $('<td>').text(" Document total word count: " + item.wordCount),
+			        //     $('<td>').text(", \"" + term + "\", occurs at indexes: " + item.occurrences)
+			        // )
+							// .appendTo('#results');
+			        // console.log($tr.wrap('<p>').html());
 			    });
 					console.log(values)
 refresh(values)

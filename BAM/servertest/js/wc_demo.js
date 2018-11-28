@@ -18,7 +18,7 @@ function topK(workIds, k, language, lemmatized, removeStopWords, frequency) {
 			'frequency': frequency
 		},
 		success: function(res) {
-			// console.log(JSON.stringify(res));
+			console.log(JSON.stringify(res));
       response = $.parseJSON(res);
       $(function() {
           $.each(response, function(i, item) {
@@ -44,12 +44,12 @@ function topK(workIds, k, language, lemmatized, removeStopWords, frequency) {
 // for (i in ws) {
 //      data += JSON.parse("{text: \"" + ws[i] + "\", size: " + occ[i] + "}")
 // };
-              var $tr = $('<tr>').append(
-                   $('<td>').text("Work ID: " + i),
-                  $('<td>').text(" Document total word count: " + item.wordCount + " "),
-                  $('<td>').text(" top " + k + " words: " + test)
-              )
-              .appendTo('#results');
+              // var $tr = $('<tr>').append(
+              //      $('<td>').text("Work ID: " + i),
+              //     $('<td>').text(" Document total word count: " + item.wordCount + " "),
+              //     $('<td>').text(" top " + k + " words: " + test)
+              // )
+              // .appendTo('#results');
               // console.log($tr.wrap('<p>').html());
           });
           // console.log(values)

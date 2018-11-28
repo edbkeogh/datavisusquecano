@@ -16,7 +16,7 @@ var aboutBoxHtml = '<div id="infoBox" class="nonMapOverlay"> <b> Application Inf
     aboutBoxHtml = aboutBoxHtml + '<div id="infoBoxContent">';
     aboutBoxHtml = aboutBoxHtml + 'This is a development demonstration of some simple ICAAW functions.'
     aboutBoxHtml = aboutBoxHtml + ' Click the \"Database Table\" in this panel to see a table of works. '
-    aboutBoxHtml = aboutBoxHtml + ' In addition to reading database information, you may click the reference number or catalogue entry field to open a new tab, or click a BAM Id button to send that work into the right hand panel.<br/>'
+    aboutBoxHtml = aboutBoxHtml + ' In addition to reading database information, you may click the reference number or catalogue entry field to open a new tab, or the row to send that work into the right hand panel.<br/>'
     aboutBoxHtml = aboutBoxHtml + 'The Iowa Canon of Classical Authors and Works is the most complete';
     aboutBoxHtml = aboutBoxHtml + ' list of Latin literature from its beginnings to the sixth century CE.';
     aboutBoxHtml = aboutBoxHtml + ' The goal is to include all known writings, whether they survive in full, in part, or have been completely lost.';

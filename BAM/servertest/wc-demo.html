@@ -12,16 +12,16 @@
   <!-- Number of words <input type="range" id="words" min="1" max="100" value="5"> -->
   <button onclick="showNewWords(myWordCloud)">Shuffle Words</button>
   Number of words <input type="number" id="words" min="1" max="50" value="100">
-  <input type="checkbox" id="lemm">Lemmatized
+  <input type="checkbox" id="lemm" checked/>Lemmatized
   <input type="checkbox" id="stop" checked/>Stop Words Removed
   <!-- <input type="text" id="term" value="regina"> -->
-  <input type="text" id="workId" value="L5201">
+  <input type="text" id="workId" value="L615">
   <button onclick="myFunction()">Try it</button>
 
 
 </div>
   <script>
-  var occ = [100,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]
+  var occ = [150,15,5,11,20,10,15,50,10,20,10,15,50,10,20,10,10,50,10,20,10,15,50,10,20,10,15,50,10,20]
   var max = d3.max(occ)
   var min = d3.min(occ);
 
@@ -41,7 +41,7 @@ var h = 600
   // function setbins() {
   //   bins = document.getElementById("bins").value;
   // }
-    var b = false
+    var b = true
     var c = true
 //Simple animated example of d3-cloud - https://github.com/jasondavies/d3-cloud
 //Based on https://github.com/jasondavies/d3-cloud/blob/master/examples/simple.html
@@ -136,7 +136,7 @@ function wordCloud(selector) {
 
 //Some sample data - http://en.wikiquote.org/wiki/Opening_lines
 var words = [
-    "Welcome to the ICLAW wordcloud generator, this is only a demonstration, but I hope it show functionality",
+    "Welcome"
     ]
 
 //Prepare one of the sample sentences by removing punctuation,
@@ -184,5 +184,5 @@ var myWordCloud = wordCloud('body');
 //Start cycling through the demo data
 showNewWords(myWordCloud);
 
-
+window.onload = myFunction
 </script>

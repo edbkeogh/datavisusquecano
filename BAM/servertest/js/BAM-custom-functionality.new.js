@@ -5,6 +5,7 @@
 var urlFacet = 'http://s-lib024.lib.uiowa.edu/greekandlatincanons/latin/search_function/inc/api.php';
 
 var clicked = ""
+var clickedrow = ""
 
 var workIdlist = []
 //getGenres();
@@ -13,23 +14,13 @@ var workIdlist = []
 var a = ['L630','L615','L1155','L1156','L1463','L3392','L3418','L3631','L3824','L4595','L4664','L5201','L5199','L5200']
 var b = true
 var c = false
-
-var demodata = [
-{ "workId": "L630", "wordCount": "", "author": "Augustinus Hipponensis", "author_location": "Annaba, Algeria", "century": "CE 4", "genre1": "Treatise", "work": "De civitate Dei, I-III"},
-{ "workId": "L615", "wordCount": "", "author": "Augustinus Hipponensis", "author_location": "Annaba, Algeria", "century": "CE 4", "genre1": "Treatise", "work": "Confessiones"},
-{ "workId": "L1155", "wordCount": "",  "author": "Caesar, Gaius Iulius ", "author_location": "Rome, Italy", "century": "BCE 1", "genre1": "History", "work": "Comentarii de Bello Civili"},
-{ "workId": "L1156", "wordCount": "",  "author": "Caesar, Gaius Iulius ", "author_location": "Rome, Italy", "century": "BCE 1", "genre1": "History", "work": "Comentarii de Bello Gallico"},
-{ "workId": "L1463", "wordCount": "",  "author": "Marcus Tullius Cicero", "author_location": "Rome, Italy", "century": "BCE 1", "genre1": "Epistle", "work": "Epistolae ad Familiares"},
-{ "workId": "L3392", "wordCount": "",  "author": "Marcus Annaeus Lucanus", "author_location": "Cordoba, Spain / Rome, Italy", "century": "CE 1", "genre1": "Epic", "work": "De Bello Civili / Bellum Civile / Pharsalia"},
-{ "workId": "L3418", "wordCount": "",  "author": "Titus Lucretius Carus", "author_location": "Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "De Rerum Natura"},
-{ "workId": "L3631", "wordCount": "",  "author": "Marcus Minucius Felix", "author_location": "Rome, Italy", "century": "CE 2-3", "genre1": "Treatise", "work": "Octavius"},
-{ "workId": "L3824", "wordCount": "",  "author": "Publius Ovidius Naso", "author_location": "Sulmo, Italy", "century": "BCE 1-1 CE", "genre1": "Epic", "work": "Metamorphoses"},
-{ "workId": "L4595", "wordCount": "",  "author": "Gaius Sallustius Crispus", "author_location": "Rome, Italy", "century": "BCE 1", "genre1": "History", "work": "Catilinae Coniuratio / Bellum Catilinae / De Catilinae Coniuratione"},
-{ "workId": "L4664", "wordCount": "",  "author": "Lucius Annaeus Seneca Iunior", "author_location": "Cordoba, Spain / Rome, Italy", "century": "CE 1", "genre1": "Philosophy", "work": "De Constantia"},
-{ "workId": "L5201", "wordCount": "",  "author": "Publius Vergilius Maro", "author_location": "Mantova, Italy (born) / Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "Aeneis"},
-{ "workId": "L5199", "wordCount": "",  "author": "Publius Vergilius Maro", "author_location": "Mantova, Italy (born) / Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "Eclogae"},
-{ "workId": "L5200", "wordCount": "",  "author": "Publius Vergilius Maro", "author_location": "Mantova, Italy (born) / Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "Georgica"}
-]
+// the lemm and then regex for TR
+var t = 'quoddam'
+var d = true
+var e = false
+// the wordcloud lemm and stop words
+var f = false
+var g = true
 
 var demo2 = [
   { "workId": "<button>L630</button>", "wordCount": "", "author": "Augustinus Hipponensis", "author_location": "Annaba, Algeria", "century": "CE 4", "genre1": "Treatise", "work": "De civitate Dei, I-III", "otherref": "<a href=\"http://www.mlat.uzh.ch/MLS/xanfang.php?tabelle=Augustinus_Hipponensis_cps2&corpus=2&allow_download=0&lang=0\" target=\"_blank\">Get text</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:stoa0040.stoa003\" target=\"_blank\">Perseus</a>"},
@@ -99,18 +90,18 @@ var tableMain = $('#bamMainTable').DataTable({
             data: 'genre1',
             title: 'Work Genre'
         },
-        {
-              data: 'workId',
-              title: 'BAM Id'
-          },
-        {
+              {
           data: 'otherref',
           title: 'Other Ref#'
         },
         {
           data: 'catlink',
           title: 'Catalogue Entry'
-        }
+        },
+        {
+              data: 'workId',
+              title: 'BAM Id'
+          }
     ]
 });
 //from our basic BAM functions
@@ -158,18 +149,32 @@ $("#iclawSubmit").click(function() {
     // searchDB(authors, centRange, lifeRange, locations, works, genres);
 });
 // this will be a cool way to manage some data links? TODO
-// $(document).ready(function() {
-//
-//     $('#bamMainTable tr').click(function() {
-//         var href = $(this).find("a").attr("href");
-//         if(href) {
-//             window.open (href, '_blank');
-//         }
-//         var fillform = $(this).find("workId");
-//         console.log(fillform);
-//     });
-//
-// });
+$(document).ready(function() {
+
+    $('#bamMainTable tr').click(function() {
+
+        var input = $( "#workId-WC" );
+        input.val( clickedrow );
+        var input = $( "#workId-TR" );
+        input.val( clickedrow );
+
+
+         clickedrow = $(this).find("button").html();
+        var input = $( "#workId-WC" );
+        input.val( input.val() + clickedrow );
+        var input = $( "#workId-TR" );
+        input.val( input.val() + clickedrow );
+
+        clickedrow = ""
+
+        // if(href) {
+        //     window.open (href, '_blank');
+        // }
+        // var fillform = $(this).find("workId");
+    //    console.log(href);
+    });
+
+});
 
 
 $("#bamMainTable button").click(function() { // using the unique ID of the button
@@ -205,6 +210,11 @@ $("#bamMainTable button").click(function() { // using the unique ID of the butto
 // });
 
 $("#TR").click(function() {
+//   var t = document.getElementById("term").value;
+//   // document.getElementById("demo").innerHTML = x;
+//   var a = document.getElementById("workId").value;
+// if (document.getElementById("lemm").checked == true) {b = true} else {b = false};
+// if (document.getElementById("regex").checked == true) {c = true} else {c = false};
 window.open("tr-demo.html",'_blank')
 
 });
