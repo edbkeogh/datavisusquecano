@@ -4,6 +4,8 @@
 //var urlPath = 'http://latincanon.spencerschmalz.com/wordcount/inc/api.php';
 var urlFacet = 'http://s-lib024.lib.uiowa.edu/greekandlatincanons/latin/search_function/inc/api.php';
 
+var clicked = ""
+
 var workIdlist = []
 //getGenres();
 //wait until API gets moved
@@ -169,9 +171,21 @@ $("#iclawSubmit").click(function() {
 
 
 $("#bamMainTable button").click(function() { // using the unique ID of the button
-  var clicked = $(this).html();
-  document.getElementById("workId-WC").innerHTML = clicked
-  document.getElementById("workId-TR").innerHTML = clicked
+  var input = $( "#workId-WC" );
+  input.val( clicked );
+  var input = $( "#workId-TR" );
+  input.val( clicked );
+
+
+   clicked = $(this).html();
+  var input = $( "#workId-WC" );
+  input.val( input.val() + clicked );
+  var input = $( "#workId-TR" );
+  input.val( input.val() + clicked );
+
+  clicked = ""
+  // document.getElementById("workId-WC").innerHTML = clicked
+  // document.getElementById("workId-TR").innerHTML = clicked
 });
 
 // //also not working yet
