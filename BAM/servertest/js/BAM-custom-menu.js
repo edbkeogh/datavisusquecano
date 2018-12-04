@@ -15,6 +15,14 @@ $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
                 $('#infoBox').toggle(); //display ours
             });
 
+            mainMenuButtonHolder.contributorsButton = '<button id="contributorsButton" class="accordion"><img src="images/open-iconic/info.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Contributors and Sources</button>';
+
+            $( "#bamButtonHolder" ).append(mainMenuButtonHolder.contributorsButton);
+
+             $('#contributorsButton').click(function() {
+                            $('.nonMapOverlay').hide(); //hide all the other overlays
+                           $('#contributorsBox').toggle(); //display ours
+                        });
 
 mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Databse Table</button>';
 
