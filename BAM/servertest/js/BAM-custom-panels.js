@@ -31,7 +31,7 @@ var aboutBoxHtml = '<div id="infoBox" class="nonMapOverlay"> <b> Application Inf
     // aboutBoxHtml = aboutBoxHtml + 'FRH=Fragmentary Roman Historians<br/>';
     // aboutBoxHtml = aboutBoxHtml + 'PL=Patrologia Latina<br/><br/>';
     // aboutBoxHtml = aboutBoxHtml + 'See below for a list of electronic text sources by type:<br/>';
-    aboutBoxHtml = aboutBoxHtml + 'Paul Dilley is the co-PI of the Canon, Ryan Horne the lead developer.';
+    aboutBoxHtml = aboutBoxHtml + 'Paul Dilley is the PI of the Canon, Ryan Horne the lead developer.';
     // aboutBoxHtml = aboutBoxHtml + ' The following students have contributed research to the Canon: Noah Anderson, Kenneth Elliott, Elijah Fleming, Tyler Fyotek, Sara Hales, Ed Keogh, Caitlin Marley, Peter Miller, Bob Morley, Daniel Munn, Echo Smith, Dana Spyridakos, Jeremy Swist, Ryan Tribble, Wenxuan Xu, Jonathan Young (data collection and analysis); Noah Anderson and Spencer Schmalz (development).';
 	aboutBoxHtml = aboutBoxHtml + '</p>';
     aboutBoxHtml = aboutBoxHtml + ' The code and interface was built by <a href="https://rmhorne.org/" target="_blank">Ryan Horne</a>. Additional features are being developed by Ed Keogh and Noah Anderson.';
