@@ -27,6 +27,7 @@ var aboutBoxHtml = '<div id="infoBox" class="nonMapOverlay"> <b> Application Inf
     aboutBoxHtml = aboutBoxHtml + '<span class="bottomContainer">';
     aboutBoxHtml = aboutBoxHtml + '<a href="https://bigancientmediterranean.wordpress.com/" target="_blank"><img src="images/BAM-icon.svg" alt="BAM Logo" style="width:28px;height:28px;"></a>&nbsp;&nbsp;Built with the <b><a href=" https://bigancientmediterranean.wordpress.com/" target="_blank">Big Ancient Mediterranean </a></b>framework.';
     aboutBoxHtml = aboutBoxHtml + '<br /> <a href="https://github.com/Big-Ancient-Mediterranean" target="_blank"><img src="images/githublogo.svg" alt="GitHub Logo" style="width:28px;height:28px;"></a>&nbsp;&nbsp;Get map data and code from our <b><a href="https://github.com/AWMC" target="_blank">GitHub </a></b>page.';
+    aboutBoxHtml = aboutBoxHtml + '<br /> <a href="https://github.com/Big-Ancient-Mediterranean" target="_blank"><img src="images/88px-Cc-by-nc_icon.svg.png" alt="CC-BY-nc" style="width:28px;height:28px;"></a>CC BY-SA non-commercial 4.0.';
     aboutBoxHtml = aboutBoxHtml + '<br /></span></div> </div>';
 
 //add to the panel holder
