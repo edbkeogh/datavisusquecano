@@ -63,7 +63,7 @@ overlayPanelsList.databaseBox = 'overlay';
 
 //the database box holds a list of all the people in the application
 
-var contributorsBoxHtml = '<div id="contributorsBox" class="nonMapOverlay"> <div id="contributorsBoxTop"> <b> Contributors </b>';
+var contributorsBoxHtml = '<div id="contributorsBox" class="nonMapOverlay"> <div id="contributorsBoxTop"> <b> Contributors and Sources</b>';
 contributorsBoxHtml = contributorsBoxHtml + '<div id="contributorsBoxClose" class="popupCloseCarte">x</div> <hr /></div>';
 contributorsBoxHtml = contributorsBoxHtml + '<div id="contributorsBoxContents" class="allow-scroll">';
 contributorsBoxHtml = contributorsBoxHtml + ' The following students have contributed research to the Canon: Noah Anderson, Kenneth Elliott, Elijah Fleming, Tyler Fyotek, Sara Hales, Ed Keogh, Caitlin Marley, Peter Miller, Bob Morley, Daniel Munn, Echo Smith, Dana Spyridakos, Jeremy Swist, Ryan Tribble, Wenxuan Xu, Jonathan Young (data collection and analysis); Noah Anderson and Spencer Schmalz (development).';
@@ -73,9 +73,11 @@ contributorsBoxHtml = contributorsBoxHtml + '<p>CANT=Clavis Apocryphorum Novi Te
 contributorsBoxHtml = contributorsBoxHtml + 'CGL=Corpus Grammaticorum Latinorum<span class="tab">Late Antique/Non-Christian= digilibLT</span><br/>';
 contributorsBoxHtml = contributorsBoxHtml + 'CPL=Clavis Patrum Latinorum<span class="tab">Late Antique/Christian=Corpus Corporum (Patrologia Latina)</span><br/>';
 contributorsBoxHtml = contributorsBoxHtml + 'DLT=digilibLT<span class="tab">Grammarians=Corpus Grammaticorum Latinorum</span><br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'DPA=Dictionnaire des Philosophes Antiques<span class="tab">Tokenization and lemmatization are achieved through programs from the <b><a href=\"http://cltk.org/\">Classical Language Toolkit</a></b></span><br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'FRH=Fragmentary Roman Historians<br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'PL=Patrologia Latina</p>';
+contributorsBoxHtml = contributorsBoxHtml + 'DPA=Dictionnaire des philosophes antiques<span class="tab">Tokenization and lemmatization are achieved through programs from the <b><a href=\"http://cltk.org/\" target=\"_blank\">Classical Language Toolkit</a></b></span><br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'FRH=Fragments of the Roman Historians<br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'P=Packard Humanities Institute (via <a href=\"http://catalog.perseus.org/\" target=\"_blank\">Perseus Catalog</a>)<br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'PL=Patrologia Latina<br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'Stoa=Stoa Consortium (via <a href=\"http://catalog.perseus.org/\" target=\"_blank\">Perseus Catalog</a>)</p>';
 contributorsBoxHtml = contributorsBoxHtml + '<div id="contributorsBoxHolder" class="display darkText"><table id="bamMainTable" class="display darkText cell-border" width="100%"></table></div>';
 contributorsBoxHtml = contributorsBoxHtml + '</div> </div>';
 
