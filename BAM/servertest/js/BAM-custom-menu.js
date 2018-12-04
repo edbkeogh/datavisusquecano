@@ -24,7 +24,7 @@ $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
                            $('#contributorsBox').toggle(); //display ours
                         });
 
-mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Databse Table</button>';
+mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Database Table</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.databaseLaunchButton);
 
