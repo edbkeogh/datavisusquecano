@@ -19,13 +19,18 @@ body {
   stroke: #000;
   shape-rendering: crispEdges;
 }
+/*
+.controls p {
+  font: 15px sans-serif;
+} */
 
 </style>
 <body>
 <script src="https://d3js.org/d3.v3.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/histogram.js"></script>
-<div id="results"></div>
+<div style="font: 12px sans-serif">
+  <div id="results"></div>
 <p>Voyant inspired <a href="http://docs.voyant-tools.org/tools/termsradio/">Terms Radio</a> for the Iowa Latin Canon database:</p>
 <p>Code adapted from <a href="http://bl.ocks.org/nnattawat/8916402">Nattawat Nonsung's Block</a></p>
 Number of bars [5-30] <input type="number" id="bins" min="5" max="30" value="">
@@ -37,7 +42,7 @@ Number of bars [5-30] <input type="number" id="bins" min="5" max="30" value="">
 <!-- Select number of bars <input type="number" id="bins" min="5" max="30" value="20"> -->
 <!-- <button onclick="setbins()">Set bars #</button> -->
 
-
+</div>
 <p id="demo"></p>
 
 <script>
@@ -250,3 +255,10 @@ myFunction();
 }
 window.onload = primer
 </script>
+</body>
+<footer>
+  <div>
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+  </div>
+</footer>
+</html>

@@ -30,8 +30,8 @@ var rs =  d3.scale.linear()
               .range([20, 150]);
 // var tron = rs(occ[4])
 
-var w = 1100
-var h = 600
+var w = 1200
+var h = 800
 // console.log(tron)
 // var data = [{text: "called", size: 59}]
 
@@ -73,9 +73,9 @@ function wordCloud(selector) {
 
     var svg = d3.select(selector).append("svg")
         .attr("width", w)
-        .attr("height", h)
+        .attr("height", h+5)
         .append("g")
-        .attr("transform", "translate(565,315)"); //half w +15, half h +15
+        .attr("transform", "translate(615,415)"); //half w +15, half h +15
 
 
     //Draw the word cloud
@@ -200,3 +200,10 @@ myFunction();
 }
 window.onload = primer
 </script>
+</body>
+<footer>
+  <div style="font-size: 10px">
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+  </div>
+</footer>
+</html>

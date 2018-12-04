@@ -38,7 +38,7 @@ var aboutBoxHtml = '<div id="infoBox" class="nonMapOverlay"> <b> Application Inf
     aboutBoxHtml = aboutBoxHtml + '<span class="bottomContainer">';
     aboutBoxHtml = aboutBoxHtml + '<a href="https://bigancientmediterranean.wordpress.com/" target="_blank"><img src="images/BAM-icon.svg" alt="BAM Logo" style="width:28px;height:28px;"></a>&nbsp;&nbsp;Built with the <b><a href=" https://bigancientmediterranean.wordpress.com/" target="_blank">Big Ancient Mediterranean </a></b>framework.';
     aboutBoxHtml = aboutBoxHtml + '<br /> <a href="https://github.com/Big-Ancient-Mediterranean" target="_blank"><img src="images/githublogo.svg" alt="GitHub Logo" style="width:28px;height:28px;"></a>&nbsp;&nbsp;Get map data and code from our <b><a href="https://github.com/AWMC" target="_blank">GitHub </a></b>page.';
-  //  aboutBoxHtml = aboutBoxHtml + '<br /> <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank"><img src="images/88px-Cc-by-nc_icon.svg.png" alt="CC-BY-nc" style="width:88px;height:31px;"></a>&nbsp;&nbsp;CC BY-SA non-commercial 4.0.';
+    aboutBoxHtml = aboutBoxHtml + '<br/><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.';
     aboutBoxHtml = aboutBoxHtml + '<br /></span></div> </div>';
 
 //add to the panel holder
@@ -61,7 +61,7 @@ $("#panelHolder").append(databaseBoxHtml);
 
 overlayPanelsList.databaseBox = 'overlay';
 
-//the database box holds a list of all the people in the application
+//the database box holds a list of all the people in the application http://digiliblt.lett.unipmn.it   http://www.mlat.uzh.ch/MLS/     http://www.mlat.uzh.ch/MLS/xanfang.php?corpus=13
 
 var contributorsBoxHtml = '<div id="contributorsBox" class="nonMapOverlay"> <div id="contributorsBoxTop"> <b> Contributors and Sources</b>';
 contributorsBoxHtml = contributorsBoxHtml + '<div id="contributorsBoxClose" class="popupCloseCarte">x</div> <hr /></div>';
@@ -69,15 +69,15 @@ contributorsBoxHtml = contributorsBoxHtml + '<div id="contributorsBoxContents" c
 contributorsBoxHtml = contributorsBoxHtml + ' The following students have contributed research to the Canon: Noah Anderson, Kenneth Elliott, Elijah Fleming, Tyler Fyotek, Sara Hales, Ed Keogh, Caitlin Marley, Peter Miller, Bob Morley, Daniel Munn, Echo Smith, Dana Spyridakos, Jeremy Swist, Ryan Tribble, Wenxuan Xu, Jonathan Young (data collection and analysis); Noah Anderson and Spencer Schmalz (development).';
 contributorsBoxHtml = contributorsBoxHtml + '</p>';
 contributorsBoxHtml = contributorsBoxHtml + '<p>See below for a partial key to canonical references:<span class="tab">See below for a list of electronic text sources by type:</span></p>';
-contributorsBoxHtml = contributorsBoxHtml + '<p>CANT=Clavis Apocryphorum Novi Testamenti<span class="tab">Classical=Perseus Digital Library</span><br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'CGL=Corpus Grammaticorum Latinorum<span class="tab">Late Antique/Non-Christian= digilibLT</span><br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'CPL=Clavis Patrum Latinorum<span class="tab">Late Antique/Christian=Corpus Corporum (Patrologia Latina)</span><br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'DLT=digilibLT<span class="tab">Grammarians=Corpus Grammaticorum Latinorum</span><br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'DPA=Dictionnaire des philosophes antiques<span class="tab">Tokenization and lemmatization are achieved through programs from the <b><a href=\"http://cltk.org/\" target=\"_blank\">Classical Language Toolkit</a></b></span><br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'FRH=Fragments of the Roman Historians<br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'P=Packard Humanities Institute (via <a href=\"http://catalog.perseus.org/\" target=\"_blank\">Perseus Catalog</a>)<br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'PL=Patrologia Latina<br/>';
-contributorsBoxHtml = contributorsBoxHtml + 'Stoa=Stoa Consortium (via <a href=\"http://catalog.perseus.org/\" target=\"_blank\">Perseus Catalog</a>)</p>';
+contributorsBoxHtml = contributorsBoxHtml + '<p>CANT&nbsp;=&nbsp;Clavis Apocryphorum Novi Testamenti<span class="tab">Classical&nbsp;=&nbsp;<a href=\"http://www.perseus.tufts.edu/\" target=\"_blank\">Perseus Digital Library</a></span><br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'CGL&nbsp;=&nbsp;Corpus Grammaticorum Latinorum<span class="tab">Late Antique/Non-Christian&nbsp;=&nbsp;<a href=\"http://digiliblt.lett.unipmn.it\" target=\"_blank\">digilibLT</a></span><br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'CPL&nbsp;=&nbsp;Clavis Patrum Latinorum<span class="tab">Late Antique/Christian&nbsp;=&nbsp;<a href=\"http://www.mlat.uzh.ch/MLS/xanfang.php?corpus=2\" target=\"_blank\">Corpus Corporum (Patrologia Latina)</a></span><br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'DLT&nbsp;=&nbsp;<a href=\"http://digiliblt.lett.unipmn.it\" target=\"_blank\">digilibLT</a><span class="tab">Grammarians&nbsp;=&nbsp;<a href=\"http://www.mlat.uzh.ch/MLS/xanfang.php?corpus=13\" target=\"_blank\">Corpus Grammaticorum Latinorum</a></span><br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'DPA&nbsp;=&nbsp;Dictionnaire des philosophes antiques<span class="tab">Tokenization and lemmatization are achieved through programs from the <b><a href=\"http://cltk.org/\" target=\"_blank\">Classical Language Toolkit</a></b></span><br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'FRH&nbsp;=&nbsp;Fragments of the Roman Historians<br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'P&nbsp;=&nbsp;Packard Humanities Institute (via <a href=\"http://catalog.perseus.org/\" target=\"_blank\">Perseus Catalog</a>)<br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'PL&nbsp;=&nbsp;Patrologia Latina<br/>';
+contributorsBoxHtml = contributorsBoxHtml + 'Stoa&nbsp;=&nbsp;Stoa Consortium (via <a href=\"http://catalog.perseus.org/\" target=\"_blank\">Perseus Catalog</a>)</p>';
 contributorsBoxHtml = contributorsBoxHtml + '<div id="contributorsBoxHolder" class="display darkText"><table id="bamMainTable" class="display darkText cell-border" width="100%"></table></div>';
 contributorsBoxHtml = contributorsBoxHtml + '</div> </div>';
 
