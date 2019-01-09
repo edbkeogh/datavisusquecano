@@ -480,12 +480,14 @@
     <link rel="stylesheet" href="css/datatables.css" />
 		<link rel="stylesheet" href="leaflet.css" />
 		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+		<link rel="stylesheet" href="leaflet-search.min.css" />
 		<link rel="stylesheet" href="scs728.css" />
 
 
     <!-- BAM Setup, after all necessary libraries are loaded -->
     <script src="js/BAM-setup.EM.js"></script>
 		<script src="leaflet.js" charset="utf-8"></script>
+<script src="leaflet-search.min.js" charset="utf-8"></script>
 		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
 		<script src="d3.v3.min.js" charset="utf-8"></script>
 
@@ -672,36 +674,36 @@ Treatise -->
 	  	  console.log('Could not load data...');
 	        }
 
-	// 
-	// var searchControl = new L.Control.Search({
-	// 	layer: marker,
-	// 	propertyName: 'name',
-	// 	marker: false,
-	// 	moveToLocation: function(latlng, title, map) {
-	// 		//map.fitBounds( latlng.layer.getBounds() );
-	// 		var zoom = map.getBoundsZoom(latlng.layer.getBounds());
-  // 			map.setView(latlng, zoom); // access the zoom
-	// 	}
-	// });
-	//
-	// searchControl.on('search:locationfound', function(e) {
-	//
-	// 	//console.log('search:locationfound', );
-	//
-	// 	//map.removeLayer(this._markerSearch)
-	//
-	// 	e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
-	// 	if(e.layer._popup)
-	// 		e.layer.openPopup();
-	//
-	// }).on('search:collapsed', function(e) {
-	//
-	// 	featuresLayer.eachLayer(function(layer) {	//restore feature color
-	// 		featuresLayer.resetStyle(layer);
-	// 	});
-	// });
-	//
-	// map.addControl( searchControl );  //inizialize search control
+
+	var searchControl = new L.Control.Search({
+		layer: markerclusters,
+		propertyName: 'name',
+		marker: false,
+		moveToLocation: function(latlng, title, map) {
+			//map.fitBounds( latlng.layer.getBounds() );
+			var zoom = map.getBoundsZoom(latlng.layer.getBounds());
+  			map.setView(latlng, zoom); // access the zoom
+		}
+	});
+
+	searchControl.on('search:locationfound', function(e) {
+
+		//console.log('search:locationfound', );
+
+		//map.removeLayer(this._markerSearch)
+
+		e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
+		if(e.layer._popup)
+			e.layer.openPopup();
+
+	}).on('search:collapsed', function(e) {
+
+		markerclusters.eachLayer(function(layer) {	//restore feature color
+			markerclusters.resetStyle(layer);
+		});
+	});
+
+	map.addControl( searchControl );  //inizialize search control
 
 	    });
 
