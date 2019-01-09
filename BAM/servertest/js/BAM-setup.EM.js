@@ -16,7 +16,7 @@ var bamConfigJson = {
         //tells the program what ID the main navigation lives under. Set this to the ID you create in the index file.
         "panelID": "left-side-panel",
         "splashImage": "<a href=\"http://bam.lib.uiowa.edu/\" target=\"_blank\"> <img src=\"images/BAM-icon.svg\" title=\"BAM logo\" alt=\"BAM logo\"></a>",
-        "panelTitle": "<br /><b>Global Manuscript Cultures</b><br/><br/><small>CLSA/JPNS:2127</small>",
+        "panelTitle": "<br /><b style=\"font-size:30px;\">Global Manuscript Cultures</b><br/><small>CLSA/JPNS:2127</small>",
         //need to move these
         "NavButtons": {
             "appinfo": "<button id=\"infoButton\" class=\"accordion\"><img src=\"images/info.svg\" class=\"accordianImage\" alt=\"info\">&nbsp;&nbsp;&nbsp;&nbsp;Application Information</button>",

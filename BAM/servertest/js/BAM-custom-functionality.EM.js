@@ -32,13 +32,16 @@ var demo2 = [
 { "man": "Bamiyan Scrolls", "wordCount": "", "GettyURI": "1065380", "loc": "Bamiyan, Afghanistan", "century": "BCE 1", "genre1": "Epistle", "work": "Epistolae ad Familiares", "link": "<a href=\"http://vocab.getty.edu/page/tgn/1065380\" target=\"_blank\">Getty URI</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0474.phi056\" target=\"_blank\">p0474056</a>"},
 { "man": "Gilgit Manuscripts", "wordCount": "", "GettyURI": "1083462", "loc": "Gilgit, Pakistan", "century": "CE 1", "genre1": "Epic", "work": "De Bello Civili / Bellum Civile / Pharsalia", "link": "<a href=\"http://vocab.getty.edu/page/tgn/1083462\" target=\"_blank\">Getty URI</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0917.phi001\" target=\"_blank\">p0917 001</a>"},
 { "man": "Khotan Darmapada", "wordCount": "", "GettyURI": "1139089", "loc": "Khotan, China", "century": "BCE 1", "genre1": "Epic", "work": "De Rerum Natura", "link": "<a href=\"http://vocab.getty.edu/page/tgn/1139089\" target=\"_blank\">Getty URI</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0550.phi001\" target=\"_blank\">p0550 001</a>"}
-// { "man": "<button>L3631</button>", "wordCount": "", "GettyURI": "Marcus Minucius Felix", "loc": "Rome, Italy", "century": "CE 2-3", "genre1": "Treatise", "work": "Octavius", "link": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a2008.01.0569\" target=\"_blank\">Perseus Digital Library</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:stoa0203.stoa001\" target=\"_blank\">stoa0203.stoa001</a>"},
-// { "man": "<button>L3824</button>", "wordCount": "", "author": "Publius Ovidius Naso", "loc": "Sulmo, Italy", "century": "BCE 1-1 CE", "genre1": "Epic", "work": "Metamorphoses", "link": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0029\" target=\"_blank\">Perseus Digital Library</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi1212.phi002\" target=\"_blank\">p1212 002</a>"},
-// { "man": "<button>L4595</button>", "wordCount": "", "author": "Gaius Sallustius Crispus", "loc": "Rome, Italy", "century": "BCE 1", "genre1": "History", "work": "Catilinae Coniuratio / Bellum Catilinae / De Catilinae Coniuratione", "link": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a2008.01.0002%3atext%3dCat.\" target=\"_blank\">Perseus Digital Library</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0631.phi001\" target=\"_blank\">p0631 001</a>"},
-// { "man": "<button>L4664</button>", "wordCount": "", "author": "Lucius Annaeus Seneca Iunior", "loc": "Cordoba, Spain / Rome, Italy", "century": "CE 1", "genre1": "Philosophy", "work": "De Constantia", "link": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a2007.01.0013\" target=\"_blank\">Perseus Digital Library</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:stoa0255.stoa009\" target=\"_blank\">p1017</a>"},
-// { "man": "<button>L5201</button>", "wordCount": "", "author": "Publius Vergilius Maro", "loc": "Mantova, Italy (born) / Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "Aeneis", "link": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0055\" target=\"_blank\">Perseus Digital Library</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0690.phi003\" target=\"_blank\">p0690 003</a>"},
-// { "man": "<button>L5199</button>", "wordCount": "", "author": "Publius Vergilius Maro", "loc": "Mantova, Italy (born) / Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "Eclogae", "link": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0056\" target=\"_blank\">Perseus Digital Library</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0690.phi001\" target=\"_blank\">p0690 001</a>"},
-// { "man": "<button>L5200</button>", "wordCount": "", "author": "Publius Vergilius Maro", "loc": "Mantova, Italy (born) / Rome, Italy", "century": "BCE 1", "genre1": "Epic", "work": "Georgica", "link": "<a href=\"http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3atext%3a1999.02.0059\" target=\"_blank\">Perseus Digital Library</a>", "catlink": "<a href=\"http://catalog.perseus.org/catalog/urn:cts:latinLit:phi0690.phi002\" target=\"_blank\">p0690 002</a>"},
+]
+
+var demo3 = [
+  {"links": "<a href=\"https://en.wikipedia.org/wiki/Dunhuang_manuscripts\" target=\"_blank\">Wikipedia, </a><a href=\"http://vocab.getty.edu/page/tgn/7001969\" target=\"_blank\">Getty URI, </a>", "place": "Peshawar, Pakistan", "cen": "4-11 CE", "name": "<b>Dunhuang Manuscripts</b>"},
+  {"links": "<a href=\"https://en.wikipedia.org/wiki/Bower_Manuscript\" target=\"_blank\">Wikipedia, </a><a href=\"http://vocab.getty.edu/page/tgn/6003207\" target=\"_blank\">Getty URI, </a>", "place": "Bamiyan, Afghanistan", "cen": "4-6 CE", "name": "<b>Bower Manuscript</b>"},
+  {"links": "<a href=\"https://en.wikipedia.org/wiki/Bakhshali_manuscript\" target=\"_blank\">Wikipedia, </a><a href=\"http://vocab.getty.edu/page/tgn/7002453\" target=\"_blank\">Getty URI, </a>", "place": "Kucha, China", "cen": "3-10 CE", "name": "<b>Bakkshali Manuscript</b>"},
+  {"links": "<a href=\"https://en.wikipedia.org/wiki/Gandh%C4%81ran_Buddhist_texts\" target=\"_blank\">Wikipedia, </a><a href=\"http://vocab.getty.edu/page/tgn/6002201\" target=\"_blank\">Getty URI, </a>", "place": "Dunhuang, China", "cen": "2-7 CE", "name": "<b>Gandharan Buddist Manuscripts</b>"},
+  {"links": "<a href=\"https://en.wikipedia.org/wiki/Birch_bark_manuscript#cite_note-Olivelle2006-6\" target=\"_blank\">Wikipedia, </a><a href=\"http://vocab.getty.edu/page/tgn/1065380\" target=\"_blank\">Getty URI, </a>", "place": "Gandhara, Pakistan", "cen": "2-8 CE", "name": "<b>Bamiyan Scrolls</b>"},
+  {"links": "<a href=\"https://en.wikipedia.org/wiki/Gilgit\" target=\"_blank\">Wikipedia, </a><a href=\"http://vocab.getty.edu/page/tgn/1083462\" target=\"_blank\">Getty URI, </a>", "place": "Gilgit, Pakistan", "cen": "5-6 CE", "name": "<b>Gilgit Manuscripts</b>"},
+  {"links": "<a href=\"https://www.cambridge.org/core/services/aop-cambridge-core/content/view/61C9E0D8D8400DA0A45EBFC0A0D29363/S0041977X00072256a.pdf/khotan_dharmapada.pdf\" target=\"_blank\">Cambridge University Press, </a><a href=\"http://vocab.getty.edu/page/tgn/1139089\" target=\"_blank\">Getty URI, </a>", "place": "Khotan, China", "cen": "1? CE", "name": "<b>Khotan Darmapada</b>"}
 ]
 
 //get from form
@@ -51,7 +54,7 @@ var genres = [];
 
 //create the table for iclaw / icaaw / ietc
 var tableMain = $('#bamMainTable').DataTable({
-    data: demo2,
+    data: demo3,
     dom: 'Bfrtip',
     buttons: [
         'colvis', 'copy', 'csv','print'
@@ -59,23 +62,24 @@ var tableMain = $('#bamMainTable').DataTable({
     "pageLength": 20,
     columns: [
       {
-        data: 'man',
+        data: 'name',
         title: 'Manuscript'
     },
     {
-        data: 'loc',
+        data: 'cen',
+        title: 'Century'
+    },
+    {
+        data: 'place',
         title: 'Location'
     },
 
-        // {
-        //     data: 'wordCount',
-        //     title: 'Occurences'
-        // },
-
         {
-            data: 'link',
-            title: 'Link'
+            data: 'links',
+            title: 'Links'
         }
+
+
         // ,
         // // {
         // //     data: 'birth',
@@ -156,17 +160,22 @@ $(document).ready(function() {
 
     $('#bamMainTable tr').click(function() {
 
-        var input = $( "#workId-WC" );
-        input.val( clickedrow );
-        var input = $( "#workId-TR" );
-        input.val( clickedrow );
+        // var input = $( "#workId-WC" );
+        // input.val( clickedrow );
+        // var input = $( "#workId-TR" );
+        // input.val( clickedrow );
 
 
-         clickedrow = $(this).find("button").html();
-        var input = $( "#workId-WC" );
-        input.val( input.val() + clickedrow );
-        var input = $( "#workId-TR" );
-        input.val( input.val() + clickedrow );
+         clickedrow = $(this).find("b").html();
+         console.log(clickedrow)
+         var m = markersList[this.model.id];
+    markers.zoomToShowLayer(m, function() {
+        m.openPopup();
+    });
+        // var input = $( "#workId-WC" );
+        // input.val( input.val() + clickedrow );
+        // var input = $( "#workId-TR" );
+        // input.val( input.val() + clickedrow );
 
         clickedrow = ""
 
