@@ -155,7 +155,7 @@ $("#iclawSubmit").click(function() {
 
     // searchDB(authors, centRange, lifeRange, locations, works, genres);
 });
-// this will be a cool way to manage some data links? TODO
+// this will be a cool way to manage some data links? TODO not ready yet
 $(document).ready(function() {
 
     $('#bamMainTable tr').click(function() {
@@ -165,10 +165,11 @@ $(document).ready(function() {
         // var input = $( "#workId-TR" );
         // input.val( clickedrow );
 
-
+//still working on making click interact with map
          clickedrow = $(this).find("b").html();
-         console.log(clickedrow)
-         var m = markersList[this.model.id];
+         console.log(clickedrow);
+         var m = geojson[i];
+
     markers.zoomToShowLayer(m, function() {
         m.openPopup();
     });
