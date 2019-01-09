@@ -11,6 +11,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
         <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+
 				<!-- <link rel="stylesheet" type="text/css" href="css/iclaw.css" /> -->
     <style>
         html,
@@ -458,21 +460,6 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 
 
-    <!-- Leaftlet and other mapping libraries-->
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-    <!-- Leaftlet buttons-->
-    <script src="js/EasyButton/src/easy-button.js"></script>
-    <link rel="stylesheet" href="js/EasyButton/src/easy-button.css" type="text/css" />
-    <!-- Leaftlet print-->
-    <script src="js/easyPrint/dist/leaflet.easyPrint.js"></script>
-    <link rel="stylesheet" href="js/easyPrint/dist/easyPrint.css" />
-    <!-- Leaftlet heat-->
-    <script src="js/LeafletHeat/dist/leaflet-heat.js"></script>
-    <!-- Leaftlet cluster-->
-    <script src="js/LeafletMarkerCluster/dist/leaflet.markercluster.js"></script>
-    <link rel="stylesheet" href="js/LeafletMarkerCluster/dist/MarkerCluster.css" />
-    <link rel="stylesheet" href="js/LeafletMarkerCluster/dist/MarkerCluster.Default.css" />
 
     <!-- Time line-->
     <script src="js/timeline/timeline.js"></script>
@@ -491,10 +478,16 @@
 
     <!-- data tables deault style for BAM-->
     <link rel="stylesheet" href="css/datatables.css" />
+		<link rel="stylesheet" href="leaflet.css" />
+		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+		<link rel="stylesheet" href="scs728.css" />
 
 
     <!-- BAM Setup, after all necessary libraries are loaded -->
     <script src="js/BAM-setup.EM.js"></script>
+		<script src="leaflet.js" charset="utf-8"></script>
+		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+		<script src="d3.v3.min.js" charset="utf-8"></script>
 
 </head>
 
@@ -695,7 +688,7 @@ Treatise -->
     <!-- <script src="js/BAM-map-functionality.js"></script> -->
 		<!-- <script src="maptest/ TODO this will need to point to a new JavaScripted version of my woah canon map-->
    <!-- <script src="../BAM/BAM-d3-functionality.js"></script> -->
-    <script src="js/BAM-layers.js"></script>
+    <script src="js/BAM-layers.EM.js"></script>
     <!--<script src="../BAM/BAM-timeline.js"></script>-->
     <script src="js/BAM-custom-functionality.EM.js"></script>
     <script src="js/BAM-cleanup.js"></script>
@@ -708,15 +701,15 @@ Treatise -->
 	      geojsonPath = 'EM.geojson',
 	      categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 	      iconField = '5065', //This is the fieldame for marker icon
-	      popupFields = ['5001'], //Popup will display these fields
+	      popupFields = ['5001','5002','5055','5003','4'], //Popup will display these fields
 	      tileServer = 'http://{s}.sm.mapstack.stamen.com/positron/{z}/{x}/{y}.png',
-	      tileAttribution = 'Map data: <a href="http://openstreetmap.org">OSM</a>, Inspiration: <a href="http://bl.ocks.org/gisminister/10001728">Bård Romstad</a>',
+	      tileAttribution = 'Map data: <a href="http://openstreetmap.org">OSM</a>, Map Inspiration: <a href="http://bl.ocks.org/gisminister/10001728">Bård Romstad</a>',
 	      rmax = 30, //Maximum radius for cluster pies
 	      markerclusters = L.markerClusterGroup({
 	        maxClusterRadius: 2*rmax,
 	        iconCreateFunction: defineClusterIcon //this is where the magic happens
 	      }),
-	      map = L.map('map').setView([0, 0], 2);
+	      map = L.map('map').setView([37.13404537126446,79.91455078125], 5);
 	    //Add basemap
 	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 10}).addTo(map);
 	    //and the empty markercluster layer
@@ -732,7 +725,7 @@ Treatise -->
 	  			onEachFeature: defineFeaturePopup
 	            });
 	            markerclusters.addLayer(markers);
-	            map.fitBounds(markers.getBounds());
+	            // map.fitBounds(markers.getBounds());
 	            map.attributionControl.addAttribution(metadata.attribution);
 	      //      renderLegend();
 	        } else {
@@ -785,7 +778,7 @@ Treatise -->
 	                              pieLabel: n,
 	                              pieLabelClass: 'marker-cluster-pie-label',
 	                              pathClassFunc: function(d){return "category-"+d.data.key;},
-	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' member'+(d.data.values.length!=1?'s':'')}
+	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' manuscripts'+(d.data.values.length!=1?'s':'')}
 	                            }),
 	          //Create a new divIcon and assign the svg markup to the html property
 	          myIcon = new L.DivIcon({
