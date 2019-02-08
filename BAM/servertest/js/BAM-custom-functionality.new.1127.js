@@ -180,7 +180,7 @@ $("#iclawSubmit").click(function() {
 //
 // });
 
-$("#TR").click(function() {
+// $("#TR").click(function() {
 
 
 
