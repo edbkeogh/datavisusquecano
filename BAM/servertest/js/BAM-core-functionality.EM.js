@@ -97,7 +97,7 @@ function informationPaneToggle(toggle, pane, button) {
         toggle = true;
     } else {
         $('#' + pane).animate({
-            right: "-50%",
+            right: "-25%",
         }, 500, function() {
             // Animation complete.
             $('#' + button).html('&#9664;');

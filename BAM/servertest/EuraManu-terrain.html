@@ -168,8 +168,8 @@
         #right-side-panel {
             position: absolute;
             top: 0;
-            right: -50%;
-            width: 50%;
+            right: -25%;
+            width: 25%;
             min-width: 300px;
             height: 100%;
             background-color: rgba(55, 89, 142, 0.65);
@@ -340,9 +340,12 @@
         }
 
         .timelineHolder {
-            height: 4px;  /*note that this has been changed to keep the div out of the way*/
-            width: 960px;
-            opacity: 10;
+						resize:both;
+						overflow: auto;
+            height: 20%;  /*note that this has been changed to keep the div out of the way*/
+            width: 50%;
+            opacity: .7;
+						background-color: #fff;
             position: absolute;
             top: 0;
             left: 25%;
@@ -351,7 +354,7 @@
         }
 
         .timeline {
-            height: 6px;
+            height: 140px;
 						/*note that this has been changed to keep the div out of the way*/
         }
 
@@ -522,7 +525,33 @@
 
     <!-- Containers-->
 	<div id="timelineHolder" class="timelineHolder">
-		<div id="timeline" class="timeline"></div>
+		<div id="timeline" class="timeline">
+
+			<table class="dataTable">
+				<thead>
+					<tr>
+						<td>Languages</td>
+						<td>Contexts</td>
+						<td>Forms</td>
+						<td>Materials</td>
+						<td>Date Ranges</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><ul id="selected_languages"></ul></td>
+						<td><ul id="selected_contexts"></ul></td>
+						<td><ul id="selected_forms"></ul></td>
+						<td><ul id="selected_materials"></ul></td>
+						<td><ul id="selected_date_range"></ul></td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+
+			<br />
+
+</div>
 	</div>
 
     <!-- the map div holds most of our application-->
@@ -533,8 +562,7 @@
     		</span>
     		<div class="navbar-brand" id="navbar-brand">
     		</div>
-			<br />
-			<br />
+
 			<!-- this holds application buttons-->
 			<div id="bamButtonHolder">
 				</div>
@@ -563,62 +591,37 @@
         <br />
 		</div> -->
 
-						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/list.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Demo Work List</button>
+						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/list.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Select Search Parameters</button>
 <div class="panel">
 <div id="genreText" class="darkText">
-<br />
-Dunhuang manuscripts
-<br />
-Bower Manuscript
-<br />
-Bakkshali Manuscript
-<br />
-Gandharan Buddist Manuscripts
-
-<br />
-Bamiyan Scrolls
-
-<br />
-Gilgit Manuscripts
-
-<br />
-Khotan Darmapada
-<!-- Minucius Felix, Octavius
-<br />
-Ovid, Metamorphoses
-<br />
-Sallust, Catlinae Coniuratio
-<br />
-Seneca, De Constantia
-<br />
-Vergil, Aeneid
-<br />
-Vergil, Eclogues
-<br />
-Vergil, Georgics -->
-<!-- <br />
-Mythography
-<br />
-Novel
-<br />
-Oracles
-<br />
-Speech
-<br />
-Rhetoric
-<br />
-Ritual
-<br />
-Satire
-<br />
-Scientific
-<br />
-Technical
-<br />
-Tragedy
-<br />
-Treatise -->
-<br />
+	<select id="languages">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('languages')">Add</button>
+	<br />
+	<select id="contexts">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('contexts')">Add</button>
+	<br />
+	<select id="forms">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('forms')">Add</button>
+	<br />
+	<select id="materials">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('materials')">Add</button>
+	<br />
+	<br />
+	Start Date: <input type="number" step="1" min="1" max="4000" id="startDate"> <select id="startNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
+	<br />
+	End Date:  <input type="number" step="1" min="1" max="4000" id="endDate"> <select id="endNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
+	<button onclick="addDateRange()">Add</button>
+	<br />
+	<br />
+	<button onclick="search()">Search</button><button onclick="clearParams()">Clear Search Parameters</button>
 </div>
 </div>
 			<div id="left-btn-slide-toggle" class="slider-icon">&#9664;
@@ -634,61 +637,10 @@ Treatise -->
 			</div>
 			<div id="right-side-headline" class="right-title"><h3>Search the Database</h3>
 			</div>
-			<select id="languages">
-				<option>N/A</option>
-			</select>
-			<button onclick="addSearchParam('languages')">Add Language</button>
-			<br />
-			<select id="contexts">
-				<option>N/A</option>
-			</select>
-			<button onclick="addSearchParam('contexts')">Add Context</button>
-			<br />
-			<select id="forms">
-				<option>N/A</option>
-			</select>
-			<button onclick="addSearchParam('forms')">Add Form</button>
-			<br />
-			<select id="materials">
-				<option>N/A</option>
-			</select>
-			<button onclick="addSearchParam('materials')">Add Material</button>
-			<br />
-			<br />
-			Start Date: <input type="number" step="1" min="1" id="startDate"> <select id="startNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
-			<br />
-			End Date:  <input type="number" step="1" min="1" id="endDate"> <select id="endNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
-			<button onclick="addDateRange()">Add Date Range</button>
-			<br />
-			<br />
-<div id="search_param1">
-			Selected search parameters:
-			<table class="search_param">
-				<thead>
-					<tr>
-						<td>Languages</td>
-						<td>Contexts</td>
-						<td>Forms</td>
-						<td>Materials</td>
-						<td>Date Ranges</td>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><ul id="selected_languages"></ul></td>
-						<td><ul id="selected_contexts"></ul></td>
-						<td><ul id="selected_forms"></ul></td>
-						<td><ul id="selected_materials"></ul></td>
-						<td><ul id="selected_date_range"></ul></td>
-					</tr>
-				</tbody>
-			</table>
-			<br />
-			<button onclick="search()">Search</button>
-			<br />
-			<button onclick="clearParams()">Clear Search Params</button>
 
-</div>
+			<br />
+			<br />
+
 			<div id="right-side-headline" class="right-title">
 			</div>
 			<div id="right-side-text-main" class="right-side-text-main">
