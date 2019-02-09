@@ -676,7 +676,8 @@
 	      categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 	      iconField = '5065', //This is the fieldame for marker icon
 	      popupFields = ['5001','5002','5055','5003','4'], //Popup will display these fields
-	      tileServer = 'http://{s}.sm.mapstack.stamen.com/terrain/{z}/{x}/{y}.png',
+				//tileServer = 'http://{s}.sm.mapstack.stamen.com/terrain/{z}/{x}/{y}.png', // for the terrain plus political
+	      tileServer = 'http://a.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png',
 	      tileAttribution = '<a href="http://maps.stamen.com/">Map tiles</a> by <a href="http://stamen.com">Stamen Design</a>, under <a target="_top" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data: <a href="http://openstreetmap.org">OSM</a>, Map Inspiration: <a href="http://bl.ocks.org/gisminister/10001728">Bård Romstad</a>',
 	      rmax = 30, //Maximum radius for cluster pies
 	      markerclusters = L.markerClusterGroup({
