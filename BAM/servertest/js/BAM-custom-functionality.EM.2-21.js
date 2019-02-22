@@ -2,7 +2,7 @@
 //set variables
 //not functional until the server is moved and updated
 //var urlPath = 'http://latincanon.spencerschmalz.com/wordcount/inc/api.php';
-var urlFacet = 'http://s-lib024.lib.uiowa.edu/greekandlatincanons/latin/search_function/inc/api.php';
+var urlFacet = 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/latin/search_function/inc/api.php';
 
 var clicked = ""
 var clickedrow = ""
