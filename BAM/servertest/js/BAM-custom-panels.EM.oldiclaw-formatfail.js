@@ -136,6 +136,8 @@ function addSearchParam(selectID) {
 }
 
 function search() {
+tableMain.clear();
+
 	if (searchData['languages'].length < 1) return alert('You must select a language to search');
 	let data = {'functionName': 'searchDB'};
 	for (let i in paramTypes) {
@@ -149,28 +151,67 @@ function search() {
 		type: 'POST',
 		url: 'http://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
 		data: data,
-		success: function(res) {
-			let results = JSON.parse(res);
+// 		success: function(res) {
+// 			let results = JSON.parse(res);
+//
+//       // Populate the results table
+//       let tableBody = document.getElementById('bamMainTable');
+//       tableBody.innerHTML = '';
+//       results['manuscripts'].forEach(function(item) {
+//         let tableRow = "<tr>";
+//
+//         // Go through each column and add it to the table if the column is in keys
+//         keys.forEach(function(key) {
+//           tableRow += "<td>";
+//           if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
+//             tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
+//           } else {
+//             tableRow += item[key];
+//           }
+//           tableRow += "</td>";
+//         });
+//         tableRow += "</tr>";
+//         tableBody.innerHTML += tableRow;
+//       });
+// }
 
-      // Populate the results table
-      let tableBody = document.getElementById('bamMainTable');
-      tableBody.innerHTML = '';
-      results['manuscripts'].forEach(function(item) {
-        let tableRow = "<tr>";
+      success: function(res) {
+          //populate table
+	let results = JSON.parse(res);
+  console.log(results);
+    console.log(results.manuscripts[0]);
+          // if (!("error" in res)) {
+          //     //callback(obj.genres);
+          //     console.log(res);
+          // } else {
+          //     console.log(res.error);
+          // }
+          tableMain.rows.add(results.manuscripts);
+      },
+      error: function(XMLHttpRequest, errorThrown) {
+          // console.log("Status: " + textStatus);
+          console.log("Error: " + errorThrown);
+          console.log(XMLHttpRequest);
+          //rebuild blank table
+      },
+      complete: function(res) {
+          //just resetting all the values, as spaces and nulls were driving the search PHP insane
+          //get from form
+          var id = [];
+          var manuscript = [];
+          var language = [];
+          var locations = [];
+          var geopolitical_context = [];
+          var terminus_post_quem = [];
+          var terminus_ante_quem = [];
+          var form = [];
+          var substrate_material = [];
+          //redraw table
+          tableMain.draw();
+    //show the table!
+    $('#databaseBox').show();
+      }
 
-        // Go through each column and add it to the table if the column is in keys
-        keys.forEach(function(key) {
-          tableRow += "<td>";
-          if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
-            tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
-          } else {
-            tableRow += item[key];
-          }
-          tableRow += "</td>";
-        });
-        tableRow += "</tr>";
-        tableBody.innerHTML += tableRow;
-      });
       //
       // // Populate the witnesses table
       // tableBody = document.getElementById('witness-results-table');
@@ -192,7 +233,7 @@ function search() {
       //   tableBody.innerHTML += tableRow;
       // });
 
-		}
+
 	});
 }
 

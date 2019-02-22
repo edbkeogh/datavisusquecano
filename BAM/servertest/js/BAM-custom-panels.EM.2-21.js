@@ -151,7 +151,7 @@ function search() {
 		data: data,
 		success: function(res) {
 			let results = JSON.parse(res);
-
+console.log(results)
       // Populate the results table
       let tableBody = document.getElementById('bamMainTable');
       tableBody.innerHTML = '';
