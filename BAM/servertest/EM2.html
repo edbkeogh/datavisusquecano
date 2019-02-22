@@ -673,28 +673,41 @@
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
 		<script>
 	    "use strict"
-			var markers = L.geoJson(geojson, {
-			pointToLayer: defineFeature,
-			onEachFeature: defineFeaturePopup
-			});
-
-	    var geojson,
-	      metadata,
-				feature,
-	      geojsonPath = 'EM.2-21.geojson',
-				idField = '5004',
-	      categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
-	      iconField = '5065', //This is the fieldame for marker icon
-	      popupFields = ['5001','5002','5055','5003','4'], //Popup will display these fields
-				//tileServer = 'http://{s}.sm.mapstack.stamen.com/terrain/{z}/{x}/{y}.png', // for the terrain plus political
-	      tileServer = 'https://a.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png',
-	      tileAttribution = '<a href="http://maps.stamen.com/">Map tiles</a> by <a href="http://stamen.com">Stamen Design</a>, under <a target="_top" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data: <a href="http://openstreetmap.org">OSM</a>, Map Inspiration: <a href="http://bl.ocks.org/gisminister/10001728">Bård Romstad</a>',
-	      rmax = 30, //Maximum radius for cluster pies
+	    var markers = L.geoJson(geojson, {
+	    pointToLayer: defineFeature,
+	    onEachFeature: defineFeaturePopup
+	    });
+	  // var t = document.getElementById("search").value;
+	  //   // Get the input field
+	  //   var input = document.getElementById("search");
+	  //
+	  //   // Execute a function when the user releases a key on the keyboard
+	  //   input.addEventListener("keyup", function(event) {
+	  //     // Cancel the default action, if needed
+	  //     event.preventDefault();
+	  //     // Number 13 is the "Enter" key on the keyboard
+	  //     if (event.keyCode === 13) {
+	  //       // Trigger the button element with a click
+	  //       document.getElementById("searchclicked").click();
+	  //     }
+	  //   });
+		var geojson,
+			metadata,
+			feature,
+		geojsonPath = 'EM.2-21.geojson',
+		idField = '5004',
+		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
+		iconField = '5065', //This is the fieldame for marker icon
+		popupFields = ['5001','5002','5055','5003','4'], //Popup will display these fields
+		//tileServer = 'http://{s}.sm.mapstack.stamen.com/terrain/{z}/{x}/{y}.png', // for the terrain plus political
+		tileServer = 'https://a.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png',
+		tileAttribution = '<a href="http://maps.stamen.com/">Map tiles</a> by <a href="http://stamen.com">Stamen Design</a>, under <a target="_top" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data: <a href="http://openstreetmap.org">OSM</a>, Map Inspiration: <a href="http://bl.ocks.org/gisminister/10001728">Bård Romstad</a>',
+		rmax = 30, //Maximum radius for cluster pies
 	      markerclusters = L.markerClusterGroup({
 	        maxClusterRadius: 2*rmax,
 	        iconCreateFunction: defineClusterIcon //this is where the magic happens
 	      }),
-	      map = L.map('map');//.setView([37.13404537126446,79.91455078125], 5);
+	      map = L.map('map').setView([0, 0], 0);
 	    //Add basemap
 	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 10}).addTo(map);
 	    //and the empty markercluster layer
@@ -705,7 +718,9 @@
 	            geojson = data;
 	            metadata = data.properties;
 	  		  console.log(data)
-	            var markers = L.geoJson(geojson, {
+	        //  console.log(JSON.stringify(geojson.features))
+	        var testing =
+	           markers = L.geoJson(geojson, {
 	  			pointToLayer: defineFeature,
 	  			onEachFeature: defineFeaturePopup
 	            });
@@ -716,40 +731,98 @@
 	        } else {
 	  	  console.log('Could not load data...');
 	        }
-
-	//
-	// var searchControl = new L.Control.Search({
-	// 	layer: marker,
-	// 	propertyName: 'name',
-	// 	marker: false,
-	// 	moveToLocation: function(latlng, title, map) {
-	// 		//map.fitBounds( latlng.layer.getBounds() );
-	// 		var zoom = map.getBoundsZoom(latlng.layer.getBounds());
-  // 			map.setView(latlng, zoom); // access the zoom
-	// 	}
-	// });
-	//
-	// searchControl.on('search:locationfound', function(e) {
-	//
-	// 	//console.log('search:locationfound', );
-	//
-	// 	//map.removeLayer(this._markerSearch)
-	//
-	// 	e.layer.setStyle({fillColor: '#3f0', color: '#0f0'});
-	// 	if(e.layer._popup)
-	// 		e.layer.openPopup();
-	//
-	// }).on('search:collapsed', function(e) {
-	//
-	// 	featuresLayer.eachLayer(function(layer) {	//restore feature color
-	// 		featuresLayer.resetStyle(layer);
-	// 	});
-	// });
-	//
-	// map.addControl( searchControl );  //inizialize search control
-
 	    });
+	  function clearMap() {
+	    markerclusters.clearLayers();
+	  }
 
+	  function showallMap() {
+	    markerclusters.clearLayers();
+	    markerclusters.addLayer(markers);
+	    map.fitBounds(markers.getBounds());
+	  }
+
+	  function hideDefault() {
+	    markerclusters.clearLayers();
+	  console.log("button pressed")
+	  var fil = L.geoJson(geojson, {
+	    filter: function(feature, layer) {
+	      switch(feature.properties[categoryField]) {
+	    case 6:
+	      return true
+	      break;
+	    case 7:
+	      return true
+	      break;
+	      default:
+	        return false
+	          //  return feature.properties[categoryField] = 6;
+	        }
+	      },
+	  pointToLayer: defineFeature,
+	  onEachFeature: defineFeaturePopup
+	   });
+	  markerclusters.addLayer(fil);
+
+
+	  map.fitBounds(fil.getBounds());
+	  }
+
+	  function showHell() {
+	    markerclusters.clearLayers();
+	  console.log("button pressed")
+	  var fil = L.geoJson(geojson, {
+	    filter: function(feature, layer) {
+	      switch(feature.properties[categoryField]) {
+	    case 6:
+	      return true
+	      break;
+	    case 7:
+	      return false
+	      break;
+	      default:
+	        return false
+	          //  return feature.properties[categoryField] = 6;
+	        }
+	      },
+	  pointToLayer: defineFeature,
+	  onEachFeature: defineFeaturePopup
+	   });
+	  markerclusters.addLayer(fil);
+
+
+	  map.fitBounds(fil.getBounds());
+	  }
+
+	  function showLat() {
+	    markerclusters.clearLayers();
+	  console.log("button pressed")
+	  var fil = L.geoJson(geojson, {
+	    filter: function(feature, layer) {
+	      switch(feature.properties[categoryField]) {
+	    case 6:
+	      return false
+	      break;
+	    case 7:
+	      return true
+	      break;
+	      default:
+	        return false
+	          //  return feature.properties[categoryField] = 6;
+	        }
+	      },
+	  pointToLayer: defineFeature,
+	  onEachFeature: defineFeaturePopup
+	   });
+	  markerclusters.addLayer(fil);
+
+
+	  map.fitBounds(fil.getBounds());
+	  }
+
+	  function resize() {
+	    map.fitBounds(markers.getBounds());
+	  }
 
 	  function defineFeature(feature, latlng) {
 	    var categoryVal = feature.properties[categoryField],
@@ -885,48 +958,48 @@
 	      }
 	      return "";
 	  }
-
-function showallMap() {
-	markerclusters.clearLayers();
-	markerclusters.addLayer(markers);
-	map.fitBounds(markers.getBounds());
-
-}
-
-function clearMap() {
-  markerclusters.clearLayers();
-
-}
-		function refreshMap() {
-
-			markerclusters.clearLayers();
-		console.log("one step")
-		var fil = L.geoJson(geojson, {
-			filter: function(feature, layer) {
-				switch(feature.properties[categoryField]) {
-			case 0:
-				return true
-				break;
-			case 7:
-				return true
-				break;
-				default:
-					return false
-
-						//    xx.includes(feature.properties[idField])
-						//  return feature.properties[categoryField] = 6;
-						// return feature.properties[categoryField] === 6;
-					}
-				},
-		pointToLayer: defineFeature,
-		onEachFeature: defineFeaturePopup
-		 });
-		markerclusters.addLayer(fil);
-console.log("step2")
-
-		 map.fitBounds(fil.getBounds());
-
-		}
+//
+// function showallMap() {
+// 	markerclusters.clearLayers();
+// 	markerclusters.addLayer(markers);
+// 	map.fitBounds(markers.getBounds());
+//
+// }
+//
+// function clearMap() {
+//   markerclusters.clearLayers();
+//
+// }
+// 		function refreshMap() {
+//
+// 			markerclusters.clearLayers();
+// 		console.log("one step")
+// 		var fil = L.geoJson(geojson, {
+// 			filter: function(feature, layer) {
+// 				switch(feature.properties[categoryField]) {
+// 			case 0:
+// 				return true
+// 				break;
+// 			case 7:
+// 				return true
+// 				break;
+// 				default:
+// 					return false
+//
+// 						//    xx.includes(feature.properties[idField])
+// 						//  return feature.properties[categoryField] = 6;
+// 						// return feature.properties[categoryField] === 6;
+// 					}
+// 				},
+// 		pointToLayer: defineFeature,
+// 		onEachFeature: defineFeaturePopup
+// 		 });
+// 		markerclusters.addLayer(fil);
+// console.log("step2")
+//
+// 		 map.fitBounds(fil.getBounds());
+//
+// 		}
 
 	  </script>
 
