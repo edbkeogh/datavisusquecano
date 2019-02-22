@@ -672,8 +672,14 @@
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
 		<script>
 	    "use strict"
+			var markers = L.geoJson(geojson, {
+			pointToLayer: defineFeature,
+			onEachFeature: defineFeaturePopup
+			});
+
 	    var geojson,
 	      metadata,
+				feature,
 	      geojsonPath = 'EM.2-21.geojson',
 				idField = '5004',
 	      categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
@@ -743,36 +749,6 @@
 
 	    });
 
-			function refreshMap() {
-
-			  markerclusters.clearLayers();
-			console.log("one step")
-			var fil = L.geoJson(geojson, {
-			  filter: function(feature, layer) {
-			    switch(feature.properties[categoryField]) {
-			  case 0:
-			    return true
-			    break;
-			  case 7:
-			    return false
-			    break;
-			    default:
-			      return false
-
-						  //    xx.includes(feature.properties[idField])
-			        //  return feature.properties[categoryField] = 6;
-			        // return feature.properties[categoryField] === 6;
-			      }
-			    },
-			pointToLayer: defineFeature,
-			onEachFeature: defineFeaturePopup
-			 });
-			markerclusters.addLayer(fil);
-console.log("step2")
-
-			 map.fitBounds(fil.getBounds());
-
-			}
 
 	  function defineFeature(feature, latlng) {
 	    var categoryVal = feature.properties[categoryField],
@@ -908,6 +884,38 @@ console.log("step2")
 	      }
 	      return "";
 	  }
+
+		function refreshMap() {
+
+			markerclusters.clearLayers();
+		console.log("one step")
+		var fil = L.geoJson(geojson, {
+			filter: function(feature, layer) {
+				switch(feature.properties[categoryField]) {
+			case 0:
+				return true
+				break;
+			case 7:
+				return true
+				break;
+				default:
+					return false
+
+						//    xx.includes(feature.properties[idField])
+						//  return feature.properties[categoryField] = 6;
+						// return feature.properties[categoryField] === 6;
+					}
+				},
+		pointToLayer: defineFeature,
+		onEachFeature: defineFeaturePopup
+		 });
+		markerclusters.addLayer(fil);
+console.log("step2")
+
+		 map.fitBounds(fil.getBounds());
+
+		}
+
 	  </script>
 
 
