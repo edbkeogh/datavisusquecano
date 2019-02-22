@@ -568,6 +568,7 @@
 			<div id="bamButtonHolder">
 				<button onclick="clearMap()">Clear Map</button>
 				<button onclick="showallMap()">Show All</button>
+				<button onclick="showHell()">Show Searched</button>
 				</div>
 
 				<!-- <button id="searchButton" class="accordion accordionExp"><img src="images/open-iconic/clock.svg" class="accordianImage" alt="magnifying-glass">&nbsp;&nbsp;&nbsp;&nbsp;Search The Canon (demo)</button>
@@ -694,7 +695,8 @@
 		var geojson,
 			metadata,
 			feature,
-		geojsonPath = 'EM.2-21.geojson',
+			fil,
+		geojsonPath = 'EM.2-22.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -769,29 +771,30 @@
 	  }
 
 	  function showHell() {
-	    markerclusters.clearLayers();
-	  console.log("button pressed")
-	  var fil = L.geoJson(geojson, {
-	    filter: function(feature, layer) {
-	      switch(feature.properties[categoryField]) {
-	    case 6:
-	      return true
-	      break;
-	    case 7:
-	      return false
-	      break;
-	      default:
-	        return false
-	          //  return feature.properties[categoryField] = 6;
-	        }
-	      },
-	  pointToLayer: defineFeature,
-	  onEachFeature: defineFeaturePopup
-	   });
-	  markerclusters.addLayer(fil);
+			markerclusters.clearLayers();
+    console.log("button pressed")
+    var fil = L.geoJson(geojson, {
+      filter: function(feature, layer) {
+        switch(feature.properties[idField]) {
+      case 6:
+        return true
+        break;
+      case 4:
+        return true
+        break;
+        default:
+          return false
+            //  return feature.properties[categoryField] = 6;
+							//	xx.includes(feature.properties[idField])
+          }
+        },
+    pointToLayer: defineFeature,
+    onEachFeature: defineFeaturePopup
+     });
+    markerclusters.addLayer(fil);
 
 
-	  map.fitBounds(fil.getBounds());
+    map.fitBounds(fil.getBounds());
 	  }
 
 	  function showLat() {
