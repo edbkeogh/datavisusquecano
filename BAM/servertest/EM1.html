@@ -561,10 +561,12 @@
 			<span id="navbar-image" class="navbar-image">
     		</span>
     		<div class="navbar-brand" id="navbar-brand">
+
     		</div>
 
 			<!-- this holds application buttons-->
 			<div id="bamButtonHolder">
+				<button onclick="refreshMap()">Show Search Map</button>
 				</div>
 
 				<!-- <button id="searchButton" class="accordion accordionExp"><img src="images/open-iconic/clock.svg" class="accordianImage" alt="magnifying-glass">&nbsp;&nbsp;&nbsp;&nbsp;Search The Canon (demo)</button>
@@ -672,7 +674,8 @@
 	    "use strict"
 	    var geojson,
 	      metadata,
-	      geojsonPath = 'EM.geojson',
+	      geojsonPath = 'EM.2-21.geojson',
+				idField = '5004',
 	      categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 	      iconField = '5065', //This is the fieldame for marker icon
 	      popupFields = ['5001','5002','5055','5003','4'], //Popup will display these fields
@@ -684,7 +687,7 @@
 	        maxClusterRadius: 2*rmax,
 	        iconCreateFunction: defineClusterIcon //this is where the magic happens
 	      }),
-	      map = L.map('map').setView([37.13404537126446,79.91455078125], 5);
+	      map = L.map('map')//.setView([37.13404537126446,79.91455078125], 5);
 	    //Add basemap
 	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 10}).addTo(map);
 	    //and the empty markercluster layer
@@ -700,7 +703,7 @@
 	  			onEachFeature: defineFeaturePopup
 	            });
 	            markerclusters.addLayer(markers);
-	            // map.fitBounds(markers.getBounds());
+	            map.fitBounds(markers.getBounds());
 	            map.attributionControl.addAttribution(metadata.attribution);
 	      //      renderLegend();
 	        } else {
@@ -739,6 +742,35 @@
 	// map.addControl( searchControl );  //inizialize search control
 
 	    });
+
+			function refreshMap() {
+
+			  markerclusters.clearLayers();
+			console.log("one step")
+			var fil = L.geoJson(geojson, {
+			  filter: function(feature, layer) {
+			    switch(feature.properties[categoryField]) {
+			  case 0:
+			    return true
+			    break;
+			  case 7:
+			    return false
+			    break;
+			    default:
+			      return false
+			        //  return feature.properties[categoryField] = 6;
+			        // return feature.properties[categoryField] === 6;
+			      }
+			    },
+			pointToLayer: defineFeature,
+			onEachFeature: defineFeaturePopup
+			 });
+			markerclusters.addLayer(fil);
+console.log("step2")
+
+			 map.fitBounds(fil.getBounds());
+
+			}
 
 	  function defineFeature(feature, latlng) {
 	    var categoryVal = feature.properties[categoryField],

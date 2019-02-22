@@ -311,6 +311,27 @@ function searchDB(authors, centRange, lifeRange, locations, works, genres) {
             genres = [];
             //redraw table
             tableMain.draw();
+
+            markerclusters.clearLayers();
+          console.log("button pressed")
+          var fil = L.geoJson(geojson, {
+            filter: function(feature, layer) {
+              xx.includes(feature.properties[idField])
+
+                  //  return feature.properties[categoryField] = 6;
+                  // return feature.properties[categoryField] === 6;
+
+              },
+          pointToLayer: defineFeature,
+          onEachFeature: defineFeaturePopup
+           });
+          markerclusters.addLayer(fil);
+
+
+          map.fitBounds(fil.getBounds());
+
+
+
 			//show the table!
 			$('#databaseBox').show();
         }

@@ -2,8 +2,9 @@
 //holds all of the panels for the application. These are HIGHLY variable for each individual app
 
 
-
-
+var searchIDs = []
+var xx = [];
+y = ['2', '4', '7']
 //the attribute box holds attributes for the map selection
 var attributeBoxHtml = '<div id="attributeBox" class="nonMapOverlay"> <div id="attributeBoxClose" class="popupCloseCarte">x</div> <div id="attributeBoxContents"></div> </div>';
 $( "#panelHolder" ).append(attributeBoxHtml);
@@ -136,6 +137,7 @@ function addSearchParam(selectID) {
 }
 
 function search() {
+
 tableMain.clear();
 
 	if (searchData['languages'].length < 1) return alert('You must select a language to search');
@@ -178,8 +180,20 @@ tableMain.clear();
       success: function(res) {
           //populate table
 	let results = JSON.parse(res);
-  console.log(results);
-    console.log(results.manuscripts[0]);
+
+  // console.log(results);
+    console.log(results.manuscripts);
+searchIDs = results.manuscripts;
+
+var term = (Object.keys(searchIDs[0])[0]);
+console.log(searchIDs[0][term]);
+
+for (i in searchIDs) {
+  xx[i] = searchIDs[i].id;
+
+}
+console.log(xx)
+        // console.log(results.manuscripts.keys[0]);
           // if (!("error" in res)) {
           //     //callback(obj.genres);
           //     console.log(res);
@@ -208,8 +222,11 @@ tableMain.clear();
           var substrate_material = [];
           //redraw table
           tableMain.draw();
+
+
     //show the table!
     $('#databaseBox').show();
+  //  refreshMap();
       }
 
       //
