@@ -180,7 +180,7 @@ tableMain.clear();
       success: function(res) {
           //populate table
 	let results = JSON.parse(res);
-
+xx = []
   // console.log(results);
     console.log(results.manuscripts);
 searchIDs = results.manuscripts;
@@ -222,7 +222,7 @@ console.log(xx)
           var substrate_material = [];
           //redraw table
           tableMain.draw();
-
+showHell();
 
     //show the table!
     $('#databaseBox').show();

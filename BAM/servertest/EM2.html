@@ -568,7 +568,7 @@
 			<div id="bamButtonHolder">
 				<button onclick="clearMap()">Clear Map</button>
 				<button onclick="showallMap()">Show All</button>
-				<button onclick="showHell()">Show Searched</button>
+				<!-- <button onclick="showHell()">Show Searched</button> -->
 				</div>
 
 				<!-- <button id="searchButton" class="accordion accordionExp"><img src="images/open-iconic/clock.svg" class="accordianImage" alt="magnifying-glass">&nbsp;&nbsp;&nbsp;&nbsp;Search The Canon (demo)</button>
@@ -674,6 +674,7 @@
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
 		<script>
 	    "use strict"
+			var sw = "";
 	    var markers = L.geoJson(geojson, {
 	    pointToLayer: defineFeature,
 	    onEachFeature: defineFeaturePopup
@@ -711,7 +712,7 @@
 	      }),
 	      map = L.map('map').setView([0, 0], 0);
 	    //Add basemap
-	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 10}).addTo(map);
+	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 5}).addTo(map);
 	    //and the empty markercluster layer
 	    map.addLayer(markerclusters);
 	    //Ready to go, load the geojson
@@ -771,17 +772,24 @@
 	  }
 
 	  function showHell() {
+
+		//const iterator = xx.values();
+
+//for (const value of iterator) {
+//  sw += " case " + value + ": return true break; "; // expected output: "a" "b" "c"
+//}
 			markerclusters.clearLayers();
     console.log("button pressed")
     var fil = L.geoJson(geojson, {
       filter: function(feature, layer) {
-        switch(feature.properties[idField]) {
-      case 6:
+        switch(xx.includes(feature.properties[idField])) {
+
+			case true:
         return true
         break;
-      case 4:
-        return true
-        break;
+      // case 4:
+      //   return true
+      //   break;
         default:
           return false
             //  return feature.properties[categoryField] = 6;
