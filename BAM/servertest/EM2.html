@@ -484,6 +484,7 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <!-- jquery ui for interface enhancements-->
+		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
 
@@ -568,7 +569,7 @@
 			<div id="bamButtonHolder">
 				<button onclick="clearMap()">Clear Map</button>
 				<button onclick="showallMap()">Show All</button>
-				<!-- <button onclick="showHell()">Show Searched</button> -->
+				<button onclick="resize()"><i class="fas">&#xf31e;</i></button>
 				</div>
 
 				<!-- <button id="searchButton" class="accordion accordionExp"><img src="images/open-iconic/clock.svg" class="accordianImage" alt="magnifying-glass">&nbsp;&nbsp;&nbsp;&nbsp;Search The Canon (demo)</button>
@@ -710,9 +711,9 @@
 	        maxClusterRadius: 2*rmax,
 	        iconCreateFunction: defineClusterIcon //this is where the magic happens
 	      }),
-	      map = L.map('map').setView([0, 0], 0);
+	      map = L.map('map');//.setView([0, 0], 0);
 	    //Add basemap
-	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 5}).addTo(map);
+	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 10}).addTo(map);
 	    //and the empty markercluster layer
 	    map.addLayer(markerclusters);
 	    //Ready to go, load the geojson
@@ -802,7 +803,7 @@
     markerclusters.addLayer(fil);
 
 
-    map.fitBounds(fil.getBounds());
+     map.fitBounds(fil.getBounds());
 	  }
 
 	  function showLat() {
