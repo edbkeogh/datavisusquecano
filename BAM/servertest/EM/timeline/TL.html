@@ -1,0 +1,15 @@
+<head>
+	<script src="//unpkg.com/timelines-chart@2"></script>
+	<script src="dataformat.js"></script>
+</head>
+
+<body>
+	<div id="myPlot"></div>
+
+	<script>
+		TimelinesChart()
+			.data(tldata)
+			.zQualitative(true)
+			(document.getElementById('myPlot'));
+	</script>
+</body>
