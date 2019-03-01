@@ -1,5 +1,5 @@
 <head>
-	<script src="//unpkg.com/timelines-chart@2"></script>
+	<script src="timeline.js"></script>
 	<script src="dataformat.js"></script>
 </head>
 
@@ -7,7 +7,13 @@
 	<div id="myPlot"></div>
 
 	<script>
+  var timebuffer = 100
 		TimelinesChart()
+    .maxLineHeight([20])
+//    .leftMargin([250])
+  //  .width([])
+    .xTickFormat(n => +n)
+.timeFormat('%Q')
 			.data(tldata)
 			.zQualitative(true)
 			(document.getElementById('myPlot'));
