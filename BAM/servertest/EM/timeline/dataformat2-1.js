@@ -94,8 +94,12 @@ var tldata = [
   data: [
     {
       timeRange: [400, 700],
-      val: 'Birchbark; Paper'//<val: number (continuous dataScale) or string (ordinal dataScale)>
-    }
+      val: 'Paper'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+    },
+    {
+      timeRange: [400, 700],
+      val: 'Birchbark'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+    },
   ]
 }
   // (...)
