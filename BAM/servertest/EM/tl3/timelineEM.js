@@ -350,10 +350,10 @@ function timeline(domElement) {
 
         function getHtml(element, d) {
             var html;
-            if (element.attr("class") == "interval") {
-                html = d.label + "<br>" + toYear(d.start) + " - " + toYear(d.end)+ "<br>" + d.lang_label;
+            if (element.attr("class") == "part interval") {
+                html = d.label + "<br>" + toYear(d.start) + " - " + toYear(d.end) + "<br>" + d.lang_label;
             } else {
-                html = d.label + "<br>" + toYear(d.start)+ "<br>" + d.lang_label;
+                html = d.label + "<br>Range: " + toYear(d.start) + " - " + toYear(d.end) + "<br>" + d.lang_label;
             }
             return html;
         }
