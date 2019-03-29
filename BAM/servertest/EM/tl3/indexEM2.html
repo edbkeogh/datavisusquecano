@@ -15,7 +15,7 @@
 
     <!-- Store these two files in your application directory or on your path. -->
     <script src="timelineEM.js"></script>
-    <!-- <script src="timelineEM2.js"></script> -->
+    <script src="timelineEM2.js"></script>
     <link href="timeline.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -23,7 +23,7 @@
 <body>
 
 <div id="timeline"></div>
-<!-- <div id="timeline2"></div> -->
+<div id="timeline2"></div>
 
 
 <script>
@@ -83,7 +83,7 @@
 
     // Define domElement and sourceFile
     var domElement = "#timeline";
-    // var domElement2 = "#timeline2";
+    var domElement2 = "#timeline2";
     var sourceFile = "testcsv1.csv";
 
     // Read in the data and construct the timeline
@@ -101,7 +101,17 @@
             .brush("naviBand", ["mainBand"])
             .redraw();
 
-
+            timeline2(domElement2)
+                // .data(dataset)
+                .band("mainBand", 0.82)
+                .band("naviBand", 0.08)
+                .xAxis("mainBand")
+                .tooltips("mainBand")
+                .xAxis("naviBand")
+                .labels("mainBand")
+                .labels("naviBand")
+                .brush("naviBand", ["mainBand"])
+                .redraw();
 
 
     });

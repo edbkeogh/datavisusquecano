@@ -10,7 +10,7 @@ function timeline(domElement) {
 
     // chart geometry
     var margin = {top: 20, right: 20, bottom: 20, left: 20},
-        outerWidth = 960,
+        outerWidth = 1280,//960,
         outerHeight = 500,
         width = outerWidth - margin.left - margin.right,
         height = outerHeight - margin.top - margin.bottom;
@@ -222,8 +222,8 @@ function timeline(domElement) {
             .attr("fill", function(d) { return d.lang_color;});
         intervals.append("text")
             .attr("class", "intervalLabel")
-            .attr("x", 1)
-            .attr("y", 10)
+            .attr("x", 2)
+            .attr("y", 13)
             .text(function (d) { return d.label; });
 
         var instants = d3.select("#band" + bandNum).selectAll(".instant");
@@ -234,8 +234,8 @@ function timeline(domElement) {
             .attr("fill", function(d) { return d.lang_color;});
         instants.append("text")
             .attr("class", "instantLabel")
-            .attr("x", 15)
-            .attr("y", 10)
+            .attr("x", 13)
+            .attr("y", 12)
 
             .text(function (d) { return d.label; });
 
