@@ -1,7 +1,7 @@
 //  A timeline component for d3
 //  version v0.1
 
-function timeline(domElement) {
+function timeline2(domElement2) {
 
     //--------------------------------------------------------------------------
     //
@@ -25,7 +25,7 @@ function timeline(domElement) {
         bandNum = 0;     // Count of bands for ids
 
     // Create svg element
-    var svg = d3.select(domElement).append("svg")
+    var svg = d3.select(domElement2).append("svg")
         .attr("class", "svg")
         .attr("id", "svg")
         .attr("width", outerWidth)
@@ -161,8 +161,8 @@ function timeline(domElement) {
         //calculateTracks(data.items, "ascending", "backward");
         //calculateTracks(data.items, "descending", "forward");
         // Show real data
-        // calculateTracks(data.items, "descending", "backward");
-        calculateTracks(data.items, "ascending", "forward");
+        calculateTracks(data.items, "descending", "backward");
+        //calculateTracks(data.items, "ascending", "forward");
         data.nTracks = tracks.length;
         data.minDate = d3.min(data.items, function (d) { return d.start; });
         data.maxDate = d3.max(data.items, function (d) { return d.end; });
