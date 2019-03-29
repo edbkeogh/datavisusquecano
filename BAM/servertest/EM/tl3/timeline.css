@@ -54,21 +54,21 @@
 }
 
 .chart {
-    fill: #EEEEEE;
+    /* fill: #EEEEEE; */
 }
 
 .interval {
 
-    fill: blue;
-    opacity: .8;
+    /* fill: blue; */
+    /* opacity: .8; */
     stroke-width: 6;
     cursor : default;
     pointer-events: true;
 }
 
 .instant {
-    fill: red;
-    opacity: .8;
+    /* fill: red; */
+    /* opacity: .8; */
     stroke-width: 6;
     cursor : default;
     /*pointer-events: true;*/

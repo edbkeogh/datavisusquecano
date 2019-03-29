@@ -218,7 +218,8 @@ function timeline(domElement) {
         var intervals = d3.select("#band" + bandNum).selectAll(".interval");
         intervals.append("rect")
             .attr("width", "100%")
-            .attr("height", "100%");
+            .attr("height", "100%")
+            .attr("fill", function(d) { return d.lang_color;});
         intervals.append("text")
             .attr("class", "intervalLabel")
             .attr("x", 1)
@@ -229,11 +230,13 @@ function timeline(domElement) {
         instants.append("circle")
             .attr("cx", band.itemHeight / 2)
             .attr("cy", band.itemHeight / 2)
-            .attr("r", 5);
+            .attr("r", 5)
+            .attr("fill", function(d) { return d.lang_color;});
         instants.append("text")
             .attr("class", "instantLabel")
             .attr("x", 15)
             .attr("y", 10)
+
             .text(function (d) { return d.label; });
 
         band.addActions = function(actions) {
@@ -307,6 +310,7 @@ function timeline(domElement) {
             .attr("x", function(d) { return d[2];})
             .attr("width", labelWidth)
             .attr("height", labelHeight)
+
             .style("opacity", 1);
 
         var labels = bandLabels.append("text")
@@ -347,9 +351,9 @@ function timeline(domElement) {
         function getHtml(element, d) {
             var html;
             if (element.attr("class") == "interval") {
-                html = d.label + "<br>" + toYear(d.start) + " - " + toYear(d.end);
+                html = d.label + "<br>" + toYear(d.start) + " - " + toYear(d.end)+ "<br>" + d.lang_label;
             } else {
-                html = d.label + "<br>" + toYear(d.start);
+                html = d.label + "<br>" + toYear(d.start)+ "<br>" + d.lang_label;
             }
             return html;
         }
