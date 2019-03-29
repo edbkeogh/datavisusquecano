@@ -3,7 +3,7 @@ start,end,label,class,lang_num,lang_label,lang_color
 478 BC,336 BC,Athens/Sparta,1,2,Greek,#6a3d9a
 323 BC,31 BC,Hellenistic,1,2,Greek,#6a3d9a
 201 BC,410,Roman,1,3,Latin,#a6cee3
-410,1204,Byzantine,1,2,Greek,#6a3d9a
+330,1204,Byzantine,1,2,Greek,#6a3d9a
 2334 BC,2154 BC,Akkadian,1,4,Akkadian,#b2df8a
 550 BC,330 BC,Achaemenid,1,5,Old Persian,#fb9a99
 247 BC,224,Parthian,1,6,Parthian/Persian,#fdbf6f
