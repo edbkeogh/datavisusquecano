@@ -1,0 +1,114 @@
+<html>
+<head>
+	<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="application/javascript" src="apiTest.js"></script>
+	<style>
+		ul {
+			list-style-type: none;
+		}
+		table {
+			border-collapse: collapse;
+		}
+		table, th, td {
+			border: 1px solid black;
+			padding: 5px;
+		}
+		.remove-button {
+			background: none;
+			border: none;
+			font-size: 8pt;
+		}
+	</style>
+</head>
+<body>
+	<select id="languages">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('languages')">Add Language</button>
+	<br />
+	<select id="contexts">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('contexts')">Add Context</button>
+	<br />
+	<select id="forms">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('forms')">Add Form</button>
+	<br />
+	<select id="materials">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('materials')">Add Material</button>
+	<br />
+	<br />
+	Start Date: <input type="number" step="1" min="1" id="startDate"> <select id="startNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
+	<br />
+	End Date:  <input type="number" step="1" min="1" id="endDate"> <select id="endNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
+	<button onclick="addDateRange()">Set Date Range</button>
+	<br />
+	<br />
+
+	Selected search parameters:
+	<table>
+		<thead>
+			<tr>
+				<td>Languages</td>
+				<td>Contexts</td>
+				<td>Forms</td>
+				<td>Materials</td>
+				<td>Date Range</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><ul id="selected_languages"></ul></td>
+				<td><ul id="selected_contexts"></ul></td>
+				<td><ul id="selected_forms"></ul></td>
+				<td><ul id="selected_materials"></ul></td>
+				<td><ul id="selected_date_range"></ul></td>
+			</tr>
+		</tbody>
+	</table>
+	<br />
+	<button onclick="search()">Search</button>
+	<br />
+	<button onclick="clearParams()">Clear Search Params</button>
+	<br />
+	<br />
+
+	Results:
+	<table>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Manuscript</td>
+				<td>Language</td>
+				<td>Geopol. Context</td>
+				<td>Term. Post</td>
+				<td>Term. Ante</td>
+				<td>Form</td>
+				<td>Substrate</td>
+			</tr>
+		</thead>
+		<tbody id="results-table">
+		</tbody>
+	</table>
+	<br />
+	<table>
+		<thead>
+			<tr>
+				<td>ID</td>
+				<td>Author</td>
+				<td>Term. Post</td>
+				<td>Term. Ante</td>
+				<td>Form</td>
+				<td>Substrate</td>
+				<td>Text</td>
+			</tr>
+		</thead>
+		<tbody id="witness-results-table">
+		</tbody>
+	</table>
+</body>
+</html>
