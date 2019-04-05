@@ -21,7 +21,7 @@
 /* timeline band */
 
 .band { /* band background */
-    fill: #FAFAFA;
+    fill: #e8e8e8;
 }
 
 /* labels */
@@ -54,35 +54,46 @@
 }
 
 .chart {
-    fill: #EEEEEE;
+    /* fill: #EEEEEE; */
 }
 
 .interval {
 
-    fill: blue;
-    opacity: .8;
+    /* fill: blue; */
+    /* opacity: .8; */
     stroke-width: 6;
     cursor : default;
     pointer-events: true;
 }
 
 .instant {
-    fill: red;
-    opacity: .8;
+    /* fill: red; */
+    /* opacity: .8; */
     stroke-width: 6;
     cursor : default;
     /*pointer-events: true;*/
 }
 
 .instantLabel {
-    fill : blue;
-    font: 10px sans-serif;
+  color: white;
+text-shadow:
+ -1px -1px 0 #fff,
+  1px -1px 0 #fff,
+  -1px 1px 0 #fff,
+   1px 1px 0 #fff;
+
+    font: 11px sans-serif;
     shape-rendering: crispEdges;
 }
 
 .intervalLabel {
-    fill : white;
-    font: 10px sans-serif;
+  fill : white;
+  text-shadow:
+   -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+    font: 11px sans-serif;
     shape-rendering: crispEdges;
 }
 

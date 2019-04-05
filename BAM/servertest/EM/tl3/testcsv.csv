@@ -1,0 +1,43 @@
+start,end,label,class,lang_num,lang_label,lang_color
+1550 BC,1069 BC,New Kingdom,1,1,Ancient Egyptian,#b15928
+478 BC,336 BC,Athens/Sparta,1,2,Greek,#6a3d9a
+323 BC,31 BC,Hellenistic,1,2,Greek,#6a3d9a
+201 BC,410,Roman,1,3,Latin,#a6cee3
+410,1204,Byzantine,1,2,Greek,#6a3d9a
+2334 BC,2154 BC,Akkadian,1,4,Akkadian,#b2df8a
+550 BC,330 BC,Achaemenid,1,5,Old Persian,#fb9a99
+247 BC,224,Parthian,1,6,Parthian/Persian,#fdbf6f
+600 BC,1050,Sogdia,1,7,Sogdian,#cab2d6
+221 BC,205,Qin,1,8,Chinese,#1f78b4
+265,420,Jin,1,8,Chinese,#1f78b4
+580,615,Sui,1,8,Chinese,#1f78b4
+620,900,Tang,1,8,Chinese,#1f78b4
+960,1265,Song,1,8,Chinese,#1f78b4
+1270,1365,Yuan,1,8,Chinese,#1f78b4
+1370,1640,Ming,1,8,Chinese,#1f78b4
+1645,1910,Qing,1,8,Chinese,#1f78b4
+1900 BC,500 BC,Vedic,1,9,Sanskrit,#e31a1c
+200,590,Gupta,1,9,Sanskrit,#e31a1c
+750,1036,Pratihara,1,10,Pakrit,#ffff99
+300,530,Yamato,1,11,Japanese,#33a02c
+550,700,Asuka,1,11,Japanese,#33a02c
+710,790,Nara,1,11,Japanese,#33a02c
+800,1180,Heian,1,11,Japanese,#33a02c
+1190,1330,Kamakura,1,11,Japanese,#33a02c
+1340,1560,Muromachi,1,11,Japanese,#33a02c
+1610,1860,Edo,1,11,Japanese,#33a02c
+1870,1900,Meiji,1,11,Japanese,#33a02c
+10,670,Korea - Three Kingdoms,1,12,Korean,#ff7f00
+690,900,Korea - North and South States,1,12,Korean,#ff7f00
+920,1380,Goryeo,1,12,Korean,#ff7f00
+1390,1890,Joseon,1,12,Korean,#ff7f00
+1166 BC,1165 BC,Great Harris Papyrus,2,1,Ancient Egyptian,#b15928
+1,150,Khotan Darmapada,2,9,Sanskrit,#e31a1c
+100,699,Gandharan Buddist Manuscripts,2,10,Pakrit,#ffff99
+100,800,Bamiyan Manuscripts,2,10,Pakrit,#ffff99
+400,700,Gilgit Manuscripts ,2,9,Sanskrit,#e31a1c
+618,906,Chinese Paper Scroll of Lotus Sutra,2,8,Chinese,#1f78b4
+800,1200,Bakshali Manuscript,2,9,Sanskrit,#e31a1c
+300,600,Bower Manuscript,2,9,Sanskrit,#e31a1c
+800,1000,Irk Bitig/Book of Omens,2,13,Old Turkic,#d9d9d9
+850,1100,Old Tibetan Annals (Chinese Buddhist Sutra on Reverse),2,14,Old Tibetan,#8dd3c7
