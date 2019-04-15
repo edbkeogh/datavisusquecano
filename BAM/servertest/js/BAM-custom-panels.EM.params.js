@@ -209,6 +209,20 @@ function addSearchParam(selectID) {
 	}
 }
 
+function addAllLang() {
+	// Get the selected dropdown item
+	let selectTag = document.getElementById(languages);
+	if (!selectTag.selectedIndex) selectTag.selectedIndex = 0;
+	let val = selectTag.options[selectTag.selectedIndex].innerText;
+	if (val === "N/A") return;
+
+	// Only add the value to the list if it was not previously selected
+	if (!searchData[selectTag.id].includes(val)) {
+		searchData[selectTag.id].push(val);
+		document.getElementById('selected_' + selectTag.id).innerHTML += '<li>' + val + ' <button class="remove-button" onclick="removeParam(\'' + selectID + '\', \'' + val + '\')"><u>remove</u></button></li>';
+	}
+}
+
 
 function search() {
 	if (searchData['languages'].length < 1) return alert('You must select a language to search');
