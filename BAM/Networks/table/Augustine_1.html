@@ -78,11 +78,11 @@ label {
         <tr>
             <th>Name</th>
             <th>Type</th>
-            <th>OwnerPatron</th>
-            <th>Family</th>
-            <th>School</th>
+            <!-- <th>OwnerPatron</th> -->
+            <!-- <th>Family</th> -->
+            <!-- <th>School</th> -->
             <th>Mod Class</th>
-            <th>Eigen Cent</th>
+            <!-- <th>Eigen Cent</th> -->
         </tr>
     </table>
 </div>
@@ -95,7 +95,7 @@ label {
 
     var svg = d3.select('#d3_selectable_force_directed_graph');
 
-    d3.json('mentions_measures_und.json', function(error, graph) {
+    d3.json('aug_all_dir.json', function(error, graph) {
         if (!error) {
             //console.log('graph', graph);
             createV4SelectableForceDirectedGraph(svg, graph);

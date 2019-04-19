@@ -2,21 +2,23 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
     // if both d3v3 and d3v4 are loaded, we'll assume
     // that d3v4 is called d3v4, otherwise we'll assume
     // that d3v4 is the default (d3)
-    var container = svg.append('g');
+//TODO here through if (typeof ) is an attempt at the search box
 
-    // Create form for search (see function below).
-    var search = d3.select("body").append('form').attr('onsubmit', 'return false;');
-
-    var box = search.append('input')
-    	.attr('type', 'text')
-    	.attr('id', 'searchTerm')
-    	.attr('placeholder', 'Type to search...');
-
-    var button = search.append('input')
-    	.attr('type', 'button')
-    	.attr('value', 'Search')
-    	.on('click', function () { searchNodes(); });
-
+    // var container = svg.append('g');
+    //
+    // // Create form for search (see function below).
+    // var search = d3.select("body").append('form').attr('onsubmit', 'return false;');
+    //
+    // var box = search.append('input')
+    // 	.attr('type', 'text')
+    // 	.attr('id', 'searchTerm')
+    // 	.attr('placeholder', 'Type to search...');
+    //
+    // var button = search.append('input')
+    // 	.attr('type', 'button')
+    // 	.attr('value', 'Search')
+    // 	.on('click', function () { searchNodes(); });
+    //
 
     if (typeof d3v4 == 'undefined')
         d3v4 = d3;
@@ -26,7 +28,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
 
         var degreeSize = d3.scaleLinear()
         	.domain([d3.min(graph.nodes, function(d) {return d.degree; }),d3.max(graph.nodes, function(d) {return d.degree; })])
-        	.range([5,35]);
+        	.range([3,17]);
 
     let parentWidth = d3v4.select('svg').node().parentNode.clientWidth;
     let parentHeight = d3v4.select('svg').node().parentNode.clientHeight;
@@ -142,7 +144,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
                     var centrality = this.value;
                     var centralitySize = d3.scaleLinear()
                       .domain([d3.min(graph.nodes, function(d) { return d[centrality]; }), d3.max(graph.nodes, function(d) { return d[centrality]; })])
-                      .range([5,35]);
+                      .range([3,17]);
                     node.attr('r', function(d) { return centralitySize(d[centrality]); } );
                     // Recalculate collision detection based on selected centrality.
                     simulation.force("collide", d3.forceCollide().radius( function (d) { return centralitySize(d[centrality]); }));
@@ -152,7 +154,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
                 dropdown.selectAll('option')
 //the options for the mention_measures.json file
                   // .data(['Degree','Eigen_Cent','In_Degree','Out_Degree','Weighted_Indegree','Weighted_Outdegree','Weighted_Degree','Eccentricity','Close_Cent','Harm_Cent','Between_Cent','Authority','Hub','Page_Ranks','Clustering'])
-                  .data(['Degree','Eigen_Cent','Weighted_Degree','Eccentricity','Close_Cent','Harm_Cent','Between_Cent','Authority','Hub','Page_Ranks','Clustering','Triangles'])
+                  .data(['Degree','InDegree','OutDegree'])
                   .enter().append('option')
                   .attr('value', function(d) { return d.split(' ')[0].toLowerCase(); })
                   .text(function(d) { return d; });
@@ -163,27 +165,28 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
     node.append("title")
         .text(function(d) {
             if ('name' in d)
-                return d.name.concat("\n Other Info: ", d.type, " ", d.OwnerPatron, " ", d.Family, " ", d.School, "\n Modularity Class: ", d.Mod_Class, "\n Eigenvector Centrality: ", d.eigen_cent);
+                return d.name.concat("\n Other Info: ", d.type, " \n Modularity Class: ", d.Mod_Class, "\n Degree: ", d.degree);
             else
                 return d.id;
         });
 
 
-    var simulation = d3v4.forceSimulation()
-        .force("link", d3v4.forceLink()
-                .id(function(d) { return d.id; })
-                .distance(function(d) {
-                    return d.weight * 10
-                        })
-                // .strength(function(d) {
-                //   return .1 * d.weight
-                // })
-              )
-        .force("charge", d3v4.forceManyBody()
-      .strength([-240]).distanceMax([900]))
-        .force("center", d3v4.forceCenter(parentWidth / 2, parentHeight / 2))
-      //  .force("x", d3v4.forceX(parentWidth/2))
-      //  .force("y", d3v4.forceY(parentHeight/2));
+        var simulation = d3v4.forceSimulation()
+            .force("link", d3v4.forceLink()
+                    .id(function(d) { return d.id; })
+                    .distance(function(d) {
+                        return d.weight * 10
+                            })
+                    // .strength(function(d) {
+                    //   return .1 * d.weight
+                    // })
+                  )
+            .force("charge", d3v4.forceManyBody()
+          .strength([-40]).distanceMax([400]))
+            // .force("center", d3v4.forceCenter(parentWidth / 2, parentHeight / 2))
+           .force("x", d3v4.forceX(parentWidth/2))
+           .force("y", d3v4.forceY(parentHeight/2));
+
 
     simulation
         .nodes(graph.nodes)
@@ -438,11 +441,11 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
 
         var d_row_filter = [d_row.name,
                             d_row.type,
-                            d_row.OwnerPatron,
-                            d_row.family,
-                            d_row.School,
+                          //  d_row.OwnerPatron,
+                        //    d_row.family,
+                        //    d_row.School,
                             d_row.Mod_Class,
-                            d_row.Eigen_Cent
+                        //    d_row.Eigen_Cent
                         ];
 
         d3.select("table")
