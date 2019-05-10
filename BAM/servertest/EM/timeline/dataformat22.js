@@ -1,116 +1,42 @@
 var tldata = [
   {
-    group: "China",
+    group: "Japan",
     data: [
       {
-        label: "China",
+        label: "Japan",
         data: [
           {
-            timeRange: [-1600, -1046],
-            val: 'Shang'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+            timeRange: [250, 538],
+            val: 'Kofun'//<val: number (continuous dataScale) or string (ordinal dataScale)>
           },
           {
-            timeRange: [-1046, -256],
-            val: 'Zhou'
+            timeRange: [538, 710],
+            val: 'Asuka'
           },
           {
-            timeRange: [-221, -207],
-            val: 'Qin'
+            timeRange: [710, 794],
+            val: 'Nara'
           },
           {
-            timeRange: [-202, 220],
-            val: 'Han'
+            timeRange: [794, 1185],
+            val: 'Heian'
           },
           {
-            timeRange: [226, 420],
-            val: 'Jin'
+            timeRange: [1185, 1333],
+            val: 'Kamakura'
           },
 
           {
-            timeRange: [581, 618],
-            val: 'Sui'
-          },
-          {
-            timeRange: [618, 907],
-            val: 'Tang'
-          },
-          {
-            timeRange: [907, 960],
-            val: 'Five Dynasties'
-          },
-          {
-            timeRange: [960, 1234],
-            val: 'Song'
-          },
-          {
-            timeRange: [1271, 1368],
-            val: 'Yuan'
-          },
-          {
-            timeRange: [1368, 1644],
-            val: 'Ming'
+            timeRange: [1333, 1568],
+            val: 'Muromachi'
           }
-
         ]
-      },
-      {
-        label: "China ",
-        data: [
-          {
-            timeRange: [-476, -221],
-            val: 'Warring States'//<val: number (continuous dataScale) or string (ordinal dataScale)>
-          },
-          {
-            timeRange: [220, 280],
-            val: 'Three Kingdoms'
-          },
-          {
-            timeRange: [386, 589],
-            val: 'Norther and Southern Dynasties'
-          }
-
-        ]
-      },
-
+      }
 
   ],
-},
-{
-  group: "Japan",
-  data: [
-    {
-      label: "Japan",
-      data: [
-        {
-          timeRange: [250, 538],
-          val: 'Kofun'//<val: number (continuous dataScale) or string (ordinal dataScale)>
-        },
-        {
-          timeRange: [538, 710],
-          val: 'Asuka'
-        },
-        {
-          timeRange: [710, 794],
-          val: 'Nara'
-        },
-        {
-          timeRange: [794, 1185],
-          val: 'Heian'
-        },
-        {
-          timeRange: [1185, 1333],
-          val: 'Kamakura'
-        },
+  },
 
-        {
-          timeRange: [1333, 1568],
-          val: 'Muromachi'
-        }
-      ]
-    }
 
-],
-},
 {
   group: "Korea",
   data: [
@@ -154,6 +80,83 @@ var tldata = [
 
 ],
 },
+{
+  group: "China",
+  data: [
+    {
+      label: "China",
+      data: [
+        {
+          timeRange: [-1600, -1046],
+          val: 'Shang'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        },
+        {
+          timeRange: [-1046, -256],
+          val: 'Zhou'
+        },
+        {
+          timeRange: [-221, -207],
+          val: 'Qin'
+        },
+        {
+          timeRange: [-202, 220],
+          val: 'Han'
+        },
+        {
+          timeRange: [226, 420],
+          val: 'Jin'
+        },
+
+        {
+          timeRange: [581, 618],
+          val: 'Sui'
+        },
+        {
+          timeRange: [618, 907],
+          val: 'Tang'
+        },
+        {
+          timeRange: [907, 960],
+          val: 'Five Dynasties'
+        },
+        {
+          timeRange: [960, 1234],
+          val: 'Song'
+        },
+        {
+          timeRange: [1271, 1368],
+          val: 'Yuan'
+        },
+        {
+          timeRange: [1368, 1644],
+          val: 'Ming'
+        }
+
+      ]
+    },
+    {
+      label: "China ",
+      data: [
+        {
+          timeRange: [-476, -221],
+          val: 'Warring States'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        },
+        {
+          timeRange: [220, 280],
+          val: 'Three Kingdoms'
+        },
+        {
+          timeRange: [386, 589],
+          val: 'Norther and Southern Dynasties'
+        }
+
+      ]
+    },
+
+
+],
+},
+
 {
   group: "India",
   data: [
