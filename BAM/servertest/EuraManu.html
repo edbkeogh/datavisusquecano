@@ -652,6 +652,8 @@ Treatise -->
 	      map = L.map('map').setView([37.13404537126446,79.91455078125], 5);
 	    //Add basemap
 	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 10}).addTo(map);
+			//add scale
+			L.control.scale().addTo(map);
 	    //and the empty markercluster layer
 	    map.addLayer(markerclusters);
 	    //Ready to go, load the geojson
