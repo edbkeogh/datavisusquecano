@@ -3,10 +3,25 @@
 <style>
 #toggle {
     position: absolute;
-    right: 800px; top: 515px;
+    right: 10%; top: 5%;
     z-index: 100;
+    background-color: darkgray; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
+    cursor: pointer;
 }
 
+#slider {  position: absolute;
+  left: 5%; top: 2%;
+  z-index: 100;
+}
 .map path {
     fill: #eee;
     stroke: #fff;
@@ -25,19 +40,22 @@
 }
 </style>
 <body>
-<button id="toggle">Toggle Map</button>
+  <div id="slider">
+<p></p>
+  </div>
+<button id="toggle">Expand Overlapping Nodes</button>
 <script src="//d3js.org/d3.v4.min.js"></script>
 <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 <script src="https://d3js.org/d3.v4.js"></script>
 <script>
 var positioning = 'map'
 
-var width = 5000
-var height = 3000
+var width = 2000
+var height = 800
 
 var projection = d3.geoCylindricalStereographic()
-    .scale([700])
-    .translate([width / 2, height / 2])
+    .scale([1350])
+    .translate([270, 1220])
 
 //var pos = projection([d.lon, d.lat]);
 
@@ -47,14 +65,14 @@ var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 var linkForce = d3.forceLink()
     .id(function (d) { return d.id })
-    .distance(500)
-    .strength(.001)
+//    .distance(500)
+    .strength(.000000000001)
 
 var simulation = d3.forceSimulation()
-//    .force('link', linkForce)
+    .force('link', linkForce)
   //  .force('charge', d3.forceManyBody().strength(-160))
   //  .force('center', d3.forceCenter(pos[0], pos[1]))
-  .force('collision', d3.forceCollide().radius()
+  .force('collision', d3.forceCollide().radius(5))
   .force('x', d3.forceX().x(function (d) {
       var pos = projection([d.lon, d.lat])
 //      console.log(d.lon)
@@ -79,7 +97,7 @@ var drag = d3.drag()
     .on('end', dragEnded)
 
 d3.queue()
-    .defer(d3.json, 'WOAH_full.json')
+    .defer(d3.json, 'auglets.json')
     .defer(d3.json, 'countries.geo.json')
     .awaitAll(initialize)
 
@@ -94,7 +112,7 @@ function initialize(error, results) {
     simulation.nodes(graph.nodes)
         .on('tick', ticked)
 
-  //  simulation.force('link').links(graph.links)
+    simulation.force('link').links(graph.links)
 
     var svg = d3.select('body')
         .append('svg')
@@ -113,7 +131,7 @@ function initialize(error, results) {
         .selectAll('line')
         .data(graph.links)
         .enter().append('line')
-        .attr('stroke-width', function (d) { return d.weight / 40 })
+        .attr('stroke-width', function (d) { return d.weight /2000})
 
     var nodes = svg.append('g')
         .attr('class', 'nodes')
@@ -130,7 +148,52 @@ function initialize(error, results) {
         .call(drag)
 
     nodes.append('title')
-        .text(function (d) { return d.name.concat("\n", d.position, "\n", d.affiliation )})
+        .text(function (d) { return d.name.concat("\n", "Date Range: ", d.date, " CE \n", d.person1, " in ", d.loc, "\n", d.person2, " in ", d.loc2, "\n", "Correspondent Clerical Rank: ", d.Correspondent_Clerical_Rank, "\nAscetic Content: ", d.Ascetic_Content, "\nOther Personal Names Mentioned: ", d.Other_Personal_Names_Mentioned, "\nInferred Names: ", d.Inferred_Names, " \nGroups: ", d.Groups, "\nReferences: ", d.Literary_Historical_References)})
+
+        // A slider (using only d3 and HTML5) that removes nodes below the input threshold.
+        var slider = d3.select('#slider').append('p').text('Year: ');
+
+        slider.append('label')
+          .attr('for', 'threshold')
+          .text('431');
+        slider.append('input')
+          .attr('type', 'range')
+          .attr('min', d3.min(graph.links, function(d) {return d.year; }))
+          .attr('max', 431) //d3.max(graph.links, function(d) {return d.year; }))
+          .attr('value', 431)//d3.max(graph.links, function(d) {return d.year; }))
+          .attr('id', 'threshold')
+          .style('width', '600%')
+          .style('display', 'block')
+          .on('input', function () {
+            document.getElementById("toggle").innerHTML="Click Twice to Overlap Nodes";
+            var threshold = this.value;
+
+            d3.select('label').text(threshold);
+
+            // Find the links that are at or above the threshold.
+            var newData = [];
+            graph.links.forEach( function (d) {
+              if (d.year <= threshold) {newData.push(d); };
+            });
+
+            // Data join with only those new links.
+            links = links.data(newData, function(d) {return d.source + ', ' + d.target;});
+            links.exit().remove();
+            var linkEnter = links.enter().append('line').attr('class', 'links').attr('stroke-width', function (d) { return d.weight /2000});
+            links = linkEnter.merge(links);
+
+
+
+            nodes = nodes.data(graph.nodes);
+
+            // Restart simulation with new link data.
+            simulation
+              // .nodes(graph.nodes).on('tick', ticked)
+              .force("link").links(newData);
+
+            simulation.alphaTarget(0.1).restart();
+
+          });
 
     fixed(true)
     d3.select('#toggle').on('click', toggle)
@@ -144,10 +207,14 @@ function initialize(error, results) {
         })
 
         var t = d3.transition()
-            .duration(immediate ? 0 : 600)
+            .duration(immediate ? 0 : 1000)
             .ease(d3.easeElastic.period(0.5))
 
         update(links.transition(t), nodes.transition(t))
+
+
+
+
     }
 
     function ticked() {
@@ -169,13 +236,15 @@ function initialize(error, results) {
     function toggle() {
         if (positioning === 'map') {
             positioning = 'sim'
-            map.attr('opacity', 0.25)
-            simulation.alpha(1).restart()
+          //  map.attr('opacity', 0.25)
+            simulation.alpha(1).restart();
+            document.getElementById("toggle").innerHTML="Reset";
         } else {
             positioning = 'map'
-            map.attr('opacity', 1)
+        //    map.attr('opacity', 1)
             simulation.stop()
-            fixed()
+            fixed();
+            document.getElementById("toggle").innerHTML="Expand Overlapping Nodes";
         }
     }
 }
@@ -196,8 +265,8 @@ function dragged(d) {
 function dragEnded(d) {
     if (positioning === 'map') { return }
     simulation.alphaTarget(0)
-    d.fx = null
-    d.fy = null
+    d.fx = d.x
+    d.fy = d.y
 }
 
 </script>

@@ -32,12 +32,14 @@
 <script>
 var positioning = 'map'
 
-var width = 5000
-var height = 3000
+var width = 2000
+var height = 800
 
 var projection = d3.geoCylindricalStereographic()
-    .scale([700])
-    .translate([width / 2, height / 2])
+   .scale([1350])
+    .translate([270, 1220])
+  // .scale([700])
+  //  .translate([width /2, height /2])
 
 //var pos = projection([d.lon, d.lat]);
 
@@ -47,14 +49,14 @@ var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 var linkForce = d3.forceLink()
     .id(function (d) { return d.id })
-    .distance(500)
-    .strength(.001)
+//    .distance(500)
+    .strength(.000000000001)
 
 var simulation = d3.forceSimulation()
-//    .force('link', linkForce)
+    .force('link', linkForce)
   //  .force('charge', d3.forceManyBody().strength(-160))
   //  .force('center', d3.forceCenter(pos[0], pos[1]))
-  .force('collision', d3.forceCollide().radius()
+  .force('collision', d3.forceCollide().radius(5))
   .force('x', d3.forceX().x(function (d) {
       var pos = projection([d.lon, d.lat])
 //      console.log(d.lon)
@@ -79,7 +81,7 @@ var drag = d3.drag()
     .on('end', dragEnded)
 
 d3.queue()
-    .defer(d3.json, 'WOAH_full.json')
+    .defer(d3.json, 'augep.json')
     .defer(d3.json, 'countries.geo.json')
     .awaitAll(initialize)
 
@@ -94,12 +96,29 @@ function initialize(error, results) {
     simulation.nodes(graph.nodes)
         .on('tick', ticked)
 
-  //  simulation.force('link').links(graph.links)
+    simulation.force('link').links(graph.links)
 
     var svg = d3.select('body')
         .append('svg')
         .attr('width', width)
         .attr('height', height)
+
+        svg.append("defs").selectAll("marker")
+      	.data(["dominating"])
+      	.enter().append("marker")
+      	.attr('markerUnits', 'userSpaceOnUse')
+      	.attr("id", function (d) {
+      		return d;
+      	})
+      	.attr("viewBox", "0 -5 10 10")
+      	.attr("refX", 0)
+      	.attr("refY", 0)
+      	.attr("markerWidth", 12)
+      	.attr("markerHeight", 12)
+      	.attr("orient", "auto-start-reverse")
+      	.append("path")
+      	.attr("d", "M0,-5L10,0L0,5")
+      	//.attr("fill", "red");
 
     var map = svg.append('g')
         .attr('class', 'map')
@@ -113,8 +132,14 @@ function initialize(error, results) {
         .selectAll('line')
         .data(graph.links)
         .enter().append('line')
-        .attr('stroke-width', function (d) { return d.weight / 40 })
-
+        .attr("d", positionLink1)
+    	  .filter(function(d){ return JSON.stringify(d.target) !== JSON.stringify(d.source); })
+          .attr("d",positionLink2)
+        .attr('stroke-width', function (d) { return d.weight })
+        .attr("marker-end", function(d) {
+               if(JSON.stringify(d.target) !== JSON.stringify(d.source))
+                  return "url(#dominating)";
+                   });
     var nodes = svg.append('g')
         .attr('class', 'nodes')
         .selectAll('circle')
@@ -130,7 +155,7 @@ function initialize(error, results) {
         .call(drag)
 
     nodes.append('title')
-        .text(function (d) { return d.name.concat("\n", d.position, "\n", d.affiliation )})
+        .text(function (d) { return d.name})//.concat("\n", d.position, "\n", d.affiliation )})
 
     fixed(true)
     d3.select('#toggle').on('click', toggle)
@@ -169,11 +194,11 @@ function initialize(error, results) {
     function toggle() {
         if (positioning === 'map') {
             positioning = 'sim'
-            map.attr('opacity', 0.25)
+          //  map.attr('opacity', 0.25)
             simulation.alpha(1).restart()
         } else {
             positioning = 'map'
-            map.attr('opacity', 1)
+        //    map.attr('opacity', 1)
             simulation.stop()
             fixed()
         }
@@ -200,5 +225,27 @@ function dragEnded(d) {
     d.fy = null
 }
 
+function positionLink1(d) {
+    var dx = d.target.x - d.source.x,
+        dy = d.target.y - d.source.y,
+        dr = Math.sqrt(dx * dx + dy * dy);
+    return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+}
+
+  // recalculate and back off the distance
+function positionLink2(d) {
+	    // length of current path
+    var pl = this.getTotalLength(),
+        // radius of circle plus marker head
+        r = 5, //nodeSizeScale(d.target.total)+ 12, //12 is the "size" of the marker Math.sqrt(12**2 + 12 **2)
+        // position close to where path intercepts circle
+        m = this.getPointAtLength(pl - r);
+
+     var dx = m.x - d.source.x,
+        dy = m.y - d.source.y,
+        dr = Math.sqrt(dx * dx + dy * dy);
+
+      return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + m.x + "," + m.y;
+}
 </script>
 </body>

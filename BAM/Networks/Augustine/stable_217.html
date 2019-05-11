@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+#toggle {
+    position: absolute;
+    right: 10%; top: 5%;
+    z-index: 100;
+    background-color: darkgray; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+#slider {  position: absolute;
+  left: 5%; top: 2%;
+  z-index: 100;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
+
+.map path {
+    fill: #eee;
+    stroke: #fff;
+    stroke-width: 2;
+}
+
+.links line {
+    stroke: #679;
+    /*stroke-opacity: 0.25;*/
+}
+
+.nodes circle {
+    /*fill: #679;*/
+    stroke: #235;
+    stroke-width: 2;
+}
+</style>
+<body>
+  <div id="slider">
+<p></p>
+  </div>
+<button id="toggle">Expand Overlapping Nodes</button>
+<script src="//d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script>
+
+var aftery = (d.year <= threshold)
+var beforey = (d.year >= threshold)
+
+var newnodes;
+var positioning = 'map'
+
+var width = 2000
+var height = 800
+
+var projection = d3.geoCylindricalStereographic()
+    .scale([1350])
+    .translate([270, 1220])
+
+//var pos = projection([d.lon, d.lat]);
+
+var path = d3.geoPath().projection(projection)
+
+
+var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+var linkForce = d3.forceLink()
+    .id(function (d) { return d.id })
+//    .distance(500)
+    .strength(.000000000001)
+
+var simulation = d3.forceSimulation()
+    .force('link', linkForce)
+  //  .force('charge', d3.forceManyBody().strength(-160))
+  //  .force('center', d3.forceCenter(pos[0], pos[1]))
+  .force('collision', d3.forceCollide().radius(5))
+  .force('x', d3.forceX().x(function (d) {
+      var pos = projection([d.lon, d.lat])
+//      console.log(d.lon)
+//      d.x = pos[0]
+  //    d.y = pos[1]
+
+      return pos[0];
+    }))
+    .force('y', d3.forceY().y(function (d) {
+        var pos = projection([d.lon, d.lat])
+  //      console.log(d.lon)
+  //      d.x = pos[0]
+    //    d.y = pos[1]
+
+        return pos[1];
+  }))
+    .stop()
+
+var drag = d3.drag()
+    .on('start', dragStarted)
+    .on('drag', dragged)
+    .on('end', dragEnded)
+
+d3.queue()
+    .defer(d3.json, 'auglets.json')
+    .defer(d3.json, 'countries.geo.json')
+    .awaitAll(initialize)
+
+function initialize(error, results) {
+    if (error) { throw error }
+
+
+
+    var graph = results[0]
+    var features = results[1].features
+
+    // var linkw = d3.scaleLinear([600,113368]).range([.5,2])
+    // var linkSizeScale = d3.scaleLinear()
+    //   .domain(d3.extent(links_data, d => d.weight))
+    //   .range([.5, 20]);
+
+    // var linko = d3.scaleLinear([600,113368]).range([.2,1])
+    // var linkOScale = d3.scaleLinear()
+    //   .domain(d3.extent(links_data, d => d.weight))
+    //   .range([.1, 1]);
+
+//var pos = projection([d.lon, d.lat])
+
+    simulation.nodes(graph.nodes)
+        .on('tick', ticked)
+
+    simulation.force('link').links(graph.links)
+
+    var svg = d3.select('body')
+        .append('svg')
+        .attr('width', width)
+        .attr('height', height)
+
+    var map = svg.append('g')
+        .attr('class', 'map')
+        .selectAll('path')
+        .data(features)
+        .enter().append('path')
+        .attr('d', path)
+
+    var links = svg.append('g')
+        .attr('class', 'links')
+        .selectAll('line')
+        .data(graph.links)
+        .enter().append('line')
+        .attr('stroke-width', function(d) {return d.weight / 5500})
+        .attr('opacity', function(d) {return (d.weight / 200000) + .3})
+
+    var nodes = svg.append('g')
+        .attr('class', 'nodes')
+        .selectAll('circle')
+        .data(graph.nodes)
+        .enter().append('circle')
+        .attr('r', 5)
+        .attr("fill", function(d) {
+            if ('color' in d)
+                return d.color;
+            else
+                return color(d.group);
+        })
+        .call(drag)
+
+    nodes.append('title')
+        .text(function (d) { return d.name.concat("\n", "Date Range: ", d.date, " CE \n", d.person1, " in ", d.loc, "\n", d.person2, " in ", d.loc2, "\n", "Correspondent Clerical Rank: ", d.Correspondent_Clerical_Rank, "\nAscetic Content: ", d.Ascetic_Content, "\nOther Personal Names Mentioned: ", d.Other_Personal_Names_Mentioned, "\nInferred Names: ", d.Inferred_Names, " \nGroups: ", d.Groups, "\nReferences: ", d.Literary_Historical_References, "Other Locations Mentioned: ", d.Other_Locations_Mentioned)})
+
+        // A slider (using only d3 and HTML5) that removes nodes below the input threshold.
+        var slider = d3.select('#slider').append('p').text('Year: ');
+
+        slider.append('label')
+          .attr('for', 'threshold')
+          .text('431');
+        slider.append('input')
+          .attr('class', 'slider')
+          .attr('type', 'range')
+          .attr('min', 384)
+          .attr('max', 431) //d3.max(graph.links, function(d) {return d.year; }))
+          .attr('value', 431)//d3.max(graph.links, function(d) {return d.year; }))
+          .attr('id', 'threshold')
+          .style('width', '600%')
+          .style('display', 'block')
+          .on('input', function () {
+            document.getElementById("toggle").innerHTML="Click to Move Nodes";
+            var threshold = this.value;
+
+            d3.select('label').text(threshold);
+
+            // Find the links that are at or above the threshold.
+            var newData = [];
+            graph.links.forEach( function (d) {
+              if (d.year <= threshold) {newData.push(d); };
+            });
+
+            // Data join with only those new links.
+            links = links.data(newData, function(d) {return d.source + ', ' + d.target;});
+            links.exit().remove();
+            var linkEnter = links.enter().append('line').attr('class', 'links').attr('stroke-width', function(d) {return d.weight / 5500}).attr('opacity', function(d) {return (d.weight / 200000) + .3})
+            links = linkEnter.merge(links);
+
+            var newDataN = [];
+            graph.nodes.forEach(function (d) {
+              if (d.year <= threshold) {newDataN.push(d); };
+            });
+
+            nodes = nodes.data(newDataN);
+            nodes.exit().remove();
+            var nodeEnter = nodes.enter().append('circle').attr('class', 'nodes').attr('r', 5).attr("fill", function(d) {
+                  if ('color' in d)
+                      return d.color;
+                  else
+                      return color(d.group);
+              })
+              .call(drag);
+            nodes = nodeEnter.merge(nodes);
+
+            nodes.append('title')
+                .text(function (d) { return d.name.concat("\n", "Date Range: ", d.date, " CE \n", d.person1, " in ", d.loc, "\n", d.person2, " in ", d.loc2, "\n", "Correspondent Clerical Rank: ", d.Correspondent_Clerical_Rank, "\nAscetic Content: ", d.Ascetic_Content, "\nOther Personal Names Mentioned: ", d.Other_Personal_Names_Mentioned, "\nInferred Names: ", d.Inferred_Names, " \nGroups: ", d.Groups, "\nReferences: ", d.Literary_Historical_References, "Other Locations Mentioned: ", d.Other_Locations_Mentioned)})
+            // Restart simulation with new link data.
+            simulation
+              // .nodes(graph.nodes).on('tick', ticked)
+              .force("link").links(newData);
+
+            simulation.alphaTarget(0.1).restart();
+
+          });
+
+    fixed(true)
+    d3.select('#toggle').on('click', toggle)
+
+    function fixed(immediate) {
+        graph.nodes.forEach(function (d) {
+            var pos = projection([d.lon, d.lat])
+            console.log(d.lon)
+            d.x = pos[0]
+            d.y = pos[1]
+        })
+
+        var t = d3.transition()
+            .duration(immediate ? 0 : 1000)
+            .ease(d3.easeElastic.period(0.5))
+
+        update(links.transition(t), nodes.transition(t))
+
+
+
+
+    }
+
+    function ticked() {
+        update(links, nodes)
+    }
+
+    function update(links, nodes) {
+        links
+            .attr('x1', function (d) { return d.source.x })
+            .attr('y1', function (d) { return d.source.y })
+            .attr('x2', function (d) { return d.target.x })
+            .attr('y2', function (d) { return d.target.y })
+
+        nodes
+            .attr('cx', function (d) { return d.x })
+            .attr('cy', function (d) { return d.y })
+    }
+
+    function toggle() {
+        if (positioning === 'map') {
+            positioning = 'sim'
+          //  map.attr('opacity', 0.25)
+            simulation.alpha(1).restart();
+            document.getElementById("toggle").innerHTML="Reset";
+        } else {
+            positioning = 'map'
+        //    map.attr('opacity', 1)
+            simulation.stop()
+            fixed();
+            document.getElementById("toggle").innerHTML="Expand Overlapping Nodes";
+        }
+    }
+}
+
+function dragStarted(d) {
+    if (positioning === 'map') { return }
+    simulation.alphaTarget(0.3).restart()
+    d.fx = d.x
+    d.fy = d.y
+}
+
+function dragged(d) {
+    if (positioning === 'map') { return }
+    d.fx = d3.event.x
+    d.fy = d3.event.y
+}
+
+function dragEnded(d) {
+    if (positioning === 'map') { return }
+    simulation.alphaTarget(0)
+    d.fx = d.x
+    d.fy = d.y
+}
+
+</script>
+</body>

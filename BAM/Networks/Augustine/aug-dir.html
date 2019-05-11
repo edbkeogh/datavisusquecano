@@ -32,12 +32,12 @@
 <script>
 var positioning = 'map'
 
-var width = 5000
-var height = 3000
+var width = 2000
+var height = 800
 
 var projection = d3.geoCylindricalStereographic()
-    .scale([700])
-    .translate([width / 2, height / 2])
+    .scale([1350])
+    .translate([270, 1220])
 
 //var pos = projection([d.lon, d.lat]);
 
@@ -47,14 +47,14 @@ var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 var linkForce = d3.forceLink()
     .id(function (d) { return d.id })
-    .distance(500)
-    .strength(.001)
+//    .distance(500)
+    .strength(.000000000001)
 
 var simulation = d3.forceSimulation()
-//    .force('link', linkForce)
+    .force('link', linkForce)
   //  .force('charge', d3.forceManyBody().strength(-160))
   //  .force('center', d3.forceCenter(pos[0], pos[1]))
-  .force('collision', d3.forceCollide().radius()
+  .force('collision', d3.forceCollide().radius(5))
   .force('x', d3.forceX().x(function (d) {
       var pos = projection([d.lon, d.lat])
 //      console.log(d.lon)
@@ -79,7 +79,7 @@ var drag = d3.drag()
     .on('end', dragEnded)
 
 d3.queue()
-    .defer(d3.json, 'WOAH_full.json')
+    .defer(d3.json, 'augep.json')
     .defer(d3.json, 'countries.geo.json')
     .awaitAll(initialize)
 
@@ -94,12 +94,23 @@ function initialize(error, results) {
     simulation.nodes(graph.nodes)
         .on('tick', ticked)
 
-  //  simulation.force('link').links(graph.links)
+    simulation.force('link').links(graph.links)
 
     var svg = d3.select('body')
         .append('svg')
         .attr('width', width)
         .attr('height', height)
+
+        svg.append("defs").append("marker")
+            .attr("id", "arrow")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 20)
+            .attr("refY", 0)
+            .attr("markerWidth", 8)
+            .attr("markerHeight", 8)
+            .attr("orient", "auto")
+          .append("svg:path")
+            .attr("d", "M0,-5L10,0L0,5");
 
     var map = svg.append('g')
         .attr('class', 'map')
@@ -113,7 +124,8 @@ function initialize(error, results) {
         .selectAll('line')
         .data(graph.links)
         .enter().append('line')
-        .attr('stroke-width', function (d) { return d.weight / 40 })
+        .attr('stroke-width', function (d) { return d.weight })
+        .attr("marker-end", "url(#arrow)");
 
     var nodes = svg.append('g')
         .attr('class', 'nodes')
@@ -130,7 +142,7 @@ function initialize(error, results) {
         .call(drag)
 
     nodes.append('title')
-        .text(function (d) { return d.name.concat("\n", d.position, "\n", d.affiliation )})
+        .text(function (d) { return d.name})//.concat("\n", d.position, "\n", d.affiliation )})
 
     fixed(true)
     d3.select('#toggle').on('click', toggle)
@@ -169,11 +181,11 @@ function initialize(error, results) {
     function toggle() {
         if (positioning === 'map') {
             positioning = 'sim'
-            map.attr('opacity', 0.25)
+          //  map.attr('opacity', 0.25)
             simulation.alpha(1).restart()
         } else {
             positioning = 'map'
-            map.attr('opacity', 1)
+        //    map.attr('opacity', 1)
             simulation.stop()
             fixed()
         }

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body {
+    /*width:99%;
+    height:100%;*/
+    background: #111111;
+}
+
+.svg {
+    width:1000;
+    height:1000;
+}
+
+.link {
+	fill: none;
+}
+
+.labels {
+	fill: white;
+}
+
+#header {
+   position:fixed;
+   left:0px;
+   top:0px;
+   height:40px;
+   width:100%;
+   padding: 10px 0;
+   text-align: center;
+   font-size: 1.5em;
+   font-family: Helvetica;
+   color: white;
+}
+
+#chart {
+   position:fixed;
+   left:0px;
+   top:40px;
+   width:100%;
+   text-align: right;
+}
+
+#footer {
+   background: #191919;
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:40px;
+   width:100%;
+   padding: 20px 0;
+   text-align: right;
+   font-size: 0.75em;
+   font-family: Helvetica;
+   color: white;
+}
+</style>
+<script src="https://d3js.org/d3.v4.js"></script>
+<body>
+<script>
+var links_data = [  { "source": "Cassiciacum", "target": "Milan", "weight": 2 },
+{ "source": "Syracuse", "target": "Hippo Regius", "weight": 1 },
+{ "source": "Salona, near Split, Dalmatia", "target": "Hippo Regius", "weight": 1 },
+{ "source": "Calama", "target": "Hippo Regius", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Carthage", "weight": 21 },
+{ "source": "Hippo Regius", "target": "Numidia", "weight": 3 },
+{ "source": "Hippo Regius", "target": "Nola", "weight": 7 },
+{ "source": "Hippo Regius", "target": "Bethlehem", "weight": 11 },
+{ "source": "Hippo Regius", "target": "Thagaste", "weight": 3 },
+{ "source": "Hippo Regius", "target": "Hippo Regius", "weight": 12 },
+{ "source": "Hippo Regius", "target": "Africa", "weight": 16 },
+{ "source": "Hippo Regius", "target": "Milan", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Cirta/Constantina", "weight": 4 },
+{ "source": "Hippo Regius", "target": "Rome", "weight": 6 },
+{ "source": "Hippo Regius", "target": "Sufes", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Calama", "weight": 4 },
+{ "source": "Hippo Regius", "target": "Milevis", "weight": 4 },
+{ "source": "Hippo Regius", "target": "Bagai, Numidia", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Musti", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Sitifis (Mauretania Sitifensis)", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Casae Nigrae (Numidia)", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Apulia", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Aptunga", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Sicca", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Syracuse", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Uzalis", "weight": 3 },
+{ "source": "Hippo Regius", "target": "Thaenae", "weight": 2 },
+{ "source": "Hippo Regius", "target": "Narbonne, Gaul", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Gaul", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Italy", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Constantinople", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Tusuros in Byzacena", "weight": 1 },
+{ "source": "Hippo Regius", "target": "Salona, near Split, Dalmatia", "weight": 2 },
+{ "source": "Hippo Regius", "target": "Ravenna", "weight": 1 },
+{ "source": "Milevis", "target": "Rome", "weight": 1 },
+{ "source": "Carthage", "target": "Thagaste", "weight": 2 },
+{ "source": "Carthage", "target": "Hippo Regius", "weight": 2 },
+{ "source": "Carthage", "target": "Rome", "weight": 2 },
+{ "source": "Thagaste", "target": "Africa", "weight": 1 },
+{ "source": "Uzalis", "target": "Hippo Regius", "weight": 5 },
+{ "source": "Rome", "target": "Rome", "weight": 1 },
+{ "source": "Rome", "target": "Carthage", "weight": 3 },
+{ "source": "Rome", "target": "Numidia", "weight": 1 },
+{ "source": "Nola", "target": "Thagaste", "weight": 1 },
+{ "source": "Nola", "target": "Hippo Regius", "weight": 2 },
+{ "source": "Nola", "target": "Nola", "weight": 1 },
+{ "source": "Bethlehem", "target": "Bethlehem", "weight": 1 },
+{ "source": "Bethlehem", "target": "Carthage", "weight": 1 },
+{ "source": "Bethlehem", "target": "Hippo Regius", "weight": 1 },
+{ "source": "Africa", "target": "Hippo Regius", "weight": 1 } ];
+
+var nodes_data = [{ "id": 991341, "name": "Africa", "lat": 37.5, "lon": 7.5 },
+{ "id": 314843, "name": "Aptunga", "lat": 36.1865135, "lon": 10.031037 },
+{ "id": 442469, "name": "Apulia", "lat": 40.7928, "lon": 17.1012 },
+{ "id": 334501, "name": "Bagai, Numidia", "lat": 35.534434, "lon": 7.1173845 },
+{ "id": 1, "name": "Balearic Islands", "lat": 39.5342, "lon": 2.8577 },
+{ "id": 687856, "name": "Bethlehem", "lat": 31.712291, "lon": 35.202123 },
+{ "id": 285482, "name": "Caesarea (Mauretania Caesariensis)", "lat": 36.52285575, "lon": 3.6414695 },
+{ "id": 305039, "name": "Calama", "lat": 36.4643305, "lon": 7.427677 },
+{ "id": 295240, "name": "Cartenna (Mauretania Caesariensis)", "lat": 36.510044, "lon": 1.310964 },
+{ "id": 314921, "name": "Carthage", "lat": 36.8500325, "lon": 10.318 },
+{ "id": 334514, "name": "Casae Nigrae (Numidia)", "lat": 34.473276, "lon": 7.507832 },
+{ "id": 2, "name": "Cassiciacum", "lat": 45.834929, "lon": 8.781746 },
+{ "id": 314844, "name": "Cataqua (Numidia)", "lat": 36.525792, "lon": 8.336988 },
+{ "id": 305064, "name": "Cirta/Constantina", "lat": 36.3681146667, "lon": 6.61330266667 },
+{ "id": 520998, "name": "Constantinople", "lat": 41.0077908096, "lon": 28.9612916083 },
+{ "id": 993, "name": "Gaul", "lat": 45.57717715, "lon": 2.49095881905 },
+{ "id": 305090, "name": "Hippo Regius", "lat": 36.882478, "lon": 7.751272 },
+{ "id": 1052, "name": "Italy", "lat": 42.5, "lon": 12.5 },
+{ "id": 315065, "name": "Madaura/Madauros", "lat": 36.077735, "lon": 7.902716 },
+{ "id": 383706, "name": "Milan", "lat": 45.463746, "lon": 9.18806 },
+{ "id": 305109, "name": "Milevis", "lat": 36.4512765, "lon": 6.267698 },
+{ "id": 167849, "name": "Musti", "lat": 44.474637, "lon": 6.762891 },
+{ "id": 246347, "name": "Narbonne, Gaul", "lat": 43.1836165, "lon": 3.004203 },
+{ "id": 432981, "name": "Nola", "lat": 40.926823, "lon": 14.524545 },
+{ "id": 981539, "name": "Numidia", "lat": 37.5, "lon": 7.5 },
+{ "id": 393480, "name": "Ravenna", "lat": 44.415718, "lon": 12.196604 },
+{ "id": 423025, "name": "Rome", "lat": 41.891775, "lon": 12.486137 },
+{ "id": 197488, "name": "Salona, near Split, Dalmatia", "lat": 197488, "lon": 16.483426 },
+{ "id": 315152, "name": "Sicca", "lat": 36.18057, "lon": 8.712204 },
+{ "id": 981539, "name": "Siniti, Numidia", "lat": 37.5, "lon": 7.5 },
+{ "id": 305153, "name": "Sitifis (Mauretania Sitifensis)", "lat": 36.1930925, "lon": 5.4108155 },
+{ "id": 324815, "name": "Sufes", "lat": 35.5433595, "lon": 9.073196 },
+{ "id": 42503, "name": "Syracuse", "lat": 37.07164055, "lon": 15.2791651 },
+{ "id": 324825, "name": "Thaenae", "lat": 34.6553465, "lon": 10.670659 },
+{ "id": 315198, "name": "Thagaste", "lat": 36.238412, "lon": 8.004957 },
+{ "id": 334643, "name": "Tusuros in Byzacena", "lat": 33.91765, "lon": 8.143573 },
+{ "id": 315251, "name": "Uzalis", "lat": 37.169048, "lon": 10.033986 }];
+
+   //create node size scale
+  var nodeSizeScale = d3.scaleLinear()
+    .domain(d3.extent(nodes_data, d => d.total))
+    .range([30, 70]);
+
+  //create node size scale
+  var linkSizeScale = d3.scaleLinear()
+    .domain(d3.extent(links_data, d => d.count))
+    .range([5, 30]);
+
+  //create node size scale
+  var linkColourScale = d3.scaleLinear()
+    .domain(d3.extent(links_data, d => d.count))
+    .range(['blue', 'red']);
+
+//document.getElementsByTagName('body')[0].innerHTML = '<div>' + JSON.stringify(nodes_data) + '</div>';
+
+//create somewhere to put the force directed graph
+var height = 650,
+  width = 950;
+
+var svg = d3.select("body").append("svg")
+      .attr('width',width)
+      .attr('height',height);
+
+var radius = 15;
+
+
+//set up the simulation and add forces
+var simulation = d3.forceSimulation()
+          .nodes(nodes_data);
+
+var link_force =  d3.forceLink(links_data)
+          .id(function(d) { return d.name; })
+          ;
+
+var charge_force = d3.forceManyBody()
+    .strength(-1000);
+
+var center_force = d3.forceCenter(width / 2, height / 2);
+
+simulation
+    .force("charge_force", charge_force)
+    .force("center_force", center_force)
+    .force("link",link_force)
+ ;
+
+//add tick instructions:
+simulation.on("tick", tickActions );
+
+// THIS CODE SECTION ISN'T RENDERING
+// Per-type markers, as they don't inherit styles.
+svg.append("defs").selectAll("marker")
+	.data(["dominating"])
+	.enter().append("marker")
+	.attr('markerUnits', 'userSpaceOnUse')
+	.attr("id", function (d) {
+		return d;
+	})
+	.attr("viewBox", "0 -5 10 10")
+	.attr("refX", 0)
+	.attr("refY", 0)
+	.attr("markerWidth", 12)
+	.attr("markerHeight", 12)
+	.attr("orient", "auto-start-reverse")
+	.append("path")
+	.attr("d", "M0,-5L10,0L0,5")
+	.attr("fill", "red");
+
+//add encompassing group for the zoom
+var g = svg.append("g")
+    .attr("class", "everything");
+
+// add the curved links to our graphic
+var link = g.selectAll(".link")
+    .data(links_data)
+    .enter()
+    .append("path")
+    .attr("class", "link")
+    .style('stroke', d => {return linkColourScale(d.count);})
+    .attr('stroke-opacity', 0.5)
+    .attr('stroke-width', d => {return linkSizeScale(d.count);})
+	  .attr("marker-end", function(d) {
+        if(JSON.stringify(d.target) !== JSON.stringify(d.source))
+           return "url(#dominating)";
+    });
+
+//draw circles for the nodes
+var node = g.append("g")
+        .attr("class", "nodes")
+        .selectAll("circle")
+        .data(nodes_data)
+        .enter()
+        .append("circle")
+        .attr("r", d => {return nodeSizeScale(d.total);})
+        .attr("fill", "#333")
+        .on("mouseover", mouseOver(.1))
+        .on("mouseout", mouseOut);
+
+//add text labels
+var text = g.append("g")
+    .attr("class", "labels")
+    .selectAll("text")
+    .data(nodes_data)
+    .enter().append("text")
+    .style("text-anchor","middle")
+    .style("font-weight", "bold")
+    .style("pointer-events", "none")
+    .attr("dy", ".35em")
+    .text(function(d) { return d.name });
+
+//add drag capabilities
+var drag_handler = d3.drag()
+  .on("start", drag_start)
+  .on("drag", drag_drag)
+  .on("end", drag_end);
+
+drag_handler(node);
+
+
+//add zoom capabilities
+var zoom_handler = d3.zoom()
+    .on("zoom", zoom_actions);
+
+zoom_handler(svg);
+
+/** Functions **/
+
+//Drag functions
+//d is the node
+function drag_start(d) {
+ if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+    d.fx = d.x;
+    d.fy = d.y;
+}
+
+//make sure you can't drag the circle outside the box
+function drag_drag(d) {
+  d.fx = d3.event.x;
+  d.fy = d3.event.y;
+}
+
+function drag_end(d) {
+  if (!d3.event.active) simulation.alphaTarget(0);
+  d.fx = null;
+  d.fy = null;
+}
+
+//Zoom functions
+function zoom_actions(){
+    g.attr("transform", d3.event.transform)
+}
+
+function tickActions() {
+    //update circle positions each tick of the simulation
+       node
+        .attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+
+    //update link positions
+    link.attr("d", positionLink1);
+	  link.filter(function(d){ return JSON.stringify(d.target) !== JSON.stringify(d.source); })
+      .attr("d",positionLink2);
+
+    text.attr("x", function(d) { return d.x; })
+        .attr("y", function(d) { return d.y; });
+}
+
+
+function positionLink1(d) {
+    var dx = d.target.x - d.source.x,
+        dy = d.target.y - d.source.y,
+        dr = Math.sqrt(dx * dx + dy * dy);
+    return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + d.target.x + "," + d.target.y;
+}
+
+  // recalculate and back off the distance
+function positionLink2(d) {
+	    // length of current path
+    var pl = this.getTotalLength(),
+        // radius of circle plus marker head
+        r = nodeSizeScale(d.target.total)+ 12, //12 is the "size" of the marker Math.sqrt(12**2 + 12 **2)
+        // position close to where path intercepts circle
+        m = this.getPointAtLength(pl - r);
+
+     var dx = m.x - d.source.x,
+        dy = m.y - d.source.y,
+        dr = Math.sqrt(dx * dx + dy * dy);
+
+      return "M" + d.source.x + "," + d.source.y + "A" + dr + "," + dr + " 0 0,1 " + m.x + "," + m.y;
+}
+
+// build a dictionary of nodes that are linked
+var linkedByIndex = {};
+links_data.forEach(function(d) {
+    linkedByIndex[d.source.index + "," + d.target.index] = 1;
+});
+
+// check the dictionary to see if nodes are linked
+function isConnected(a, b) {
+    return linkedByIndex[a.index + "," + b.index] || linkedByIndex[b.index + "," + a.index] || a.index == b.index;
+}
+
+// fade nodes on hover
+function mouseOver(opacity) {
+    return function(d) {
+        // check all other nodes to see if they're connected
+        // to this one. if so, keep the opacity at 1, otherwise
+        // fade
+        node.style("stroke-opacity", function(o) {
+            thisOpacity = isConnected(d, o) ? 1 : opacity;
+            return thisOpacity;
+        });
+        node.style("fill-opacity", function(o) {
+            thisOpacity = isConnected(d, o) ? 1 : opacity;
+            return thisOpacity;
+        });
+        text.style("fill-opacity", function(o) {
+            thisOpacity = isConnected(d, o) ? 1 : opacity;
+            return thisOpacity;
+        });
+        // also style link accordingly
+        link.style("stroke-opacity", function(o) {
+            return o.source === d || o.target === d ? 1 : opacity;
+        });
+        link.style("stroke", function(o) {
+            return o.source === d || o.target === d ? linkColourScale(o.count) : "#333";
+        });
+    };
+}
+
+function mouseOut() {
+    node.style("stroke-opacity", 1);
+    node.style("fill-opacity", 1);
+    text.style("fill-opacity", 1);
+    link.style("stroke-opacity", 0.5);
+    link.style("stroke", d => {return linkColourScale(d.count);});
+}
+</script>

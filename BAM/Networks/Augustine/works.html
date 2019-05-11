@@ -47,14 +47,12 @@ var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 var linkForce = d3.forceLink()
     .id(function (d) { return d.id })
-    .distance(500)
-    .strength(.001)
+    .distance(40)
 
 var simulation = d3.forceSimulation()
-//    .force('link', linkForce)
-  //  .force('charge', d3.forceManyBody().strength(-160))
+    .force('link', linkForce)
+    .force('charge', d3.forceManyBody().strength(-160))
   //  .force('center', d3.forceCenter(pos[0], pos[1]))
-  .force('collision', d3.forceCollide().radius()
   .force('x', d3.forceX().x(function (d) {
       var pos = projection([d.lon, d.lat])
 //      console.log(d.lon)
@@ -94,7 +92,7 @@ function initialize(error, results) {
     simulation.nodes(graph.nodes)
         .on('tick', ticked)
 
-  //  simulation.force('link').links(graph.links)
+    simulation.force('link').links(graph.links)
 
     var svg = d3.select('body')
         .append('svg')

@@ -1,0 +1,28 @@
+=concatenate("{ ""id"": ", A2+1000, ", ""name"": ""letter ", A2, """, ""lat"": ", G2, ", ""lon"": ", H2, ", ""size"": ", B2, ", ""year"": ", C2, ", ""color"": ""blue"", ""date"": """, D2, """, ""person1"": ""Sender: ", I2, """, ""loc"": """, E2, """, ""person2"": ""Recipient: ", J2, """, ""loc2"": """, K2, """, ""Correspondent_Clerical_Rank"": """, O2, """, ""Ascetic Content"": """, R2, """, ""Other_Personal_Names_Mentioned"": """, T2, """, ""Inferred Names"": """, U2, """, ""Groups"": """, V2, """, ""Literary/Historical References"": """, W2, """, ""Other Locations Mentioned"": """, X2, """, }, { ""id"": ", A2+2000, ", ""name"": ""letter ", A2, """, ""lat"": ", M2, ", ""lon"": ", N2, ", ""size"": ", B2, ", ""year"": ", C2, ", ""color"": ""blue"", ""date"": """, D2, """, ""person1"": ""Recipient: ", I2, """, ""loc"": """, K2, """, ""person2"": ""Sender: ", I2, """, ""loc2"": """, E2, """, ""Correspondent_Clerical_Rank"": """, O2, """, ""Ascetic Content"": """, R2, """, ""Other_Personal_Names_Mentioned"": """, T2, """, ""Inferred Names"": """, U2, """, ""Groups"": """, V2, """, ""Literary/Historical References"": """, W2, """, ""Other Locations Mentioned"": """, X2, """, }, ")
+
+
+
+"{ ""id"": 1187, ""name"": ""letter 187"", ""lat"": 36.882478, ""lon"": 7.751272, ""size"": 46571, ""year"": 417, ""color"": ""blue"", ""date"": ""417"", ""person1"": ""Sender: Augustine"", ""loc"": ""Hippo Regius"", ""person2"": ""Recipient: Claudius Postumus Dardanus"", ""loc2"": ""Gaul"", ""Correspondent_Clerical_Rank"": ""layman"", ""Ascetic Content"": ""No"", ""Other_Personal_Names_Mentioned"": ""Claudius Postumus Dardanus; Peter; Abraham; Adam; David; Elisha;  Elijah; John; Rebekah; Mary (the mother of Jesus); Abraham; Isaac; Jacob; Solomon; Cornelius; Jeremiah; Caiaphas; Noah; Judah"", ""Inferred Names"": ""The 12 disciples; Paul; "", ""Groups"": ""Arians; Apollinarists"", ""Literary/Historical References"": ""1 Tm 2:5; Lk23:43; Ps 16:10; Acts 2:27); Lk 16:22; Lk 16:23); Lk 16:22; Lk 16:26; Acts 2:24 ; Wis 8:1; Wis 7:24-25; Jn 10:30 Jn 14:28; Rom 1:3; Jn 1:3; Rom 1:3; Phil 2:7; Jn 3:13; 1 Cor 2:8;  Acts 17:28;  Jer 23:24; Wis 8:1 ; Wis 1:7;  Ps 139:7-8;  1 Cor 6:19; 1 Cor 3:16; Rom 8:9; Mt 6:9;  Rom 1:21; Lk 1:41-44;
+Lk 1:41;  1 Cor3:16; 1 Cor 2:14 ; Rom 8:24 ; Ti 3:5; Rom 8:24-25; Jn 15:15; Jn 16:12; 1 Cor 15:54; Jn 3:5; Rom 5:12; Jb 7:1; Mt 6:12; Eph 5:26-27; Mt 6:12; Rom 1:21; Rom 1:25; l Cor 13:12; 1 Cor 3:1-2; 1 Cor 3:16; 6:19;  1 Cor 15:46-49; 1 Cor 15:21-22;  Rom 8:3; Rom 5:18; Lk 1:35; Jer 1:5; Mt 1:20; Jn 3:3; Jn 3:5; Heb 11:6; 2 Cor 4:13; Ps 116:10; Rv 10:7; Am 3:7; 1 Cor 15:22;Col 1:13;  Pt 2:5; 2 Cor 6:16; Lv 6:12; Mt 7:22-23; Jn 11:50-52;  Zep 2:11; Ps 29:10; Ps 29:10; Col 2:9; Act 17:24; Jn 2:19; 21; Jn 1:14;  1 Jn 4:16
+"", ""Other Locations Mentioned"": ""Bethlehem"", }, { ""id"": 2187, ""name"": ""letter 187"", ""lat"": 45.57717715, ""lon"": 2.49095881905, ""size"": 46571, ""year"": 417, ""color"": ""red"", ""date"": ""417"", ""person1"": ""Recipient: Augustine"", ""loc"": ""Gaul"", ""person2"": ""Sender: Augustine"", ""loc2"": ""Hippo Regius"", ""Correspondent_Clerical_Rank"": ""layman"", ""Ascetic Content"": ""No"", ""Other_Personal_Names_Mentioned"": ""Claudius Postumus Dardanus; Peter; Abraham; Adam; David; Elisha;  Elijah; John; Rebekah; Mary (the mother of Jesus); Abraham; Isaac; Jacob; Solomon; Cornelius; Jeremiah; Caiaphas; Noah; Judah"", ""Inferred Names"": ""The 12 disciples; Paul; "", ""Groups"": ""Arians; Apollinarists"", ""Literary/Historical References"": ""1 Tm 2:5; Lk23:43; Ps 16:10; Acts 2:27); Lk 16:22; Lk 16:23); Lk 16:22; Lk 16:26; Acts 2:24 ; Wis 8:1; Wis 7:24-25; Jn 10:30 Jn 14:28; Rom 1:3; Jn 1:3; Rom 1:3; Phil 2:7; Jn 3:13; 1 Cor 2:8;  Acts 17:28;  Jer 23:24; Wis 8:1 ; Wis 1:7;  Ps 139:7-8;  1 Cor 6:19; 1 Cor 3:16; Rom 8:9; Mt 6:9;  Rom 1:21; Lk 1:41-44;
+Lk 1:41;  1 Cor3:16; 1 Cor 2:14 ; Rom 8:24 ; Ti 3:5; Rom 8:24-25; Jn 15:15; Jn 16:12; 1 Cor 15:54; Jn 3:5; Rom 5:12; Jb 7:1; Mt 6:12; Eph 5:26-27; Mt 6:12; Rom 1:21; Rom 1:25; l Cor 13:12; 1 Cor 3:1-2; 1 Cor 3:16; 6:19;  1 Cor 15:46-49; 1 Cor 15:21-22;  Rom 8:3; Rom 5:18; Lk 1:35; Jer 1:5; Mt 1:20; Jn 3:3; Jn 3:5; Heb 11:6; 2 Cor 4:13; Ps 116:10; Rv 10:7; Am 3:7; 1 Cor 15:22;Col 1:13;  Pt 2:5; 2 Cor 6:16; Lv 6:12; Mt 7:22-23; Jn 11:50-52;  Zep 2:11; Ps 29:10; Ps 29:10; Col 2:9; Act 17:24; Jn 2:19; 21; Jn 1:14;  1 Jn 4:16
+"", ""Other Locations Mentioned"": ""Bethlehem"", }, "
+
+
+close but not there yet
+var newData = [];
+graph.nodes.forEach( function (d) {
+  if (d.year <= threshold) {newData.push(d); };
+});
+
+// Data join with only those new links.
+links = links.data(newData, function(d) {return d.source + ', ' + d.target;});
+links.exit().remove();
+var linkEnter = links.enter().append('line').attr('class', 'links');
+links = linkEnter.merge(links);
+
+nodes = nodes.data(newData);
+//  links = links.data(newData, function(d) {return d.source + ', ' + d.target;});
+nodes.exit().remove();
+var nodeEnter = nodes.enter().append('circle').attr('class', 'nodes');
+nodes = nodeEnter.merge(nodes);
