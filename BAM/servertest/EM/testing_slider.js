@@ -9,21 +9,17 @@ var searchData;
 let paramTypes = ['languages', 'contexts', 'forms', 'materials'];
 let keys = ['id', 'manuscript', 'languages', 'geopolitical_context', 'terminus_post_quem', 'terminus_ante_quem', 'forms', 'materials'];
 let witnessKeys = ['id', 'author', 'terminus_post_quem', 'terminus_ante_quem', 'forms', 'materials', 'text'];
+//  broken attempt to have slider govern date range box
 
-var slider1 = document.getElementById("startDateslide");
-var output1 = document.getElementById("startDate");
-//output1.innerHTML = slider1.value;
 
-slider1.onchange = function() {
-  output1.value = this.value;
+
+function showValstart(slideVal) {
+  document.getElementById('startDate').value = slideVal;
 }
 
-var slider2 = document.getElementById("endDateslide");
-var output2 = document.getElementById("endDate");
-//output2.innerHTML = slider2.value;
 
-slider2.onchange = function() {
-  output2.value = this.value;
+function showValend(slideVal) {
+  document.getElementById('endDate').value = slideVal;
 }
 
 function clearParams() {
