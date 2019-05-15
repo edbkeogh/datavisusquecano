@@ -33,31 +33,15 @@ function readdParam(paramType, val) {
 }
 
 function removeParam(paramType, val) {
-var optest = document.getElementById('i' + val).style.opacity;
-console.log(optest);
-switch (optest = '1') {
-	case true:
-	optest = '.4';
-	document.getElementById('b' + val).innerHTML = '<u>add</u>';
-	 let index = searchData[paramType].indexOf(val);
-	 searchData[paramType].splice(index, 1);
-	 break;
-	case false:
-				searchData[paramType].push(val);
-				optest = '1';
-				document.getElementById('b' + val).innerHTML = '<u>remove</u>';
-	break;
-	default:
-	alert("I am an alert box!");
-}
+
 // ('b' + val)
 //	document.getElementById('selected_' + paramType + '_' + ).innerHTML += '<li>' + val + ' <button class="remove-button" onclick="readdParam(\'' + paramType + '\', \'' + val + '\')"><u>add</u></button></li>';
-//seriously though this did used to work	// optest = '.4';
-	// document.getElementById('b' + val).innerHTML = '<u>add</u>';
-	//
-	//
-	//  let index = searchData[paramType].indexOf(val);
-	//  searchData[paramType].splice(index, 1);
+	document.getElementById('i' + val).style.opacity = '.4';
+	document.getElementById('b' + val).innerHTML = '<u>add</u>';
+
+
+	 let index = searchData[paramType].indexOf(val);
+	 searchData[paramType].splice(index, 1);
 	//
 	// let ul = document.getElementById('selected_' + paramType);
 	// ul.removeChild(ul.childNodes[index]);
