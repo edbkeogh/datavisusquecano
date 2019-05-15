@@ -107,7 +107,7 @@ function search() {
 	}
 	$.ajax({
 		type: 'POST',
-		url: 'http://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
+		url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
 		data: data,
 		success: function(res) {
 			let results = JSON.parse(res);
@@ -167,7 +167,7 @@ clearParams();
 
 $.ajax({
   type: 'POST',
-  url: 'http://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
+  url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
   data: {'functionName': 'getUniqueValues2'},
   success: function(res) {
 		console.log(res);
