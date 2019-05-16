@@ -1,7 +1,7 @@
 <html>
 <head>
 	<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="application/javascript" src="testing_slider.js"></script>
+	<script type="application/javascript" src="testing2.js"></script>
 	<style>
 		ul {
 			list-style-type: none;
@@ -50,11 +50,19 @@
 	<br />
 	End Date:  <input id="endDateslide" type="range" min="1" max="5000" value="1" oninput="showValend(this.value)"> <input type="number" step="1" min="1" id="endDate"> <select id="endNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
 	<button onclick="addDateRange()">Set Date Range</button>
-	<br />
-	<br />
+<br />
+<div id="dateValidCheck" style="background-color: red; padding: 10px; border: 2px dashed black; width: 120px; opacity: 0;">Invalid Date Range</div>
+
 
 <p><button onclick="addAlladdAll()">Add All</button><button onclick="removeAll()">RemoveAll</button>&nbsp&nbsp&nbspNote: You must select at least one language to search.</p>
-	Selected search parameters:
+	 <br/>
+	<button onclick="addAllparameter('languages')">Add All Languages</button>&nbsp&nbsp<button onclick="addAllparameter('contexts')">Add All Contexts</button>&nbsp&nbsp<button onclick="addAllparameter('forms')">Add All Forms</button>&nbsp&nbsp<button onclick="addAllparameter('materials')">Add All Materials</button> <!-- &nbsp&nbsp<button onclick="removeDateRange()">Remove Date Range</button> TODO make a find all and add it range button?-->
+<br/>
+<br/>
+<button onclick="removeAllparameter('languages')">Remove All Languages</button>&nbsp&nbsp<button onclick="removeAllparameter('contexts')">Remove All Contexts</button>&nbsp&nbsp<button onclick="removeAllparameter('forms')">Remove All Forms</button>&nbsp&nbsp<button onclick="removeAllparameter('materials')">Remove All Materials</button>&nbsp&nbsp<button onclick="removeDateRange()">Remove Date Range</button>
+<br/>
+<br/>
+<p>Selected search parameters:</p>
 	<table>
 		<thead>
 			<tr>
