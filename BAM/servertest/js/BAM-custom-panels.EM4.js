@@ -51,7 +51,7 @@ overlayPanelsList.infoBox = 'overlay';
 
 //the database box holds a list of all the people in the application
 
-var databaseBoxHtml = '<div id="databaseBox" class="nonMapOverlay"> <div id="databaseBoxTop"> <b> Eurasian Manuscripts CLSA 2127 </b>';
+var databaseBoxHtml = '<div id="databaseBox" class="nonMapOverlay"> <div id="databaseBoxTop"> <b> Manuscript Results </b>';
 databaseBoxHtml = databaseBoxHtml + '<div id="databaseBoxClose" class="popupCloseCarte">x</div> <hr /></div>';
 databaseBoxHtml = databaseBoxHtml + '<div id="databaseBoxContents" class="allow-scroll">';
 databaseBoxHtml = databaseBoxHtml + '<div id="databaseBoxHolder" class="display darkText"><table id="bamMainTable" class="display darkText cell-border" width="100%"></table></div>';
@@ -231,6 +231,7 @@ function addSearchParam(selectID) {
 }
 
 function search() {
+  tableMain.clear();
 	if (searchData['languages'].length < 1) return alert('You must select a language to search');
 	let data = {'functionName': 'searchDB2'};
 
@@ -251,53 +252,90 @@ function search() {
 		data: data,
 		success: function(res) {
 			let results = JSON.parse(res);
+xx = []
+console.log(results.manuscripts);
+searchIDs = results.manuscripts;
+for (i in searchIDs) {
+  xx[i] = searchIDs[i].id;
 
-			// Populate the results table
-			let tableBody = document.getElementById('results-table');
-			tableBody.innerHTML = '';
-			results['manuscripts'].forEach(function(item) {
-				let tableRow = "<tr>";
+}
+//console.log(xx)
+			// // Populate the results table
+			// let tableBody = document.getElementById('results-table');
+			// tableBody.innerHTML = '';
+			// results['manuscripts'].forEach(function(item) {
+			// 	let tableRow = "<tr>";
+      //
+			// 	// Go through each column and add it to the table if the column is in keys
+			// 	keys.forEach(function(key) {
+			// 		tableRow += "<td>";
+			// 		// The paramTypes keys have array values
+			// 		if (paramTypes.includes(key)) {
+			// 			tableRow += item[key].join(", ");
+			// 		} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
+			// 			tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
+			// 		} else {
+			// 			tableRow += item[key];
+			// 		}
+			// 		tableRow += "</td>";
+			// 	});
+			// 	tableRow += "</tr>";
+			// 	tableBody.innerHTML += tableRow;
+			// });
 
-				// Go through each column and add it to the table if the column is in keys
-				keys.forEach(function(key) {
-					tableRow += "<td>";
-					// The paramTypes keys have array values
-					if (paramTypes.includes(key)) {
-						tableRow += item[key].join(", ");
-					} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
-						tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
-					} else {
-						tableRow += item[key];
-					}
-					tableRow += "</td>";
-				});
-				tableRow += "</tr>";
-				tableBody.innerHTML += tableRow;
-			});
+// put it in BAM tables
+tableMain.rows.add(results.manuscripts);
 
-			// Populate the witnesses table
-			tableBody = document.getElementById('witness-results-table');
-			tableBody.innerHTML = '';
-			results['textual_witnesses'].forEach(function(item) {
-				let tableRow = "<tr>";
+	//TODO I need to make a place for these		// Populate the witnesses table
+			// tableBody = document.getElementById('witness-results-table');
+			// tableBody.innerHTML = '';
+			// results['textual_witnesses'].forEach(function(item) {
+			// 	let tableRow = "<tr>";
+      //
+			// 	// Go through each column and add it to the table if the column is in witnessKeys
+			// 	witnessKeys.forEach(function(key) {
+			// 		tableRow += "<td>";
+			// 		// The paramTypes keys have array values
+			// 		if (paramTypes.includes(key)) {
+			// 			tableRow += item[key].join(", ");
+			// 		} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
+			// 			tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
+			// 		} else {
+			// 			tableRow += item[key];
+			// 		}
+			// 		tableRow += "</td>";
+			// 	});
+			// 	tableRow += "</tr>";
+			// 	tableBody.innerHTML += tableRow;
+			// });
+// TODO that was the end of the witness table
 
-				// Go through each column and add it to the table if the column is in witnessKeys
-				witnessKeys.forEach(function(key) {
-					tableRow += "<td>";
-					// The paramTypes keys have array values
-					if (paramTypes.includes(key)) {
-						tableRow += item[key].join(", ");
-					} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
-						tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
-					} else {
-						tableRow += item[key];
-					}
-					tableRow += "</td>";
-				});
-				tableRow += "</tr>";
-				tableBody.innerHTML += tableRow;
-			});
-		}
+		},
+    error: function(XMLHttpRequest, errorThrown) {
+        // console.log("Status: " + textStatus);
+        console.log("Error: " + errorThrown);
+        console.log(XMLHttpRequest);
+      },
+      complete: function(res) {
+          //just resetting all the values, as spaces and nulls were driving the search PHP insane
+          //get from form
+          var id = [];
+          var manuscript = [];
+          var language = [];
+          var locations = [];
+          var geopolitical_context = [];
+          var terminus_post_quem = [];
+          var terminus_ante_quem = [];
+          var form = [];
+          var substrate_material = [];
+          //redraw table
+          tableMain.draw();
+showHell();
+
+    //show the table!
+    $('#databaseBox').show();
+  //  refreshMap();
+      }
 	});
 }
 

@@ -161,6 +161,8 @@ function search() {
 	});
 }
 
+// ◀
+//  ▶
 $(document).ready(function() {
 console.log("hello")
 clearParams();

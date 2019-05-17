@@ -25,7 +25,7 @@ var informationToggle = false;
 $("#left-btn-slide-toggle").click(function() {
     if (sideSlideToggle == true) {
         $("#left-side-panel").animate({
-            left: "-287",
+            left: "-273",
         }, 500, function() {
             // Animation complete.
             sideSlideToggle = false;
