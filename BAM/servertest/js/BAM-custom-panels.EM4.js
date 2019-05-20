@@ -76,10 +76,12 @@ let keys = ['id', 'manuscript', 'languages', 'geopolitical_context', 'terminus_p
 let witnessKeys = ['id', 'author', 'terminus_post_quem', 'terminus_ante_quem', 'forms', 'materials', 'text'];
 //  broken attempt to have slider govern date range box
 
-
+//Math.round(((0.1*(slideVal^3))+(0.05*(slideVal^2))+(0.05*slideVal)))
 
 function showValstart(slideVal) {
-  document.getElementById('startDate').value = slideVal;
+  var x = slideVal;
+  var y = 0.5*(x*x)+x*0.5;
+  document.getElementById('startDate').value = y;
   let startTag = document.getElementById('startDate');
 	let endTag = document.getElementById('endDate');
 
@@ -106,7 +108,9 @@ function showValstart(slideVal) {
 }
 
 function showValend(slideVal) {
-  document.getElementById('endDate').value = slideVal;
+  var x = slideVal;
+  var y = 0.5*(x*x)+x*0.5;
+  document.getElementById('endDate').value = y;
   let startTag = document.getElementById('startDate');
 	let endTag = document.getElementById('endDate');
 
