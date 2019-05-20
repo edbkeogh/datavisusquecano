@@ -1,7 +1,10 @@
 //BAM-custom-panels.js
 //holds all of the panels for the application. These are HIGHLY variable for each individual app
 
-
+var tablerow;
+var str = "";
+//var formattedresults = ["id": "", "manuscript": "", "languages": "", "geopolitical_context": "", "terminus_post_quem": "", "terminus_ante_quem": "", "forms": "", "materials": ""]
+var formattedresults = []
 var searchIDs = []
 var xx = [];
 y = ['2', '4', '7']
@@ -255,19 +258,68 @@ function search() {
 xx = []
 console.log(results.manuscripts);
 searchIDs = results.manuscripts;
+formattedresults = results.manuscripts;
 
-var formattedresults = searchIDs
+
+results['manuscripts'].forEach(function(item) {
 
 
+
+console.log(JSON.stringify(item['languages']))
+//console.log(item[findspot])
+// switch (item[key]) {
+// case "languages"
+//
+// }
+let tableRow = "";
+
+keys.forEach(function(key) {
+formattedresults = item[key];
+console.log(formattedresults)
+if (paramTypes.includes(key)) {
+// console.log(searchIDs[key])
+var str = key + ":" + item[key];
+  formattedresults.push(str);
+  tableRow += item[key].join(", ");
+} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
+  tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
+} else {
+  tableRow += item[key];
+}
+});
 for (i in searchIDs) {
   xx[i] = searchIDs[i].id;
 
 }
-
-
+// console.log(formattedresults);
+});
+//console.log(xx)
+			// // Populate the results table
+			// let tableBody = document.getElementById('results-table');
+			// tableBody.innerHTML = '';
+			// results['manuscripts'].forEach(function(item) {
+			// 	let tableRow = "<tr>";
+      //
+			// 	// Go through each column and add it to the table if the column is in keys
+			// 	keys.forEach(function(key) {
+			// 		tableRow += "<td>";
+			// 		// The paramTypes keys have array values
+			// 		if (paramTypes.includes(key)) {
+			// 			tableRow += item[key].join(", ");
+			// 		} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
+			// 			tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
+			// 		} else {
+			// 			tableRow += item[key];
+			// 		}
+			// 		tableRow += "</td>";
+			// 	});
+			// 	tableRow += "</tr>";
+			// 	tableBody.innerHTML += tableRow;
+			// });
+// console.log(formattedresults);
 // put it in BAM tables
-tableMain.rows.add(results.manuscripts);
-//tableMain.rows.add(formattedresults);
+//tableMain.rows.add(results.manuscripts);
+tableMain.rows.add(formattedresults);
 
 	//TODO I need to make a place for these		// Populate the witnesses table
 			// tableBody = document.getElementById('witness-results-table');
@@ -419,3 +471,28 @@ returns = results
 
 
 });
+
+
+JSON.flatten = function(data) {
+    var result = {};
+    function recurse (cur, prop) {
+        if (Object(cur) !== cur) {
+            result[prop] = cur;
+        } else if (Array.isArray(cur)) {
+             for(var i=0, l=cur.length; i<l; i++)
+                 recurse(cur[i], prop ? prop+"."+i : ""+i);
+            if (l == 0)
+                result[prop] = [];
+        } else {
+            var isEmpty = true;
+            for (var p in cur) {
+                isEmpty = false;
+                recurse(cur[p], prop ? prop+"."+p : p);
+            }
+            if (isEmpty)
+                result[prop] = {};
+        }
+    }
+    recurse(data, "");
+    return result;
+}

@@ -261,9 +261,52 @@ var formattedresults = searchIDs
 
 for (i in searchIDs) {
   xx[i] = searchIDs[i].id;
-
+//formattedresults[i]
+formattedresults[i].language = JSON.stringify(searchIDs[i].languages)
+formattedresults[i].form = JSON.stringify(searchIDs[i].forms)
+formattedresults[i].material = JSON.stringify(searchIDs[i].materials)
+// formattedresults[i] +=  '\'manuscript\'\: \'' + searchIDs[i].manuscript + '\'\, '
+// formattedresults[i].manuscript += console.log(searchIDs[i].manuscript)
+// console.log(JSON.stringify(searchIDs[i].languages))
 }
 
+// formattedresults = searchIDs[keys]; ['id', 'manuscript', 'languages', 'geopolitical_context', 'terminus_post_quem', 'terminus_ante_quem', 'forms', 'materials'];
+
+
+// for (i in keys) {
+//   console.log(searchIDs[keys[i]])
+// }
+
+// here is the only strange stuff so Familiares
+
+// formattedresults = JSON.flatten(results.manuscripts[12]);
+
+//searchIDs.reduce((acc, val) => acc.concat(val), []);
+// formattedresults = results.manuscripts.flat(1);
+console.log(formattedresults)
+//console.log(xx)
+			// // Populate the results table
+			// let tableBody = document.getElementById('results-table');
+			// tableBody.innerHTML = '';
+			// results['manuscripts'].forEach(function(item) {
+			// 	let tableRow = "<tr>";
+      //
+			// 	// Go through each column and add it to the table if the column is in keys
+			// 	keys.forEach(function(key) {
+			// 		tableRow += "<td>";
+			// 		// The paramTypes keys have array values
+			// 		if (paramTypes.includes(key)) {
+			// 			tableRow += item[key].join(", ");
+			// 		} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
+			// 			tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
+			// 		} else {
+			// 			tableRow += item[key];
+			// 		}
+			// 		tableRow += "</td>";
+			// 	});
+			// 	tableRow += "</tr>";
+			// 	tableBody.innerHTML += tableRow;
+			// });
 
 // put it in BAM tables
 tableMain.rows.add(results.manuscripts);
@@ -419,3 +462,35 @@ returns = results
 
 
 });
+
+
+function flatten(arr) {
+  console.log("flatten running")
+  return arr.reduce(function (flat, toFlatten) {
+    return flat.concat(Array.isArray(toFlatten) ? flatten(toFlatten) : toFlatten);
+  }, []);
+}
+
+JSON.flatten = function(data) {
+    var result = {};
+    function recurse (cur, prop) {
+        if (Object(cur) !== cur) {
+            result[prop] = cur;
+        } else if (Array.isArray(cur)) {
+             for(var i=0, l=cur.length; i<l; i++)
+                 recurse(cur[i], prop ? prop+"."+i : ""+i);
+            if (l == 0)
+                result[prop] = [];
+        } else {
+            var isEmpty = true;
+            for (var p in cur) {
+                isEmpty = false;
+                recurse(cur[p], prop ? prop+"."+p : p);
+            }
+            if (isEmpty)
+                result[prop] = {};
+        }
+    }
+    recurse(data, "");
+    return result;
+}

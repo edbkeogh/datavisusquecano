@@ -47,13 +47,13 @@ var demo3 = [
 //get from form
 var id = [];
 var manuscript = [];
-var language = [];
+var languages = [];
 var locations = [];
 var geopolitical_context = [];
 var terminus_post_quem = [];
 var terminus_ante_quem = [];
-var form = [];
-var substrate_material = [];
+var forms = [];
+var materials = [];
 
 //create the table for iclaw / icaaw / ietc
 var tableMain = $('#bamMainTable').DataTable({
@@ -73,8 +73,8 @@ var tableMain = $('#bamMainTable').DataTable({
         title: 'Manuscript'
     },
     {
-        data: 'language',
-        title: 'Language'
+        data: 'languages',
+        title: 'Language(s)'
     },
     {
         data: 'geopolitical_context',
@@ -89,12 +89,12 @@ var tableMain = $('#bamMainTable').DataTable({
         title: 'Term. Ante'
     },
     {
-        data: 'form',
-        title: 'Form'
+        data: 'forms',
+        title: 'Form(s)'
     },
     {
-        data: 'substrate_material',
-        title: 'Substrate'
+        data: 'materials',
+        title: 'Substrate(s)'
     }
 
 
