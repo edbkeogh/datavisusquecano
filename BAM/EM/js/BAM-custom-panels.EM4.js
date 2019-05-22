@@ -154,6 +154,13 @@ function clearParams() {
 	document.getElementById('selected_date_range').innerHTML = '';
 }
 
+function toggleWitnessTable() {
+
+  console.log("this works")
+document.getElementById('witness').style.opacity = .1;
+
+}
+
 function readdParam(paramType, val) {
 	console.log('something')
 }
@@ -274,27 +281,27 @@ tableMain.rows.add(results.manuscripts);
 //tableMain.rows.add(formattedresults);
 
 	//TODO I need to make a place for these		// Populate the witnesses table
-			// tableBody = document.getElementById('witness-results-table');
-			// tableBody.innerHTML = '';
-			// results['textual_witnesses'].forEach(function(item) {
-			// 	let tableRow = "<tr>";
-      //
-			// 	// Go through each column and add it to the table if the column is in witnessKeys
-			// 	witnessKeys.forEach(function(key) {
-			// 		tableRow += "<td>";
-			// 		// The paramTypes keys have array values
-			// 		if (paramTypes.includes(key)) {
-			// 			tableRow += item[key].join(", ");
-			// 		} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
-			// 			tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
-			// 		} else {
-			// 			tableRow += item[key];
-			// 		}
-			// 		tableRow += "</td>";
-			// 	});
-			// 	tableRow += "</tr>";
-			// 	tableBody.innerHTML += tableRow;
-			// });
+			tableBody = document.getElementById('witness-results-table');
+			tableBody.innerHTML = '';
+			results['textual_witnesses'].forEach(function(item) {
+				let tableRow = "<tr>";
+
+				// Go through each column and add it to the table if the column is in witnessKeys
+				witnessKeys.forEach(function(key) {
+					tableRow += "<td>";
+					// The paramTypes keys have array values
+					if (paramTypes.includes(key)) {
+						tableRow += item[key].join(", ");
+					} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
+						tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
+					} else {
+						tableRow += item[key];
+					}
+					tableRow += "</td>";
+				});
+				tableRow += "</tr>";
+				tableBody.innerHTML += tableRow;
+			});
 // TODO that was the end of the witness table
 
 		},
@@ -416,6 +423,8 @@ returns = results
 			}
 			// if (menu.innerHTML === '') menu.innerHTML = `<option>N/A</option>`;
 		});
+
+    
 	}
 });
 
