@@ -1,0 +1,26 @@
+<head>
+	<title>Timeline Demo 2</title>
+	<link id="favicon" rel="icon" type="image/png" href="../../images/favicon.ico">
+	<script src="timeline3.js"></script>
+	<script src="dataformat22.js"></script>
+</head>
+<style>
+#myPlot {
+	height: 1000;
+}
+</style>
+<body>
+	<div id="myPlot"></div>
+
+	<script>
+		TimelinesChart()
+    .maxLineHeight([10])
+//    .leftMargin([250])
+  //  .width([])
+    .xTickFormat(n => +n)
+.timeFormat('%Q')
+			.data(tldata)
+			.zQualitative(true)
+			(document.getElementById('myPlot'));
+	</script>
+</body>

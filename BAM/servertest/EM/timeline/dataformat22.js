@@ -469,7 +469,413 @@ var tldata = [
       ]
     }
 ],
+},
+{
+  group: "Egypt and Nubia",
+  data: [
+    {
+      label: "Egypt and Nubia",
+      data: [
+        {
+          timeRange: [-3150, -2686],
+          val: 'Early Dynastic Period'
+        },
+        {
+          timeRange: [-2686, -2181],
+          val: 'Old Kingdom'
+        },
+        {
+          timeRange: [-2181, -2055],
+          val: '1st Intermediate Period'
+        },
+        {
+          timeRange: [-2055, -1650],
+          val: 'Middle Kingdom'
+        },
+        {
+          timeRange: [-1650, -1550],
+          val: '2nd Intermediate Period'
+        },
+        {
+          timeRange: [-1550, -1069],
+          val: 'New Kingdom'
+        },
+        {
+          timeRange: [-1069, -664],
+          val: '3rd Intermediate Period'
+        },
+        {
+          timeRange: [-664, -332],
+          val: 'Late Period'
+        },
+        {
+          timeRange: [-322, -30],
+          val: 'Ptolemaic'
+        },
+        {
+          timeRange: [-30, 641],
+          val: 'Roman'
+        },
+        {
+          timeRange: [641, 661],
+          val: 'Rashidun'
+        },
+        {
+          timeRange: [661, 750],
+          val: 'Umayyad'
+        },
+        {
+          timeRange: [750, 935],
+          val: 'Abbasid'
+        },
+        {
+          timeRange: [935, 969],
+          val: 'Ikhshidid'
+        },
+        {
+          timeRange: [969, 1171],
+          val: 'Fatimid'
+        },
+        {
+          timeRange: [1171, 1250],
+          val: 'Ayyubid'
+        },
+        {
+          timeRange: [1250, 1517],
+          val: 'Mamluk'
+        },
+        {
+          timeRange: [1517, 1867],
+          val: 'Ottoman'
+        }
+      ]
+    },
+    {
+      label: "Egypt and Nubia ",
+      data: [
+        {
+          timeRange: [619, 629],
+          val: 'Sasanian'
+        },
+        {
+          timeRange: [868, 905],
+          val: 'Tulunid'
+        }
+
+      ]
+    },
+    {
+      label: "Egypt and Nubia  ",
+      data: [
+        {
+          timeRange: [-785, 350],
+          val: 'Kingdom of Kush'
+        },
+        {
+          timeRange: [400, 707],
+          val: 'Nobadia'
+        }
+
+      ]
+    },
+    {
+      label: "Egypt and Nubia   ",
+      data: [
+
+        {
+          timeRange: [400, 1365],
+          val: 'Makuria'
+        }
+
+      ]
+    },
+    {
+      label: "Egypt and Nubia    ",
+      data: [
+
+        {
+          timeRange: [569, 1500],
+          val: 'Alodia'
+        }
+
+      ]
+    }
+],
+},
+
+{
+  group: "Asia Minor/Caucasus",
+  data: [
+    {
+      label: "Asia Minor/Caucasus",
+      data: [
+        {
+          timeRange: [-1833, -1500],
+          val: 'Hittite Old Kingdom'
+        },
+        {
+          timeRange: [-1100, -545],
+          val: 'Carian'
+        },
+        {
+          timeRange: [-546, -344],
+          val: 'Achaemenid'
+        },
+        {
+          timeRange: [-344, -282],
+          val: 'Macedonian'
+        },
+        {
+          timeRange: [-282, -133],
+          val: 'Attalid'
+        },
+        {
+          timeRange: [324, 1453],
+          val: 'Byzantine'
+        },
+      ]
+    },
+    {
+      label: "Asia Minor/Caucasus ",
+      data: [
+        {
+          timeRange: [-1430, -1180],
+          val: 'Hittite New Kingdom'
+        },
+        {
+          timeRange: [-1180, -700],
+          val: 'Syro-Hittite'
+        },
+        {
+          timeRange: [-129, 324],
+          val: 'Roman'
+        },
+        {
+          timeRange: [1071, 1308],
+          val: 'Selijuk'
+        },
+        {
+          timeRange: [387, 646],
+          val: 'Sasanian Armenia'
+        }
+      ]
+    },
+    {
+      label: "Asia Minor/Caucasus  ",
+      data: [
+
+        {
+          timeRange: [-1200, -546],
+          val: 'Lydian'
+        },
+        {
+          timeRange: [880, 1045],
+          val: 'Bagratid Armenia'
+        }
+
+      ]
+    },
+    {
+      label: "Asia Minor/Caucasus   ",
+      data: [
+        {
+          timeRange: [-1250, -546],
+          val: 'Lycian'
+        },
+        {
+          timeRange: [363, 627],
+          val: 'Sasanian Iberia'
+        },
+        {
+          timeRange: [778, 1008],
+          val: 'Kingdom of Abkhazia'
+        },
+        {
+          timeRange: [1008, 1490],
+          val: 'Kingdom of Georgia'
+        }
+      ]
+    },
+    {
+      label: "Asia Minor/Caucasus    ",
+      data: [
+        {
+          timeRange: [-2000, -911],
+          val: 'Luwian'
+        },
+        {
+          timeRange: [-860, -590],
+          val: 'Urartu'
+        },
+        {
+          timeRange: [387, 536],
+          val: 'Byzantine Armenia'
+        },
+        {
+          timeRange: [654, 884],
+          val: 'Emirate of Armenia'
+        },
+        {
+          timeRange: [1299, 1918],
+          val: 'Ottoman'
+        }
+      ]
+    },
+    {
+      label: "Asia Minor/Caucasus     ",
+      data: [
+        {
+          timeRange: [-1500, -1300],
+          val: 'Mittani'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        },
+        {
+          timeRange: [588, 888],
+          val: 'Principlaity of Iberia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        },
+        {
+          timeRange: [888, 1008],
+          val: 'Bagratid Georgia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        }
+
+      ]
+    }
+],
+},
+
+{
+  group: "France",
+  data: [
+    {
+      label: "France",
+      data: [
+        {
+          timeRange: [-121, 486],
+          val: 'Roman'
+        },
+        {
+          timeRange: [486, 758],
+          val: 'Merovingian'
+        },
+        {
+          timeRange: [987, 1328],
+          val: 'Capetian'
+        },
+        {
+          timeRange: [1328, 1589],
+          val: 'Valois'
+        }
+      ]
+    },
+    {
+      label: "France ",
+      data: [
+        {
+          timeRange: [418, 720],
+          val: 'Visigothic'
+        },
+        {
+          timeRange: [751, 987],
+          val: 'Carolingian'
+        }
+
+      ]
+    },
+    {
+      label: "France  ",
+      data: [
+        {
+          timeRange: [411, 534],
+          val: 'Burgundian'
+        }
+
+      ]
+    }
+
+],
+},
+{
+  group: "Spain",
+  data: [
+    {
+      label: "Spain",
+      data: [
+        {
+          timeRange: [-200, 415],
+          val: 'Roman'
+        },
+        {
+          timeRange: [415, 718],
+          val: 'Visigothic'
+        },
+        {
+          timeRange: [718, 924],
+          val: 'Kingdom of Asturias'
+        },
+        {
+          timeRange: [1085, 1145],
+          val: 'Almoravid'
+        },
+        {
+          timeRange: [1147, 1238],
+          val: 'Almohad'
+        },
+        {
+          timeRange: [1238, 1492],
+          val: 'Emirate of Granada'
+        }
+      ]
+    },
+    {
+      label: "Spain ",
+      data: [
+        {
+          timeRange: [756, 1031],
+          val: 'Umayyads of Cordoba'
+        },
+        {
+          timeRange: [1065, 1230],
+          val: 'Kingdom of Castile'
+        }
+
+      ]
+    },
+    {
+      label: "Spain  ",
+      data: [
+        {
+          timeRange: [910, 1230],
+          val: 'Kingdom of Leon'
+        }
+
+      ]
+    },
+    {
+      label: "Spain  ",
+      data: [
+        {
+          timeRange: [1139, 1910],
+          val: 'Kingdom of Portugal'
+        }
+
+      ]
+    },
+    {
+      label: "Spain  ",
+      data: [
+        {
+          timeRange: [1162, 1716],
+          val: 'Kingdom of Aragon'
+        }
+
+      ]
+    }
+
+],
 }
+
+
 //region
+
+
 ]
 ;
