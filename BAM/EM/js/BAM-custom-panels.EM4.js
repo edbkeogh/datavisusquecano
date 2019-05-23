@@ -279,7 +279,7 @@ for (i in searchIDs) {
 // put it in BAM tables
 tableMain.rows.add(results.manuscripts);
 //tableMain.rows.add(formattedresults);
-
+if (results['textual_witnesses'] != null) {
 	//TODO I need to make a place for these		// Populate the witnesses table
 			tableBody = document.getElementById('witness-results-table');
 			tableBody.innerHTML = '';
@@ -302,6 +302,7 @@ tableMain.rows.add(results.manuscripts);
 				tableRow += "</tr>";
 				tableBody.innerHTML += tableRow;
 			});
+    }
 // TODO that was the end of the witness table
 
 		},
@@ -424,7 +425,7 @@ returns = results
 			// if (menu.innerHTML === '') menu.innerHTML = `<option>N/A</option>`;
 		});
 
-    
+
 	}
 });
 
