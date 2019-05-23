@@ -899,7 +899,7 @@ float: right;
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.2-22.geojson',
+		geojsonPath = 'data/EM.5-23.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -930,7 +930,8 @@ float: right;
 	  			onEachFeature: defineFeaturePopup
 	            });
 	            markerclusters.addLayer(markers);
-	            map.fitBounds(markers.getBounds());
+	            // map.fitBounds(markers.getBounds());
+							map.setView([36.650390625, 38.34165619279595], 3)
 	            map.attributionControl.addAttribution(metadata.attribution);
 	      //      renderLegend();
 	        } else {
