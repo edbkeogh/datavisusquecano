@@ -329,7 +329,7 @@ if (results['textual_witnesses'] != null) {
 showHell();
 
     //show the table!
-    $('#databaseBox').show();
+    // $('#databaseBox').show();
   //  refreshMap();
       }
 	});
