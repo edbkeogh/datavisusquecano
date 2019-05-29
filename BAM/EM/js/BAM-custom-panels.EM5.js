@@ -190,6 +190,7 @@ function removeDateRange() {
 	document.getElementById('selected_date_range').innerHTML = "";
 	searchData['startDate'] = null;
 	searchData['endDate'] = null;
+  search();
 }
 
 function addDateRange() {
@@ -226,6 +227,7 @@ function addDateRange() {
 	let startText = start < 0 ? -start + " BCE" : start + " CE";
 	let endText = end < 0 ? -end + " BCE" : end + " CE";
 	ul.innerHTML = `<li>${startText} - ${endText} <button class="remove-button" onclick="removeDateRange()"><u>remove</u></button></li>`;
+  search();
 }
 
 function addSearchParam(selectID) {
