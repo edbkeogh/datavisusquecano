@@ -183,12 +183,14 @@ function removeParam(paramType, val) {
 	alert("Something went wrong");
 }
 
+search();
 }
 
 function removeDateRange() {
 	document.getElementById('selected_date_range').innerHTML = "";
 	searchData['startDate'] = null;
 	searchData['endDate'] = null;
+  search();
 }
 
 function addDateRange() {
@@ -225,6 +227,7 @@ function addDateRange() {
 	let startText = start < 0 ? -start + " BCE" : start + " CE";
 	let endText = end < 0 ? -end + " BCE" : end + " CE";
 	ul.innerHTML = `<li>${startText} - ${endText} <button class="remove-button" onclick="removeDateRange()"><u>remove</u></button></li>`;
+  search();
 }
 
 function addSearchParam(selectID) {
@@ -328,7 +331,7 @@ if (results['textual_witnesses'] != null) {
 showHell();
 
     //show the table!
-    $('#databaseBox').show();
+    // $('#databaseBox').show();
   //  refreshMap();
       }
 	});
@@ -345,6 +348,7 @@ for (let index in returns[paramType]) {
 	 searchData[paramType].splice(ind, 1);
 }
 });
+search();
 }
 
 function removeAllparameter(paramType) {
@@ -356,6 +360,8 @@ function removeAllparameter(paramType) {
    let i = searchData[paramType].indexOf(val);
    searchData[paramType].splice(i, 1);
   		}
+
+search();
 }
 
 function addAllparameter(paramType) {
@@ -376,7 +382,7 @@ function addAllparameter(paramType) {
 
 		}
 		// if (menu.innerHTML === '') menu.innerHTML = `<option>N/A</option>`;
-
+search();
 }
 
 function addAlladdAll() {
@@ -396,6 +402,7 @@ function addAlladdAll() {
 		}
 		// if (menu.innerHTML === '') menu.innerHTML = `<option>N/A</option>`;
 	});
+search();
 }
 
 $(document).ready(function() {

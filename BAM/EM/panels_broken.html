@@ -487,25 +487,15 @@ float: right;
 #witness {
 	/*background-color: white;*/
 	position: absolute;
-	left: 305px;
-	bottom: 18px;
-	width: 800px;
+	bottom: 50px;
+	left: 50%;
 	color: #000;
-	/*border: 1px solid black;*/
+	border: 1px solid black;
 	padding: 5px;
-	background-color: rgba(55, 89, 142, 0.65);
-	/*opacity: 0;*/
-  z-index: 1000;
-	overflow: scroll;
-	-webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-}
+	background-color: rgba(238, 238, 238, 0.85);
 
-#witness-results-table td {
-	/*border: 1px solid black;*/
-	padding: 10px;
 }
-/*.witness table {
+.witness table {
 	border-collapse: collapse;
 	border: 1px solid black;
 	padding: 5px;
@@ -514,7 +504,7 @@ float: right;
 .witness td {
 	border: 1px solid black;
 	padding: 5px;
-}*/
+}
 
 
 .remove-button {
@@ -564,7 +554,7 @@ float: right;
 
 
     <!-- BAM Setup, after all necessary libraries are loaded -->
-    <script src="js/BAM-setup.EM4.js"></script>
+    <!-- <script src="js/BAM-setup.EM4.js"></script> -->
 		<script src="js/leaflet.js" charset="utf-8"></script>
 		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
 		<script src="js/d3.v3.min.js" charset="utf-8"></script>
@@ -803,12 +793,6 @@ float: right;
 
 </div>
 </div>
-
-<!--  onclick="toggleWitnessTable()"-->
-<!-- <input type="button" onclick="toggleWitnessTable()" class="accordion"><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</input> -->
-<!-- <button id="infoButton" class="accordion" ><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</button> -->
-
-
 			<div id="left-btn-slide-toggle" class="slider-icon">&#9664;
 			</div>
 			<!-- License information-->
@@ -899,7 +883,7 @@ float: right;
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.5-24.2.geojson',
+		geojsonPath = 'data/EM.2-22.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -930,8 +914,7 @@ float: right;
 	  			onEachFeature: defineFeaturePopup
 	            });
 	            markerclusters.addLayer(markers);
-	            // map.fitBounds(markers.getBounds());
-							map.setView([36.650390625, 38.34165619279595], 3)
+	            map.fitBounds(markers.getBounds());
 	            map.attributionControl.addAttribution(metadata.attribution);
 	      //      renderLegend();
 	        } else {

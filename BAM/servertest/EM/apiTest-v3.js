@@ -111,7 +111,7 @@ function search() {
 		data: data,
 		success: function(res) {
 			let results = JSON.parse(res);
-
+console.log(results)
 			// Populate the results table
 			let tableBody = document.getElementById('results-table');
 			tableBody.innerHTML = '';
@@ -136,27 +136,27 @@ function search() {
 			});
 
 			// Populate the witnesses table
-			tableBody = document.getElementById('witness-results-table');
-			tableBody.innerHTML = '';
-			results['textual_witnesses'].forEach(function(item) {
-				let tableRow = "<tr>";
-
-				// Go through each column and add it to the table if the column is in witnessKeys
-				witnessKeys.forEach(function(key) {
-					tableRow += "<td>";
-					// The paramTypes keys have array values
-					if (paramTypes.includes(key)) {
-						tableRow += item[key].join(", ");
-					} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
-						tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
-					} else {
-						tableRow += item[key];
-					}
-					tableRow += "</td>";
-				});
-				tableRow += "</tr>";
-				tableBody.innerHTML += tableRow;
-			});
+			// tableBody = document.getElementById('witness-results-table');
+			// tableBody.innerHTML = '';
+			// results['textual_witnesses'].forEach(function(item) {
+			// 	let tableRow = "<tr>";
+			//
+			// 	// Go through each column and add it to the table if the column is in witnessKeys
+			// 	witnessKeys.forEach(function(key) {
+			// 		tableRow += "<td>";
+			// 		// The paramTypes keys have array values
+			// 		if (paramTypes.includes(key)) {
+			// 			tableRow += item[key].join(", ");
+			// 		} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
+			// 			tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
+			// 		} else {
+			// 			tableRow += item[key];
+			// 		}
+			// 		tableRow += "</td>";
+			// 	});
+			// 	tableRow += "</tr>";
+			// 	tableBody.innerHTML += tableRow;
+			// });
 		}
 	});
 }

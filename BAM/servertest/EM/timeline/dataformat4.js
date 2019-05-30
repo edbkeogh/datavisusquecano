@@ -469,7 +469,8 @@ var tldata = [
       ]
     }
 ],
-},
+}
+,
 {
   group: "Egypt and Nubia",
   data: [
@@ -791,7 +792,7 @@ var tldata = [
       ]
     }
 
-],
+]
 },
 {
   group: "Spain",
@@ -836,7 +837,6 @@ var tldata = [
           timeRange: [1065, 1230],
           val: 'Kingdom of Castile'
         }
-
       ]
     },
     {
@@ -846,33 +846,11 @@ var tldata = [
           timeRange: [910, 1230],
           val: 'Kingdom of Leon'
         }
-
-      ]
-    },
-    {
-      label: "Spain   ",
-      data: [
-        {
-          timeRange: [1139, 1910],
-          val: 'Kingdom of Portugal'
-        }
-
-      ]
-    },
-    {
-      label: "Spain    ",
-      data: [
-        {
-          timeRange: [1162, 1716],
-          val: 'Kingdom of Aragon'
-        }
-
       ]
     }
 
-],
+]
 }
-
 
 //region
 
