@@ -106,6 +106,8 @@
   </div>
   <div id="legend">
     <h1>Place Holder for Unknown Locations</h1>
+    <br/>
+    <br/>
     <p>This is a map of Augustine's letters (currently 1-200). Blue dots indicate senders and red recipients. Link thickness is tied to the length of the letter. Users may expand overlapping points to see the metadata for each individual letter while its representitive dot gravitates toward its GPS location. The slider at the top allows users to sort the letters by time with a button on the right to sort letters before or after the listed year.</p>
   </div>
   <button id="invert">Activate Year Filter</button>
@@ -287,7 +289,7 @@ case true:
             nodes = nodeEnter.merge(nodes);
 
             nodes.append('title')
-                .text(function (d) { return d.name.concat("\n", "Date Range: ", d.date, " CE \n", d.person1, " in ", d.loc, "\n", d.person2, " in ", d.loc2, "\n", "Correspondent Clerical Rank: ", d.Correspondent_Clerical_Rank, "\nAscetic Content: ", d.Ascetic_Content, "\nOther Personal Names Mentioned: ", d.Other_Personal_Names_Mentioned, "\nInferred Names: ", d.Inferred_Names, " \nGroups: ", d.Groups, "\nReferences: ", d.Literary_Historical_References, "Other Locations Mentioned: ", d.Other_Locations_Mentioned)})
+                .text(function (d) { return d.name.concat("\n", "Date Range: ", d.date, " CE \n", d.person1, " in ", d.loc, "\n", d.person2, " in ", d.loc2, "\n", "Correspondent Clerical Rank: ", d.Correspondent_Clerical_Rank, "\nAscetic Content: ", d.Ascetic_Content, "\nOther Personal Names Mentioned: ", d.Other_Personal_Names_Mentioned, "\nInferred Names: ", d.Inferred_Names, " \nGroups: ", d.Groups, "\nReferences: ", d.Literary_Historical_References, "\nOther Locations Mentioned: ", d.Other_Locations_Mentioned)})
             // Restart simulation with new link data.
             simulation
               // .nodes(graph.nodes).on('tick', ticked)
@@ -326,7 +328,7 @@ var nodeEnter = nodes.enter().append('circle').attr('class', 'nodes').attr('r', 
 nodes = nodeEnter.merge(nodes);
 
 nodes.append('title')
-    .text(function (d) { return d.name.concat("\n", "Date Range: ", d.date, " CE \n", d.person1, " in ", d.loc, "\n", d.person2, " in ", d.loc2, "\n", "Correspondent Clerical Rank: ", d.Correspondent_Clerical_Rank, "\nAscetic Content: ", d.Ascetic_Content, "\nOther Personal Names Mentioned: ", d.Other_Personal_Names_Mentioned, "\nInferred Names: ", d.Inferred_Names, " \nGroups: ", d.Groups, "\nReferences: ", d.Literary_Historical_References, "Other Locations Mentioned: ", d.Other_Locations_Mentioned)})
+    .text(function (d) { return d.name.concat("\n", "Date Range: ", d.date, " CE \n", d.person1, " in ", d.loc, "\n", d.person2, " in ", d.loc2, "\n", "Correspondent Clerical Rank: ", d.Correspondent_Clerical_Rank, "\nAscetic Content: ", d.Ascetic_Content, "\nOther Personal Names Mentioned: ", d.Other_Personal_Names_Mentioned, "\nInferred Names: ", d.Inferred_Names, " \nGroups: ", d.Groups, "\nReferences: ", d.Literary_Historical_References, "\nOther Locations Mentioned: ", d.Other_Locations_Mentioned)})
 // Restart simulation with new link data.
 simulation
   // .nodes(graph.nodes).on('tick', ticked)
