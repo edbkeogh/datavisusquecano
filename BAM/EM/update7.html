@@ -860,8 +860,6 @@ float: right;
 			<div id="right-side-headline" class="right-title"><h3>Manuscript Metadata</h3>
 			</div>
 
-			<br />
-			<br />
 
 			<div id="right-side-headline" class="right-title">
 			</div>
@@ -880,8 +878,6 @@ float: right;
 			<div id="low-side-headline" class="right-title"><h3>Manuscript Form Witness Table</h3>
 			</div>
 
-			<br />
-			<br />
 
 			<div id="low-side-headline" class="low-title">
 			</div>
@@ -993,10 +989,15 @@ float: right;
 	            map.attributionControl.addAttribution(metadata.attribution);
 	      //      renderLegend();
 				markers.on('click', function (a) {
-	console.log(a.target);
-	 var leafletID = a.target._leaflet_id;
+					console.log(a.layer.feature.properties['5004']);
 
+	 var leafletID = a.layer.feature.properties['5004'];
+ document.getElementById('metadataList').innerHTML = ''
 	 document.getElementById('metadataList').innerHTML += leafletID
+console.log(searchIDs.findIndex(x => x.id === leafletID));
+var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
+console.log(metaDataID)
+
 });
 	        } else {
 	  	  console.log('Could not load data...');
@@ -1070,6 +1071,21 @@ float: right;
 
 
      map.fitBounds(fil.getBounds());
+		 fil.on('click', function (a) {
+			 console.log(a.layer.feature.properties['5004']);
+
+var leafletID = a.layer.feature.properties['5004'];
+document.getElementById('metadataList').innerHTML = ''
+// document.getElementById('metadataList').innerHTML += leafletID
+console.log(searchIDs.findIndex(x => x.id === leafletID));
+var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
+var searchedMetadata = searchIDs[metaDataID]
+for ( i in searchedMetadata) {
+	if (searchedMetadata[i] != null) {
+	document.getElementById('metadataList').innerHTML += '<b>' + i.toUpperCase() + ': </b>' + searchedMetadata[i] + '<br/>'
+};
+}
+});
 	  }
 
 	  function showLat() {
