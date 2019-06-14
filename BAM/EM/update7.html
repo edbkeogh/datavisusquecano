@@ -184,7 +184,7 @@ float: right;
         #left-btn-slide-toggle {
             position: absolute;
             top: 50%;
-            left: 273px;
+            left: 274px;
             background-color: rgba(238, 238, 238, 0.85);
             -moz-border-radius-topleft: 5px;
             -moz-border-radius-bottomleft: 5px;
@@ -993,7 +993,7 @@ float: right;
 
 	 var leafletID = a.layer.feature.properties['5004'];
  document.getElementById('metadataList').innerHTML = ''
-	 document.getElementById('metadataList').innerHTML += leafletID
+	 document.getElementById('metadataList').innerHTML += 'The map dataset does not contain metadata, perform a search using the \"Select Search Parameters\" functions from the left side panel to load metadata.<br/><b>ID: </b>' + leafletID
 console.log(searchIDs.findIndex(x => x.id === leafletID));
 var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
 console.log(metaDataID)
@@ -1313,7 +1313,9 @@ for ( i in searchedMetadata) {
 // 		 map.fitBounds(fil.getBounds());
 //
 // 		}
-
+window.onload = function () {
+	search();
+}
 	  </script>
 
 
