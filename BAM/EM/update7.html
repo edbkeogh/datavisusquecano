@@ -248,7 +248,8 @@ float: right;
 
 				#low-side-panel {
 					position: absolute;
-					bottom: -57%;
+					/*top: 600px;*/
+					/*bottom: -57%;*/
 					/*right: 50%;*/
 					left: 300px;
 					/*width: 60%;
@@ -266,7 +267,8 @@ float: right;
 				#low-btn-slide-toggle {
 						position: absolute;
 						top: 0;
-						right: 50%;
+						/*right: 50%;*/
+						left: 10px;
 						background-color: rgba(238, 238, 238, 0.85);
 						-moz-border-radius-bottomleft: 5px;
 						-moz-border-radius-bottomright: 5px;
@@ -276,7 +278,7 @@ float: right;
 						-khtml-border-radius-bottomright: 5px;
 						border-bottom-left-radius: 5px;
 						border-bottom-right-radius: 5px;
-						padding: 0px 20px 2px 20px;
+						padding: 0px 20px 0px 20px;
 						cursor: pointer;
 						z-index: 1000;
 						color: black;
@@ -926,7 +928,8 @@ float: right;
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
 		<script>
 	    "use strict"
-
+var newheight = window.innerHeight -33
+document.getElementById('low-side-panel').style.top = newheight + 'px'
 			//k these don't do what I want, they broke leaflet
 			// L.DomEvent.disableScrollPropagation('panel');
 			// L.DomEvent.disableClickPropagation('panel');

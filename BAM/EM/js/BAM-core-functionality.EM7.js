@@ -33,6 +33,10 @@ $("#left-btn-slide-toggle").click(function() {
             //change arrow
             $("#left-btn-slide-toggle").html('&#9654;');
         });
+        $("#low-side-panel").animate({
+            left: "27",
+        }, 500, function() {});
+
     } else {
         $("#left-side-panel").animate({
             left: "0",
@@ -41,6 +45,9 @@ $("#left-btn-slide-toggle").click(function() {
             sideSlideToggle = true;
             $("#left-btn-slide-toggle").html('&#9664;');
         });
+        $("#low-side-panel").animate({
+            left: "300",
+        }, 500, function() {});
     }
 });
 
@@ -111,7 +118,8 @@ function informationPaneToggle(toggle, pane, button) {
 function informationPaneToggle2(toggle, pane, button) {
     if (toggle == false) {
         $('#' + pane).animate({
-            bottom: "18px",
+             top: "35%",
+            //  bottom: "18px",
         }, 500, function() {
             // Animation complete.
             $('#' + button).html('&#9660;');
@@ -119,7 +127,8 @@ function informationPaneToggle2(toggle, pane, button) {
         toggle = true;
     } else {
         $('#' + pane).animate({
-            bottom: "-57%",
+          top: newheight +"px",
+            // bottom: "-57%",
         }, 500, function() {
             // Animation complete.
             $('#' + button).html('&#9650;');
