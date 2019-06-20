@@ -19,14 +19,14 @@ var overlayPanelsList = {};
 
 //for the side toggle panels
 var sideSlideToggle = true;
-var informationToggle = false;
+var informationToggle = true;
 var informationToggle2 = false;
 
 
 $("#left-btn-slide-toggle").click(function() {
     if (sideSlideToggle == true) {
         $("#left-side-panel").animate({
-            left: "-273",
+            left: "-275",
         }, 500, function() {
             // Animation complete.
             sideSlideToggle = false;
@@ -34,7 +34,7 @@ $("#left-btn-slide-toggle").click(function() {
             $("#left-btn-slide-toggle").html('&#9654;');
         });
         $("#low-side-panel").animate({
-            left: "27",
+            left: "25",
         }, 500, function() {});
 
     } else {
@@ -97,18 +97,20 @@ function makeDataTablesColumnsSearchable(table, tableLocation) {
 function informationPaneToggle(toggle, pane, button) {
     if (toggle == false) {
         $('#' + pane).animate({
-            right: "0",
+          left: newwidth +"px",
+            // right: "0",
         }, 500, function() {
             // Animation complete.
-            $('#' + button).html('&#9654;');
+            $('#' + button).html('&#9664;');
         });
         toggle = true;
     } else {
         $('#' + pane).animate({
-            right: "-25%",
+          left: "75%",
+            // right: "-25%",
         }, 500, function() {
             // Animation complete.
-            $('#' + button).html('&#9664;');
+            $('#' + button).html('&#9654;');
         });
         toggle = false;
     }

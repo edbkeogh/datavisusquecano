@@ -8,7 +8,7 @@ var bamConfigJson = {
         "pageTitle": "Eurasian Manuscripts",
         "favIocn": "images/favicon.ico",
         //html for the license and image. We default to cc by 4.0, and highly suggest you do the same
-        "applicationLicenseHtml": "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\" target=\"_blank\"><img style=\"margin-bottom:10px;\" width=\"80px\" alt=\"Creative Commons License\" style=\"border-width:0\" src=\"https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\"/></a>",
+        "applicationLicenseHtml": "<a rel=\"license\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\" target=\"_blank\"><img alt=\"Creative Commons License\" style=\"border-width:0\" src=\"https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png\"/></a>",
         "projectGitHubLocation": "https://github.com/Big-Ancient-Mediterranean"
     },
     //the navigation panel of BAM. This is generally on the left side, and contains a splash image, project title, and launches the various panels
