@@ -606,7 +606,7 @@ float: right;
     <link rel="stylesheet" href="css/datatables.css" />
 		<link rel="stylesheet" href="css/leaflet8.css" />
 		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-		<link rel="stylesheet" href="css/scs728.css" />
+		<link rel="stylesheet" href="css/em62119.css" />
 
 
     <!-- BAM Setup, after all necessary libraries are loaded -->
@@ -666,9 +666,7 @@ float: right;
 
 			<!-- this holds application buttons-->
 			<div id="bamButtonHolder">
-				<button onclick="clearMap()">Clear Map</button>
-				<button onclick="showallMap()">Show All</button>
-				<button onclick="resize()"><i class="fas">&#xf31e;</i></button>
+
 				</div>
 
 				<!-- <button id="searchButton" class="accordion accordionExp"><img src="images/open-iconic/clock.svg" class="accordianImage" alt="magnifying-glass">&nbsp;&nbsp;&nbsp;&nbsp;Search The Canon (demo)</button>
@@ -850,11 +848,18 @@ float: right;
 </div>
 </div>
 
+
+
 <!--  onclick="toggleWitnessTable()"-->
 <!-- <input type="button" onclick="toggleWitnessTable()" class="accordion"><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</input> -->
-<!-- <button id="infoButton" class="accordion" ><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</button> -->
-
-
+<button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls</button>
+<div class="panel">
+	<button onclick="clearMap()">Clear Map</button>
+	<button onclick="showallMap()">Show All</button>
+	<button onclick="resize()"><i class="fas">&#xf31e;</i></button>
+	<br/>
+	<button onclick="changeCatField()">Change Color</button>
+</div>
 			<div id="left-btn-slide-toggle" class="slider-icon">&#9664;
 			</div>
 			<!-- License information-->
@@ -951,6 +956,8 @@ window.addEventListener('resize', function(event){
 	$('#right-btn-slide-toggle').html('&#9664;');
 	informationToggle = true;
 });
+
+var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "Language(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "script": "Script", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Bilingual(Y/N)", "bilingual_format": "Bilingual Format", "second_language": "Second Language", "second_script": "Second Script", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "colophon": "Colophon(Y/N)", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher"}
 			//k these don't do what I want, they broke leaflet
 			// L.DomEvent.disableScrollPropagation('panel');
 			// L.DomEvent.disableClickPropagation('panel');
@@ -977,7 +984,7 @@ window.addEventListener('resize', function(event){
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.5-24.2.geojson',
+		geojsonPath = 'data/EM.6-21.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -1104,9 +1111,9 @@ document.getElementById('metadataList').innerHTML = ''
 console.log(searchIDs.findIndex(x => x.id === leafletID));
 var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
 var searchedMetadata = searchIDs[metaDataID]
-for ( i in searchedMetadata) {
+for ( i in manuscriptmetadata) {
 	if (searchedMetadata[i] != null) {
-	document.getElementById('metadataList').innerHTML += '<b>' + i.toUpperCase() + ': </b>' + searchedMetadata[i] + '<br/>'
+	document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + '<br/>'
 };
 }
 });
@@ -1293,6 +1300,11 @@ for ( i in searchedMetadata) {
 			 map.touchZoom.enable();
 			 map.doubleClickZoom.enable();
 			 map.scrollWheelZoom.enable();
+		}
+
+		function changeCatField() {
+			categoryField = '5022';
+			showHell();
 		}
 
 //
