@@ -1196,7 +1196,7 @@ for ( i in manuscriptmetadata) {
 	                              pieLabel: n,
 	                              pieLabelClass: 'marker-cluster-pie-label',
 	                              pathClassFunc: function(d){return "category-"+d.data.key;},
-	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' manuscripts'+(d.data.values.length!=1?'s':'')}
+	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' manuscript'+(d.data.values.length!=1?'s':'')}
 	                            }),
 	          //Create a new divIcon and assign the svg markup to the html property
 	          myIcon = new L.DivIcon({
