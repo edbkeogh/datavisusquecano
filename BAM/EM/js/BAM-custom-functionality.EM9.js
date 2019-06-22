@@ -62,7 +62,7 @@ var tableMain = $('#bamMainTable').DataTable({
     buttons: [
         'colvis', 'copy', 'csv','print'
     ],
-    "pageLength": 20,
+    "pageLength": 10,
     columns: [
       {
         data: 'id',
