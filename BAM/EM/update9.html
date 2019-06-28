@@ -461,46 +461,28 @@ float: right;
         }
 
 
-        .nonMapOverlay {
-            position: fixed;
-            top: 15%;
+				.nonMapOverlay {
+						position: fixed;
+						top: 15%;
 						width: 70%;
-            /*bottom: 15%;*/
-            left: 21%;
+						/*bottom: 15%;*/
+						left: 21%;
 						height: 70%;
-            /*right: 5%;*/
-            background: white;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            margin: auto;
-            padding: 40px;
-            display: none;
-            z-index: 10;
-            color: #404040;
-            color: rgba(0, 0, 0, 0.75);
-            outline: 0;
-            border: 0;
-        }
+						/*right: 5%;*/
+						background: white;
+						box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+						border-radius: 5px;
+						margin: auto;
+						padding: 40px;
+						display: none;
+						z-index: 10;
+						color: #404040;
+						color: rgba(0, 0, 0, 0.75);
+						outline: 0;
+						border: 0;
+				}
 				/*new map overlay settings*/
-/*.nonMapOverlay {
-    position: fixed;
-    width: 60%;
-    height: 60%;
-    resize: both;
-    top: 15%;
-    left: 21%;
-    background: white;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    margin: auto;
-    padding: 40px;
-    display: none;
-    z-index: 10;
-    color: #404040;
-    color: rgba(0, 0, 0, 0.75);
-    outline: 0;
-    border: 0;
-		*/
+
 
         .popupCloseCarte {
             position: absolute;
@@ -897,7 +879,8 @@ float: right;
 			</div>
 
 
-			<div id="right-side-headline" class="right-title">
+			<div id="right-side-headline2" class="right-title-image">
+				 <!-- couldn't figure out how to get past the leafletcontainer img problem  style="max-width:150px;"> -->
 			</div>
 			<div id="right-side-text-main" class="right-side-text-main" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 <span id="metadataList"></span>
@@ -1006,7 +989,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.6-21.geojson',
+		geojsonPath = 'data/EM.6-27.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -1124,15 +1107,24 @@ console.log(metaDataID)
 
 
      map.fitBounds(fil.getBounds());
+		 //TODO this is where the metadata happens
+
 		 fil.on('click', function (a) {
 			 console.log(a.layer.feature.properties['5004']);
 
+
 var leafletID = a.layer.feature.properties['5004'];
 document.getElementById('metadataList').innerHTML = ''
+document.getElementById('right-side-headline2').innerHTML = ''
 // document.getElementById('metadataList').innerHTML += leafletID
 console.log(searchIDs.findIndex(x => x.id === leafletID));
 var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
 var searchedMetadata = searchIDs[metaDataID]
+
+document.getElementById('right-side-headline2').innerHTML += '<img src=\"images/man-images/' + a.layer.feature.properties['5032'] + '\" />'
+//TODO need zotero fix or search modification
+document.getElementById('right-side-headline2').innerHTML += '<a href=\"' + searchedMetadata['zotero'] + '\" target=\"_blank\" style=\"font-size:large;\">Zotero</a>'
+
 for ( i in manuscriptmetadata) {
 	if (searchedMetadata[i] != null) {
 	document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + '<br/>'
