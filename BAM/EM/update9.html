@@ -34,7 +34,12 @@
                         z-index: 1;
         }
 
-
+#mapLeg p {
+	margin: 2px;
+	font-size: 1.5em;
+  font-weight: bold;
+  font-family: sans-serif;
+}
         a {
             color: #808080;
             font-family: Cardo;
@@ -857,12 +862,34 @@ float: right;
 <!--  onclick="toggleWitnessTable()"-->
 <!-- <input type="button" onclick="toggleWitnessTable()" class="accordion"><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</input> -->
 <button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls</button>
-<div class="panel">
+<div id="mapLegend" class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 	<button onclick="clearMap()">Clear Map</button>
 	<!-- <button onclick="showallMap()">Show All</button> -->
 	<button onclick="resize()"><i class="fas">&#xf31e;</i></button>
 	<br/>
 	<button onclick="changeCatField()">Color by language</button>
+<!-- <div id="color_legend"></div> -->
+	<!-- <button id="genreButton" class="accordion accordionExp" onclick="changeCatField()">&nbsp;&nbsp;&nbsp;&nbsp;Color by Language</button> -->
+	<!-- <div class="panel"> -->
+	<div id="genreText" class="darkText">
+		<div id ="mapLeg">
+		</div>
+		<!-- <table class="dataTable">
+			<thead>
+				<tr>
+					<td>Legend</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<ul id="color_legend"></ul>
+					</td>
+				</tr>
+			</tbody>
+		</table> -->
+</div>
+<!-- </div> -->
 </div>
 			<div id="left-btn-slide-toggle" class="slider-icon">&#9664;
 			</div>
@@ -1041,6 +1068,7 @@ console.log(metaDataID)
 	    });
 	  function clearMap() {
 	    markerclusters.clearLayers();
+			document.getElementById('mapLeg').innerHTML = ""
 	  }
 
 	  function showallMap() {
@@ -1083,7 +1111,7 @@ console.log(metaDataID)
 //  sw += " case " + value + ": return true break; "; // expected output: "a" "b" "c"
 //}
 			markerclusters.clearLayers();
-    console.log("button pressed")
+    // console.log("button pressed")
     var fil = L.geoJson(geojson, {
       filter: function(feature, layer) {
         switch(xx.includes(feature.properties[idField])) {
@@ -1105,7 +1133,8 @@ console.log(metaDataID)
      });
     markerclusters.addLayer(fil);
 
-
+// console.log(geojson.features['properties']);
+// console.log(layer);
      map.fitBounds(fil.getBounds());
 		 //TODO this is where the metadata happens
 
@@ -1319,6 +1348,50 @@ for ( i in manuscriptmetadata) {
 		function changeCatField() {
 			categoryField = '5022';
 			showHell();
+			// console.log(geojson.features[0].properties[categoryField])
+			document.getElementById('mapLeg').innerHTML = ""
+			var dots = geojson.features
+var legendIDs = []
+			 for (i in dots) {
+			 legendIDs[i] = geojson.features[i].properties[categoryField]			};
+			//  console.log(legendIDs)
+			 var propertyCount = { };
+for(var i = 0; i < legendIDs.length; ++i) {
+    if(!propertyCount[legendIDs[i]])
+        propertyCount[legendIDs[i]] = 0;
+    ++propertyCount[legendIDs[i]];
+};
+// console.log(propertyCount);
+var sortedArray = sortObject(propertyCount)
+// console.log(sortedArray);
+var resArray = [];
+var metaLookup = metadata.fields[categoryField].lookup
+// console.log(Object.keys(sortedArray))
+for (i in sortedArray) {
+	var keyLookup = sortedArray[i].key;
+	var valLookup = sortedArray[i].value;
+	// console.log(metaLookup[keyLookup] + ' occurs ' + valLookup + ' times, and is this color class:' + keyLookup)
+	// document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
+// document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-1px 1px 0 #fff,1px 1px 0 #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
+document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-2px -2px 3px #fff,2px -2px 3px #fff,-2px 2px 3px #fff,2px 2px 3px #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
+}
+		}
+
+		function sortObject(obj) {
+		    var arr = [];
+		    var prop;
+		    for (prop in obj) {
+		        if (obj.hasOwnProperty(prop)) {
+		            arr.push({
+		                'key': prop,
+		                'value': obj[prop]
+		            });
+		        }
+		    }
+		    arr.sort(function(a, b) {
+		        return b.value - a.value;
+		    });
+		    return arr; // returns array
 		}
 
 //
