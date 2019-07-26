@@ -1,3 +1,5 @@
+var yearfinder = new Date();
+  var present = yearfinder.getFullYear();
 var tldata = [
   {
     group: "Japan",
@@ -379,6 +381,170 @@ var tldata = [
 ],
 },
 {
+  group: "Levant",
+  data: [
+
+    {
+      label: "Levant ",
+      data: [
+        {
+          timeRange: [-3000, -1600],
+          val: 'Kingdom of Ebla'
+        },
+        {
+          timeRange: [-1300, -400],
+          val: 'Kingdom of Moab'
+        },
+        {
+          timeRange: [-332, -140],
+          val: 'Hellenistic'
+        },
+        {
+          timeRange: [-140, -37],
+          val: 'Hasmonean'
+        },
+        {
+          timeRange: [-37, -4],
+          val: 'Herodian'
+        },
+        {
+          timeRange: [-4, 44],
+          val: 'Tetrarchy'
+        },
+        {
+          timeRange: [636, 750],
+          val: 'Rashidun/Umayyad'
+        },
+        {
+          timeRange: [750, 878],
+          val: 'Abbasid'
+        },
+        {
+          timeRange: [878, 905],
+          val: 'Tulunid'
+        },
+        {
+          timeRange: [935, 969],
+          val: 'Ikshidid'
+        },
+        {
+          timeRange: [969, 1099],
+          val: 'Fatimid'
+        },
+        {
+          timeRange: [1099, 1291],
+          val: 'Kingdom of Jerusalem'
+        }
+      ]
+    },
+    {
+      label: "Levant        ",
+      data: [
+    {
+      timeRange: [-2900, -1761],
+      val: 'Kingdom of Mari'
+    },
+    {
+      timeRange: [-2900, -1761],
+      val: 'Kingdom of Mari'
+    },
+    {
+      timeRange: [-1215, -125],
+      val: 'Kingdom of Edom'
+    },
+    {
+      timeRange: [6, 636],
+      val: 'Roman'
+    },
+    {
+      timeRange: [1076, 1123],
+      val: 'Seljuk'
+    },
+    {
+      timeRange: [1109, 1289],
+      val: 'County of Tripoli'
+    }
+  ]
+},
+    {
+      label: "Levant  ",
+      data: [
+        {
+          timeRange: [-1125, -732],
+          val: 'Kingdom of Aram-Damascus'
+        },
+        {
+          timeRange: [1171, 1260],
+          val: 'Ayyubid'
+        },
+        {
+          timeRange: [1250, 1517],
+          val: 'Mamluk'
+        }
+      ]
+    },
+    {
+      label: "Levant   ",
+      data: [
+        {
+          timeRange: [-1175, -722],
+          val: 'Philistine States'
+        }
+      ]
+    },
+    {
+      label: "Levant    ",
+      data: [
+
+        {
+          timeRange: [-2500, -539],
+          val: 'Phoenician States'
+        },
+        {
+          timeRange: [-539, -332],
+          val: 'Achaemenid'
+        }
+        ]
+    },
+    {
+      label: "Levant     ",
+      data: [
+        {
+          timeRange: [-1000, -332],
+          val: 'Kingdom of Ammon'
+        }
+
+      ]
+    },
+    {
+      label: "Levant      ",
+      data: [
+        {
+          timeRange: [-1050, -930],
+          val: 'Kingdom of Israel (United)'
+        },
+        {
+          timeRange: [-930, -720],
+          val: 'Kingdom of Israel'
+        }
+      ]
+    },
+    {
+      label: "Levant",
+      data: [
+        {
+          timeRange: [-930, -586],
+          val: 'Kingdom of Judah'
+        },
+        {
+          timeRange: [-586, -539],
+          val: 'Neo-Babylonian'
+        }
+      ]
+    }
+],
+},
+{
   group: "Eastern Europe",
   data: [
 
@@ -652,7 +818,7 @@ var tldata = [
         },
         {
           timeRange: [1071, 1308],
-          val: 'Selijuk'
+          val: 'Seljuk'
         },
         {
           timeRange: [387, 646],
@@ -739,6 +905,140 @@ var tldata = [
 
       ]
     }
+],
+},
+{
+  group: "Scandinavia",
+  data: [
+    {
+      label: "Scandinavia",
+      data: [
+        {
+          timeRange: [-500, 800],
+          val: 'Iron Age'
+        },
+        {
+          timeRange: [800, 1066],
+          val: 'Viking'
+        },
+        {
+          timeRange: [1050, present],
+          val: 'Kingdom of Sweden'
+        }
+      ]
+    },
+    {
+      label: "Scandinavia ",
+      data: [
+        {
+          timeRange: [872, present],
+          val: 'Kingdom of Norway'
+        }
+
+      ]
+    },
+    {
+      label: "Scandinavia  ",
+      data: [
+        {
+          timeRange: [965, present],
+          val: 'Kingdom of Denmark'
+        }
+
+      ]
+    }
+
+],
+},
+{
+  group: "Britain",
+  data: [
+    {
+      label: "Britain",
+      data: [
+        {
+          timeRange: [43, 410],
+          val: 'Roman'
+        },
+        {
+          timeRange: [400, 600],
+          val: 'Sub-Roman'
+        },
+        {
+          timeRange: [654, 954],
+          val: 'Northumbria'
+        },
+        {
+          timeRange: [927, 1066],
+          val: 'Kingdom of England'
+        },
+        {
+          timeRange: [1066, 1154],
+          val: 'Norman'
+        },
+        {
+          timeRange: [1154, 1485],
+          val: 'Plantagenet'
+        },
+        {
+          timeRange: [1485, 1603],
+          val: 'Tudor'
+        }
+      ]
+    },
+    {
+      label: "Britain ",
+      data: [
+        {
+          timeRange: [500, 869],
+          val: 'East Anglia'
+        }
+      ]
+    },
+    {
+      label: "Britain  ",
+      data: [
+        {
+          timeRange: [519, 925],
+          val: 'Wessex'
+        }
+
+      ]
+    },
+    {
+      label: "Britain   ",
+      data: [
+        {
+          timeRange: [527, 918],
+          val: 'Mercia'
+        }
+
+      ]
+    }
+
+],
+},
+{
+  group: "Ireland",
+  data: [
+    {
+      label: "Ireland",
+      data: [
+        {
+          timeRange: [400, 800],
+          val: 'Early Christian; Pentarchy'
+        },
+        {
+          timeRange: [800, 1168],
+          val: 'Viking'
+        },
+        {
+          timeRange: [1168, 1535],
+          val: 'Norman'
+        }
+      ]
+    }
+
 ],
 },
 {
