@@ -381,6 +381,97 @@ var tldata = [
 ],
 },
 {
+  group: "Mesopotamia",
+  data: [
+    {
+      label: "Mesopotamia",
+      data: [
+        {
+          timeRange: [-2334, -2154],
+          val: 'Akkadian'
+        },
+        {
+          timeRange: [-2025, -1522],
+          val: 'Old Assyrian Empire'
+        },
+        {
+          timeRange: [-1392, -1056],
+          val: 'Middle Assyrian'
+        },
+        {
+          timeRange: [-911, -627],
+          val: 'Neo-Assyrian'
+        },
+        {
+          timeRange: [-626, -539],
+          val: 'Neo-Babylonian'
+        },
+        {
+          timeRange: [-549, -330],
+          val: 'Achaemenid'
+        },
+        {
+          timeRange: [-330, -150],
+          val: 'Seleucid'
+        },
+        {
+          timeRange: [-150, 225],
+          val: 'Parthian'
+        },
+        {
+          timeRange: [226, 638],
+          val: 'Sasanian'
+        },
+        {
+          timeRange: [638, 661],
+          val: 'Rashidun'
+        },
+        {
+          timeRange: [661, 750],
+          val: 'Umayyad'
+        },
+        {
+          timeRange: [750, 1258],
+          val: 'Abbasid'
+        },
+        {
+          timeRange: [1258, 1432],
+          val: 'Mongol'
+        },
+        {
+          timeRange: [1466, 1501],
+          val: 'Aq Qoyunlu'
+        },
+        {
+          timeRange: [1501, 1533],
+          val: 'Safavids'
+        },
+        {
+          timeRange: [1533, 1918],
+          val: 'Ottoman'
+        }
+      ]
+    },
+    {
+      label: "Mesopotamia ",
+      data: [
+        {
+          timeRange: [-1894, -1595],
+          val: 'Babylonian/Amorite'
+        },
+        {
+          timeRange: [-1595, -1155],
+          val: 'Kassite'
+        },
+        {
+          timeRange: [1374, 1466],
+          val: 'Kara Koyunlu'
+        }
+      ]
+    },
+],
+},
+{
   group: "Levant",
   data: [
 
@@ -770,10 +861,10 @@ var tldata = [
 },
 
 {
-  group: "Asia Minor/Caucasus",
+  group: "Asia Minor and Caucasus",
   data: [
     {
-      label: "Asia Minor/Caucasus",
+      label: "Asia Minor and Caucasus",
       data: [
         {
           timeRange: [-1833, -1500],
@@ -802,7 +893,7 @@ var tldata = [
       ]
     },
     {
-      label: "Asia Minor/Caucasus ",
+      label: "Asia Minor and Caucasus ",
       data: [
         {
           timeRange: [-1430, -1180],
@@ -827,7 +918,7 @@ var tldata = [
       ]
     },
     {
-      label: "Asia Minor/Caucasus  ",
+      label: "Asia Minor and Caucasus  ",
       data: [
 
         {
@@ -842,7 +933,7 @@ var tldata = [
       ]
     },
     {
-      label: "Asia Minor/Caucasus   ",
+      label: "Asia Minor and Caucasus   ",
       data: [
         {
           timeRange: [-1250, -546],
@@ -863,7 +954,7 @@ var tldata = [
       ]
     },
     {
-      label: "Asia Minor/Caucasus    ",
+      label: "Asia Minor and Caucasus    ",
       data: [
         {
           timeRange: [-2000, -911],
@@ -888,7 +979,7 @@ var tldata = [
       ]
     },
     {
-      label: "Asia Minor/Caucasus     ",
+      label: "Asia Minor and Caucasus     ",
       data: [
         {
           timeRange: [-1500, -1300],
@@ -901,6 +992,93 @@ var tldata = [
         {
           timeRange: [888, 1008],
           val: 'Bagratid Georgia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        }
+
+      ]
+    }
+],
+},
+{
+  group: "North Africa",
+  data: [
+    {
+      label: "North Africa",
+      data: [
+        {
+          timeRange: [-814, -146],
+          val: 'Punic Empire'
+        },
+        {
+          timeRange: [-146, 429],
+          val: 'Roman'
+        },
+        {
+          timeRange: [429, 534],
+          val: 'Vandal'
+        },
+        {
+          timeRange: [534, 709],
+          val: 'Byzantine'
+        },
+        {
+          timeRange: [777, 909],
+          val: 'Rustamids'
+        },
+        {
+          timeRange: [909, 1049],
+          val: 'Fatimid'
+        },
+        {
+          timeRange: [1049, 1148],
+          val: 'Zirids'
+        },
+        {
+          timeRange: [1121, 1269],
+          val: 'Almohad'
+        },
+        {
+          timeRange: [1244, 1465],
+          val: 'Marinids'
+        }
+      ]
+    },
+    {
+      label: "North Africa ",
+      data: [
+        {
+          timeRange: [645, 750],
+          val: 'Umayyad'
+        },
+        {
+          timeRange: [750, 930],
+          val: 'Abbasid'
+        },
+        {
+          timeRange: [1040, 1147],
+          val: 'Almoravid'
+        },
+        {
+          timeRange: [1229, 1574],
+          val: 'Hafsids'
+        }
+      ]
+    },
+    {
+      label: "North Africa  ",
+      data: [
+        {
+          timeRange: [800, 909],
+          val: 'Aghlabids'
+        }
+
+      ]
+    },
+    {
+      label: "North Africa  ",
+      data: [
+        {
+          timeRange: [788, 924],
+          val: 'Idrisids'
         }
 
       ]
