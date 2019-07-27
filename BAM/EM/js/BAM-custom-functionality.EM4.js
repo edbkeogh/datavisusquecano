@@ -207,7 +207,7 @@ $(document).ready(function() {
 
 });
 
-
+//TODO table click does not yet update picture, need that section from leaflet click
 $(document).ready(function() {
     var tableclick = $('#bamMainTable').DataTable();
 
