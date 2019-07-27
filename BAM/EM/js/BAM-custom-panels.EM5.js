@@ -15,14 +15,14 @@ overlayPanelsList.attributeBox = 'overlay';
 var aboutBoxHtml = '<div id="infoBox" class="nonMapOverlay"> <b> Application Information </b>';
     aboutBoxHtml = aboutBoxHtml + '<div id="infoBoxClose" class="popupCloseCarte">x</div> <hr />';
     aboutBoxHtml = aboutBoxHtml + '<div id="infoBoxContent">';
-    aboutBoxHtml = aboutBoxHtml + 'This is a development demonstration of some simple ICAAW functions.'
-    aboutBoxHtml = aboutBoxHtml + ' Click the \"Database Table\" in this panel to see a table of works. '
-    aboutBoxHtml = aboutBoxHtml + ' In addition to reading database information, you may click the reference number or catalogue entry field to open a new tab, or the row to send that work into the right hand panel.<br/><br/>'
+     aboutBoxHtml = aboutBoxHtml + 'This resource was planned as an outgrowth of the 2016-2018 Mellon-Sawyer seminar at the University of Iowa, “Cultural and Textual Exchanges: The Manuscript across Pre-modern Eurasia.”  The goal is to present a broad overview of the development of manuscript materials and formats, in a variety of languages, scripts, locations, and periods, by entering data from a number of representative manuscripts, with an emphasis on the earliest known examples of particular materials and formats across regions.  Users can search the database in the left-hand panel and interact with the results through the central geospatial interface, to explore the spread of materials, formats, scripts and languages over time; more metadata is available for individual manuscripts that are selected by user, and displayed in the right panel.  Finally, relevant textual passages about materials and formats are also included in the search results, and can be explored in the bottom panel.'
+     aboutBoxHtml = aboutBoxHtml + '<br/><br/>Paul Dilley is the PI of the Global Manuscript Cultures site.  The software is based on the basic architecture established by Ryan Horne for the Big Ancient Mediterranean project, which has been extensively developed by Ed Keogh.  Data analysis has been conducted by Paul Dilley and Melissa Moreton.  In the future, manuscript entries based on research papers by University of Iowa undergraduates in Paul Dilley’s Judaism, Christianity, and Islam class will be entered, and credited in their respective entries. '
+    // aboutBoxHtml = aboutBoxHtml + ' In addition to reading database information, you may click the reference number or catalogue entry field to open a new tab, or the row to send that work into the right hand panel.<br/><br/>'
     // aboutBoxHtml = aboutBoxHtml + '<b>Information on authors and works is gathered from standard references, both print and online.</b>[should this be deleted?]<br/>';
-    aboutBoxHtml = aboutBoxHtml + 'The Iowa Canon of Classical Authors and Works is the most complete';
-    aboutBoxHtml = aboutBoxHtml + ' list of Latin literature from its beginnings to the sixth century,';
-    aboutBoxHtml = aboutBoxHtml + ' and aims to develop text analysis functionality for works with open-access electronic editions.';
-    aboutBoxHtml = aboutBoxHtml + ' Information on authors and works is collected from standard references, both print and online, including metadata relating to author, title, place and date of composition, genre, status as poetry or prose, and as Christian or non-Christian.<br/><br/>';
+    // aboutBoxHtml = aboutBoxHtml + 'The Iowa Canon of Classical Authors and Works is the most complete';
+    // aboutBoxHtml = aboutBoxHtml + ' list of Latin literature from its beginnings to the sixth century,';
+    // aboutBoxHtml = aboutBoxHtml + ' and aims to develop text analysis functionality for works with open-access electronic editions.';
+    // aboutBoxHtml = aboutBoxHtml + ' Information on authors and works is collected from standard references, both print and online, including metadata relating to author, title, place and date of composition, genre, status as poetry or prose, and as Christian or non-Christian.<br/><br/>';
     // aboutBoxHtml = aboutBoxHtml + 'See below for a partial key to canonical references:<br/>';
     // aboutBoxHtml = aboutBoxHtml + 'CANT=Clavis Apocryphorum Novi Testamenti<br/>';
     // aboutBoxHtml = aboutBoxHtml + 'CGL=Corpus Grammaticorum Latinorum<br/>';
@@ -32,10 +32,10 @@ var aboutBoxHtml = '<div id="infoBox" class="nonMapOverlay"> <b> Application Inf
     // aboutBoxHtml = aboutBoxHtml + 'FRH=Fragmentary Roman Historians<br/>';
     // aboutBoxHtml = aboutBoxHtml + 'PL=Patrologia Latina<br/><br/>';
     // aboutBoxHtml = aboutBoxHtml + 'See below for a list of electronic text sources by type:<br/>';
-    aboutBoxHtml = aboutBoxHtml + 'Paul Dilley is the PI of the Canon, Ryan Horne the lead developer.';
+    // aboutBoxHtml = aboutBoxHtml + 'Paul Dilley is the PI of the Canon, Ryan Horne the lead developer.';
     // aboutBoxHtml = aboutBoxHtml + ' The following students have contributed research to the Canon: Noah Anderson, Kenneth Elliott, Elijah Fleming, Tyler Fyotek, Sara Hales, Ed Keogh, Caitlin Marley, Peter Miller, Bob Morley, Daniel Munn, Echo Smith, Dana Spyridakos, Jeremy Swist, Ryan Tribble, Wenxuan Xu, Jonathan Young (data collection and analysis); Noah Anderson and Spencer Schmalz (development).';
-	aboutBoxHtml = aboutBoxHtml + '</p>';
-    aboutBoxHtml = aboutBoxHtml + ' The code and interface was built by <a href="https://rmhorne.org/" target="_blank">Ryan Horne</a>. Additional features are being developed by Ed Keogh and Noah Anderson.';
+	// aboutBoxHtml = aboutBoxHtml + '</p>';
+    // aboutBoxHtml = aboutBoxHtml + ' The code and interface was built by <a href="https://rmhorne.org/" target="_blank">Ryan Horne</a>. Additional features are being developed by Ed Keogh and Noah Anderson.';
     aboutBoxHtml = aboutBoxHtml + '<span class="bottomContainer">';
     aboutBoxHtml = aboutBoxHtml + '<a href="https://bigancientmediterranean.wordpress.com/" target="_blank"><img src="images/BAM-icon.svg" alt="BAM Logo" style="width:28px;height:28px;"></a>&nbsp;&nbsp;Built with the <b><a href=" https://bigancientmediterranean.wordpress.com/" target="_blank">Big Ancient Mediterranean </a></b>framework.';
     aboutBoxHtml = aboutBoxHtml + '<br /> <a href="https://github.com/Big-Ancient-Mediterranean" target="_blank"><img src="images/githublogo.svg" alt="GitHub Logo" style="width:28px;height:28px;"></a>&nbsp;&nbsp;Get map data and code from our <b><a href="https://github.com/AWMC" target="_blank">GitHub </a></b>page.';

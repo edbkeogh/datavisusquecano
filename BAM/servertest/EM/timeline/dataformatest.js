@@ -259,104 +259,133 @@ var tldata = [
     }
 ],
 },
-
 {
-  group: "Mesopotamia",
+  group: "Greece",
   data: [
     {
-      label: "Mesopotamia",
+      label: "Greece",
       data: [
         {
-          timeRange: [-2334, -2154],
-          val: 'Akkadian'
+          timeRange: [-2000, -1000],
+          val: 'Minoan'//<val: number (continuous dataScale) or string (ordinal dataScale)>
         },
         {
-          timeRange: [-2025, -1522],
-          val: 'Old Assyrian Empire'
+          timeRange: [-1100, -800],
+          val: 'Dark Ages'
         },
         {
-          timeRange: [-1392, -1056],
-          val: 'Middle Assyrian'
+          timeRange: [-800, -480],
+          val: 'Archaic'
         },
         {
-          timeRange: [-911, -627],
-          val: 'Neo-Assyrian'
+          timeRange: [-480, -323],
+          val: 'Classical'
         },
         {
-          timeRange: [-626, -539],
-          val: 'Neo-Babylonian'
+          timeRange: [-323, -146],
+          val: 'Hellenistic'
+        },
+
+        {
+          timeRange: [-146, 324],
+          val: 'Roman'
         },
         {
-          timeRange: [-549, -330],
-          val: 'Achaemenid'
+          timeRange: [324, 1453],
+          val: 'Byzantine'
         },
         {
-          timeRange: [-330, -150],
-          val: 'Seleucid'
-        },
-        {
-          timeRange: [-150, 225],
-          val: 'Parthian'
-        },
-        {
-          timeRange: [226, 638],
-          val: 'Sasanian'
-        },
-        {
-          timeRange: [638, 661],
-          val: 'Rashidun'
-        },
-        {
-          timeRange: [661, 750],
-          val: 'Umayyad'
-        },
-        {
-          timeRange: [750, 1258],
-          val: 'Abbasid'
-        },
-        {
-          timeRange: [1258, 1432],
-          val: 'Mongol'
-        },
-        {
-          timeRange: [1466, 1501],
-          val: 'Aq Qoyunlu'
-        },
-        {
-          timeRange: [1501, 1533],
-          val: 'Safavids'
-        },
-        {
-          timeRange: [1533, 1918],
+          timeRange: [1453, 1821],
           val: 'Ottoman'
         }
       ]
     },
     {
-      label: "Mesopotamia ",
+      label: "Greece ",
       data: [
         {
-          timeRange: [-1894, -1595],
-          val: 'Babylonian/Amorite'
-        },
-        {
-          timeRange: [-1595, -1155],
-          val: 'Kassite'
-        },
-        {
-          timeRange: [1374, 1466],
-          val: 'Kara Koyunlu'
+          timeRange: [-1600, -1100],
+          val: 'Mycenaean'//<val: number (continuous dataScale) or string (ordinal dataScale)>
         }
       ]
     },
+
+
 ],
 },
+{
+  group: "Italy",
+  data: [
+    {
+      label: "Italy",
+      data: [
+        {
+          timeRange: [-753, -509],
+          val: 'Roman Kingdom'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        },
+        {
+          timeRange: [-509, -27],
+          val: 'Roman Republic'
+        },
+        {
+          timeRange: [-27, 476],
+          val: 'Roman Empire'
+        },
+        {
+          timeRange: [476, 553],
+          val: 'Ostrogothic Kingdom'
+        },
+        {
+          timeRange: [584, 751],
+          val: 'Exarchate of Ravenna'
+        },
+        {
+          timeRange: [754, 1870],
+          val: 'Papal States'
+        }
+      ]
+    },
+    {
+      label: "Italy ",
+      data: [
+        {
+          timeRange: [-900, -500],
+          val: 'Etruscan'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        },
+        {
+          timeRange: [568, 774],
+          val: 'Kingdom of the Lombards'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        },
+        {
+          timeRange: [774, 1250],
+          val: 'Holy Roman Empire'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        }
 
+      ]
+    },
+    {
+      label: "Sicily",
+      data: [
+        {
+          timeRange: [831, 1091],
+          val: 'Emirate of Sicily'
+        },
+        {
+          timeRange: [1130, 1816],
+          val: 'Kingdom of Sicily'
+        }
+
+      ]
+    }
+
+],
+},
 {
   group: "Levant",
   data: [
+
     {
-      label: "Levant",
+      label: "Levant ",
       data: [
         {
           timeRange: [-3000, -1600],
@@ -409,7 +438,7 @@ var tldata = [
       ]
     },
     {
-      label: "Levant ",
+      label: "Levant        ",
       data: [
     {
       timeRange: [-2900, -1761],
@@ -436,7 +465,7 @@ var tldata = [
       val: 'County of Tripoli'
     }
   ]
-  },
+},
     {
       label: "Levant  ",
       data: [
@@ -466,6 +495,7 @@ var tldata = [
     {
       label: "Levant    ",
       data: [
+
         {
           timeRange: [-2500, -539],
           val: 'Phoenician States'
@@ -483,6 +513,7 @@ var tldata = [
           timeRange: [-1000, -332],
           val: 'Kingdom of Ammon'
         }
+
       ]
     },
     {
@@ -499,7 +530,7 @@ var tldata = [
       ]
     },
     {
-      label: "Levant       ",
+      label: "Levant",
       data: [
         {
           timeRange: [-930, -586],
@@ -508,124 +539,6 @@ var tldata = [
         {
           timeRange: [-586, -539],
           val: 'Neo-Babylonian'
-        }
-      ]
-    }
-],
-},
-{
-  group: "Arabia and East Africa",
-  data: [
-
-    {
-      label: "Arabia and East Africa ",
-      data: [
-        {
-          timeRange: [-3000, -200],
-          val: 'Thamud'
-        },
-        {
-          timeRange: [-200, 632],
-          val: 'Kindah'
-        },
-        {
-          timeRange: [632, 750],
-          val: 'Rashidun/Umayyad'
-        },
-        {
-          timeRange: [750, 967],
-          val: 'Abbasid'
-        },
-        {
-          timeRange: [967, 1925],
-          val: 'Sharifate of Mecca'
-        }
-      ]
-    },
-    {
-      label: "Arabia and East Africa        ",
-      data: [
-    {
-      timeRange: [-1000, -400],
-      val: 'D\'mt'
-    },
-    {
-      timeRange: [-400, 300],
-      val: 'Qataban'
-    },
-    {
-      timeRange: [900, 1270],
-      val: 'Zagwe'
-    },
-    {
-      timeRange: [1270, 1974],
-      val: 'Solomonic'
-    }
-  ]
-},
-    {
-      label: "Arabia and East Africa  ",
-      data: [
-        {
-          timeRange: [-900, 275],
-          val: 'Saba'
-        },
-        {
-          timeRange: [896, 1279],
-          val: 'Sultanate of Showa'
-        }
-      ]
-    },
-    {
-      label: "Arabia and East Africa   ",
-      data: [
-        {
-          timeRange: [-800, 300],
-          val: 'Hadhramaut'
-        }
-      ]
-    },
-    {
-      label: "Arabia and East Africa    ",
-      data: [
-        {
-          timeRange: [-800, 200],
-          val: 'Qedar'
-        }
-        ]
-    },
-    {
-      label: "Arabia and East Africa     ",
-      data: [
-        {
-          timeRange: [-312, 105],
-          val: 'Nabataea'
-        },
-        {
-          timeRange: [105, 630],
-          val: 'Roman'
-        }
-      ]
-    },
-    {
-      label: "Arabia and East Africa      ",
-      data: [
-        {
-          timeRange: [-700, -100],
-          val: 'Ma\'in'
-        },
-        {
-          timeRange: [100, 940],
-          val: 'Aksum'
-        }
-      ]
-    },
-    {
-      label: "Arabia and East Africa",
-      data: [
-        {
-          timeRange: [-200, 525],
-          val: 'Himyarites'
         }
       ]
     }
@@ -721,198 +634,6 @@ var tldata = [
 
       ]
     }
-],
-},
-{
-  group: "Asia Minor and Caucasus",
-  data: [
-    {
-      label: "Asia Minor and Caucasus",
-      data: [
-        {
-          timeRange: [-1833, -1500],
-          val: 'Hittite Old Kingdom'
-        },
-        {
-          timeRange: [-1100, -545],
-          val: 'Carian'
-        },
-        {
-          timeRange: [-546, -344],
-          val: 'Achaemenid'
-        },
-        {
-          timeRange: [-344, -282],
-          val: 'Macedonian'
-        },
-        {
-          timeRange: [-282, -133],
-          val: 'Attalid'
-        },
-        {
-          timeRange: [324, 1453],
-          val: 'Byzantine'
-        },
-      ]
-    },
-    {
-      label: "Asia Minor and Caucasus ",
-      data: [
-        {
-          timeRange: [-1430, -1180],
-          val: 'Hittite New Kingdom'
-        },
-        {
-          timeRange: [-1180, -700],
-          val: 'Syro-Hittite'
-        },
-        {
-          timeRange: [-129, 324],
-          val: 'Roman'
-        },
-        {
-          timeRange: [1071, 1308],
-          val: 'Seljuk'
-        },
-        {
-          timeRange: [387, 646],
-          val: 'Sasanian Armenia'
-        }
-      ]
-    },
-    {
-      label: "Asia Minor and Caucasus  ",
-      data: [
-
-        {
-          timeRange: [-1200, -546],
-          val: 'Lydian'
-        },
-        {
-          timeRange: [880, 1045],
-          val: 'Bagratid Armenia'
-        }
-
-      ]
-    },
-    {
-      label: "Asia Minor and Caucasus   ",
-      data: [
-        {
-          timeRange: [-1250, -546],
-          val: 'Lycian'
-        },
-        {
-          timeRange: [363, 627],
-          val: 'Sasanian Iberia'
-        },
-        {
-          timeRange: [778, 1008],
-          val: 'Kingdom of Abkhazia'
-        },
-        {
-          timeRange: [1008, 1490],
-          val: 'Kingdom of Georgia'
-        }
-      ]
-    },
-    {
-      label: "Asia Minor and Caucasus    ",
-      data: [
-        {
-          timeRange: [-2000, -911],
-          val: 'Luwian'
-        },
-        {
-          timeRange: [-860, -590],
-          val: 'Urartu'
-        },
-        {
-          timeRange: [387, 536],
-          val: 'Byzantine Armenia'
-        },
-        {
-          timeRange: [654, 884],
-          val: 'Emirate of Armenia'
-        },
-        {
-          timeRange: [1299, 1918],
-          val: 'Ottoman'
-        }
-      ]
-    },
-    {
-      label: "Asia Minor and Caucasus     ",
-      data: [
-        {
-          timeRange: [-1500, -1300],
-          val: 'Mittani'//<val: number (continuous dataScale) or string (ordinal dataScale)>
-        },
-        {
-          timeRange: [588, 888],
-          val: 'Principlaity of Iberia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
-        },
-        {
-          timeRange: [888, 1008],
-          val: 'Bagratid Georgia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
-        }
-
-      ]
-    }
-],
-},
-{
-  group: "Greece",
-  data: [
-    {
-      label: "Greece",
-      data: [
-        {
-          timeRange: [-2000, -1000],
-          val: 'Minoan'//<val: number (continuous dataScale) or string (ordinal dataScale)>
-        },
-        {
-          timeRange: [-1100, -800],
-          val: 'Dark Ages'
-        },
-        {
-          timeRange: [-800, -480],
-          val: 'Archaic'
-        },
-        {
-          timeRange: [-480, -323],
-          val: 'Classical'
-        },
-        {
-          timeRange: [-323, -146],
-          val: 'Hellenistic'
-        },
-
-        {
-          timeRange: [-146, 324],
-          val: 'Roman'
-        },
-        {
-          timeRange: [324, 1453],
-          val: 'Byzantine'
-        },
-        {
-          timeRange: [1453, 1821],
-          val: 'Ottoman'
-        }
-      ]
-    },
-    {
-      label: "Greece ",
-      data: [
-        {
-          timeRange: [-1600, -1100],
-          val: 'Mycenaean'//<val: number (continuous dataScale) or string (ordinal dataScale)>
-        }
-      ]
-    },
-
-
 ],
 },
 {
@@ -1047,74 +768,145 @@ var tldata = [
     }
 ],
 },
+
 {
-  group: "Italy",
+  group: "Asia Minor/Caucasus",
   data: [
     {
-      label: "Italy",
+      label: "Asia Minor/Caucasus",
       data: [
         {
-          timeRange: [-753, -509],
-          val: 'Roman Kingdom'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          timeRange: [-1833, -1500],
+          val: 'Hittite Old Kingdom'
         },
         {
-          timeRange: [-509, -27],
-          val: 'Roman Republic'
+          timeRange: [-1100, -545],
+          val: 'Carian'
         },
         {
-          timeRange: [-27, 476],
-          val: 'Roman Empire'
+          timeRange: [-546, -344],
+          val: 'Achaemenid'
         },
         {
-          timeRange: [476, 553],
-          val: 'Ostrogothic Kingdom'
+          timeRange: [-344, -282],
+          val: 'Macedonian'
         },
         {
-          timeRange: [584, 751],
-          val: 'Exarchate of Ravenna'
+          timeRange: [-282, -133],
+          val: 'Attalid'
         },
         {
-          timeRange: [754, 1870],
-          val: 'Papal States'
+          timeRange: [324, 1453],
+          val: 'Byzantine'
+        },
+      ]
+    },
+    {
+      label: "Asia Minor/Caucasus ",
+      data: [
+        {
+          timeRange: [-1430, -1180],
+          val: 'Hittite New Kingdom'
+        },
+        {
+          timeRange: [-1180, -700],
+          val: 'Syro-Hittite'
+        },
+        {
+          timeRange: [-129, 324],
+          val: 'Roman'
+        },
+        {
+          timeRange: [1071, 1308],
+          val: 'Seljuk'
+        },
+        {
+          timeRange: [387, 646],
+          val: 'Sasanian Armenia'
         }
       ]
     },
     {
-      label: "Italy ",
+      label: "Asia Minor/Caucasus  ",
       data: [
+
         {
-          timeRange: [-900, -500],
-          val: 'Etruscan'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          timeRange: [-1200, -546],
+          val: 'Lydian'
         },
         {
-          timeRange: [568, 774],
-          val: 'Kingdom of the Lombards'//<val: number (continuous dataScale) or string (ordinal dataScale)>
-        },
-        {
-          timeRange: [774, 1250],
-          val: 'Holy Roman Empire'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          timeRange: [880, 1045],
+          val: 'Bagratid Armenia'
         }
 
       ]
     },
     {
-      label: "Sicily",
+      label: "Asia Minor/Caucasus   ",
       data: [
         {
-          timeRange: [831, 1091],
-          val: 'Emirate of Sicily'
+          timeRange: [-1250, -546],
+          val: 'Lycian'
         },
         {
-          timeRange: [1130, 1816],
-          val: 'Kingdom of Sicily'
+          timeRange: [363, 627],
+          val: 'Sasanian Iberia'
+        },
+        {
+          timeRange: [778, 1008],
+          val: 'Kingdom of Abkhazia'
+        },
+        {
+          timeRange: [1008, 1490],
+          val: 'Kingdom of Georgia'
+        }
+      ]
+    },
+    {
+      label: "Asia Minor/Caucasus    ",
+      data: [
+        {
+          timeRange: [-2000, -911],
+          val: 'Luwian'
+        },
+        {
+          timeRange: [-860, -590],
+          val: 'Urartu'
+        },
+        {
+          timeRange: [387, 536],
+          val: 'Byzantine Armenia'
+        },
+        {
+          timeRange: [654, 884],
+          val: 'Emirate of Armenia'
+        },
+        {
+          timeRange: [1299, 1918],
+          val: 'Ottoman'
+        }
+      ]
+    },
+    {
+      label: "Asia Minor/Caucasus     ",
+      data: [
+        {
+          timeRange: [-1500, -1300],
+          val: 'Mittani'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        },
+        {
+          timeRange: [588, 888],
+          val: 'Principlaity of Iberia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+        },
+        {
+          timeRange: [888, 1008],
+          val: 'Bagratid Georgia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
         }
 
       ]
     }
-
 ],
 },
-
 {
   group: "North Africa",
   data: [
@@ -1194,8 +986,8 @@ var tldata = [
       label: "North Africa  ",
       data: [
         {
-          timeRange: [788, 924],
-          val: 'Idrisids'
+          timeRange: [788, 925],
+          val: 'Wessex'
         }
 
       ]

@@ -9,7 +9,7 @@ var tldata = [
         data: [
           {
             timeRange: [250, 538],
-            val: 'Kofun'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+            val: 'Kofun'
           },
           {
             timeRange: [538, 710],
@@ -37,8 +37,6 @@ var tldata = [
 
   ],
   },
-
-
 {
   group: "Korea",
   data: [
@@ -47,7 +45,7 @@ var tldata = [
       data: [
         {
           timeRange: [-57, 935],
-          val: 'Silla'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Silla'
         },
         {
           timeRange: [918, 1392],
@@ -64,7 +62,7 @@ var tldata = [
       data: [
         {
           timeRange: [-37, 668],
-          val: 'Goguryeo'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Goguryeo'
         }
 
       ]
@@ -74,7 +72,7 @@ var tldata = [
       data: [
         {
           timeRange: [-18, 660],
-          val: 'Baekje'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Baekje'
         }
 
       ]
@@ -90,7 +88,7 @@ var tldata = [
       data: [
         {
           timeRange: [-1600, -1046],
-          val: 'Shang'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Shang'
         },
         {
           timeRange: [-1046, -256],
@@ -141,7 +139,7 @@ var tldata = [
       data: [
         {
           timeRange: [-476, -221],
-          val: 'Warring States'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Warring States'
         },
         {
           timeRange: [220, 280],
@@ -158,7 +156,203 @@ var tldata = [
 
 ],
 },
+{
+  group: "Vietnam",
+  data: [
+    {
+      label: "Vietnam",
+      data: [
+        {
+          timeRange: [-2879, -111],
+          val: 'Ancient'
+        },
+        {
+          timeRange: [-111, 938],
+          val: 'Chinese'
+        },
+        {
+          timeRange: [938, 1009],
+          val: 'Ngo, Dinh, Early Le'
+        },
+        {
+          timeRange: [1009, 1407],
+          val: 'Ly, Tran, Ho'
+        },
+        {
+          timeRange: [1407, 1427],
+          val: 'Chinese'
+        },
+        {
+          timeRange: [1427, 1527],
+          val: 'Later Le'
+        }
+      ]
+    }
+],
+},
+{
+  group: "Central Asia",
+  data: [
+    {
+      label: "Central Asia",
+      data: [
+        {
+          timeRange: [-209, 100],
+          val: 'Xiongnu'
+        },
+        {
+          timeRange: [552, 630],
+          val: 'First Turkic Khaganate'
+        },
+        {
+          timeRange: [630, 682],
+          val: 'Second Turkic Khaganate'
+        },
+        {
+          timeRange: [744, 840],
+          val: 'Uyghur Khaganate'
+        },
+        {
+          timeRange: [840, 1212],
+          val: 'Khara-Khanid Khaganate'
+        },
+        {
+          timeRange: [1225, 1689],
+          val: 'Chagatai Khaganate'
+        }
+      ]
+    },
+    {
+      label: "Central Asia ",
+      data: [
+        {
+          timeRange: [56, 1006],
+          val: 'Kingdom of Khotan'
+        },
+        {
+          timeRange: [1206, 1368],
+          val: 'Mongol'
+        }
+      ]
+    },
+    {
+      label: "Central Asia  ",
+      data: [
+        {
+          timeRange: [843, 1132],
+          val: 'Qocho Kingdom'
+        }
+      ]
+    },
+    {
+      label: "Central Asia   ",
+      data: [
+        {
+          timeRange: [894, 1036],
+          val: 'Ganzou Uyghur Kingdom'
+        }
+      ]
+    }
+],
+},
+{
+  group: "Tibet",
+  data: [
+    {
+      label: "Tibet",
+      data: [
+        {
+          timeRange: [-500, 618],
+          val: 'Pre-Imperial'
+        },
+        {
+          timeRange: [618, 842],
+          val: 'Tibetan Empire'
+        },
+        {
+          timeRange: [842, 1000],
+          val: 'Era of Fragmentation'
+        },
+        {
+          timeRange: [1000, 1240],
+          val: 'Renaissance'
+        },
+        {
+          timeRange: [1240, 1354],
+          val: 'Yuan'
+        },
+        {
+          timeRange: [1354, 1720],
+          val: 'Independence'
+        }
+      ]
+    }
+],
+},
+{
+  group: "Southeast Asia",
+  data: [
+    {
+      label: "Southeast Asia",
+      data: [
+        {
+          timeRange: [600, 1100],
+          val: 'Dvaravati'
+        },
+        {
+          timeRange: [1238, 1438],
+          val: 'Sukhothai'
+        }
+      ]
+    },
+    {
+      label: "Southeast Asia ",
+      data: [
+        {
+          timeRange: [650, 1377],
+          val: 'Srivijaya'
+        },
+        {
+          timeRange: [1350, 1767],
+          val: 'Ayutthaya'
+        }
+      ]
+    },
+    {
+      label: "Southeast Asia  ",
+      data: [
+        {
+          timeRange: [669, 1579],
+          val: 'Sunda'
+        }
+      ]
+    },
+    {
+      label: "Southeast Asia   ",
+      data: [
+        {
+          timeRange: [732, 1006],
+          val: 'Medang'
+        },
+        {
+          timeRange: [1293, 1500],
+          val: 'Majapahit'
+        }
+      ]
+    },
+    {
+      label: "Southeast Asia    ",
+      data: [
+        {
+          timeRange: [802, 1431],
+          val: 'Khmer'
+        }
 
+      ]
+    }
+
+],
+},
 {
   group: "India",
   data: [
@@ -167,7 +361,7 @@ var tldata = [
       data: [
         {
           timeRange: [-322, -185],
-          val: 'Maurya'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Maurya'
         },
         {
           timeRange: [280, 550],
@@ -180,7 +374,7 @@ var tldata = [
         {
           timeRange: [1206, 1526],
           val: 'Delhi Sultanate'
-        },
+        }
       ]
     },
     {
@@ -188,15 +382,15 @@ var tldata = [
       data: [
         {
           timeRange: [-100, 225],
-          val: 'Satavahana'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Satavahana'
         },
         {
           timeRange: [250, 500],
-          val: 'Vakataka'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Vakataka'
         },
         {
           timeRange: [500, 1189],
-          val: 'Chalukyas'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Chalukyas'
         }
       ]
     },
@@ -205,13 +399,12 @@ var tldata = [
       data: [
         {
           timeRange: [-280, 360],
-          val: 'Kushan'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Kushan'
         },
         {
           timeRange: [730, 1036],
-          val: 'Gurjara-Pratihara'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Gurjara-Pratihara'
         }
-
       ]
     },
     {
@@ -219,7 +412,7 @@ var tldata = [
       data: [
         {
           timeRange: [-300, 1279],
-          val: 'Chola'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Chola'
         }
       ]
     },
@@ -228,9 +421,8 @@ var tldata = [
       data: [
         {
           timeRange: [275, 897],
-          val: 'Pallava'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Pallava'
         }
-
       ]
     },
     {
@@ -238,11 +430,11 @@ var tldata = [
       data: [
         {
           timeRange: [345, 540],
-          val: 'Kadambas'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Kadambas'
         },
         {
           timeRange: [753, 982],
-          val: 'Rashtrakuta'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Rashtrakuta'
         }
 
       ]
@@ -252,7 +444,7 @@ var tldata = [
       data: [
         {
           timeRange: [350, 1140],
-          val: 'Kamarupa'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Kamarupa'
         }
 
       ]
@@ -640,11 +832,11 @@ var tldata = [
       data: [
         {
           timeRange: [681, 1018],
-          val: 'First Bulgarian Empire'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'First Bulgarian Empire'
         },
         {
           timeRange: [1185, 1396],
-          val: 'Second Bulgarian Empire'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Second Bulgarian Empire'
         },
 
       ]
@@ -654,7 +846,7 @@ var tldata = [
       data: [
     {
       timeRange: [1136, 1478],
-      val: 'Novgorod Republic'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+      val: 'Novgorod Republic'
     }
   ]
 },
@@ -663,11 +855,11 @@ var tldata = [
       data: [
         {
           timeRange: [1199, 1253],
-          val: 'Kingdom of Galicia-Volhynia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Kingdom of Galicia-Volhynia'
         },
         {
           timeRange: [1253, 1349],
-          val: 'Ruthenia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Ruthenia'
         }
 
       ]
@@ -677,7 +869,7 @@ var tldata = [
       data: [
         {
           timeRange: [882, 1240],
-          val: 'Kievan Rus\''//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Kievan Rus\''
         }
       ]
     },
@@ -686,7 +878,7 @@ var tldata = [
       data: [
         {
           timeRange: [1000, 1918],
-          val: 'Kingdom of Hungary'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Kingdom of Hungary'
         }
 
       ]
@@ -696,7 +888,7 @@ var tldata = [
       data: [
         {
           timeRange: [966, 1795],
-          val: 'Kingdom of Poland'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Kingdom of Poland'
         }
 
       ]
@@ -706,7 +898,7 @@ var tldata = [
       data: [
         {
           timeRange: [1236, 1569],
-          val: 'Grand Duchy of Lithuania'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Grand Duchy of Lithuania'
         }
 
       ]
@@ -716,7 +908,7 @@ var tldata = [
       data: [
         {
           timeRange: [1085, 1918],
-          val: 'Kingdom of Bohemia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Kingdom of Bohemia'
         }
 
       ]
@@ -846,15 +1038,15 @@ var tldata = [
       data: [
         {
           timeRange: [-1500, -1300],
-          val: 'Mittani'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Mittani'
         },
         {
           timeRange: [588, 888],
-          val: 'Principlaity of Iberia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Principlaity of Iberia'
         },
         {
           timeRange: [888, 1008],
-          val: 'Bagratid Georgia'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Bagratid Georgia'
         }
 
       ]
@@ -869,7 +1061,7 @@ var tldata = [
       data: [
         {
           timeRange: [-2000, -1000],
-          val: 'Minoan'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Minoan'
         },
         {
           timeRange: [-1100, -800],
@@ -907,7 +1099,7 @@ var tldata = [
       data: [
         {
           timeRange: [-1600, -1100],
-          val: 'Mycenaean'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Mycenaean'
         }
       ]
     },
@@ -1048,6 +1240,34 @@ var tldata = [
 ],
 },
 {
+  group: "Sub-Saharan Africa",
+  data: [
+    {
+      label: "Sub-Saharan Africa",
+      data: [
+        {
+          timeRange: [700, 1240],
+          val: 'Ghana Empire'
+        },
+        {
+          timeRange: [1230, 1670],
+          val: 'Mali Empire'
+        }
+      ]
+    },
+    {
+      label: "Sub-Saharan Africa ",
+      data: [
+        {
+          timeRange: [1464, 1591],
+          val: 'Songhai Empire'
+        }
+      ]
+    }
+],
+},
+
+{
   group: "Italy",
   data: [
     {
@@ -1055,7 +1275,7 @@ var tldata = [
       data: [
         {
           timeRange: [-753, -509],
-          val: 'Roman Kingdom'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Roman Kingdom'
         },
         {
           timeRange: [-509, -27],
@@ -1084,15 +1304,15 @@ var tldata = [
       data: [
         {
           timeRange: [-900, -500],
-          val: 'Etruscan'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Etruscan'
         },
         {
           timeRange: [568, 774],
-          val: 'Kingdom of the Lombards'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Kingdom of the Lombards'
         },
         {
           timeRange: [774, 1250],
-          val: 'Holy Roman Empire'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Holy Roman Empire'
         }
 
       ]
@@ -1191,7 +1411,7 @@ var tldata = [
       ]
     },
     {
-      label: "North Africa  ",
+      label: "North Africa   ",
       data: [
         {
           timeRange: [788, 924],
@@ -1337,14 +1557,14 @@ var tldata = [
 ],
 },
 {
-  group: "German",
+  group: "Germany",
   data: [
     {
       label: "Germany",
       data: [
         {
           timeRange: [100, 476],
-          val: 'Roman'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Roman'
         },
         {
           timeRange: [486, 758],
@@ -1365,7 +1585,7 @@ var tldata = [
       data: [
         {
           timeRange: [411, 534],
-          val: 'Burguntian'//<val: number (continuous dataScale) or string (ordinal dataScale)>
+          val: 'Burguntian'
         }
       ]
     }
@@ -1502,10 +1722,5 @@ var tldata = [
 
 ],
 }
-
-
-//region
-
-
 ]
 ;
