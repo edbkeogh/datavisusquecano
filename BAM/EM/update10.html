@@ -989,7 +989,7 @@ window.addEventListener('resize', function(event){
 	informationToggle = true;
 });
 
-var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "Language(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "script": "Script", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Bilingual(Y/N)", "bilingual_format": "Bilingual Format", "second_language": "Second Language", "second_script": "Second Script", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "colophon": "Colophon(Y/N)", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher"}
+var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "Language(s)", "script": "Script(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Bilingual(Y/N)", "bilingual_format": "Bilingual Format", "second_language": "Second Language", "second_script": "Second Script", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "colophon": "Colophon(Y/N)", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher"}
 			//k these don't do what I want, they broke leaflet
 			// L.DomEvent.disableScrollPropagation('panel');
 			// L.DomEvent.disableClickPropagation('panel');
@@ -1152,13 +1152,18 @@ var searchedMetadata = searchIDs[metaDataID]
 
 document.getElementById('right-side-headline2').innerHTML += '<img src=\"images/man-images/' + a.layer.feature.properties['5032'] + '\" /><br/>'
 if (a.layer.feature.properties['5033'] != "") {
-document.getElementById('right-side-headline2').innerHTML += '<p><b>Image Source: </b>' + a.layer.feature.properties['5033'] + '</p>'
+document.getElementById('right-side-headline2').innerHTML += '<p style="font-size:xx-small"><b>Image Source: </b>' + a.layer.feature.properties['5033'] + '</p>'
 }
 if (a.layer.feature.properties['5034'] != "") {
 document.getElementById('right-side-headline2').innerHTML += '<p><b>Digital Surrogate: </b>' + a.layer.feature.properties['5034'] + '</p>'
 }
 if (a.layer.feature.properties['5035'] != "") {
-document.getElementById('right-side-headline2').innerHTML += '<a style="font-size:large;"href=\"' + a.layer.feature.properties['5035'] + '\" target=\"_blank\"><b>Zotero</b></a>'
+// document.getElementById('right-side-headline2').innerHTML
+var tester = searchedMetadata['bibliography'].includes(a.layer.feature.properties['5035'])
+//  console.log(tester)
+if( tester != true) {
+searchedMetadata['bibliography'] += ', <a href=\"' + a.layer.feature.properties['5035'] + '\" target=\"_blank\"><b>Zotero</b></a>'
+}
 }
 //TODO need zotero fix or search modification
 // document.getElementById('right-side-headline2').innerHTML += '<a href=\"' + searchedMetadata['zotero'] + '\" target=\"_blank\" style=\"font-size:large;\">Zotero</a>'

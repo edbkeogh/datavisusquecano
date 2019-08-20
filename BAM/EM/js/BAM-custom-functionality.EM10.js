@@ -234,8 +234,16 @@ var geojsonID = geojson.features.findIndex(x => x.properties[5004] === leafletID
         document.getElementById('right-side-headline2').innerHTML += '<p><b>Digital Surrogate: </b>' + geojson.features[geojsonID].properties['5034'] + '</p>'
         }
         if (geojson.features[geojsonID].properties['5035'] != "") {
-        document.getElementById('right-side-headline2').innerHTML += '<a style="font-size:large;"href=\"' + geojson.features[geojsonID].properties['5035'] + '\" target=\"_blank\"><b>Zotero</b></a>'
-        }
+        // document.getElementById('right-side-headline2').innerHTML\
+        // console.log(searchedMetadata['bibliography'])
+        // console.log(geojson.features[geojsonID].properties['5035'])
+         var tester = searchedMetadata['bibliography'].includes(geojson.features[geojsonID].properties['5035'])
+        //  console.log(tester)
+        if( tester != true) {
+
+        searchedMetadata['bibliography'] += ', <a href=\"' + geojson.features[geojsonID].properties['5035'] + '\" target=\"_blank\"><b>Zotero</b></a>'
+      } 
+    }
 
 
 
