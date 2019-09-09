@@ -9,9 +9,9 @@
 </div>
 
 <script>
-var xml;
+var xmlDoc;
 var obj = {};
-
+var xmlASjson
 
 function loadXMLDoc() {
   var xhttp = new XMLHttpRequest();
@@ -21,10 +21,13 @@ function loadXMLDoc() {
       xmlDoc = this.responseText;
       console.log(xmlDoc)
     }
-    var jsonText = JSON.stringify(xmlToJson(xmlDoc));
+    parser = new DOMParser();
+xmlDoc2 = parser.parseFromString(xmlDoc,"text/xml");
+    xmlASjson = xmlToJson(xmlDoc2)
+    var jsonText = JSON.stringify(xmlASjson);
 console.log(jsonText)
   };
-  xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/Hymn1.xml", true);
+  xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/Hymn.xml", true);
   xhttp.send();
 }
 
