@@ -5904,7 +5904,8 @@
                     n.exit().transition().duration(t.transDuration).style("fill-opacity", 0).remove();
                     var a = n.enter().append("rect").attr("class", "series-segment").attr("rx", 1).attr("ry", 1).attr("x", t.graphW / 2).attr("y", t.graphH / 2).attr("width", 0).attr("height", 0).style("fill", function(e) {
                         return t.zColorScale(e.val)
-                        console.log(t.zColorScale(e.val))
+                        console.log(t.zColorScale(e.val)
+                      )
                     }).style("fill-opacity", 0).on("mouseover.groupTooltip", t.groupTooltip.show).on("mouseout.groupTooltip", t.groupTooltip.hide).on("mouseover.lineTooltip", t.lineTooltip.show).on("mouseout.lineTooltip", t.lineTooltip.hide).on("mouseover.segmentTooltip", t.segmentTooltip.show).on("mouseout.segmentTooltip", t.segmentTooltip.hide);
                     a.on("mouseover", function() {
                         if (!("disableHover" in t && t.disableHover)) {

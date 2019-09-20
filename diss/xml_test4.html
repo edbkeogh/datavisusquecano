@@ -1,0 +1,83 @@
+<!DOCTYPE html
+<!-- This one is a dead end because of responseXML formatting requirements -->
+<html>
+<body>
+
+<h2>Using the XMLHttpRequest Object</h2>
+<div id="top">
+<div id="demo">
+  <!-- <h1>Beta code text</h1> -->
+<button type="button" onclick="loadXMLDoc()">load xml hymn to Demeter with parallel dictionary entry and part of speech tags</button>
+<p></p>
+</div>
+<div id="lemmatized">
+  <!-- <h1>Dictionary entry</h1> -->
+</div>
+<div id="POS">
+  <!-- <h1>Part of Speech</h1> -->
+</div>
+
+<script>
+var xmlDoc;
+
+function myFunction(xml) {
+  xmlDoc = xml.responseXML
+}
+
+function loadXMLDoc() {
+  document.getElementById("demo").innerHTML = '<h1>Beta code text</h1>'
+    document.getElementById("lemmatized").innerHTML = '<h1>Dictionary entry</h1>'
+      document.getElementById("POS").innerHTML = '<h1>Part of Speech</h1>'
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // myFunction(this);
+      xmlDoc = this.responseXML
+      console.log(xmlDoc)
+    }
+  };
+  xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/Hymn1.xml", true);
+  xhttp.send();
+document.getElementById("top").innerHTML = '<button type="button" onclick="afterload()">load xml hymn to Demeter with parallel dictionary entry and part of speech tags</button>'
+}
+    // parser = new DOMParser();
+// xmlDoc2 = parser.parseFromString(xmlDoc,"text/xml");
+
+function afterload() {
+
+// document.getElementById("demo").innerHTML
+
+var sentences = xmlDoc.getElementsByTagName("sentence")
+for (var j = 0; j < sentences.length; j++) {
+var words = xmlDoc.getElementsByTagName("sentence")[j]
+
+  document.getElementById("demo").innerHTML += '<p>'
+  document.getElementById("lemmatized").innerHTML += '<p>'
+document.getElementById("POS").innerHTML += '<p>'
+for (var i = 0; i < words.childElementCount; i++) {
+  if (words.children[i].childElementCount > 0) {
+  document.getElementById("demo").innerHTML += words.children[i].attributes.form.nodeValue + ' '
+  if (words.children[i].children[0].id !== "unknown") {
+    document.getElementById("lemmatized").innerHTML += words.children[i].children[0].attributes.entry.nodeValue + ' '
+    document.getElementById("POS").innerHTML += words.children[i].children[0].attributes.POS.nodeValue + ' '
+  } else {
+    document.getElementById("lemmatized").innerHTML += '[unknown word] '
+    document.getElementById("POS").innerHTML += '[unknown word] '
+  };
+
+} else {
+  document.getElementById("demo").innerHTML += words.children[i].attributes.mark.nodeValue + ' '
+};
+
+};
+  document.getElementById("demo").innerHTML += '</p>'
+  document.getElementById("lemmatized").innerHTML += '</p>'
+  document.getElementById("POS").innerHTML += '</p>'
+};
+}
+
+
+</script>
+
+</body>
+</html>

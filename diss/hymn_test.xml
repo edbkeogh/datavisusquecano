@@ -1,3 +1,4 @@
+<text>
       <sentence id="1" location="1">
         <word form="*dhmh/thr'" id="1">
           <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
@@ -117,3 +118,4 @@
         </word>
         <punct mark="."/>
       </sentence>
+</text>
