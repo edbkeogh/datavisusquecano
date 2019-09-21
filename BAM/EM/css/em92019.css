@@ -71,8 +71,8 @@
   /*mask: url(#mask-stripe);*/
   fill: url(#diagonalHatch2);
   stroke: rgb(19, 76, 27);
-  /*background: repeating-linear-gradient(90deg,#606dbc,#606dbc 3px,#465298 3px,#465298 6px);*/
-  background: url(#diagonalHatch);
+  background: repeating-linear-gradient(90deg,#606dbc,#606dbc 3px,#fff 3px,#fff 6px);
+  /*background: url(#diagonalHatch);*/
   border-color: rgb(19, 76, 27);
 }
 .category-100{
