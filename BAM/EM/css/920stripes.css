@@ -1,0 +1,275 @@
+/* #map {
+  width:1200px;
+  height:600px;
+} */
+#legend {
+  /*position: absolute;*/
+  /*top: 3px;*/
+  /*left: 980px;*/
+  /*margin: 10px;*/
+  padding: 5px;
+  border-radius: 5px;
+  z-index: 1000;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: sans-serif;
+  /*width: 165px;*/
+  background: rgba(0,0,0,0.4);
+}
+.legendheading {
+  position: relative;
+  height: 25px;
+  padding: 5px 2px 0px 2px;
+  font-size: larger;
+  font-weight: bold;
+}
+.legenditem {
+  padding: 2px;
+  margin-bottom: 2px;
+}
+
+/*Marker clusters*/
+.marker-cluster-pie g.arc{
+  fill-opacity: 0.5;
+}
+.marker-cluster-pie-label {
+  font-size: 13px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/*Markers*/
+.marker {
+  width: 18px;
+  height: 18px;
+  border-width: 2px;
+  border-radius:10px;
+  margin-top: -10px;
+  margin-left: -10px;
+  border-style: solid;
+  fill: #CCC;
+  stroke: #444;
+  background: #CCC;
+  border-color: #444;
+}
+.marker div{
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+/*marker categories*/
+.category-5{
+  fill: #230F11;
+  stroke: #170A0B;
+  background: #230F11;
+  border-color: #170A0B;
+}
+.category-0{
+  fill: repeating-linear-gradient(
+  90deg,
+  #606dbc,
+  #606dbc 3px,
+  #465298 3px,
+  #465298 6px);
+  stroke: rgb(19, 76, 27);
+  background: repeating-linear-gradient(
+  90deg,
+  #606dbc,
+  #606dbc 3px,
+  #465298 3px,
+  #465298 6px
+);
+  border-color: rgb(19, 76, 27);
+}
+.category-1{
+  fill: #A22E37;
+  stroke: #4A1519;
+  background: #A22E37;
+  border-color: #4A1519;
+}
+.category-2{
+  fill: #CA3C25;
+  stroke: #5C1C11;
+  background: #CA3C25;
+  border-color: #5C1C11;
+}
+.category-3{
+  fill: #0d4c92;
+  stroke: #b98e2d;
+  background: #0d4c92;
+  border-color: #b98e2d;
+}
+.category-4{
+  fill: #28587B;
+  stroke: #132838;
+  background: #28587B;
+  border-color: #132838;
+}
+
+.category-6{
+  fill: #14b76b;
+  stroke: #132838;
+  background: #14b76b;
+  border-color: #132838;
+}
+
+.category-7{
+  fill: #ff0000;
+  stroke: #132838;
+  background: #ff0000;
+  border-color: #132838;
+}
+
+.category-10{
+  fill: #a6cee3;
+  background: #a6cee3;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-11{
+  fill: #1f78b4;
+  background: #1f78b4;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-12{
+  fill: #b2df8a;
+  background: #b2df8a;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-13{
+  fill: #33a02c;
+  background: #33a02c;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-14{
+  fill: #fb9a99;
+  background: #fb9a99;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-15{
+  fill: #e31a1c;
+  background: #e31a1c;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-16{
+  fill: #fdbf6f;
+  background: #fdbf6f;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-17{
+  fill: #ff7f00;
+  background: #ff7f00;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-18{
+  fill: #cab2d6;
+  background: #cab2d6;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-19{
+  fill: #6a3d9a;
+  background: #6a3d9a;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-20{
+  fill: #ffff99;
+  background: #ffff99;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-21{
+  fill: #b15928;
+  background: #b15928;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-22{
+  fill: #ffed6f;
+  background: #ffed6f;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-23{
+  fill: #F1D302;
+  background: #F1D302;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-24{
+  fill: #020100;
+  background: #020100;
+  stroke: #000;
+  border-color: #000;
+}
+
+.category-25{
+  fill: linear-gradient(135deg, #050505 40%, #cab2d6 60%);
+  background: linear-gradient(135deg, #050505 40%, #cab2d6 60%);
+  stroke: #000;
+  border-color: #000;
+}
+
+/*linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);*/
+
+/*loeb green 14b76b , loeb red ff0000*/
+
+/*marker icons*/
+.icon-1{
+  /* background-image: url('running-16.png'); */
+  background-repeat: no-repeat;
+  background-position: 0px 1px;
+}
+.icon-2{
+  background-image: url('bicycle-16.png');
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+.icon-3{
+  background-image: url('motorcycle-16.png');
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+.icon-4{
+  background-image: url('car-16.png');
+  background-repeat: no-repeat;
+  background-position: 1px 0px;
+}
+
+/*Popup*/
+.map-popup span.heading {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.map-popup span.attribute {
+  display: block;
+}
+.map-popup span.label {
+  font-weight: bold;
+}

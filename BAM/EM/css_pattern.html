@@ -7,49 +7,16 @@
 <head profile="http://www.w3.org/2005/10/profile">
     <title>
     </title>
-		<svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <pattern id="circles-1" patternUnits="userSpaceOnUse" width="10" height="10"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSJ3aGl0ZSIgLz4KICA8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iYmxhY2siLz4KPC9zdmc+" x="0" y="0" width="10" height="10"> </image> </pattern> </defs> </svg>
-<svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <pattern id="vertical-stripe-5" patternUnits="userSpaceOnUse" width="10" height="10"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nNScgaGVpZ2h0PScxMCcgZmlsbD0nYmxhY2snIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10"> </image> </pattern> </defs> </svg>
-<svg>
-      <defs>
-        <pattern id="pattern-stripe"
-          width="4" height="4"
-          patternUnits="userSpaceOnUse"
-          patternTransform="rotate(90)">
-          <rect width="2" height="4" transform="translate(0,0)" fill="green"></rect>
-        </pattern>
-        <mask id="mask-stripe">
-          <rect x="-30" y="-30" width="100%" height="100%" fill="url(#pattern-stripe)" />
-        </mask>
-      </defs>
-</svg>
-<svg>
+		<svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1">
   <defs>
-    <linearGradient id="diagonalHatch" gradientUnits="userSpaceOnUse"
-                    x2="30" spreadMethod="repeat" gradientTransform="rotate(-45)">
-      <stop offset="0" stop-color="orange"/>
-      <stop offset="0.33" stop-color="orange"/>
-      <stop offset="0.33" stop-color="blue"/>
-      <stop offset="0.67" stop-color="blue"/>
-      <stop offset="0.67" stop-color="red"/>
-      <stop offset="1.0" stop-color="red"/>
-    </linearGradient>
-  </defs>
-  <!-- <rect x="0" y="0" width="100%" height="100%" fill="url(#diagonalHatch)"/> -->
-</svg>
-<svg>
-  <defs>
-    <repeating-linear-gradient id="diagonalHatch2" gradientUnits="userSpaceOnUse"
-                    x2="30" spreadMethod="repeat" gradientTransform="rotate(0)">
-      <stop offset="0" stop-color="#606dbc"/>
-      <stop offset="0.5" stop-color="#606dbc"/>
-      <stop offset="0.5" stop-color="#465298"/>
-      <stop offset="1" stop-color="#465298"/>
-      <!-- <stop offset="0.67" stop-color="red"/>
-      <stop offset="1.0" stop-color="red"/> -->
-    </repeating-linear-gradient>
+    <pattern id="category-0" patternUnits="userSpaceOnUse" width="10" height="10">
+      <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPScjZmZmJyAvPgogIDxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIiBmaWxsPSIjMDAwIi8+Cjwvc3ZnPg=="
+        x="0" y="0" width="10" height="10">
+      </image>
+    </pattern>
   </defs>
 </svg>
-	  <link id="favicon" rel="icon" type="image/png" href="images/favicon.ico">
+    <link id="favicon" rel="icon" type="image/png" href="images/favicon.ico">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
         <link rel="stylesheet" type="text/css" href="css/custom.css" />
@@ -244,7 +211,9 @@ right-side-panel
             /* min-width: 300px; */
             height: 100%;
             background-color: rgba(55, 89, 142, 0.65);
-            color: #fff;
+						background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPScjZmZmJyAvPgogIDxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIiBmaWxsPSIjMDAwIi8+Cjwvc3ZnPg==");
+						  background-repeat: repeat;
+		        color: #fff;
             padding: 0;
             box-sizing: border-box;
             z-index: 1000;
@@ -1276,10 +1245,8 @@ for ( i in manuscriptmetadata) {
 	  function defineFeature(feature, latlng) {
 	    var categoryVal = feature.properties[categoryField],
 	      iconVal = feature.properties[iconField];
-				//TODO where the icons come from
-	      // var myClass = 'marker category-'+categoryVal+' icon-'+iconVal;
-				var myClass = 'marker category-'+categoryVal;
-				var myIcon = L.divIcon({
+	      var myClass = 'marker category-'+categoryVal+' icon-'+iconVal;
+	      var myIcon = L.divIcon({
 	          className: myClass,
 	          iconSize:null
 	      });
@@ -1315,7 +1282,7 @@ for ( i in manuscriptmetadata) {
 	          //bake some svg markup
 	          html = bakeThePie({data: data,
 	                              valueFunc: function(d){return d.values.length;},
-	                              strokeWidth: 2, //made it 2 to match solo markers
+	                              strokeWidth: 1,
 	                              outerRadius: r+1,
 	                              innerRadius: r-8,
 	                              pieClass: 'cluster-pie',
@@ -1356,8 +1323,6 @@ for ( i in manuscriptmetadata) {
 	      //Create an svg element
 	      var svg = document.createElementNS(d3.ns.prefix.svg, 'svg');
 	      //Create the pie chart
-
-
 	      var vis = d3.select(svg)
 	          .data([data])
 	          .attr('class', pieClass)
@@ -1369,12 +1334,7 @@ for ( i in manuscriptmetadata) {
 	          .attr('class', 'arc')
 	          .attr('transform', 'translate(' + origo + ',' + origo + ')');
 	      arcs.append('svg:path')
-				// .attr("style", "mask:url(#mask-stripe);")
-						// .style('fill', 'repeating-linear-gradient(90deg,#606dbc,#606dbc 3px,#465298 3px,#465298 6px)') --- doesn't work at all
-				// .style('mask', 'url(#pattern-stripe)')
-				//  .style('background-color', 'red')
-						// .style('fill', 'blue') //testing
-					  .attr('class', pathClassFunc) //colors the donut arcs
+	          .attr('class', pathClassFunc)
 	          .attr('stroke-width', strokeWidth)
 	          .attr('d', arc)
 	          .append('svg:title')

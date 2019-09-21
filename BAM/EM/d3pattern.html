@@ -14,40 +14,13 @@
         <pattern id="pattern-stripe"
           width="4" height="4"
           patternUnits="userSpaceOnUse"
-          patternTransform="rotate(90)">
-          <rect width="2" height="4" transform="translate(0,0)" fill="green"></rect>
+          patternTransform="rotate(45)">
+          <rect width="2" height="4" transform="translate(0,0)" fill="white"></rect>
         </pattern>
         <mask id="mask-stripe">
-          <rect x="-30" y="-30" width="100%" height="100%" fill="url(#pattern-stripe)" />
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-stripe)" />
         </mask>
       </defs>
-</svg>
-<svg>
-  <defs>
-    <linearGradient id="diagonalHatch" gradientUnits="userSpaceOnUse"
-                    x2="30" spreadMethod="repeat" gradientTransform="rotate(-45)">
-      <stop offset="0" stop-color="orange"/>
-      <stop offset="0.33" stop-color="orange"/>
-      <stop offset="0.33" stop-color="blue"/>
-      <stop offset="0.67" stop-color="blue"/>
-      <stop offset="0.67" stop-color="red"/>
-      <stop offset="1.0" stop-color="red"/>
-    </linearGradient>
-  </defs>
-  <!-- <rect x="0" y="0" width="100%" height="100%" fill="url(#diagonalHatch)"/> -->
-</svg>
-<svg>
-  <defs>
-    <repeating-linear-gradient id="diagonalHatch2" gradientUnits="userSpaceOnUse"
-                    x2="30" spreadMethod="repeat" gradientTransform="rotate(0)">
-      <stop offset="0" stop-color="#606dbc"/>
-      <stop offset="0.5" stop-color="#606dbc"/>
-      <stop offset="0.5" stop-color="#465298"/>
-      <stop offset="1" stop-color="#465298"/>
-      <!-- <stop offset="0.67" stop-color="red"/>
-      <stop offset="1.0" stop-color="red"/> -->
-    </repeating-linear-gradient>
-  </defs>
 </svg>
 	  <link id="favicon" rel="icon" type="image/png" href="images/favicon.ico">
     <meta charset="utf-8">
@@ -1276,10 +1249,8 @@ for ( i in manuscriptmetadata) {
 	  function defineFeature(feature, latlng) {
 	    var categoryVal = feature.properties[categoryField],
 	      iconVal = feature.properties[iconField];
-				//TODO where the icons come from
-	      // var myClass = 'marker category-'+categoryVal+' icon-'+iconVal;
-				var myClass = 'marker category-'+categoryVal;
-				var myIcon = L.divIcon({
+	      var myClass = 'marker category-'+categoryVal+' icon-'+iconVal;
+	      var myIcon = L.divIcon({
 	          className: myClass,
 	          iconSize:null
 	      });
@@ -1369,12 +1340,10 @@ for ( i in manuscriptmetadata) {
 	          .attr('class', 'arc')
 	          .attr('transform', 'translate(' + origo + ',' + origo + ')');
 	      arcs.append('svg:path')
-				// .attr("style", "mask:url(#mask-stripe);")
-						// .style('fill', 'repeating-linear-gradient(90deg,#606dbc,#606dbc 3px,#465298 3px,#465298 6px)') --- doesn't work at all
-				// .style('mask', 'url(#pattern-stripe)')
+				.style('fill', 'url(#pattern-stripe)')
 				//  .style('background-color', 'red')
 						// .style('fill', 'blue') //testing
-					  .attr('class', pathClassFunc) //colors the donut arcs
+					  // .attr('class', pathClassFunc) //colors the donut arcs
 	          .attr('stroke-width', strokeWidth)
 	          .attr('d', arc)
 	          .append('svg:title')
