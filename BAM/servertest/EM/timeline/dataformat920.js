@@ -2,7 +2,8 @@ var yearfinder = new Date();
   var present = yearfinder.getFullYear();
 var tldata = [
   {
-    group: "Japan <input type=\"checkbox\" name=\"vehicle1\" value=\"Bike\">",
+    // group: "Japan <input type=\"checkbox\" name=\"vehicle1\" value=\"Bike\">",
+    group: "Japan",
     data: [
       {
         label: "Japan",
