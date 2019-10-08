@@ -23,14 +23,14 @@ $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
             //                 $('.nonMapOverlay').hide(); //hide all the other overlays
             //                $('#contributorsBox').toggle(); //display ours
             //             });
-//database table toggle
-mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion" style="position:absolute;left:0px;bottom:0px;"><img src="images/open-iconic/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</button>';
+
+mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="images/open-iconic/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Database Table</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.databaseLaunchButton);
 
  $('#databaseLaunchButton').click(function() {
                 $('.nonMapOverlay').hide(); //hide all the other overlays
-               $('#witnessPanel').toggle(); //display ours
+               $('#databaseBox').toggle(); //display ours
             });
 
 
