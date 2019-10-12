@@ -9,7 +9,9 @@
 
 <body>
  <div id="controls">
-	<button onclick="filterData()">refresh chart</button><br/>
+	<button onclick="filterData()">filter chart</button>
+	<button onclick="restore()">show full chart</button>
+	<br/>
 	<!-- <button onclick="clearPlot()">clear chart</button> -->
 	<!-- <button onclick="makeMandata()">make manuscript data entry</button> -->
 
@@ -38,36 +40,44 @@ var listGPC = ["China", "Japan", "Korea", "India", "Iran", "Greece", "Italy", "E
 	 }
 
 	var tldata2 = tldata;
+	 var filtered = [];
 var manuObj = {};
 var regionFinder;
 var regionHolder = [];
 
-loadChart();
+loadChart(tldata);
 
-	function loadChart() {
+	function loadChart(data) {
 		TimelinesChart()
     .maxLineHeight([15])
 //    .leftMargin([250])
   //  .width([])
     .xTickFormat(n => +n)
 .timeFormat('%Q')
-			.data(tldata2)
+			.data(data)
 			.zQualitative(true)
 			// .zColorScale().range(['#00ff00ff', '#ff0000ff', '#00ffffff'])
 			(document.getElementById('map'));
 }
 
+function restore() {
+	clearPlot();
+	loadChart(tldata);
+}
+
 			function filterData() {
-document.getElementById('map').innerHTML = ""
+document.getElementById('map').innerHTML = "";
+ filtered = [];
+for (i in tldata) { for (j in regionHolder) { if (tldata[i].group === regionHolder[j]) {filtered.push(tldata[i]) } } };
 				// //  tldata2 = tldata
 				// for (i in indexList) {
 				// 	tldata2[indexList[i]] += (tldata[indexList[i]])
 				// }
-				loadChart();
-				tldata2 = tldata;
+				loadChart(filtered);
+				// tldata2 = tldata;
 			}
 			function clearPlot() {
-				document.getElementById('map').innerHTML = ""
+				document.getElementById('map').innerHTML = "";
 			}
 
 			function removeIndexlist(n) {
@@ -129,6 +139,7 @@ for (i in tldata2) {
 	switch (_.includes(tldata2[i].group, regionFinder)) {
 		case true:
 			tldata2[i].data[0].data.push(manuObj);
+
 			var dupe = _.includes(regionHolder, regionFinder);
 			console.log(dupe);
 			if (dupe === false) {
