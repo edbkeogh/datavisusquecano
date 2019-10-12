@@ -1,0 +1,117 @@
+<head>
+	<title>Timeline Demo 2</title>
+	<!-- <link id="favicon" rel="icon" type="image/png" href="../../images/favicon.ico"> -->
+	<script src="js/timeline920.js"></script>
+	<script src="js/dataformat1011.js"></script>
+	<script src="js/lodash.js"></script>
+		<script src="JSON_testdata.js"></script>
+</head>
+
+<body>
+ <div id="controls">
+	<button onclick="filterData()">show chart</button><br/>
+	<!-- <button onclick="clearPlot()">clear chart</button> -->
+	<!-- <button onclick="makeMandata()">make manuscript data entry</button> -->
+
+	<br/>
+
+</div>
+	<div id="map"></div>
+
+	<script>
+// var indexList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+	for (i in results) {
+	document.getElementById('controls').innerHTML += '<button onclick="makeMandata('+ i +')" value="' + i + '" checked>' + results[i].manuscript + '</button>'
+//	document.getElementById('controls').innerHTML += '<button onclick="removeIndexlist('+ i +')" type="checkbox" value="' + i + '" checked>' + tldata[i].data[0].label + '</input><br/>'
+
+	 }
+
+	var tldata2 = tldata;
+var manuObj = {};
+var regionFinder;
+
+	function loadChart() {
+		TimelinesChart()
+    .maxLineHeight([15])
+//    .leftMargin([250])
+  //  .width([])
+    .xTickFormat(n => +n)
+.timeFormat('%Q')
+			.data(tldata2)
+			.zQualitative(true)
+			// .zColorScale().range(['#00ff00ff', '#ff0000ff', '#00ffffff'])
+			(document.getElementById('map'));
+}
+
+			function filterData() {
+document.getElementById('map').innerHTML = ""
+				// //  tldata2 = tldata
+				// for (i in indexList) {
+				// 	tldata2[indexList[i]] += (tldata[indexList[i]])
+				// }
+				loadChart();
+				tldata2 = tldata;
+			}
+			function clearPlot() {
+				document.getElementById('map').innerHTML = ""
+			}
+
+			function removeIndexlist(n) {
+// 				indexList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+// 				indexList = _.remove(indexList, function(d) {
+//   return d  != n;
+// });
+			_.remove(tldata2, tldata2[n])
+			}
+
+			function makeMandata(n) {
+				// {
+				// 	timeRange: [538, 710],
+				// 	val: 'Asuka'
+				// },
+
+				var yearHolder = Number(results[n].terminus_ante_quem);
+				var yearPlus = Number(yearHolder) + 100;
+manuObj = Object(
+	{
+	timeRange: [yearHolder, yearPlus],
+	val: results[n].manuscript
+}
+)
+var regSrch = results[n].geopolitical_context;
+var testSrch = regSrch.split(" ").splice(-1);
+console.log(testSrch);
+switch (testSrch[0]) {
+	case "Africa":
+var newSrch = regSrch.split(" ").splice(-2)
+regionFinder = newSrch.join(' ')
+break;
+	case "Asia":
+var newSrch = regSrch.split(" ").splice(-2)
+regionFinder = newSrch.join(' ')
+break;
+	default :
+regionFinder = testSrch[0]
+}
+
+console.log(regionFinder)
+
+// var g = _.findIndex(tldata2, function(o) { return o.group == regionFinder; });
+for (i in tldata2) {
+	switch (_.includes(tldata2[i].group, regionFinder)) {
+		case true:
+			tldata2[i].data[0].data.push(manuObj);
+			break;
+		default:
+
+	}
+}
+
+// tldata2[i].data[0].data.push(manuObj);
+
+
+
+
+			}
+	</script>
+</body>

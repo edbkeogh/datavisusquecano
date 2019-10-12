@@ -2,9 +2,18 @@ var yearfinder = new Date();
   var present = yearfinder.getFullYear();
 var tldata = [
   {
-    // group: "Japan <input type=\"checkbox\" name=\"vehicle1\" value=\"Bike\">",
+
     group: "Japan",
     data: [
+      {
+        label: "Manuscripts",
+        data: [
+          {
+            timeRange: [present, present],
+            val: 'Manuscript Lane'
+          }
+        ]
+      },
       {
         label: "Japan",
         data: [
@@ -41,6 +50,15 @@ var tldata = [
 {
   group: "Korea",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "Korea",
       data: [
@@ -84,6 +102,15 @@ var tldata = [
 {
   group: "China",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "China",
       data: [
@@ -161,6 +188,15 @@ var tldata = [
   group: "Vietnam",
   data: [
     {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
+    {
       label: "Vietnam",
       data: [
         {
@@ -194,6 +230,15 @@ var tldata = [
 {
   group: "Central Asia",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "Central Asia",
       data: [
@@ -260,6 +305,15 @@ var tldata = [
   group: "Tibet",
   data: [
     {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
+    {
       label: "Tibet",
       data: [
         {
@@ -293,6 +347,15 @@ var tldata = [
 {
   group: "Southeast Asia",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "Southeast Asia",
       data: [
@@ -357,6 +420,15 @@ var tldata = [
 {
   group: "India",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "India",
       data: [
@@ -456,6 +528,15 @@ var tldata = [
   group: "Iran",
   data: [
     {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
+    {
       label: "Iran",
       data: [
         {
@@ -543,6 +624,15 @@ var tldata = [
 {
   group: "Mesopotamia",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "Mesopotamia",
       data: [
@@ -636,6 +726,15 @@ var tldata = [
   group: "Levant",
   data: [
     {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
+    {
       label: "Levant",
       data: [
         {
@@ -695,6 +794,7 @@ var tldata = [
       timeRange: [-2900, -1761],
       val: 'Kingdom of Mari'
     },
+
     {
       timeRange: [-1215, -125],
       val: 'Kingdom of Edom'
@@ -792,6 +892,15 @@ var tldata = [
 {
   group: "Arabia and East Africa",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
 
     {
       label: "Arabia and East Africa ",
@@ -910,6 +1019,15 @@ var tldata = [
 {
   group: "Eastern Europe",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
 
     {
       label: "Eastern Europe ",
@@ -1002,6 +1120,15 @@ var tldata = [
 {
   group: "Asia Minor and Caucasus",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "Asia Minor and Caucasus",
       data: [
@@ -1141,6 +1268,15 @@ var tldata = [
   group: "Greece",
   data: [
     {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
+    {
       label: "Greece",
       data: [
         {
@@ -1194,6 +1330,15 @@ var tldata = [
 {
   group: "Egypt and Nubia",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "Egypt and Nubia",
       data: [
@@ -1327,6 +1472,15 @@ var tldata = [
   group: "Sub-Saharan Africa",
   data: [
     {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
+    {
       label: "Sub-Saharan Africa",
       data: [
         {
@@ -1354,6 +1508,15 @@ var tldata = [
 {
   group: "Italy",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "Italy",
       data: [
@@ -1422,6 +1585,15 @@ var tldata = [
 {
   group: "North Africa",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "North Africa",
       data: [
@@ -1510,6 +1682,15 @@ var tldata = [
   group: "Scandinavia",
   data: [
     {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
+    {
       label: "Scandinavia",
       data: [
         {
@@ -1552,6 +1733,15 @@ var tldata = [
 {
   group: "Britain",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "Britain",
       data: [
@@ -1621,6 +1811,15 @@ var tldata = [
   group: "Ireland",
   data: [
     {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
+    {
       label: "Ireland",
       data: [
         {
@@ -1643,6 +1842,15 @@ var tldata = [
 {
   group: "Germany",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "Germany",
       data: [
@@ -1679,6 +1887,15 @@ var tldata = [
 {
   group: "France",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "France",
       data: [
@@ -1730,6 +1947,15 @@ var tldata = [
 {
   group: "Spain",
   data: [
+    {
+      label: "Manuscripts",
+      data: [
+        {
+          timeRange: [present, present],
+          val: 'Manuscript Lane'
+        }
+      ]
+    },
     {
       label: "Spain",
       data: [

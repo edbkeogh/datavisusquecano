@@ -1,0 +1,1484 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en-US">
+
+<head profile="http://www.w3.org/2005/10/profile">
+    <title>
+    </title>
+		<svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <pattern id="circles-1" patternUnits="userSpaceOnUse" width="10" height="10"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSJ3aGl0ZSIgLz4KICA8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iYmxhY2siLz4KPC9zdmc+" x="0" y="0" width="10" height="10"> </image> </pattern> </defs> </svg>
+<svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <pattern id="vertical-stripe-5" patternUnits="userSpaceOnUse" width="10" height="10"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nNScgaGVpZ2h0PScxMCcgZmlsbD0nYmxhY2snIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10"> </image> </pattern> </defs> </svg>
+<svg>
+      <defs>
+        <pattern id="pattern-stripe"
+          width="4" height="4"
+          patternUnits="userSpaceOnUse"
+          patternTransform="rotate(90)">
+          <rect width="2" height="4" transform="translate(0,0)" fill="green"></rect>
+        </pattern>
+        <mask id="mask-stripe">
+          <rect x="-30" y="-30" width="100%" height="100%" fill="url(#pattern-stripe)" />
+        </mask>
+      </defs>
+</svg>
+<svg>
+  <defs>
+    <linearGradient id="diagonalHatch" gradientUnits="userSpaceOnUse"
+                    x2="30" spreadMethod="repeat" gradientTransform="rotate(-45)">
+      <stop offset="0" stop-color="orange"/>
+      <stop offset="0.33" stop-color="orange"/>
+      <stop offset="0.33" stop-color="blue"/>
+      <stop offset="0.67" stop-color="blue"/>
+      <stop offset="0.67" stop-color="red"/>
+      <stop offset="1.0" stop-color="red"/>
+    </linearGradient>
+  </defs>
+  <!-- <rect x="0" y="0" width="100%" height="100%" fill="url(#diagonalHatch)"/> -->
+</svg>
+<svg>
+  <defs>
+    <linearGradient id="diagonalHatch2" gradientUnits="userSpaceOnUse"
+                    x2="6" spreadMethod="repeat" gradientTransform="rotate(135)">
+      <stop offset="0" stop-color="#606dbc"/>
+      <stop offset="0.5" stop-color="#606dbc"/>
+      <stop offset="0.5" stop-color="#000"/>
+      <stop offset="1" stop-color="#000"/>
+      <!-- <stop offset="0.67" stop-color="red"/>
+      <stop offset="1.0" stop-color="red"/> -->
+    </linearGradient>
+  </defs>
+</svg>
+	  <link id="favicon" rel="icon" type="image/png" href="images/favicon.ico">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
+        <link rel="stylesheet" type="text/css" href="css/custom.css" />
+
+
+				<!-- <link rel="stylesheet" type="text/css" href="css/iclaw.css" /> -->
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            font-family: Cardo;
+            font-size: 16px;
+            font-w
+						eight: lighter;
+        /*right-sideelpant img {
+									height: 100%;
+									width: 100%;
+									max-width: 300px !important;
+					}  */
+					  background-color: #f5f5f5;
+        }
+
+                #map {
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            z-index: 1;
+        }
+
+#mapLeg p {
+	margin: 2px;
+	font-size: 1.5em;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+        a {
+            color: #808080;
+            font-family: Cardo;
+            font-weight: lighter;
+        }
+
+        a:link {
+            color: #808080;
+        }
+
+        a:a:visited {
+            color: #808080;
+        }
+
+        a:hover {
+            color: #cccccc;
+        }
+
+				.tab {
+       display:inline-block;
+			 position: absolute;
+       left: 50%;
+}
+
+input[type=number]{
+width: 55px;
+}
+
+input[type=range]{
+width: 100%;
+}
+
+/*  TODO a nicer slider would be cool*/
+/* #startDateslide {
+
+}
+
+#endDateslide {
+
+} */
+
+#searchButton {
+	position:relative;
+	font-size: large;
+float: right;
+	width: 50%;
+	border-radius: 12px;
+	background-color: #ccc;
+	-webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+
+}
+
+#searchButton:hover {
+	/* border-radius: 12px; */
+	background-color: white;
+}
+
+/* TODO not working ideally, oh well
+				option {
+				  text-align: left;
+				} */
+
+
+        .popupBaseButton {
+            background-size: 30px 30px;
+            width: 30px;
+            height: 30px;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            display: block;
+            padding: 3px;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            box-shadow: 0 1px 7px rgba(0, 0, 0, 0.65);
+            cursor: auto;
+            text-align: left;
+            text-indent: 30%;
+            background-color: #FFFFFF;
+        }
+
+        .popupPleiadesButton {
+            background-image: url(images/pleiades.svg);
+        }
+
+        .popupPelagiosButton {
+            background-image: url(images/pelagios.svg);
+        }
+
+        .bottomContainer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 5px 5px 5px 5px;
+        }
+        /* for the connections between nodes */
+
+        .links line {
+            stroke: #000;
+            stroke-opacity: 0.5;
+            stroke-width: 1.2px;
+        }
+        /* for the nodes */
+
+        .nodes circle {
+            stroke: #000;
+            stroke-width: .5px;
+        }
+
+right-side-panel
+        div.tooltip {
+            position: absolute;
+            padding: 5px;
+            font: 12px sans-serif;
+            background: lightsteelblue;
+            border: 1px;
+            border-style: solid;
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+/*right-side-headline2.right-title-image img {
+					height: 100%;
+					width: 100%;
+					max-width: 300px !important;
+}*/
+
+#right-side-headline2 p {
+	text-align: center;
+	margin-block-start:0em;
+	margin-block-end:0em;
+
+}
+/*max-width: 300px !important;*/
+
+#right-side-headline2 img {
+	width:95%;
+}
+
+        #d3MainChart {
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+        }
+
+           #left-side-panel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 300px;
+            /* min-width: 300px; */
+            height: 100%;
+            background-color: rgba(55, 89, 142, 0.65);
+            color: #fff;
+            padding: 0;
+            box-sizing: border-box;
+            z-index: 1000;
+						overflow: auto;
+
+        }
+
+
+        #left-btn-slide-toggle {
+            position: absolute;
+            top: 50%;
+            /*left: 275px;*/
+						right: 0px;
+            background-color: rgba(238, 238, 238, 0.85);
+            -moz-border-radius-topleft: 5px;
+            -moz-border-radius-bottomleft: 5px;
+            -webkit-border-top-left-radius: 5px;
+            -webkit-border-bottom-left-radius: 5px;
+            -khtml-border-radius-topleft: 5px;
+            -khtml-border-radius-bottomleft: 5px;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            padding: 15px 2px 15px 8px;
+            cursor: pointer;
+            z-index: 1000;
+            color: black;
+        }
+
+				#right-side-panel {
+					position: absolute;
+					top: 0;
+					right: 0;
+					width: 25%;
+					min-width: 300px;
+					height: 100%;
+					background-color: rgba(55, 89, 142, 0.65);
+					color: #fff;
+					padding: 5px;
+					box-sizing: border-box;
+					z-index: 1000;
+					/* These are technically the same, but use both */
+					overflow-wrap: break-word;
+					word-wrap: break-word;
+
+					-ms-word-break: break-all;
+					/* Instead use this non-standard one: */
+					word-break: break-word;
+
+					/* Adds a hyphen where the word breaks, if supported (No Blink) */
+					-ms-hyphens: auto;
+					-moz-hyphens: auto;
+					-webkit-hyphens: auto;
+					hyphens: auto;
+					overflow: auto;
+				}
+
+				#right-btn-slide-toggle {
+						position: absolute;
+						top: 50%;
+						left: 0px;
+						/*right: 10%;*/
+						background-color: rgba(238, 238, 238, 0.85);
+						-moz-border-radius-topright: 5px;
+						-moz-border-radius-bottomright: 5px;
+						-webkit-border-top-right-radius: 5px;
+						-webkit-border-bottom-right-radius: 5px;
+						-khtml-border-radius-topright: 5px;
+						-khtml-border-radius-bottomright: 5px;
+						border-top-right-radius: 5px;
+						border-bottom-right-radius: 5px;
+						padding: 15px 8px 15px 2px;
+						cursor: pointer;
+						z-index: 1000;
+						color: black;
+				}
+
+				#low-side-panel {
+					position: absolute;
+					/*top: 600px;*/
+					/*bottom: -57%;*/
+					/*right: 50%;*/
+					left: 300px;
+					right: 24px;
+					/*width: 60%;
+					min-width: 300px;*/
+					height: 65%;
+					background-color: rgba(55, 89, 142, 0.65);
+					color: #fff;
+					padding: 5px;
+					box-sizing: border-box;
+					z-index: 1000;
+					/* These are technically the same, but use both */
+					overflow: auto;
+				}
+
+				#low-btn-slide-toggle {
+						position: sticky;
+						top: 0;
+						width: fit-content;
+						/*right: 50%;*/
+						left: 18px;
+						background-color: rgba(238, 238, 238, 0.85);
+						-moz-border-radius-bottomleft: 5px;
+						-moz-border-radius-bottomright: 5px;
+						-webkit-border-bottom-left-radius: 5px;
+						-webkit-border-bottom-right-radius: 5px;
+						-khtml-border-radius-bottomleft: 5px;
+						-khtml-border-radius-bottomright: 5px;
+						border-bottom-left-radius: 5px;
+						border-bottom-right-radius: 5px;
+						padding: 0px 20px 0px 20px;
+						cursor: pointer;
+						z-index: 1000;
+						color: black;
+				}
+
+				/* image container */
+
+        .navbar-image {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        /* image in the container */
+
+        .navbar-image img {
+					margin-left: 50px;
+					margin-top: 9px;
+            height: 60px;
+            width: 60px;
+            background-color: white;
+        }
+
+        .navbar-brand {
+            padding-left: 15px;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            font-family: Cardo;
+            font-size: 200%;
+            font-weight: lighter;
+            letter-spacing: 1.5px;
+            text-shadow: none;
+            text-align: center;
+        }
+
+        .right-title {
+            padding-left: 1%;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            font-family: Cardo;
+            font-size: 120%;
+            font-weight: lighter;
+            letter-spacing: 1.5px;
+            text-shadow: none;
+            text-align: center;
+        }
+
+        .right-title-image {
+            display: block;
+            /*max-width: 100% !important;*/
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            padding-left: 15px;
+        }
+
+        .appLicense {
+            position: fixed;
+						width: 88px;
+            right: 2px;
+            bottom: 13px;
+            z-index: 1001;
+            padding-left: 5px;
+        }
+        /* accordion layout following w3c demo */
+
+        button.accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 12px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            font-family: Cardo;
+            font-size: 14px;
+            font-weight: bold;
+            z-index: 200;
+        }
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+        button.accordion.active,
+
+        button.accordion:hover {
+            background-color: #ddd;
+        }
+
+        .accordianImage {
+            height: 20px;
+            width: 20px;
+        }
+        /* Style the accordion panel. Note: hidden by default */
+
+        div.panel {
+            padding: 0 18px;
+            background-color: white;
+            display: none;
+            z-index: 300;
+            overflow: auto;
+        }
+        /* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
+
+        div.panel.show {
+            display: block;
+        }
+
+        button.accordionExp:after {
+            content: '\02795';
+            /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+
+        button.accordionExp.active:after {
+            content: "\2796";
+            /* Unicode character for "minus" sign (-) */
+        }
+
+        .right-side-text-main {
+            padding-left: 23px;
+							padding-bottom: 30px;
+							cursor: auto;
+        }
+
+        button.link {
+            background: none;
+            border: none;
+            font-family: Cardo;
+            font-size: 16px;
+            font-weight: lighter;
+            color: white;
+            cursor: pointer;
+        }
+
+        .timelineHolder {
+						resize:both;
+						overflow: auto;
+            height: 20%;  /*note that this has been changed to keep the div out of the way*/
+            width: 50%;
+            opacity: .7;
+						background-color: #fff;
+            position: absolute;
+            top: 0;
+            left: 25%;
+            text-align: center;
+            z-index: 3;
+        }
+
+        .timeline {
+            height: 140px;
+						/*note that this has been changed to keep the div out of the way*/
+        }
+
+        .timesvg {
+            border-style: solid;
+            border-width: 1px;
+            border-color: black;
+            background-color: rgba(238, 238, 238, 0.85);
+        }
+
+        .topToggle {
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            background-color: rgba(238, 238, 238, 0.85);
+            padding: 5px;
+            border-color: black;
+            border-style: solid;
+            border-width: 1px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top: none;
+        }
+
+
+				.nonMapOverlay {
+						position: fixed;
+						top: 15%;
+						width: 70%;
+						/*bottom: 15%;*/
+						left: 21%;
+						height: 70%;
+						/*right: 5%;*/
+						background: white;
+						box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+						border-radius: 5px;
+						margin: auto;
+						padding: 40px;
+						display: none;
+						z-index: 10;
+						color: #404040;
+						color: rgba(0, 0, 0, 0.75);
+						outline: 0;
+						border: 0;
+				}
+				/*new map overlay settings*/
+
+
+        .popupCloseCarte {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 4px 30px 0 0;
+            text-align: center;
+            width: 18px;
+            height: 14px;
+            color: #c3c3c3;
+            text-decoration: none;
+            font-weight: bold;
+            background: transparent;
+            cursor: pointer;
+            cursor: hand;
+            font-size: 28px;
+        }
+
+        .popupCloseCarte:hover {
+            color: #999;
+            cursor: pointer;
+            cursor: hand;
+        }
+
+
+        .nodeResults {
+            position: relative;
+        }
+
+
+        .darkText {
+            color: black;
+        }
+
+        .dtColumnHeader {
+            background-color: #f5f5f5;
+        }
+
+/*  TODO check what this below is modifying*/
+
+        .allow-scroll {
+            overflow-y: scroll;
+            position: relative;
+            height: 100%;
+        }
+
+
+        .WHGButton {
+    background-image: url(images/pitt_world_history_logo_brickless.svg);
+}
+
+#witness {
+	/*background-color: white;*/
+	/*position: absolute;*/
+	/*left: 305px;*/
+	/*bottom: 18px;*/
+	width: 100%;
+	color: #000;
+	/*border: 1px solid black;*/
+	padding: 5px;
+	background-color: #eee;
+	/*opacity: 0;*/
+  z-index: 1000;
+	overflow: scroll;
+	-webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+#witness-results-table td {
+	/*border: 1px solid black;*/
+	padding: 10px;
+}
+/*.witness table {
+	border-collapse: collapse;
+	border: 1px solid black;
+	padding: 5px;
+}
+
+.witness td {
+	border: 1px solid black;
+	padding: 5px;
+}*/
+
+
+.remove-button {
+	background: none;
+	border: none;
+	font-size: 8pt;
+}
+
+    </style>
+
+    <!-- All the various libraries we will need  -->
+    <!-- Only use what is required for a particular app. If you do not know, then you can leave them in - it will incerase load times, but probably not by a significant amount -->
+
+    <!-- jquery, as we allways wind up using it  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <!-- d3js  -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- jquery ui for interface enhancements-->
+		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30=" crossorigin="anonymous"></script>
+
+
+
+    <!-- Time line-->
+    <!-- <script src="js/timeline.js"></script> -->
+    <!-- <link rel="stylesheet" href="css/timeline.css" /> -->
+
+
+    <!-- data tables-->
+    <script type='text/javascript' src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js'></script>
+    <link href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css' />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+
+    <!-- data tables deault style for BAM-->
+    <link rel="stylesheet" href="css/datatables.css" />
+		<link rel="stylesheet" href="css/leaflet8.css" />
+		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
+		<link rel="stylesheet" href="css/em92519.css" />
+
+
+    <!-- BAM Setup, after all necessary libraries are loaded -->
+    <script src="js/BAM-setup.EM4.js"></script>
+		<script src="js/leaflet.js" charset="utf-8"></script>
+		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
+		<script src="js/d3.v3.min.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div id="panelHolder">
+    </div>
+
+    <!-- Containers-->
+
+<!--  TODO timeline is a thing-->
+	<!-- <div id="timelineHolder" class="timelineHolder">
+		<div id="timeline" class="timeline">
+
+			<table class="dataTable">
+				<thead>
+					<tr>
+						<td>Languages</td>
+						<td>Contexts</td>
+						<td>Forms</td>
+						<td>Materials</td>
+						<td>Date Ranges</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><ul id="selected_languages"></ul></td>
+						<td><ul id="selected_contexts"></ul></td>
+						<td><ul id="selected_forms"></ul></td>
+						<td><ul id="selected_materials"></ul></td>
+						<td><ul id="selected_date_range"></ul></td>
+					</tr>
+				</tbody>
+			</table>
+			<br />
+
+			<br />
+
+</div>
+	</div> -->
+
+    <!-- the map div holds most of our application-->
+    <div id="map">
+    	<!-- the main navigation panel to the left - will probably have to rename this to navigation panel, etc-->
+		<span id="left-side-panel">
+			<span id="navbar-image" class="navbar-image">
+    		</span>
+    		<div class="navbar-brand" id="navbar-brand">
+<h6>Eurasian Manuscripts</h6>
+    		</div>
+
+			<!-- this holds application buttons-->
+			<div id="bamButtonHolder">
+
+				</div>
+
+				<!-- <button id="searchButton" class="accordion accordionExp"><img src="images/open-iconic/clock.svg" class="accordianImage" alt="magnifying-glass">&nbsp;&nbsp;&nbsp;&nbsp;Search The Canon (demo)</button>
+				<div class="panel">
+
+			<div id="timelineText" class="darkText formRight">
+			<br />
+	    	<label> Search Term</label>&nbsp;&nbsp;&nbsp;&nbsp;<input id="term" type="text" value="religio">
+            <br />
+						<br />
+
+						<label> Lemmatized</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="lemm"  checked/>
+						<br/>
+						<label> Regex</label>&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="regex">
+						<br/>
+
+            <br />
+                        <br/>
+
+
+
+                        <input id = "iclawSubmit" type="submit" value="Submit"/>
+        </div>
+        <br />
+		</div> -->
+
+						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Select Search Parameters</button>
+<div class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
+<div id="genreText" class="darkText">
+	<button id="searchButton" onclick="search()">Search</button>
+	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">RemoveAll</button><br/><br/>Note: You must select at least one language to search.</p>
+						<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button>
+						<div class="panel">
+						<div id="genreText" class="darkText">
+
+<br/><button onclick="addAllparameter('languages')">Add All Languages</button><br/><br/><button onclick="removeAllparameter('languages')">Remove All Languages</button>
+<!--  TODO This is where the control panel should start-->
+<table class="dataTable">
+	<thead>
+		<tr>
+			<td>Languages</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>
+				<ul id="selected_languages"></ul>
+			</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+
+<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Contexts</button>
+<div class="panel">
+<div id="genreText" class="darkText">
+
+<br/><button onclick="addAllparameter('contexts')">Add All Contexts</button><br/><br/><button onclick="removeAllparameter('contexts')">Remove All Contexts</button>
+<!--  TODO This is where the control panel should start-->
+<table class="dataTable">
+<thead>
+<tr>
+<td>Contexts</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<ul id="selected_contexts"></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Materials</button>
+<div class="panel">
+<div id="genreText" class="darkText">
+
+<br/><button onclick="addAllparameter('materials')">Add All Materials</button><br/><br/><button onclick="removeAllparameter('materials')">Remove All Materials</button>
+<!--  TODO This is where the control panel should start-->
+<table class="dataTable">
+<thead>
+<tr>
+<td>Materials</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<ul id="selected_materials"></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Forms</button>
+<div class="panel">
+<div id="genreText" class="darkText">
+
+<br/><button onclick="addAllparameter('forms')">Add All Forms</button><br/><br/><button onclick="removeAllparameter('forms')">Remove All Forms</button>
+<!--  TODO This is where the control panel should start-->
+<table class="dataTable">
+<thead>
+<tr>
+<td>Forms</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<ul id="selected_forms"></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<table class="dataTable">
+<thead>
+<tr>
+<td>Date Range</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<ul id="selected_date_range"></ul>
+</td>
+</tr>
+</tbody>
+</table>
+
+<!-- MARKER TODO the old control panel below -->
+	<!-- <select id="languages">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('languages')">Add</button><button onclick="addAllLang">Add All</button>
+	<br />
+	<select id="contexts">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('contexts')">Add</button>
+	<br />
+	<select id="forms">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('forms')">Add</button>
+	<br />
+	<select id="materials">
+		<option>N/A</option>
+	</select>
+	<button onclick="addSearchParam('materials')">Add</button> -->
+
+	<button onclick="addDateRange()">Set Date Range</button>
+	<br /><br />
+	<!-- <button onclick="removeDateRange()">Remove Date Range</button>
+	<br />	<br /> (.0002*this.value)^2+(.05*this.value)-->
+
+	<input id="startDateslide" type="range" min="1" max="100" value="1" oninput="showValstart(this.value)"> <br/>
+	Start Date:
+	<input type="number" step="1" min="1" id="startDate"> <select id="startNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
+	<br />
+	<input id="endDateslide" type="range" min="1" max="100" value="1" oninput="showValend(this.value)"> <br/>
+	End Date:  <input type="number" step="1" min="1" id="endDate"> <select id="endNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
+
+	<br />
+		<br />
+	<div id="dateValidCheck" style="background-color: red; padding: 10px; border: 2px dashed black; width: 244px; opacity: 0; text-align: center; font-size: 1.2em;">Invalid Date Range</div>
+	<!-- <button onclick="clearParams()">Clear Search Parameters</button> -->
+
+<!--  TODO this is where the control section should end-->
+
+</div>
+</div>
+
+
+
+<!--  onclick="toggleWitnessTable()"-->
+<!-- <input type="button" onclick="toggleWitnessTable()" class="accordion"><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</input> -->
+<button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls</button>
+<div id="mapLegend" class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
+	<button onclick="clearMap()">Clear Map</button>
+	<!-- <button onclick="showallMap()">Show All</button> -->
+	<button onclick="resize()"><i class="fas">&#xf31e;</i></button>
+	<br/>
+	<button onclick="changeCatField()">Color by language</button>
+<!-- <div id="color_legend"></div> -->
+	<!-- <button id="genreButton" class="accordion accordionExp" onclick="changeCatField()">&nbsp;&nbsp;&nbsp;&nbsp;Color by Language</button> -->
+	<!-- <div class="panel"> -->
+	<div id="genreText" class="darkText">
+		<div id ="mapLeg">
+		</div>
+		<!-- <table class="dataTable">
+			<thead>
+				<tr>
+					<td>Legend</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<ul id="color_legend"></ul>
+					</td>
+				</tr>
+			</tbody>
+		</table> -->
+</div>
+<!-- </div> -->
+</div>
+			<div id="left-btn-slide-toggle" class="slider-icon">&#9664;
+			</div>
+			<!-- License information-->
+    		<span id="appLicense" class="appLicense">
+    		</span>
+		</span>
+
+	</div>
+<!-- Witness table here -->
+
+</body>
+
+    <!-- BAM functionality. Only add what you need!  -->
+    <script src="js/BAM-core-functionality.EM7.js"></script>
+    <script src="js/BAM-custom-panels.EM6.js"></script>
+    <script src="js/BAM-custom-menu.EM6.js"></script>
+    <!-- <script src="js/BAM-datatables.js"></script> -->
+    <!-- <script src="js/BAM-map-functionality.js"></script> -->
+		<!-- <script src="maptest/ TODO this will need to point to a new JavaScripted version of my woah canon map-->
+   <!-- <script src="../BAM/BAM-d3-functionality.js"></script> -->
+    <script src="js/BAM-layers.EM.js"></script>
+    <!--<script src="../BAM/BAM-timeline.js"></script>-->
+    <script src="js/BAM-custom-functionality.EM11.js"></script>
+    <script src="js/BAM-cleanup6.js"></script>
+
+    <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
+		<script>
+	    "use strict"
+// var newheight = window.innerHeight -33
+// document.getElementById('low-side-panel').style.top = newheight + 'px'
+// window.addEventListener('resize', function(event){
+//   newheight = window.innerHeight - 33;
+// 	document.getElementById('low-side-panel').style.top = newheight + 'px'
+// 	$('#low-btn-slide-toggle').html('&#9650;');
+// 	informationToggle2 = false;
+// });
+// var newwidth = window.innerWidth -39
+// document.getElementById('right-side-panel').style.left = newwidth + 'px'
+// window.addEventListener('resize', function(event){
+//   newwidth = window.innerWidth - 39;
+// 	document.getElementById('right-side-panel').style.left = newwidth + 'px'
+// 	$('#right-btn-slide-toggle').html('&#9664;');
+// 	informationToggle = true;
+// });
+
+var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "Language(s)", "script": "Script(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Bilingual(Y/N)", "bilingual_format": "Bilingual Format", "second_language": "Second Language", "second_script": "Second Script", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "colophon": "Colophon(Y/N)", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher"}
+			//k these don't do what I want, they broke leaflet
+			// L.DomEvent.disableScrollPropagation('panel');
+			// L.DomEvent.disableClickPropagation('panel');
+			var sw = "";
+	    // var markers = L.geoJson(geojson, {
+	    // pointToLayer: defineFeature,
+	    // onEachFeature: defineFeaturePopup
+	    // });
+	  // var t = document.getElementById("search").value;
+	  //   // Get the input field
+	  //   var input = document.getElementById("search");
+	  //
+	  //   // Execute a function when the user releases a key on the keyboard
+	  //   input.addEventListener("keyup", function(event) {
+	  //     // Cancel the default action, if needed
+	  //     event.preventDefault();
+	  //     // Number 13 is the "Enter" key on the keyboard
+	  //     if (event.keyCode === 13) {
+	  //       // Trigger the button element with a click
+	  //       document.getElementById("searchclicked").click();
+	  //     }
+	  //   });
+		var geojson,
+			metadata,
+			feature,
+			fil,
+		geojsonPath = 'data/EM.9-20.geojson',
+		idField = '5004',
+		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
+		iconField = '5065', //This is the fieldame for marker icon
+		popupFields = ['5001','5002','5055','5003','4'], //Popup will display these fields
+		//tileServer = 'http://{s}.sm.mapstack.stamen.com/terrain/{z}/{x}/{y}.png', // for the terrain plus political
+		tileServer = 'https://a.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png',
+		tileAttribution = '<a href="http://maps.stamen.com/">Map tiles</a> by <a href="http://stamen.com">Stamen Design</a>, under <a target="_top" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data: <a href="http://awmc.unc.edu/wordpress/">AWMC</a>, Map Inspiration: <a href="http://bl.ocks.org/gisminister/10001728">Bård Romstad</a>',
+		rmax = 30, //Maximum radius for cluster pies
+	      markerclusters = L.markerClusterGroup({
+	        maxClusterRadius: 2*rmax,
+	        iconCreateFunction: defineClusterIcon //this is where the magic happens
+	      }),
+	      map = L.map('map');//.setView([0, 0], 0);
+	    //Add basemap
+	    // L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 10}).addTo(map);
+	    // //and the empty markercluster layer
+	    // map.addLayer(markerclusters);
+	    // //Ready to go, load the geojson
+	    // d3.json(geojsonPath, function(error, data) {
+	    //     if (!error) {
+	    //         geojson = data;
+	    //         metadata = data.properties;
+	  	// 	  console.log(data)
+	    //     //  console.log(JSON.stringify(geojson.features))
+	    //     var testing =
+	    //        markers = L.geoJson(geojson, {
+	  	// 		pointToLayer: defineFeature,
+	  	// 		onEachFeature: defineFeaturePopup
+	    //         });
+	    //         markerclusters.addLayer(markers);
+	    //         // map.fitBounds(markers.getBounds());
+			// 				map.setView([36.650390625, 38.34165619279595], 3)
+	    //         map.attributionControl.addAttribution(metadata.attribution);
+	    //   //      renderLegend();
+			// 	markers.on('click', function (a) {
+			// 		console.log(a.layer.feature.properties['5004']);
+
+	 var leafletID = a.layer.feature.properties['5004'];
+ document.getElementById('metadataList').innerHTML = ''
+	 document.getElementById('metadataList').innerHTML += 'The map dataset does not contain metadata, perform a search using the \"Select Search Parameters\" functions from the left side panel to load metadata.<br/><b>ID: </b>' + leafletID
+console.log(searchIDs.findIndex(x => x.id === leafletID));
+var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
+console.log(metaDataID)
+
+});
+	        } else {
+	  	  console.log('Could not load data...');
+	        }
+	    });
+	  function clearMap() {
+	    markerclusters.clearLayers();
+			document.getElementById('mapLeg').innerHTML = ""
+	  }
+
+	  function showallMap() {
+	    markerclusters.clearLayers();
+	    markerclusters.addLayer(markers);
+	    map.fitBounds(markers.getBounds());
+	  }
+
+	  function hideDefault() {
+	    markerclusters.clearLayers();
+	  console.log("button pressed")
+	  var fil = L.geoJson(geojson, {
+	    filter: function(feature, layer) {
+	      switch(feature.properties[categoryField]) {
+	    case 6:
+	      return true
+	      break;
+	    case 7:
+	      return true
+	      break;
+	      default:
+	        return false
+	          //  return feature.properties[categoryField] = 6;
+	        }
+	      },
+	  pointToLayer: defineFeature,
+	  onEachFeature: defineFeaturePopup
+	   });
+	  markerclusters.addLayer(fil);
+
+
+	  map.fitBounds(fil.getBounds());
+	  }
+
+	  function showHell() {
+
+		//const iterator = xx.values();
+
+//for (const value of iterator) {
+//  sw += " case " + value + ": return true break; "; // expected output: "a" "b" "c"
+//}
+			markerclusters.clearLayers();
+    // console.log("button pressed")
+    var fil = L.geoJson(geojson, {
+      filter: function(feature, layer) {
+        switch(xx.includes(feature.properties[idField])) {
+
+			case true:
+        return true
+        break;
+      // case 4:
+      //   return true
+      //   break;
+        default:
+          return false
+            //  return feature.properties[categoryField] = 6;
+							//	xx.includes(feature.properties[idField])
+          }
+        },
+    pointToLayer: defineFeature,
+    onEachFeature: defineFeaturePopup
+     });
+    markerclusters.addLayer(fil);
+
+// console.log(geojson.features['properties']);
+// console.log(layer);
+     map.fitBounds(fil.getBounds());
+		 //TODO this is where the metadata happens
+
+		 fil.on('click', function (a) {
+			 console.log(a.layer.feature.properties['5004']);
+
+
+var leafletID = a.layer.feature.properties['5004'];
+document.getElementById('metadataList').innerHTML = ''
+document.getElementById('right-side-headline2').innerHTML = ''
+// document.getElementById('metadataList').innerHTML += leafletID
+console.log(searchIDs.findIndex(x => x.id === leafletID));
+var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
+var searchedMetadata = searchIDs[metaDataID]
+
+document.getElementById('right-side-headline2').innerHTML += '<img  src=\"images/man-images/' + a.layer.feature.properties['5032'] + '\" /><br/>'
+// style="max-width:300px !important;width:95%;"
+if (a.layer.feature.properties['5033'] != "") {
+document.getElementById('right-side-headline2').innerHTML += '<p style="font-size:xx-small"><b>Image Source:' + a.layer.feature.properties['5033'] + '</p>'
+}
+if (a.layer.feature.properties['5034'] != "") {
+document.getElementById('right-side-headline2').innerHTML += '<p><b>Digital Surrogate: </b>' + a.layer.feature.properties['5034'] + '</p>'
+}
+if (a.layer.feature.properties['5035'] != "") {
+// document.getElementById('right-side-headline2').innerHTML
+var tester = searchedMetadata['bibliography'].includes(a.layer.feature.properties['5035'])
+//  console.log(tester)
+if( tester != true) {
+searchedMetadata['bibliography'] += ', <a href=\"' + a.layer.feature.properties['5035'] + '\" target=\"_blank\"><b>Zotero</b></a>'
+}
+}
+//TODO need zotero fix or search modification
+// document.getElementById('right-side-headline2').innerHTML += '<a href=\"' + searchedMetadata['zotero'] + '\" target=\"_blank\" style=\"font-size:large;\">Zotero</a>'
+
+for ( i in manuscriptmetadata) {
+	if (searchedMetadata[i] != null) {
+	document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + '<br/>'
+};
+}
+});
+	  }
+
+	  function showLat() {
+	    markerclusters.clearLayers();
+	  console.log("button pressed")
+	  var fil = L.geoJson(geojson, {
+	    filter: function(feature, layer) {
+	      switch(feature.properties[categoryField]) {
+	    case 6:
+	      return false
+	      break;
+	    case 7:
+	      return true
+	      break;
+	      default:
+	        return false
+	          //  return feature.properties[categoryField] = 6;
+	        }
+	      },
+	  pointToLayer: defineFeature,
+	  onEachFeature: defineFeaturePopup
+	   });
+	  markerclusters.addLayer(fil);
+
+
+	  map.fitBounds(fil.getBounds());
+	  }
+
+	  function resize() {
+	    map.fitBounds(markers.getBounds());
+	  }
+
+	  function defineFeature(feature, latlng) {
+	    var categoryVal = feature.properties[categoryField],
+	      iconVal = feature.properties[iconField];
+				//TODO where the icons come from
+	      // var myClass = 'marker category-'+categoryVal+' icon-'+iconVal;
+				var myClass = 'marker category-'+categoryVal;
+				var myIcon = L.divIcon({
+	          className: myClass,
+	          iconSize:null
+	      });
+	      return L.marker(latlng, {icon: myIcon});
+	  }
+	  function defineFeaturePopup(feature, layer) {
+	    var props = feature.properties,
+	      fields = metadata.fields,
+	      popupContent = '';
+	    popupFields.map( function(key) {
+	      if (props[key]) {
+	        var val = props[key],
+	          label = fields[key].name;
+	        if (fields[key].lookup) {
+	          val = fields[key].lookup[val];
+	        }
+	        popupContent += '<span class="attribute"><span class="label">'+label+':</span> '+val+'</span>';
+	      }
+	    });
+	    popupContent = '<div class="map-popup">'+popupContent+'</div>';
+	    layer.bindPopup(popupContent,{offset: L.point(1,-2)});
+
+		}
+	  function defineClusterIcon(cluster) {
+	      var children = cluster.getAllChildMarkers(),
+	          n = children.length, //Get number of markers in cluster
+	          strokeWidth = 1, //Set clusterpie stroke width
+	          r = rmax-2*strokeWidth-(n<10?12:n<100?8:n<1000?4:0), //Calculate clusterpie radius...
+	          iconDim = (r+strokeWidth)*2, //...and divIcon dimensions (leaflet really want to know the size)
+	          data = d3.nest() //Build a dataset for the pie chart
+	            .key(function(d) { return d.feature.properties[categoryField]; })
+	            .entries(children, d3.map),
+	          //bake some svg markup
+	          html = bakeThePie({data: data,
+	                              valueFunc: function(d){return d.values.length;},
+	                              strokeWidth: 2, //made it 2 to match solo markers
+	                              outerRadius: r+1,
+	                              innerRadius: r-8,
+	                              pieClass: 'cluster-pie',
+	                              pieLabel: n,
+	                              pieLabelClass: 'marker-cluster-pie-label',
+	                              pathClassFunc: function(d){return "category-"+d.data.key;},
+	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' manuscript'+(d.data.values.length!=1?'s':'')}
+	                            }),
+	          //Create a new divIcon and assign the svg markup to the html property
+	          myIcon = new L.DivIcon({
+	              html: html,
+	              className: 'marker-cluster',
+	              iconSize: new L.Point(iconDim, iconDim)
+	          });
+	      return myIcon;
+	  }
+	  /*function that generates a svg markup for the pie chart*/
+	  function bakeThePie(options) {
+	      /*data and valueFunc are required*/
+	      if (!options.data || !options.valueFunc) {
+	          return '';
+	      }
+	      var data = options.data,
+	          valueFunc = options.valueFunc,
+	          r = options.outerRadius?options.outerRadius:28, //Default outer radius = 28px
+	          rInner = options.innerRadius?options.innerRadius:r-10, //Default inner radius = r-10
+	          strokeWidth = options.strokeWidth?options.strokeWidth:1, //Default stroke is 1
+	          pathClassFunc = options.pathClassFunc?options.pathClassFunc:function(){return '';}, //Class for each path
+	          pathTitleFunc = options.pathTitleFunc?options.pathTitleFunc:function(){return '';}, //Title for each path
+	          pieClass = options.pieClass?options.pieClass:'marker-cluster-pie', //Class for the whole pie
+	          pieLabel = options.pieLabel?options.pieLabel:d3.sum(data,valueFunc), //Label for the whole pie
+	          pieLabelClass = options.pieLabelClass?options.pieLabelClass:'marker-cluster-pie-label',//Class for the pie label
+	          origo = (r+strokeWidth), //Center coordinate
+	          w = origo*2, //width and height of the svg element
+	          h = w,
+	          donut = d3.layout.pie(),
+	          arc = d3.svg.arc().innerRadius(rInner).outerRadius(r);
+	      //Create an svg element
+	      var svg = document.createElementNS(d3.ns.prefix.svg, 'svg');
+	      //Create the pie chart
+
+
+	      var vis = d3.select(svg)
+	          .data([data])
+	          .attr('class', pieClass)
+	          .attr('width', w)
+	          .attr('height', h);
+	      var arcs = vis.selectAll('g.arc')
+	          .data(donut.value(valueFunc))
+	          .enter().append('svg:g')
+	          .attr('class', 'arc')
+	          .attr('transform', 'translate(' + origo + ',' + origo + ')');
+	      arcs.append('svg:path')
+				// .attr("style", "mask:url(#mask-stripe);")
+						// .style('fill', 'repeating-linear-gradient(90deg,#606dbc,#606dbc 3px,#465298 3px,#465298 6px)') --- doesn't work at all
+				// .style('mask', 'url(#pattern-stripe)')
+				//  .style('background-color', 'red')
+						// .style('fill', 'blue') //testing
+					  .attr('class', pathClassFunc) //colors the donut arcs
+	          .attr('stroke-width', strokeWidth)
+	          .attr('d', arc)
+	          .append('svg:title')
+	            .text(pathTitleFunc);
+	      vis.append('text')
+	          .attr('x',origo)
+	          .attr('y',origo)
+	          .attr('class', pieLabelClass)
+	          .attr('text-anchor', 'middle')
+	          //.attr('dominant-baseline', 'central')
+	          /*IE doesn't seem to support dominant-baseline, but setting dy to .3em does the trick*/
+	          .attr('dy','.3em')
+	          .text(pieLabel);
+	      //Return the svg-markup rather than the actual element
+	      return serializeXmlNode(svg);
+	  }
+	  /*Function for generating a legend with the same categories as in the clusterPie*/
+	  function renderLegend() {
+	      var data = d3.entries(metadata.fields[categoryField].lookup),
+	        legenddiv = d3.select('body').append('div')
+	          .attr('id','legend');
+	      var heading = legenddiv.append('div')
+	          .classed('legendheading', true)
+	          .text(metadata.fields[categoryField].name);
+	      var legenditems = legenddiv.selectAll('.legenditem')
+	          .data(data);
+	      legenditems
+	          .enter()
+	          .append('div')
+	          .attr('class',function(d){return 'category-'+d.key;})
+	          .classed({'legenditem': true})
+	          .text(function(d){return d.value;});
+	  }
+	  /*Helper function*/
+	  function serializeXmlNode(xmlNode) {
+	      if (typeof window.XMLSerializer != "undefined") {
+	          return (new window.XMLSerializer()).serializeToString(xmlNode);
+	      } else if (typeof xmlNode.xml != "undefined") {
+	          return xmlNode.xml;
+	      }
+	      return "";
+	  }
+
+
+		function myEnterFunction() {
+			console.log('mouseindiv')
+			map.dragging.disable();
+			 map.touchZoom.disable();
+			 map.doubleClickZoom.disable();
+			 map.scrollWheelZoom.disable();
+		}
+
+		function myExitFunction() {
+			console.log('mouseoutdiv')
+			map.dragging.enable();
+			 map.touchZoom.enable();
+			 map.doubleClickZoom.enable();
+			 map.scrollWheelZoom.enable();
+		}
+
+		function changeCatField() {
+			categoryField = '5022';
+			showHell();
+			// console.log(geojson.features[0].properties[categoryField])
+			document.getElementById('mapLeg').innerHTML = ""
+			var dots = geojson.features
+var legendIDs = []
+			 for (i in dots) {
+			 legendIDs[i] = geojson.features[i].properties[categoryField]			};
+			//  console.log(legendIDs)
+			 var propertyCount = { };
+for(var i = 0; i < legendIDs.length; ++i) {
+    if(!propertyCount[legendIDs[i]])
+        propertyCount[legendIDs[i]] = 0;
+    ++propertyCount[legendIDs[i]];
+};
+// console.log(propertyCount);
+var sortedArray = sortObject(propertyCount)
+// console.log(sortedArray);
+var resArray = [];
+var metaLookup = metadata.fields[categoryField].lookup
+// console.log(Object.keys(sortedArray))
+for (i in sortedArray) {
+	var keyLookup = sortedArray[i].key;
+	var valLookup = sortedArray[i].value;
+	// console.log(metaLookup[keyLookup] + ' occurs ' + valLookup + ' times, and is this color class:' + keyLookup)
+	// document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
+// document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-1px 1px 0 #fff,1px 1px 0 #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
+document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-2px -2px 3px #fff,2px -2px 3px #fff,-2px 2px 3px #fff,2px 2px 3px #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
+}
+		}
+
+		function sortObject(obj) {
+		    var arr = [];
+		    var prop;
+		    for (prop in obj) {
+		        if (obj.hasOwnProperty(prop)) {
+		            arr.push({
+		                'key': prop,
+		                'value': obj[prop]
+		            });
+		        }
+		    }
+		    arr.sort(function(a, b) {
+		        return b.value - a.value;
+		    });
+		    return arr; // returns array
+		}
+
+//
+// function showallMap() {
+// 	markerclusters.clearLayers();
+// 	markerclusters.addLayer(markers);
+// 	map.fitBounds(markers.getBounds());
+//
+// }
+//
+// function clearMap() {
+//   markerclusters.clearLayers();
+//
+// }
+// 		function refreshMap() {
+//
+// 			markerclusters.clearLayers();
+// 		console.log("one step")
+// 		var fil = L.geoJson(geojson, {
+// 			filter: function(feature, layer) {
+// 				switch(feature.properties[categoryField]) {
+// 			case 0:
+// 				return true
+// 				break;
+// 			case 7:
+// 				return true
+// 				break;
+// 				default:
+// 					return false
+//
+// 						//    xx.includes(feature.properties[idField])
+// 						//  return feature.properties[categoryField] = 6;
+// 						// return feature.properties[categoryField] === 6;
+// 					}
+// 				},
+// 		pointToLayer: defineFeature,
+// 		onEachFeature: defineFeaturePopup
+// 		 });
+// 		markerclusters.addLayer(fil);
+// console.log("step2")
+//
+// 		 map.fitBounds(fil.getBounds());
+//
+// 		}
+window.onload = setTimeout(function () {
+	search();
+}, 800);
+	  </script>
+
+
+</html>
