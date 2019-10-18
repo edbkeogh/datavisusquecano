@@ -79,15 +79,15 @@ var tableMain = $('#bamMainTable').DataTable({
     },
     {
         data: 'geopolitical_context',
-        title: 'Context'
+        title: 'Geopol. Context'
     },
     {
         data: 'terminus_post_quem',
-        title: 'Earliest'
+        title: 'Term. Post'
     },
     {
         data: 'terminus_ante_quem',
-        title: 'Latest'
+        title: 'Term. Ante'
     },
     {
         data: 'forms',
