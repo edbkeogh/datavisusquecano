@@ -6,7 +6,7 @@ var tldata = [
     group: "Japan",
     data: [
       {
-        label: "Manuscripts",
+        label: "Japan-Manuscripts",
         data: [
           {
             timeRange: [present, present],
@@ -51,7 +51,7 @@ var tldata = [
   group: "Korea",
   data: [
     {
-      label: "Manuscripts",
+      label: "Korea-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -103,7 +103,7 @@ var tldata = [
   group: "China",
   data: [
     {
-      label: "Manuscripts",
+      label: "China-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -188,7 +188,7 @@ var tldata = [
   group: "Vietnam",
   data: [
     {
-      label: "Manuscripts",
+      label: "Vietnam-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -231,7 +231,7 @@ var tldata = [
   group: "Central Asia",
   data: [
     {
-      label: "Manuscripts",
+      label: "Central Asia-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -305,7 +305,7 @@ var tldata = [
   group: "Tibet",
   data: [
     {
-      label: "Manuscripts",
+      label: "Tibet-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -348,7 +348,7 @@ var tldata = [
   group: "Southeast Asia",
   data: [
     {
-      label: "Manuscripts",
+      label: "Southeast Asia-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -421,7 +421,7 @@ var tldata = [
   group: "India",
   data: [
     {
-      label: "Manuscripts",
+      label: "India-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -528,7 +528,7 @@ var tldata = [
   group: "Iran",
   data: [
     {
-      label: "Manuscripts",
+      label: "Iran-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -625,7 +625,7 @@ var tldata = [
   group: "Mesopotamia",
   data: [
     {
-      label: "Manuscripts",
+      label: "Mesopotamia-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -726,7 +726,7 @@ var tldata = [
   group: "Levant",
   data: [
     {
-      label: "Manuscripts",
+      label: "Levant-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -893,7 +893,7 @@ var tldata = [
   group: "Arabia and East Africa",
   data: [
     {
-      label: "Manuscripts",
+      label: "Arabia and East Africa-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1020,7 +1020,7 @@ var tldata = [
   group: "Eastern Europe",
   data: [
     {
-      label: "Manuscripts",
+      label: "Eastern Europe-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1121,7 +1121,7 @@ var tldata = [
   group: "Asia Minor and Caucasus",
   data: [
     {
-      label: "Manuscripts",
+      label: "Asia Minor and Caucasus-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1268,7 +1268,7 @@ var tldata = [
   group: "Greece",
   data: [
     {
-      label: "Manuscripts",
+      label: "Greece-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1331,7 +1331,7 @@ var tldata = [
   group: "Egypt and Nubia",
   data: [
     {
-      label: "Manuscripts",
+      label: "Egypt and Nubia-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1472,7 +1472,7 @@ var tldata = [
   group: "Sub-Saharan Africa",
   data: [
     {
-      label: "Manuscripts",
+      label: "Sub-Saharan Africa-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1509,7 +1509,7 @@ var tldata = [
   group: "Italy",
   data: [
     {
-      label: "Manuscripts",
+      label: "Italy-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1586,7 +1586,7 @@ var tldata = [
   group: "North Africa",
   data: [
     {
-      label: "Manuscripts",
+      label: "North Africa-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1682,7 +1682,7 @@ var tldata = [
   group: "Scandinavia",
   data: [
     {
-      label: "Manuscripts",
+      label: "Scandinavia-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1734,7 +1734,7 @@ var tldata = [
   group: "Britain",
   data: [
     {
-      label: "Manuscripts",
+      label: "Britain-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1811,7 +1811,7 @@ var tldata = [
   group: "Ireland",
   data: [
     {
-      label: "Manuscripts",
+      label: "Ireland-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1843,7 +1843,7 @@ var tldata = [
   group: "Germany",
   data: [
     {
-      label: "Manuscripts",
+      label: "Germany-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1888,7 +1888,7 @@ var tldata = [
   group: "France",
   data: [
     {
-      label: "Manuscripts",
+      label: "France-Manuscripts",
       data: [
         {
           timeRange: [present, present],
@@ -1948,7 +1948,7 @@ var tldata = [
   group: "Spain",
   data: [
     {
-      label: "Manuscripts",
+      label: "Spain-Manuscripts",
       data: [
         {
           timeRange: [present, present],

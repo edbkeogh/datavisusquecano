@@ -37,7 +37,7 @@ import { schemeCategory10, schemeSet3, interpolateRdYlBu } from 'd3-scale-chroma
 
 import { moveToFront as MoveToFront, gradient as Gradient } from 'svg-utils';
 import { fitToBox as TextFitToBox } from 'svg-text-fit';
-import ColorLegend from 'd3-color-legend';
+import g from 'd3-color-legend';
 import TimeOverview from './time-overview.js';
 import { alphaNumCmp } from './comparison.js';
 
