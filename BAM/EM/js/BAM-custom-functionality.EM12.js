@@ -317,7 +317,7 @@ var tableWitness = $('#witness').DataTable({
     buttons: [
         'colvis', 'copy', 'csv','print'
     ],
-    "pageLength": 5,
+    "pageLength": 4,
     columns: [
     //   {
     //     data: 'id',
