@@ -82,6 +82,13 @@
             z-index: 1;
         }
 
+				span.no-show{
+				    display: none;
+				}
+				span.show-ellipsis:after{
+				    content: "...";
+				}
+
 #mapLeg p {
 	margin: 2px;
 	font-size: 1.5em;
@@ -1053,7 +1060,7 @@ border: none;
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
 		<script>
 	    "use strict"
-		
+
 var newheight = window.innerHeight -33
 document.getElementById('low-side-panel').style.top = newheight + 'px'
 window.addEventListener('resize', function(event){

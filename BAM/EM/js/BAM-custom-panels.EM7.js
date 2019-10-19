@@ -316,6 +316,9 @@ tableMain.rows.add(results.manuscripts);
 
 console.log(results)
 if (results['textual_witnesses'] != null) {
+
+
+
       console.log(results.textual_witnesses);
       // for (i in results.textual_witnesses) {
       //   console.log(results.textual_witnesses[i].text)
@@ -435,6 +438,60 @@ function addAllparameter(paramType) {
 		// if (menu.innerHTML === '') menu.innerHTML = `<option>N/A</option>`;
 search();
 }
+
+$.fn.dataTable.render.ellipsis = function ( cutoff, wordbreak, escapeHtml ) {
+    var esc = function ( t ) {
+        return t
+            .replace( /&/g, '&amp;' )
+            .replace( /</g, '&lt;' )
+            .replace( />/g, '&gt;' )
+            .replace( /"/g, '&quot;' );
+    };
+
+    return function ( d, type, row ) {
+      // if (type === 'display' && data != null) {
+      //   data = data.replace(/<(?:.|\\n)*?>/gm, '');
+      //   if(data.length > 50) {
+      //     return '<span class=\"show-ellipsis\">' + data.substr(0, 50) + '</span><span class=\"no-show\">' + data.substr(50) + '</span>';
+      //   } else {
+      //     return data;
+      //   }
+      // } else {
+      //   return data;
+      // }
+        // Order, search and type get the original data
+        if ( type !== 'display' ) {
+            return d;
+        }
+
+        if ( typeof d !== 'number' && typeof d !== 'string' ) {
+            return d;
+        }
+
+        d = d.toString(); // cast numbers
+
+        // if ( d.length < cutoff ) {
+        //     return d;
+        if ( d.length < cutoff ) {
+            return d;
+
+        }
+
+        var shortened = d.substr(0, cutoff-1);
+
+        // Find the last white space character in the string
+        if ( wordbreak ) {
+            shortened = shortened.replace(/\s([^\s]*)$/, '');
+        }
+
+        // Protect against uncontrolled HTML input
+        if ( escapeHtml ) {
+            shortened = esc( shortened );
+        }
+
+        return '<span class=\"show-ellipsis\" title="'+esc(d)+'">'+shortened+'</span><span class=\"no-show\">' + d.substr(cutoff-1) + '</span>';
+    };
+};
 
 function addAlladdAll() {
 	clearParams();

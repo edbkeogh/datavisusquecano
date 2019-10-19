@@ -309,6 +309,11 @@ var tableWitness = $('#witness').DataTable({
 
     data: null,
     dom: 'Bfrtip',
+    columnDefs: [ {
+        targets: 6,
+        render: $.fn.dataTable.render.ellipsis(100,false,true)
+      }
+    ],
     buttons: [
         'colvis', 'copy', 'csv','print'
     ],
