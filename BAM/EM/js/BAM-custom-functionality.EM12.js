@@ -305,6 +305,52 @@ function searchDEMO(workIdlist) {
 
 }
 
+var tableWitness = $('#witness').DataTable({
+
+    data: null,
+    dom: 'Bfrtip',
+    buttons: [
+        'colvis', 'copy', 'csv','print'
+    ],
+    "pageLength": 5,
+    columns: [
+    //   {
+    //     data: 'id',
+    //     title: 'ID'
+    // },
+    {
+        data: 'author',
+        title: 'Author'
+    },
+    {
+        data: 'work',
+        title: 'Work'
+    },
+    {
+        data: 'forms',
+        title: 'Form(s)'
+    },
+    {
+        data: 'materials',
+        title: 'Substrate(s)'
+    },
+    {
+        data: 'terminus_post_quem',
+        title: 'Earliest'
+    },
+    {
+        data: 'terminus_ante_quem',
+        title: 'Latest'
+    },
+    {
+        data: 'text',
+        title: 'Text'
+    }
+
+    ]
+});
+
+
 function searchDB(authors, centRange, lifeRange, locations, works, genres) {
     //clear the table. If there is a null result, then a blank table is fine
     tableMain.clear();
@@ -403,6 +449,7 @@ workIdlist = Object.keys(response)
 
         })})
        }
+
 
 
 // function getGenres() {
