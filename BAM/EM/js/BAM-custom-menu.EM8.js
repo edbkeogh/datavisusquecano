@@ -25,7 +25,7 @@ $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
             //             });
 //database table toggle
 // TODO you can style this to the bottom with style="position:fixed;left:0px;bottom:0px;"
-mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton"><img src="images/open-iconic/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;Witness Table</button>';
+mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton"><img src="images/open-iconic/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;Early Form Descriptions</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.databaseLaunchButton);
 
