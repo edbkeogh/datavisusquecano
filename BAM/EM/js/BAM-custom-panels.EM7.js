@@ -1,6 +1,49 @@
 //BAM-custom-panels.js
 //holds all of the panels for the application. These are HIGHLY variable for each individual app
+var tableWitness = $('#witness').DataTable({
 
+    data: null,
+    dom: 'Bfrtip',
+    buttons: [
+        'colvis', 'copy', 'csv','print'
+    ],
+    "pageLength": 5,
+    columns: [
+      {
+        data: 'id',
+        title: 'ID'
+    },
+    {
+        data: 'author',
+        title: 'Author'
+    },
+    {
+        data: 'work',
+        title: 'Work'
+    },
+    {
+        data: 'forms',
+        title: 'Form(s)'
+    },
+    {
+        data: 'materials',
+        title: 'Substrate(s)'
+    },
+    {
+        data: 'terminus_post_quem',
+        title: 'Earliest'
+    },
+    {
+        data: 'terminus_ante_quem',
+        title: 'Latest'
+    },
+    {
+        data: 'text',
+        title: 'Text'
+    },
+
+    ]
+});
 
 var searchIDs = []
 var xx = [];
@@ -17,47 +60,35 @@ var aboutBoxHtml = '<div id="infoBox" class="nonMapOverlay"> <b> Application Inf
     aboutBoxHtml = aboutBoxHtml + '<div id="infoBoxContent">';
      aboutBoxHtml = aboutBoxHtml + 'This resource was planned as an outgrowth of the 2016-2018 Mellon-Sawyer seminar at the University of Iowa, “Cultural and Textual Exchanges: The Manuscript across Pre-modern Eurasia.”  The goal is to present a broad overview of the development of manuscript materials and formats, in a variety of languages, scripts, locations, and periods, by entering data from a number of representative manuscripts, with an emphasis on the earliest known examples of particular materials and formats across regions.  Users can search the database in the left-hand panel and interact with the results through the central geospatial interface, to explore the spread of materials, formats, scripts and languages over time; more metadata is available for individual manuscripts that are selected by user, and displayed in the right panel.  Finally, relevant textual passages about materials and formats are also included in the search results, and can be explored in the bottom panel.'
      aboutBoxHtml = aboutBoxHtml + '<br/><br/>Paul Dilley is the PI of the Global Manuscript Cultures site.  The software is based on the basic architecture established by Ryan Horne for the Big Ancient Mediterranean project, which has been extensively developed by Ed Keogh.  Data analysis has been conducted by Paul Dilley and Melissa Moreton.  In the future, manuscript entries based on research papers by University of Iowa undergraduates in Paul Dilley’s Judaism, Christianity, and Islam class will be entered, and credited in their respective entries. '
-    // aboutBoxHtml = aboutBoxHtml + ' In addition to reading database information, you may click the reference number or catalogue entry field to open a new tab, or the row to send that work into the right hand panel.<br/><br/>'
-    // aboutBoxHtml = aboutBoxHtml + '<b>Information on authors and works is gathered from standard references, both print and online.</b>[should this be deleted?]<br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'The Iowa Canon of Classical Authors and Works is the most complete';
-    // aboutBoxHtml = aboutBoxHtml + ' list of Latin literature from its beginnings to the sixth century,';
-    // aboutBoxHtml = aboutBoxHtml + ' and aims to develop text analysis functionality for works with open-access electronic editions.';
-    // aboutBoxHtml = aboutBoxHtml + ' Information on authors and works is collected from standard references, both print and online, including metadata relating to author, title, place and date of composition, genre, status as poetry or prose, and as Christian or non-Christian.<br/><br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'See below for a partial key to canonical references:<br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'CANT=Clavis Apocryphorum Novi Testamenti<br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'CGL=Corpus Grammaticorum Latinorum<br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'CPL=Clavis Patrum Latinorum<br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'DLT=digilibLT<br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'DPA=Dictionnaire des Philosophes Antiques<br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'FRH=Fragmentary Roman Historians<br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'PL=Patrologia Latina<br/><br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'See below for a list of electronic text sources by type:<br/>';
-    // aboutBoxHtml = aboutBoxHtml + 'Paul Dilley is the PI of the Canon, Ryan Horne the lead developer.';
-    // aboutBoxHtml = aboutBoxHtml + ' The following students have contributed research to the Canon: Noah Anderson, Kenneth Elliott, Elijah Fleming, Tyler Fyotek, Sara Hales, Ed Keogh, Caitlin Marley, Peter Miller, Bob Morley, Daniel Munn, Echo Smith, Dana Spyridakos, Jeremy Swist, Ryan Tribble, Wenxuan Xu, Jonathan Young (data collection and analysis); Noah Anderson and Spencer Schmalz (development).';
-	// aboutBoxHtml = aboutBoxHtml + '</p>';
-    // aboutBoxHtml = aboutBoxHtml + ' The code and interface was built by <a href="https://rmhorne.org/" target="_blank">Ryan Horne</a>. Additional features are being developed by Ed Keogh and Noah Anderson.';
     aboutBoxHtml = aboutBoxHtml + '<span class="bottomContainer">';
     aboutBoxHtml = aboutBoxHtml + '<a href="https://bigancientmediterranean.wordpress.com/" target="_blank"><img src="images/BAM-icon.svg" alt="BAM Logo" style="width:28px;height:28px;"></a>&nbsp;&nbsp;Built with the <b><a href=" https://bigancientmediterranean.wordpress.com/" target="_blank">Big Ancient Mediterranean </a></b>framework.';
     aboutBoxHtml = aboutBoxHtml + '<br /> <a href="https://github.com/Big-Ancient-Mediterranean" target="_blank"><img src="images/githublogo.svg" alt="GitHub Logo" style="width:28px;height:28px;"></a>&nbsp;&nbsp;Get map data and code from our <b><a href="https://github.com/AWMC" target="_blank">GitHub </a></b>page.';
     aboutBoxHtml = aboutBoxHtml + '<br/><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.';
     aboutBoxHtml = aboutBoxHtml + '<br /></span></div> </div>';
 
-//add to the panel holder
 $( "#panelHolder" ).append(aboutBoxHtml);
 
-//add to the list so we can perform functions on it
 overlayPanelsList.infoBox = 'overlay';
 
+var witnessHTML = '<div id="witnessPanel" class="nonMapOverlay" style="overflow:auto;"> <b> Manuscript Results </b>';
+witnessHTML = witnessHTML + '<div id="witnessPanelClose" class="popupCloseCarte">x</div> <hr />';
+witnessHTML = witnessHTML + '<div id="witnessPanelContents">';
+witnessHTML = witnessHTML + '<table id="witness" style="cursor: auto;"><thead><tr><td>ID</td><td>Author</td><td>Term. Post</td><td>Term. Ante</td><td>Form</td><td>Substrate</td><td>Text</td></tr></thead>'
+witnessHTML = witnessHTML + '<tbody id="witness-results-table"></tbody></table>'
+// witnessHTML = witnessHTML + '<div id="witness-results-table" class="display darkText"><table id="bamMainTable" class="display darkText cell-border" width="100%"></table></div>';
+witnessHTML = witnessHTML + '</div>';
 
-//the database box holds a list of all the people in the application
+$("#panelHolder").append(witnessHTML);
 
-var databaseBoxHtml = '<div id="databaseBox" class="nonMapOverlay"> <div id="databaseBoxTop"> <b> Manuscript Results </b>';
-databaseBoxHtml = databaseBoxHtml + '<div id="databaseBoxClose" class="popupCloseCarte">x</div> <hr /></div>';
-databaseBoxHtml = databaseBoxHtml + '<div id="databaseBoxContents" class="allow-scroll">';
-databaseBoxHtml = databaseBoxHtml + '<div id="databaseBoxHolder" class="display darkText"><table id="bamMainTable" class="display darkText cell-border" width="100%"></table></div>';
-databaseBoxHtml = databaseBoxHtml + '</div> </div>';
+overlayPanelsList.witnessPanel = 'overlay';
 
-$("#panelHolder").append(databaseBoxHtml);
+var databaseBoxHtml = '<div id="databaseBox" > <div id="databaseBoxTop"> <b> Manuscript Results </b>';
+// databaseBoxHtml = databaseBoxHtml + '<div id="databaseBoxClose" >x</div> <hr /></div>';
+databaseBoxHtml = databaseBoxHtml + '<div id="databaseBoxContents">';
+databaseBoxHtml = databaseBoxHtml + '<div id="databaseBoxHolder"><table id="bamMainTable" class="display darkText cell-border compact" width="100%"></table></div>';
+databaseBoxHtml = databaseBoxHtml + '</div>';
+
+$("#low-side-panel").append(databaseBoxHtml);
 //this box holds the "popup" of the layer
 
 overlayPanelsList.databaseBox = 'overlay';
@@ -282,29 +313,52 @@ for (i in searchIDs) {
 // put it in BAM tables
 tableMain.rows.add(results.manuscripts);
 //tableMain.rows.add(formattedresults);
-if (results['textual_witnesses'] != null) {
-	//TODO I need to make a place for these		// Populate the witnesses table
-			tableBody = document.getElementById('witness-results-table');
-			tableBody.innerHTML = '';
-			results['textual_witnesses'].forEach(function(item) {
-				let tableRow = "<tr>";
 
-				// Go through each column and add it to the table if the column is in witnessKeys
-				witnessKeys.forEach(function(key) {
-					tableRow += "<td>";
-					// The paramTypes keys have array values
-					if (paramTypes.includes(key)) {
-						tableRow += item[key].join(", ");
-					} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
-						tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
-					} else {
-						tableRow += item[key];
-					}
-					tableRow += "</td>";
-				});
-				tableRow += "</tr>";
-				tableBody.innerHTML += tableRow;
-			});
+console.log(results)
+if (results['textual_witnesses'] != null) {
+
+
+
+      console.log(results.textual_witnesses);
+      // for (i in results.textual_witnesses) {
+      //   console.log(results.textual_witnesses[i].text)
+      // };
+      // results.textual_witnesses[1].text = "hi"
+      // console.log(results.textual_witnesses[1].text);
+
+  tableWitness.clear();
+  tableWitness.rows.add(results.textual_witnesses);
+  tableWitness.draw();
+  // var wit_table = results.textual_witnesses;
+
+
+
+// var wit_table = results.textual_witnesses;
+	//TODO I need to make a place for these		// Populate the witnesses table
+			// tableBody = document.getElementById('witness-results-table');
+			// tableBody.innerHTML = '';
+
+
+      // tableWitness.rows.add(wit_table);
+
+			// results['textual_witnesses'].forEach(function(item) {
+			// 	let tableRow = "<tr>";
+			// 	// Go through each column and add it to the table if the column is in witnessKeys
+			// 	witnessKeys.forEach(function(key) {
+			// 		tableRow += "<td>";
+			// 		// The paramTypes keys have array values
+			// 		if (paramTypes.includes(key)) {
+			// 			tableRow += item[key].join(", ");
+			// 		} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
+			// 			tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
+			// 		} else {
+			// 			tableRow += item[key];
+			// 		}
+			// 		tableRow += "</td>";
+			// 	});
+			// 	tableRow += "</tr>";
+			// 	tableBody.innerHTML += tableRow;
+			// });
     }
 // TODO that was the end of the witness table
 
@@ -384,6 +438,60 @@ function addAllparameter(paramType) {
 		// if (menu.innerHTML === '') menu.innerHTML = `<option>N/A</option>`;
 search();
 }
+
+$.fn.dataTable.render.ellipsis = function ( cutoff, wordbreak, escapeHtml ) {
+    var esc = function ( t ) {
+        return t
+            .replace( /&/g, '&amp;' )
+            .replace( /</g, '&lt;' )
+            .replace( />/g, '&gt;' )
+            .replace( /"/g, '&quot;' );
+    };
+
+    return function ( d, type, row ) {
+      // if (type === 'display' && data != null) {
+      //   data = data.replace(/<(?:.|\\n)*?>/gm, '');
+      //   if(data.length > 50) {
+      //     return '<span class=\"show-ellipsis\">' + data.substr(0, 50) + '</span><span class=\"no-show\">' + data.substr(50) + '</span>';
+      //   } else {
+      //     return data;
+      //   }
+      // } else {
+      //   return data;
+      // }
+        // Order, search and type get the original data
+        if ( type !== 'display' ) {
+            return d;
+        }
+
+        if ( typeof d !== 'number' && typeof d !== 'string' ) {
+            return d;
+        }
+
+        d = d.toString(); // cast numbers
+
+        // if ( d.length < cutoff ) {
+        //     return d;
+        if ( d.length < cutoff ) {
+            return d;
+
+        }
+
+        var shortened = d.substr(0, cutoff-1);
+
+        // Find the last white space character in the string
+        if ( wordbreak ) {
+            shortened = shortened.replace(/\s([^\s]*)$/, '');
+        }
+
+        // Protect against uncontrolled HTML input
+        if ( escapeHtml ) {
+            shortened = esc( shortened );
+        }
+
+        return '<span class=\"show-ellipsis\" title="'+esc(d)+'">'+shortened+'</span><span class=\"no-show\">' + d.substr(cutoff-1) + '</span>';
+    };
+};
 
 function addAlladdAll() {
 	clearParams();

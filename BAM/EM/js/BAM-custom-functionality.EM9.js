@@ -217,10 +217,17 @@ $(document).ready(function() {
         // alert( 'You clicked on ' + tabledata['id'] + '\'s row' );
         var leafletID = tabledata['id'];
         document.getElementById('metadataList').innerHTML = ''
+        document.getElementById('right-side-headline2').innerHTML = ''
         // document.getElementById('metadataList').innerHTML += leafletID
         console.log(searchIDs.findIndex(x => x.id === leafletID));
         var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
         var searchedMetadata = searchIDs[metaDataID]
+//TODO testing image load - may need to modify a.layers... something to get here: console.log(geojson.features[7].properties[5032])
+var geojsonID = geojson.features.findIndex(x => x.properties[5004] === leafletID)
+        document.getElementById('right-side-headline2').innerHTML += '<img src=\"images/man-images/' + geojson.features[geojsonID].properties['5032'] + '\" />'
+        //TODO need zotero fix or search modification
+        document.getElementById('right-side-headline2').innerHTML += '<a href=\"' + searchedMetadata['zotero'] + '\" target=\"_blank\" style=\"font-size:large;\">Zotero</a>'
+
         for ( i in manuscriptmetadata) {
         	if (searchedMetadata[i] != null) {
         	document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + '<br/>'

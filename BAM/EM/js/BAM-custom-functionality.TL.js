@@ -57,12 +57,13 @@ var materials = [];
 
 //create the table for iclaw / icaaw / ietc
 var tableMain = $('#bamMainTable').DataTable({
+
     data: null,
     dom: 'Bfrtip',
     buttons: [
         'colvis', 'copy', 'csv','print'
     ],
-    "pageLength": 10,
+    "pageLength": 5,
     columns: [
       {
         data: 'id',
@@ -130,9 +131,11 @@ var tableMain = $('#bamMainTable').DataTable({
     ]
 });
 //from our basic BAM functions
-makeDataTablesColumnsSearchable(tableMain, 'bamMainTable');
+// makeDataTablesColumnsSearchable(tableMain, 'bamMainTable');
 //show the table!
-tableMain.draw();
+$('#bamMainTable').css( 'display', 'block' );
+// table.columns.adjust().draw();
+tableMain.columns.adjust().draw();
 
 //listen for return, then fire submit
 $(document).keypress(function(e) {
@@ -207,7 +210,7 @@ $(document).ready(function() {
 
 });
 
-//TODO table click does not yet update picture, need that section from leaflet click
+
 $(document).ready(function() {
     var tableclick = $('#bamMainTable').DataTable();
 
@@ -217,10 +220,38 @@ $(document).ready(function() {
         // alert( 'You clicked on ' + tabledata['id'] + '\'s row' );
         var leafletID = tabledata['id'];
         document.getElementById('metadataList').innerHTML = ''
+        document.getElementById('right-side-headline2').innerHTML = ''
         // document.getElementById('metadataList').innerHTML += leafletID
         console.log(searchIDs.findIndex(x => x.id === leafletID));
         var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
         var searchedMetadata = searchIDs[metaDataID]
+//TODO testing image load - may need to modify a.layers... something to get here: console.log(geojson.features[7].properties[5032])
+var geojsonID = geojson.features.findIndex(x => x.properties[5004] === leafletID)
+        // document.getElementById('right-side-headline2').innerHTML += '<img src=\"images/man-images/' + geojson.features[geojsonID].properties['5032'] + '\" />'
+        //TODO update for new fields
+        document.getElementById('right-side-headline2').innerHTML += '<img src=\"images/man-images/' + geojson.features[geojsonID].properties['5032'] + '\" /><br/>'
+        if (geojson.features[geojsonID].properties['5033'] != "") {
+        document.getElementById('right-side-headline2').innerHTML += '<p><b>Image Source: </b>' + geojson.features[geojsonID].properties['5033'] + '</p>'
+        }
+        if (geojson.features[geojsonID].properties['5034'] != "") {
+        document.getElementById('right-side-headline2').innerHTML += '<p><b>Digital Surrogate: </b>' + geojson.features[geojsonID].properties['5034'] + '</p>'
+        }
+        if (geojson.features[geojsonID].properties['5035'] != "") {
+        // document.getElementById('right-side-headline2').innerHTML\
+        // console.log(searchedMetadata['bibliography'])
+        // console.log(geojson.features[geojsonID].properties['5035'])
+         var tester = searchedMetadata['bibliography'].includes(geojson.features[geojsonID].properties['5035'])
+        //  console.log(tester)
+        if( tester != true) {
+
+        searchedMetadata['bibliography'] += ', <a href=\"' + geojson.features[geojsonID].properties['5035'] + '\" target=\"_blank\"><b>Zotero</b></a>'
+      }
+    }
+
+
+
+        // document.getElementById('right-side-headline2').innerHTML += '<a href=\"' + searchedMetadata['zotero'] + '\" target=\"_blank\" style=\"font-size:large;\">Zotero</a>'
+
         for ( i in manuscriptmetadata) {
         	if (searchedMetadata[i] != null) {
         	document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + '<br/>'

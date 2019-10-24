@@ -1,0 +1,54 @@
+<head>
+	<title>Timeline Demo 2</title>
+	<link id="favicon" rel="icon" type="image/png" href="../../images/favicon.ico">
+	<script src="timeline920.js"></script>
+	<script src="dataformat920.js"></script>
+	<script src="lodash.js"></script>
+</head>
+
+<body>
+ <div id="controls">
+	<button onclick="filterData()">filter data</button>
+	<button onclick="clearPlot()">clear chart</button><br/>
+</div>
+	<div id="myPlot"></div>
+
+	<script>
+var indexList = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24]
+	for (i in tldata) {
+		document.getElementById('controls').innerHTML += '<input onclick="removeIndexlist('+ i +')" type="checkbox" value="' + i + '" checked>' + tldata[i].data[0].label + '</input><br/>'
+	}
+	var tldata2 = tldata;
+
+	function loadChart() {
+		TimelinesChart()
+    .maxLineHeight([15])
+//    .leftMargin([250])
+  //  .width([])
+    .xTickFormat(n => +n)
+.timeFormat('%Q')
+			.data(tldata2)
+			.zQualitative(true)
+			(document.getElementById('myPlot'));
+}
+
+			function filterData() {
+document.getElementById('myPlot').innerHTML = ""
+				// //  tldata2 = tldata
+				// for (i in indexList) {
+				// 	tldata2[indexList[i]] += (tldata[indexList[i]])
+				// }
+				loadChart();
+			}
+			function clearPlot() {
+				document.getElementById('myPlot').innerHTML = ""
+			}
+
+			function removeIndexlist(n) {
+				indexList = _.remove(indexList, function(d) {
+  return d  != n;
+});
+			_.remove(tldata2, tldata2[n])
+			}
+	</script>
+</body>

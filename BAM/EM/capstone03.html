@@ -7,7 +7,49 @@
 <head profile="http://www.w3.org/2005/10/profile">
     <title>
     </title>
-    <link id="favicon" rel="icon" type="image/png" href="images/favicon.ico">
+		<svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <pattern id="circles-1" patternUnits="userSpaceOnUse" width="10" height="10"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSJ3aGl0ZSIgLz4KICA8Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0iYmxhY2siLz4KPC9zdmc+" x="0" y="0" width="10" height="10"> </image> </pattern> </defs> </svg>
+<svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1"> <defs> <pattern id="vertical-stripe-5" patternUnits="userSpaceOnUse" width="10" height="10"> <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSd3aGl0ZScgLz4KICA8cmVjdCB4PScwJyB5PScwJyB3aWR0aD0nNScgaGVpZ2h0PScxMCcgZmlsbD0nYmxhY2snIC8+Cjwvc3ZnPg==" x="0" y="0" width="10" height="10"> </image> </pattern> </defs> </svg>
+<svg>
+      <defs>
+        <pattern id="pattern-stripe"
+          width="4" height="4"
+          patternUnits="userSpaceOnUse"
+          patternTransform="rotate(90)">
+          <rect width="2" height="4" transform="translate(0,0)" fill="green"></rect>
+        </pattern>
+        <mask id="mask-stripe">
+          <rect x="-30" y="-30" width="100%" height="100%" fill="url(#pattern-stripe)" />
+        </mask>
+      </defs>
+</svg>
+<svg>
+  <defs>
+    <linearGradient id="diagonalHatch" gradientUnits="userSpaceOnUse"
+                    x2="30" spreadMethod="repeat" gradientTransform="rotate(-45)">
+      <stop offset="0" stop-color="orange"/>
+      <stop offset="0.33" stop-color="orange"/>
+      <stop offset="0.33" stop-color="blue"/>
+      <stop offset="0.67" stop-color="blue"/>
+      <stop offset="0.67" stop-color="red"/>
+      <stop offset="1.0" stop-color="red"/>
+    </linearGradient>
+  </defs>
+  <!-- <rect x="0" y="0" width="100%" height="100%" fill="url(#diagonalHatch)"/> -->
+</svg>
+<svg>
+  <defs>
+    <linearGradient id="diagonalHatch2" gradientUnits="userSpaceOnUse"
+                    x2="6" spreadMethod="repeat" gradientTransform="rotate(135)">
+      <stop offset="0" stop-color="#606dbc"/>
+      <stop offset="0.5" stop-color="#606dbc"/>
+      <stop offset="0.5" stop-color="#000"/>
+      <stop offset="1" stop-color="#000"/>
+      <!-- <stop offset="0.67" stop-color="red"/>
+      <stop offset="1.0" stop-color="red"/> -->
+    </linearGradient>
+  </defs>
+</svg>
+	  <link id="favicon" rel="icon" type="image/png" href="images/favicon.ico">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
         <link rel="stylesheet" type="text/css" href="css/custom.css" />
@@ -21,8 +63,14 @@
             width: 100%;
             font-family: Cardo;
             font-size: 16px;
-            font-weight: lighter;
-            background-color: #f5f5f5;
+            font-w
+						eight: lighter;
+        /*right-sideelpant img {
+									height: 100%;
+									width: 100%;
+									max-width: 300px !important;
+					}  */
+					  background-color: #f5f5f5;
         }
 
                 #map {
@@ -31,8 +79,15 @@
             right: 0px;
             top: 0px;
             bottom: 0px;
-                        z-index: 1;
+            z-index: 1;
         }
+
+				span.no-show{
+				    display: none;
+				}
+				span.show-ellipsis:after{
+				    content: "...";
+				}
 
 #mapLeg p {
 	margin: 2px;
@@ -150,6 +205,7 @@ float: right;
             stroke-width: .5px;
         }
 
+right-side-panel
         div.tooltip {
             position: absolute;
             padding: 5px;
@@ -161,6 +217,34 @@ float: right;
             pointer-events: none;
         }
 
+/*right-side-headline2.right-title-image img {
+					height: 100%;
+					width: 100%;
+					max-width: 300px !important;
+}*/
+
+#right-side-headline2 p {
+	text-align: center;
+	margin-block-start:0em;
+	margin-block-end:0em;
+
+}
+/*max-width: 300px !important;*/
+
+#right-side-headline2 img {
+	width:95%;
+}
+
+#bamButtonHolder button {
+	background: transparent;
+color: white;
+border: none;
+	/*position: fixed;*/
+	/*left: 0px;*/
+	/*bottom: 0px;*/
+	/*width: 25%;*/
+	/*padding-bottom: 3px;*/
+}
 
         #d3MainChart {
             position: fixed;
@@ -201,7 +285,7 @@ float: right;
             -khtml-border-radius-bottomleft: 5px;
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
-            padding: 15px 15px 15px 1px;
+            padding: 15px 2px 15px 8px;
             cursor: pointer;
             z-index: 1000;
             color: black;
@@ -249,7 +333,7 @@ float: right;
 						-khtml-border-radius-bottomright: 5px;
 						border-top-right-radius: 5px;
 						border-bottom-right-radius: 5px;
-						padding: 15px 10px 15px 5px;
+						padding: 15px 8px 15px 2px;
 						cursor: pointer;
 						z-index: 1000;
 						color: black;
@@ -261,6 +345,7 @@ float: right;
 					/*bottom: -57%;*/
 					/*right: 50%;*/
 					left: 300px;
+					right: 24px;
 					/*width: 60%;
 					min-width: 300px;*/
 					height: 65%;
@@ -274,8 +359,9 @@ float: right;
 				}
 
 				#low-btn-slide-toggle {
-						position: absolute;
+						position: sticky;
 						top: 0;
+						width: fit-content;
 						/*right: 50%;*/
 						left: 18px;
 						background-color: rgba(238, 238, 238, 0.85);
@@ -336,11 +422,11 @@ float: right;
 
         .right-title-image {
             display: block;
-            max-width: 150px;
-            width: auto;
+            /*max-width: 100% !important;*/
+            width: 100%;
             height: auto;
             margin: 0 auto;
-            padding: 5px;
+            padding-left: 15px;
         }
 
         .appLicense {
@@ -377,8 +463,8 @@ float: right;
         }
 
         .accordianImage {
-            height: 20px;
-            width: 20px;
+            /*height: 20px;*/
+            /*width: 20px;*/
         }
         /* Style the accordion panel. Note: hidden by default */
 
@@ -615,7 +701,7 @@ float: right;
     <link rel="stylesheet" href="css/datatables.css" />
 		<link rel="stylesheet" href="css/leaflet8.css" />
 		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-		<link rel="stylesheet" href="css/em62119.css" />
+		<link rel="stylesheet" href="css/em92519.css" />
 
 
     <!-- BAM Setup, after all necessary libraries are loaded -->
@@ -671,12 +757,14 @@ float: right;
     		</span>
     		<div class="navbar-brand" id="navbar-brand">
 <h6>Eurasian Manuscripts</h6>
+<p style="font-size:small;">some description text</p>
+<div id="bamButtonHolder">
+
+	</div>
     		</div>
 
 			<!-- this holds application buttons-->
-			<div id="bamButtonHolder">
 
-				</div>
 
 				<!-- <button id="searchButton" class="accordion accordionExp"><img src="images/open-iconic/clock.svg" class="accordianImage" alt="magnifying-glass">&nbsp;&nbsp;&nbsp;&nbsp;Search The Canon (demo)</button>
 				<div class="panel">
@@ -702,10 +790,10 @@ float: right;
         <br />
 		</div> -->
 
-						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Select Search Parameters</button>
+						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Filter</button>
 <div class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 <div id="genreText" class="darkText">
-	<button id="searchButton" onclick="search()">Search</button>
+	<button id="searchButton" onclick="search()">Update</button>
 	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">RemoveAll</button><br/><br/>Note: You must select at least one language to search.</p>
 						<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button>
 						<div class="panel">
@@ -861,7 +949,7 @@ float: right;
 
 <!--  onclick="toggleWitnessTable()"-->
 <!-- <input type="button" onclick="toggleWitnessTable()" class="accordion"><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</input> -->
-<button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls</button>
+<button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map styles</button>
 <div id="mapLegend" class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 	<button onclick="clearMap()">Clear Map</button>
 	<!-- <button onclick="showallMap()">Show All</button> -->
@@ -917,11 +1005,11 @@ float: right;
 			</div>
 		</span>
 		<!--  new section-->
-		<span id="low-side-panel">
+		<span id="low-side-panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 		<div id="low-btn-slide-toggle" class="slider-icon">&#9650;
 			<!--up &#9650  down 9660-->
 			</div>
-			<div id="low-side-headline" class="right-title"><h3>Manuscript Form Witness Table</h3>
+			<!-- <div id="low-side-headline" class="right-title"><h3>Manuscript Form Witness Table</h3>
 			</div>
 
 
@@ -931,7 +1019,7 @@ float: right;
 
 
 			</div>
-			<div id="low-side-text-connected-list" class="low-side-text-main" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
+			<div id="low-side-text-connected-list" class="low-side-text-main">
 
 				<table id="witness" style="cursor: auto;">
 					<thead>
@@ -949,7 +1037,7 @@ float: right;
 					</tbody>
 				</table>
 
-			</div>
+			</div> -->
 		</span>
 	</div>
 <!-- Witness table here -->
@@ -958,20 +1046,21 @@ float: right;
 
     <!-- BAM functionality. Only add what you need!  -->
     <script src="js/BAM-core-functionality.EM7.js"></script>
-    <script src="js/BAM-custom-panels.EM5.js"></script>
-    <script src="js/BAM-custom-menu.EM6.js"></script>
+    <script src="js/BAM-custom-panels.EM7.js"></script>
+    <script src="js/BAM-custom-menu.EM8.js"></script>
     <!-- <script src="js/BAM-datatables.js"></script> -->
     <!-- <script src="js/BAM-map-functionality.js"></script> -->
 		<!-- <script src="maptest/ TODO this will need to point to a new JavaScripted version of my woah canon map-->
    <!-- <script src="../BAM/BAM-d3-functionality.js"></script> -->
     <script src="js/BAM-layers.EM.js"></script>
     <!--<script src="../BAM/BAM-timeline.js"></script>-->
-    <script src="js/BAM-custom-functionality.EM9.js"></script>
+    <script src="js/BAM-custom-functionality.EM12.js"></script>
     <script src="js/BAM-cleanup6.js"></script>
 
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
 		<script>
 	    "use strict"
+
 var newheight = window.innerHeight -33
 document.getElementById('low-side-panel').style.top = newheight + 'px'
 window.addEventListener('resize', function(event){
@@ -989,7 +1078,7 @@ window.addEventListener('resize', function(event){
 	informationToggle = true;
 });
 
-var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "Language(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "script": "Script", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Bilingual(Y/N)", "bilingual_format": "Bilingual Format", "second_language": "Second Language", "second_script": "Second Script", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "colophon": "Colophon(Y/N)", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher"}
+var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "Language(s)", "script": "Script(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Bilingual(Y/N)", "bilingual_format": "Bilingual Format", "second_language": "Second Language", "second_script": "Second Script", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "colophon": "Colophon(Y/N)", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher"}
 			//k these don't do what I want, they broke leaflet
 			// L.DomEvent.disableScrollPropagation('panel');
 			// L.DomEvent.disableClickPropagation('panel');
@@ -1016,7 +1105,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.7-27.geojson',
+		geojsonPath = 'data/EM.9-20.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -1150,9 +1239,24 @@ console.log(searchIDs.findIndex(x => x.id === leafletID));
 var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
 var searchedMetadata = searchIDs[metaDataID]
 
-document.getElementById('right-side-headline2').innerHTML += '<img src=\"images/man-images/' + a.layer.feature.properties['5032'] + '\" />'
+document.getElementById('right-side-headline2').innerHTML += '<img  src=\"images/man-images/' + a.layer.feature.properties['5032'] + '\" /><br/>'
+// style="max-width:300px !important;width:95%;"
+if (a.layer.feature.properties['5033'] != "") {
+document.getElementById('right-side-headline2').innerHTML += '<p style="font-size:xx-small"><b>Image Source:' + a.layer.feature.properties['5033'] + '</p>'
+}
+if (a.layer.feature.properties['5034'] != "") {
+document.getElementById('right-side-headline2').innerHTML += '<p><b>Digital Surrogate: </b>' + a.layer.feature.properties['5034'] + '</p>'
+}
+if (a.layer.feature.properties['5035'] != "") {
+// document.getElementById('right-side-headline2').innerHTML
+var tester = searchedMetadata['bibliography'].includes(a.layer.feature.properties['5035'])
+//  console.log(tester)
+if( tester != true) {
+searchedMetadata['bibliography'] += ', <a href=\"' + a.layer.feature.properties['5035'] + '\" target=\"_blank\"><b>Zotero</b></a>'
+}
+}
 //TODO need zotero fix or search modification
-document.getElementById('right-side-headline2').innerHTML += '<a href=\"' + searchedMetadata['zotero'] + '\" target=\"_blank\" style=\"font-size:large;\">Zotero</a>'
+// document.getElementById('right-side-headline2').innerHTML += '<a href=\"' + searchedMetadata['zotero'] + '\" target=\"_blank\" style=\"font-size:large;\">Zotero</a>'
 
 for ( i in manuscriptmetadata) {
 	if (searchedMetadata[i] != null) {
@@ -1195,8 +1299,10 @@ for ( i in manuscriptmetadata) {
 	  function defineFeature(feature, latlng) {
 	    var categoryVal = feature.properties[categoryField],
 	      iconVal = feature.properties[iconField];
-	      var myClass = 'marker category-'+categoryVal+' icon-'+iconVal;
-	      var myIcon = L.divIcon({
+				//TODO where the icons come from
+	      // var myClass = 'marker category-'+categoryVal+' icon-'+iconVal;
+				var myClass = 'marker category-'+categoryVal;
+				var myIcon = L.divIcon({
 	          className: myClass,
 	          iconSize:null
 	      });
@@ -1232,7 +1338,7 @@ for ( i in manuscriptmetadata) {
 	          //bake some svg markup
 	          html = bakeThePie({data: data,
 	                              valueFunc: function(d){return d.values.length;},
-	                              strokeWidth: 1,
+	                              strokeWidth: 2, //made it 2 to match solo markers
 	                              outerRadius: r+1,
 	                              innerRadius: r-8,
 	                              pieClass: 'cluster-pie',
@@ -1273,6 +1379,8 @@ for ( i in manuscriptmetadata) {
 	      //Create an svg element
 	      var svg = document.createElementNS(d3.ns.prefix.svg, 'svg');
 	      //Create the pie chart
+
+
 	      var vis = d3.select(svg)
 	          .data([data])
 	          .attr('class', pieClass)
@@ -1284,7 +1392,12 @@ for ( i in manuscriptmetadata) {
 	          .attr('class', 'arc')
 	          .attr('transform', 'translate(' + origo + ',' + origo + ')');
 	      arcs.append('svg:path')
-	          .attr('class', pathClassFunc)
+				// .attr("style", "mask:url(#mask-stripe);")
+						// .style('fill', 'repeating-linear-gradient(90deg,#606dbc,#606dbc 3px,#465298 3px,#465298 6px)') --- doesn't work at all
+				// .style('mask', 'url(#pattern-stripe)')
+				//  .style('background-color', 'red')
+						// .style('fill', 'blue') //testing
+					  .attr('class', pathClassFunc) //colors the donut arcs
 	          .attr('stroke-width', strokeWidth)
 	          .attr('d', arc)
 	          .append('svg:title')
@@ -1438,7 +1551,7 @@ document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup
 // 		}
 window.onload = setTimeout(function () {
 	search();
-}, 500);
+}, 800);
 	  </script>
 
 

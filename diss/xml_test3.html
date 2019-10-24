@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Using the XMLHttpRequest Object</h2>
+
+<div id="demo">
+  <!-- <h1>Beta code text</h1> -->
+<button type="button" onclick="loadXMLDoc()">load xml hymn to Demeter with parallel dictionary entry and part of speech tags</button>
+<p></p>
+</div>
+<div id="lemmatized">
+  <!-- <h1>Dictionary entry</h1> -->
+</div>
+<div id="POS">
+  <!-- <h1>Part of Speech</h1> -->
+</div>
+
+<script>
+var xmlDoc;
+var obj = {};
+var xmlASjson
+
+function loadXMLDoc() {
+  document.getElementById("demo").innerHTML = '<h1>Beta code text</h1>'
+    document.getElementById("lemmatized").innerHTML = '<h1>Dictionary entry</h1>'
+      document.getElementById("POS").innerHTML = '<h1>Part of Speech</h1>'
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      // document.getElementById("demo").innerHTML =
+      xmlDoc = this.responseText;
+      console.log(xmlDoc)
+    }
+    parser = new DOMParser();
+xmlDoc2 = parser.parseFromString(xmlDoc,"text/xml");
+    // xmlASjson = xmlToJson(xmlDoc2)
+    // var jsonText = JSON.stringify(xmlASjson);
+// console.log(jsonText)
+var sentences = xmlDoc2.getElementsByTagName("sentence")
+for (var j = 0; j < sentences.length; j++) {
+  // for (j in xmlDoc2.getElementsByTagName("sentence")[i].children) {
+var words = xmlDoc2.getElementsByTagName("sentence")[j]
+// console.log(words.length)
+  // }
+
+  document.getElementById("demo").innerHTML += '<p>'
+  document.getElementById("lemmatized").innerHTML += '<p>'
+document.getElementById("POS").innerHTML += '<p>'
+for (var i = 0; i < words.childElementCount; i++) {
+  if (words.children[i].childElementCount > 0) {
+  document.getElementById("demo").innerHTML += words.children[i].attributes.form.nodeValue + ' '
+  if (words.children[i].children[0].id !== "unknown") {
+    document.getElementById("lemmatized").innerHTML += words.children[i].children[0].attributes.entry.nodeValue + ' '
+    document.getElementById("POS").innerHTML += words.children[i].children[0].attributes.POS.nodeValue + ' '
+  } else {
+    document.getElementById("lemmatized").innerHTML += '[unknown word] '
+    document.getElementById("POS").innerHTML += '[unknown word] '
+  };
+
+} else {
+  document.getElementById("demo").innerHTML += words.children[i].attributes.mark.nodeValue + ' '
+};
+
+};
+  document.getElementById("demo").innerHTML += '</p>'
+  document.getElementById("lemmatized").innerHTML += '</p>'
+  document.getElementById("POS").innerHTML += '</p>'
+}
+// document.getElementById("demo").innerHTML =
+  };
+  xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/Hymn.xml", true);
+  xhttp.send();
+}
+
+// Assuming xmlDoc is the XML DOM Document
+
+// Changes XML to JSON
+// function xmlToJson(xml) {
+//
+// 	// Create the return object
+// 	var obj = {};
+//
+// 	if (xml.nodeType == 1) { // element
+// 		// do attributes
+// 		if (xml.attributes.length > 0) {
+// 		obj["@attributes"] = {};
+// 			for (var j = 0; j < xml.attributes.length; j++) {
+// 				var attribute = xml.attributes.item(j);
+// 				obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+// 			}
+// 		}
+// 	} else if (xml.nodeType == 3) { // text
+// 		obj = xml.nodeValue;
+// 	}
+//
+// 	// do children
+// 	if (xml.hasChildNodes()) {
+// 		for(var i = 0; i < xml.childNodes.length; i++) {
+// 			var item = xml.childNodes.item(i);
+// 			var nodeName = item.nodeName;
+// 			if (typeof(obj[nodeName]) == "undefined") {
+// 				obj[nodeName] = xmlToJson(item);
+// 			} else {
+// 				if (typeof(obj[nodeName].push) == "undefined") {
+// 					var old = obj[nodeName];
+// 					obj[nodeName] = [];
+// 					obj[nodeName].push(old);
+// 				}
+// 				obj[nodeName].push(xmlToJson(item));
+// 			}
+// 		}
+// 	}
+// 	return obj;
+// };
+
+// this does something console.log(xmlDoc2.getElementsByTagName("sentence")[1])
+// var newv = xmlDoc2.getElementsByTagName("sentence")[1]
+//console.log(newv.children[0].attributes.form.nodeValue)
+
+// also does stuff
+// words.children[1].children[0].attributes.POS.nodeValue
+// "adjective"
+// words.children[1].children[0].attributes.entry.nodeValue
+// "εὔκομος"
+</script>
+
+</body>
+</html>

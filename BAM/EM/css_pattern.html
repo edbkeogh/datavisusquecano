@@ -7,6 +7,15 @@
 <head profile="http://www.w3.org/2005/10/profile">
     <title>
     </title>
+		<svg height="10" width="10" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <pattern id="category-0" patternUnits="userSpaceOnUse" width="10" height="10">
+      <image xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPScjZmZmJyAvPgogIDxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIiBmaWxsPSIjMDAwIi8+Cjwvc3ZnPg=="
+        x="0" y="0" width="10" height="10">
+      </image>
+    </pattern>
+  </defs>
+</svg>
     <link id="favicon" rel="icon" type="image/png" href="images/favicon.ico">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lato" />
@@ -21,8 +30,14 @@
             width: 100%;
             font-family: Cardo;
             font-size: 16px;
-            font-weight: lighter;
-            background-color: #f5f5f5;
+            font-w
+						eight: lighter;
+        /*right-sideelpant img {
+									height: 100%;
+									width: 100%;
+									max-width: 300px !important;
+					}  */
+					  background-color: #f5f5f5;
         }
 
                 #map {
@@ -31,7 +46,7 @@
             right: 0px;
             top: 0px;
             bottom: 0px;
-                        z-index: 1;
+            z-index: 1;
         }
 
 #mapLeg p {
@@ -150,6 +165,7 @@ float: right;
             stroke-width: .5px;
         }
 
+right-side-panel
         div.tooltip {
             position: absolute;
             padding: 5px;
@@ -161,6 +177,23 @@ float: right;
             pointer-events: none;
         }
 
+/*right-side-headline2.right-title-image img {
+					height: 100%;
+					width: 100%;
+					max-width: 300px !important;
+}*/
+
+#right-side-headline2 p {
+	text-align: center;
+	margin-block-start:0em;
+	margin-block-end:0em;
+
+}
+/*max-width: 300px !important;*/
+
+#right-side-headline2 img {
+	width:95%;
+}
 
         #d3MainChart {
             position: fixed;
@@ -178,7 +211,9 @@ float: right;
             /* min-width: 300px; */
             height: 100%;
             background-color: rgba(55, 89, 142, 0.65);
-            color: #fff;
+						background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPScjZmZmJyAvPgogIDxjaXJjbGUgY3g9IjEiIGN5PSIxIiByPSIxIiBmaWxsPSIjMDAwIi8+Cjwvc3ZnPg==");
+						  background-repeat: repeat;
+		        color: #fff;
             padding: 0;
             box-sizing: border-box;
             z-index: 1000;
@@ -201,7 +236,7 @@ float: right;
             -khtml-border-radius-bottomleft: 5px;
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
-            padding: 15px 15px 15px 1px;
+            padding: 15px 2px 15px 8px;
             cursor: pointer;
             z-index: 1000;
             color: black;
@@ -249,7 +284,7 @@ float: right;
 						-khtml-border-radius-bottomright: 5px;
 						border-top-right-radius: 5px;
 						border-bottom-right-radius: 5px;
-						padding: 15px 10px 15px 5px;
+						padding: 15px 8px 15px 2px;
 						cursor: pointer;
 						z-index: 1000;
 						color: black;
@@ -336,11 +371,11 @@ float: right;
 
         .right-title-image {
             display: block;
-            max-width: 150px;
-            width: auto;
+            /*max-width: 100% !important;*/
+            width: 100%;
             height: auto;
             margin: 0 auto;
-            padding: 5px;
+            padding-left: 15px;
         }
 
         .appLicense {
@@ -615,7 +650,7 @@ float: right;
     <link rel="stylesheet" href="css/datatables.css" />
 		<link rel="stylesheet" href="css/leaflet8.css" />
 		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-		<link rel="stylesheet" href="css/em62119.css" />
+		<link rel="stylesheet" href="css/em92019.css" />
 
 
     <!-- BAM Setup, after all necessary libraries are loaded -->
@@ -966,7 +1001,7 @@ float: right;
    <!-- <script src="../BAM/BAM-d3-functionality.js"></script> -->
     <script src="js/BAM-layers.EM.js"></script>
     <!--<script src="../BAM/BAM-timeline.js"></script>-->
-    <script src="js/BAM-custom-functionality.EM9.js"></script>
+    <script src="js/BAM-custom-functionality.EM10.js"></script>
     <script src="js/BAM-cleanup6.js"></script>
 
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
@@ -989,7 +1024,7 @@ window.addEventListener('resize', function(event){
 	informationToggle = true;
 });
 
-var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "Language(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "script": "Script", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Bilingual(Y/N)", "bilingual_format": "Bilingual Format", "second_language": "Second Language", "second_script": "Second Script", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "colophon": "Colophon(Y/N)", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher"}
+var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "Language(s)", "script": "Script(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Bilingual(Y/N)", "bilingual_format": "Bilingual Format", "second_language": "Second Language", "second_script": "Second Script", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "colophon": "Colophon(Y/N)", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher"}
 			//k these don't do what I want, they broke leaflet
 			// L.DomEvent.disableScrollPropagation('panel');
 			// L.DomEvent.disableClickPropagation('panel');
@@ -1016,7 +1051,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.7-27.geojson',
+		geojsonPath = 'data/EM.9-20.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -1150,9 +1185,24 @@ console.log(searchIDs.findIndex(x => x.id === leafletID));
 var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
 var searchedMetadata = searchIDs[metaDataID]
 
-document.getElementById('right-side-headline2').innerHTML += '<img src=\"images/man-images/' + a.layer.feature.properties['5032'] + '\" />'
+document.getElementById('right-side-headline2').innerHTML += '<img  src=\"images/man-images/' + a.layer.feature.properties['5032'] + '\" /><br/>'
+// style="max-width:300px !important;width:95%;"
+if (a.layer.feature.properties['5033'] != "") {
+document.getElementById('right-side-headline2').innerHTML += '<p style="font-size:xx-small"><b>Image Source:' + a.layer.feature.properties['5033'] + '</p>'
+}
+if (a.layer.feature.properties['5034'] != "") {
+document.getElementById('right-side-headline2').innerHTML += '<p><b>Digital Surrogate: </b>' + a.layer.feature.properties['5034'] + '</p>'
+}
+if (a.layer.feature.properties['5035'] != "") {
+// document.getElementById('right-side-headline2').innerHTML
+var tester = searchedMetadata['bibliography'].includes(a.layer.feature.properties['5035'])
+//  console.log(tester)
+if( tester != true) {
+searchedMetadata['bibliography'] += ', <a href=\"' + a.layer.feature.properties['5035'] + '\" target=\"_blank\"><b>Zotero</b></a>'
+}
+}
 //TODO need zotero fix or search modification
-document.getElementById('right-side-headline2').innerHTML += '<a href=\"' + searchedMetadata['zotero'] + '\" target=\"_blank\" style=\"font-size:large;\">Zotero</a>'
+// document.getElementById('right-side-headline2').innerHTML += '<a href=\"' + searchedMetadata['zotero'] + '\" target=\"_blank\" style=\"font-size:large;\">Zotero</a>'
 
 for ( i in manuscriptmetadata) {
 	if (searchedMetadata[i] != null) {
@@ -1438,7 +1488,7 @@ document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup
 // 		}
 window.onload = setTimeout(function () {
 	search();
-}, 500);
+}, 800);
 	  </script>
 
 

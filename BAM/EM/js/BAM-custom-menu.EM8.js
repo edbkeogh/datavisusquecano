@@ -6,7 +6,7 @@
 
 var mainMenuButtonHolder = {};
 
-mainMenuButtonHolder.infoButton = '<button id="infoButton" class="accordion"><img src="images/open-iconic/info.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;About</button>';
+mainMenuButtonHolder.infoButton = '<button id="infoButton"><img src="images/open-iconic/info.svg" class="accordianImage" alt="info">&nbsp;&nbsp;About</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
 
@@ -25,7 +25,7 @@ $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
             //             });
 //database table toggle
 // TODO you can style this to the bottom with style="position:fixed;left:0px;bottom:0px;"
-mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="images/open-iconic/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</button>';
+mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton"><img src="images/open-iconic/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;Witness Table</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.databaseLaunchButton);
 

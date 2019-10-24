@@ -6,7 +6,7 @@
 
 var mainMenuButtonHolder = {};
 
-mainMenuButtonHolder.infoButton = '<button id="infoButton" class="accordion"><img src="images/open-iconic/info.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;About</button>';
+mainMenuButtonHolder.infoButton = '<button id="infoButton" class="accordion"><img src="images/open-iconic/info.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Application Information</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
 
@@ -23,15 +23,14 @@ $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
             //                 $('.nonMapOverlay').hide(); //hide all the other overlays
             //                $('#contributorsBox').toggle(); //display ours
             //             });
-//database table toggle
-// TODO you can style this to the bottom with style="position:fixed;left:0px;bottom:0px;"
-mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="images/open-iconic/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</button>';
+
+mainMenuButtonHolder.databaseLaunchButton = '<button id="databaseLaunchButton" class="accordion"><img src="images/open-iconic/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Database Table</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.databaseLaunchButton);
 
  $('#databaseLaunchButton').click(function() {
                 $('.nonMapOverlay').hide(); //hide all the other overlays
-               $('#witnessPanel').toggle(); //display ours
+               $('#databaseBox').toggle(); //display ours
             });
 
 
