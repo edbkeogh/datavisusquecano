@@ -70,7 +70,7 @@ $( "#panelHolder" ).append(aboutBoxHtml);
 
 overlayPanelsList.infoBox = 'overlay';
 
-var witnessHTML = '<div id="witnessPanel" class="nonMapOverlay" style="overflow:auto;"> <b> Manuscript Results </b>';
+var witnessHTML = '<div id="witnessPanel" class="nonMapOverlay" style="overflow:auto;"> <b> Form Witness Table </b><br/><p>sources from antiquity that describe the form(s) that are included in the filter';
 witnessHTML = witnessHTML + '<div id="witnessPanelClose" class="popupCloseCarte">x</div> <hr />';
 witnessHTML = witnessHTML + '<div id="witnessPanelContents">';
 witnessHTML = witnessHTML + '<table id="witness" style="cursor: auto;"><thead><tr><td>ID</td><td>Author</td><td>Term. Post</td><td>Term. Ante</td><td>Form</td><td>Substrate</td><td>Text</td></tr></thead>'

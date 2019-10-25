@@ -6,7 +6,7 @@
 
 var mainMenuButtonHolder = {};
 
-mainMenuButtonHolder.infoButton = '<button id="infoButton"><img src="images/open-iconic/info.svg" class="accordianImage" alt="info">&nbsp;&nbsp;About</button>';
+mainMenuButtonHolder.infoButton = '<button id="infoButton"><img src="images/open-iconic/info.svg" class="accordianImage" alt="info">&nbsp;&nbsp;About this site</button>';
 
 $( "#bamButtonHolder" ).append(mainMenuButtonHolder.infoButton);
 
