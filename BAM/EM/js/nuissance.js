@@ -5023,6 +5023,7 @@
             t.endLabelFitText = ei()(t.endLabel.node())
         },
         update: function(e) {
+          console.log(e.gradient)
             e.gradient.colorScale(e.scale),
             e.box.attr("width", e.width).attr("height", e.height).style("fill", "url(#" + e.gradient.id() + ")"),
             e.unitLabel.text(e.label).attr("x", .5 * e.width).attr("y", .5 * e.height).style("text-anchor", "middle").style("dominant-baseline", "central").style("fill", ti(e.scale((e.scale.domain()[e.scale.domain().length - 1] - e.scale.domain()[0]) / 2)).isLight() ? "#444" : "#CCC"),
