@@ -67,21 +67,18 @@
   background: #230F11;
   border-color: #170A0B;
 }
-.category-0{
-  fill: repeating-linear-gradient(
-  90deg,
-  #606dbc,
-  #606dbc 3px,
-  #465298 3px,
-  #465298 6px);
+.category-13{
+  /*mask: url(#mask-stripe);*/
+  fill: url(#diagonalHatch2);
   stroke: rgb(19, 76, 27);
-  background: repeating-linear-gradient(
-  90deg,
-  #606dbc,
-  #606dbc 3px,
-  #465298 3px,
-  #465298 6px
-);
+  background: repeating-linear-gradient(45deg,#606dbc,#606dbc 3px,#000 3px,#000 6px);
+  /*background: url(#diagonalHatch);*/
+  border-color: rgb(19, 76, 27);
+}
+.category-100{
+  fill: green;
+  stroke: rgb(19, 76, 27);
+  background: repeating-linear-gradient(90deg,#606dbc,#606dbc 3px,#465298 3px,#465298 6px);
   border-color: rgb(19, 76, 27);
 }
 .category-1{
@@ -144,7 +141,7 @@
   border-color: #000;
 }
 
-.category-13{
+.category-0{
   fill: #33a02c;
   background: #33a02c;
   stroke: #000;
@@ -248,9 +245,9 @@
 
 /*marker icons*/
 .icon-1{
-   background-image: url('/css/images/open-iconic/book-3x.png'); 
-  background-repeat: no-repeat;
-  background-position: 0px 1px;
+   background-image: url('../images/open-iconic/book14.png');
+     background-repeat: no-repeat;
+  background-position: 3px 2px;
 }
 .icon-2{
   background-image: url('bicycle-16.png');

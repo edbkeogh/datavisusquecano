@@ -1065,8 +1065,6 @@ border: none;
 		<script>
 	    "use strict"
 
-var markerTemp = L.marker();
-var catHolder = 'category-30';
 var newheight = window.innerHeight -33
 document.getElementById('low-side-panel').style.top = newheight + 'px'
 window.addEventListener('resize', function(event){
@@ -1118,7 +1116,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 		popupFields = ['5001','5002','5055','5003','4'], //Popup will display these fields
 		//tileServer = 'http://{s}.sm.mapstack.stamen.com/terrain/{z}/{x}/{y}.png', // for the terrain plus political
 		tileServer = 'https://a.tiles.mapbox.com/v3/isawnyu.map-knmctlkh/{z}/{x}/{y}.png',
-		tileAttribution = '<a href="http://maps.stamen.com/">Map tiles</a> by <a href="http://stamen.com">Stamen Design</a>, under <a target="_top" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data: <a href="http://awmc.unc.edu/wordpress/">AWMC</a>, Map Inspiration: <a href="http://bl.ocks.org/gisminister/10001728">B&#229rd Romstad</a>',
+		tileAttribution = '<a href="http://maps.stamen.com/">Map tiles</a> by <a href="http://stamen.com">Stamen Design</a>, under <a target="_top" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data: <a href="http://awmc.unc.edu/wordpress/">AWMC</a>, Map Inspiration: <a href="http://bl.ocks.org/gisminister/10001728">Bård Romstad</a>',
 		rmax = 30, //Maximum radius for cluster pies
 	      markerclusters = L.markerClusterGroup({
 	        maxClusterRadius: 2*rmax,
@@ -1147,22 +1145,25 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 	            map.attributionControl.addAttribution(metadata.attribution);
 	      //      renderLegend();
 				//
-				// markers.on('mouseover', function (a) {
-				// 	console.log('a.layer._icon.classList[2]');
+				markers.on('mouseover', function (a) {
+					console.log('a.layer._icon.classList[2]');
 					//testing why things aren't changing
-				//
-				// var leafletID = a.layer.feature.properties['5004'];
-				// document.getElementById('metadataList').innerHTML = ''
-				// document.getElementById('metadataList').innerHTML += 'The map dataset does not contain metadata, perform a search using the \"Select Search Parameters\" functions from the left side panel to load metadata.<br/><b>ID: </b>' + leafletID
-				// console.log(searchIDs.findIndex(x => x.id === leafletID));
-				// var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
-				// console.log(metaDataID)
 
-				// });
+				});
 
 				markers.on('click', function (a) {
-					console.log(a.layer.feature.properties['5004']);
+					// console.log(a.layer.feature.properties['5004']);
 					//testing why things aren't changing
+
+					var f = document.getElementById('right-btn-slide-toggle');
+	   setTimeout(function() {
+			 console.log(f);
+	      f.style.display = (f.style.display == 'none' ? '' : 'none');
+	       setTimeout(function() {
+	          f.style.display = (f.style.display == 'none' ? '' : 'none');
+	       }, 500);
+	   }, 500);
+
 
 
 	 var leafletID = a.layer.feature.properties['5004'];
@@ -1248,51 +1249,8 @@ console.log(metaDataID)
 // console.log(layer);
      map.fitBounds(fil.getBounds());
 		 //TODO this is where the metadata happens
-//var markerTemp;
-		 fil.on('mouseover', function (e) {
-			//  console.log(this);
-			 e.layer.openPopup();
-			//  console.log('mouseover');
-			 //TODO TODO TODO
-			//  var newIcon = L.divIcon({className: 'marker category-30',iconSize:null});
-			//  e.target.setIcon(newIcon)
-//     markerTemp = L.marker(e.latlng, {
-//         icon: L.divIcon({
-// 	          className: 'marker category-30',
-// 	          iconSize:null
-// 	      })//TODO THINGIE
-//     })
-// 		markerTemp.on('click', function (c) {
-// 			var f = document.getElementById('right-btn-slide-toggle');
-// 	var grayblink = setInterval(function() {f.style['background-color'] = '#fff';
-// setTimeout(function() {f.style['background-color'] = '#d7dce4';}, 125);}, 250);
-// 	setTimeout(function() {
-// 		clearInterval(grayblink);
-// 	}, 1500);
-// 		})
-// 		markerTemp.on('mouseout', function (b) {
-// console.log(b)
-// 			map.removeLayer(markerTemp);})
-// 			.addTo(map);
-// 			// catHolder = u.layer._icon.classList[2];
-// 			//  u.layer._icon.classList[2] = 'category-30';
-//
-		 })
-		 fil.on('mouseout', function (e) {
-			 e.layer.closePopup();
-		 })
-
-
-
 
 		 fil.on('click', function (a) {
-			 var f = document.getElementById('right-btn-slide-toggle');
-			 var grayblink = setInterval(function() {f.style['background-color'] = '#fff';
-			 setTimeout(function() {f.style['background-color'] = '#d7dce4';}, 125);}, 250);
-			 setTimeout(function() {
-			 clearInterval(grayblink);
-			 }, 1500);
-
 			 console.log(a.layer.feature.properties['5004']);
 
 
@@ -1364,7 +1322,7 @@ for ( i in manuscriptmetadata) {
 	  function defineFeature(feature, latlng) {
 	    var categoryVal = feature.properties[categoryField],
 	      iconVal = feature.properties[iconField];
-				//TODO where the icons come from swap to the top one for icons
+				//TODO where the icons come from
 	      // var myClass = 'marker category-'+categoryVal+' icon-'+iconVal;
 				var myClass = 'marker category-'+categoryVal;
 				var myIcon = L.divIcon({
@@ -1387,8 +1345,8 @@ for ( i in manuscriptmetadata) {
 	        popupContent += '<span class="attribute"><span class="label">'+label+':</span> '+val+'</span>';
 	      }
 	    });
-	    popupContent = '<div class="map-popup">'+popupContent+'<i>click the circle to send metadata to the right hand panel</i></div>';
-	    layer.bindPopup(popupContent,{offset: L.point(1,-5)});
+	    popupContent = '<div class="map-popup">'+popupContent+'</div>';
+	    layer.bindPopup(popupContent,{offset: L.point(1,-2)});
 
 		}
 	  function defineClusterIcon(cluster) {
