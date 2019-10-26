@@ -11,7 +11,7 @@ var tldata = [
           {
             timeRange: [present, present],
             val: 'Manuscript Lane',
-            color: 'blue'
+            color: 'white'
           }
         ]
       },
@@ -31,23 +31,23 @@ var tldata = [
           {
             timeRange: [710, 794],
             val: 'Nara',
-            color: 'blue'
+            color: 'green'
           },
           {
             timeRange: [794, 1185],
             val: 'Heian',
-            color: 'blue'
+            color: 'purple'
           },
           {
             timeRange: [1185, 1333],
             val: 'Kamakura',
-            color: 'blue'
+            color: 'orange'
           },
 
           {
             timeRange: [1333, 1568],
             val: 'Muromachi',
-            color: 'blue'
+            color: 'sienna'
           }
         ]
       }
@@ -63,7 +63,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+          color: 'white'
         }
       ]
     },
@@ -73,18 +73,17 @@ var tldata = [
         {
           timeRange: [-57, 935],
           val: 'Silla',
-          color: 'blue'
+          color: 'red'
         },
         {
           timeRange: [918, 1392],
           val: 'Goryeo',
-          color: 'blue',
           color: 'blue'
         },
         {
           timeRange: [1392, 1897],
           val: 'Joseon',
-          color: 'blue'
+          color: 'green'
         }
       ]
     },
@@ -94,7 +93,7 @@ var tldata = [
         {
           timeRange: [-37, 668],
           val: 'Goguryeo',
-          color: 'blue'
+          color: 'orange'
         }
 
       ]
@@ -105,7 +104,7 @@ var tldata = [
         {
           timeRange: [-18, 660],
           val: 'Baekje',
-          color: 'blue'
+          color: 'purple'
         }
 
       ]
@@ -122,7 +121,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+          color: 'white'
         }
       ]
     },
@@ -132,17 +131,17 @@ var tldata = [
         {
           timeRange: [-1600, -1046],
           val: 'Shang',
-          color: 'blue'
+          color: 'yellow'
         },
         {
           timeRange: [-1046, -256],
           val: 'Zhou',
-          color: 'blue'
+          color: 'sienna'
         },
         {
           timeRange: [-221, -207],
           val: 'Qin',
-          color: 'blue'
+          color: 'red'
         },
         {
           timeRange: [-202, 220],
@@ -152,33 +151,33 @@ var tldata = [
         {
           timeRange: [226, 420],
           val: 'Jin',
-          color: 'blue'
+          color: 'green'
         },
 
         {
           timeRange: [581, 618],
           val: 'Sui',
-          color: 'blue'
+          color: 'orange'
         },
         {
           timeRange: [618, 907],
           val: 'Tang',
-          color: 'blue'
+          color: 'purple'
         },
         {
           timeRange: [907, 960],
           val: 'Five Dynasties',
-          color: 'blue'
+          color: 'yellow'
         },
         {
           timeRange: [960, 1234],
           val: 'Song',
-          color: 'blue'
+          color: 'sienna'
         },
         {
           timeRange: [1271, 1368],
           val: 'Yuan',
-          color: 'blue'
+          color: 'orange'
         },
         {
           timeRange: [1368, 1644],
@@ -194,7 +193,7 @@ var tldata = [
         {
           timeRange: [-476, -221],
           val: 'Warring States',
-          color: 'blue'
+          color: 'green'
         },
         {
           timeRange: [220, 280],
@@ -222,7 +221,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+          color: 'white'
         }
       ]
     },
@@ -237,7 +236,7 @@ var tldata = [
         {
           timeRange: [-111, 938],
           val: 'Chinese',
-          color: 'blue'
+          color: 'red'
         },
         {
           timeRange: [938, 1009],
@@ -252,7 +251,7 @@ var tldata = [
         {
           timeRange: [1407, 1427],
           val: 'Chinese',
-          color: 'blue'
+          color: 'red'
         },
         {
           timeRange: [1427, 1527],
@@ -272,7 +271,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+          color: 'white'
         }
       ]
     },
@@ -322,7 +321,7 @@ var tldata = [
         {
           timeRange: [1206, 1368],
           val: 'Mongol',
-          color: 'blue'
+          color: 'yellow'
         }
       ]
     },
@@ -357,7 +356,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+          color: 'white'
         }
       ]
     },
@@ -387,7 +386,7 @@ var tldata = [
         {
           timeRange: [1240, 1354],
           val: 'Yuan',
-          color: 'blue'
+          color: 'orange'
         },
         {
           timeRange: [1354, 1720],
@@ -407,7 +406,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+          color: 'white'
         }
       ]
     },
@@ -489,7 +488,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+          color: 'white'
         }
       ]
     },
@@ -611,7 +610,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -626,12 +625,12 @@ var tldata = [
         {
           timeRange: [-559, -330],
           val: 'Achaemenid',
-          color: 'blue'
+          color: 'orange'
         },
         {
           timeRange: [-330, -312],
           val: 'Macedonian',
-          color: 'blue'
+          color: 'sienna'
         },
         {
           timeRange: [-312, -63],
@@ -641,17 +640,17 @@ var tldata = [
         {
           timeRange: [224, 651],
           val: 'Sasanian',
-          color: 'blue'
+          color: 'yellow'
         },
         {
           timeRange: [651, 750],
           val: 'Umayyad',
-          color: 'blue'
+          color: 'green'
         },
         {
           timeRange: [750, 934],
           val: 'Abbasid',
-          color: 'blue'
+     color: 'red'
         },
         {
           timeRange: [934, 1062],
@@ -681,7 +680,7 @@ var tldata = [
         {
           timeRange: [-248, 224],
           val: 'Parthian',
-          color: 'blue'
+          color: 'red'
         },
         {
           timeRange: [861, 1003],
@@ -696,7 +695,7 @@ var tldata = [
         {
           timeRange: [1219, 1370],
           val: 'Mongol',
-          color: 'blue'
+          color: 'yellow'
         },
       ]
     },
@@ -726,7 +725,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -756,12 +755,12 @@ var tldata = [
         {
           timeRange: [-626, -539],
           val: 'Neo-Babylonian',
-          color: 'blue'
+          color: 'sienna'
         },
         {
           timeRange: [-549, -330],
           val: 'Achaemenid',
-          color: 'blue'
+          color: 'orange'
         },
         {
           timeRange: [-330, -150],
@@ -771,32 +770,32 @@ var tldata = [
         {
           timeRange: [-150, 225],
           val: 'Parthian',
-          color: 'blue'
+          color: 'red'
         },
         {
           timeRange: [226, 638],
           val: 'Sasanian',
-          color: 'blue'
+          color: 'yellow'
         },
         {
           timeRange: [638, 661],
           val: 'Rashidun',
-          color: 'blue'
+          color: 'sienna'
         },
         {
           timeRange: [661, 750],
           val: 'Umayyad',
-          color: 'blue'
+          color: 'green'
         },
         {
           timeRange: [750, 1258],
           val: 'Abbasid',
-          color: 'blue'
+     color: 'red'
         },
         {
           timeRange: [1258, 1432],
           val: 'Mongol',
-          color: 'blue'
+          color: 'yellow'
         },
         {
           timeRange: [1466, 1501],
@@ -811,7 +810,7 @@ var tldata = [
         {
           timeRange: [1533, 1918],
           val: 'Ottoman',
-          color: 'blue'
+          color: 'green'
         }
       ]
     },
@@ -847,7 +846,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -867,7 +866,7 @@ var tldata = [
         {
           timeRange: [-332, -140],
           val: 'Hellenistic',
-          color: 'blue'
+          color: 'purple'
         },
         {
           timeRange: [-140, -37],
@@ -892,12 +891,12 @@ var tldata = [
         {
           timeRange: [750, 878],
           val: 'Abbasid',
-          color: 'blue'
+     color: 'red'
         },
         {
           timeRange: [878, 905],
           val: 'Tulunid',
-          color: 'blue'
+          color: 'red'
         },
         {
           timeRange: [935, 969],
@@ -907,7 +906,7 @@ var tldata = [
         {
           timeRange: [969, 1099],
           val: 'Fatimid',
-          color: 'blue'
+          color: 'green'
         },
         {
           timeRange: [1099, 1291],
@@ -938,7 +937,7 @@ var tldata = [
     {
       timeRange: [1076, 1123],
       val: 'Seljuk',
-      color: 'blue'
+          color: 'sienna'
     },
     {
       timeRange: [1109, 1289],
@@ -958,12 +957,12 @@ var tldata = [
         {
           timeRange: [1171, 1260],
           val: 'Ayyubid',
-          color: 'blue'
+          color: 'yellow'
         },
         {
           timeRange: [1250, 1517],
           val: 'Mamluk',
-          color: 'blue'
+          color: 'purple'
         }
       ]
     },
@@ -988,7 +987,7 @@ var tldata = [
         {
           timeRange: [-539, -332],
           val: 'Achaemenid',
-          color: 'blue'
+          color: 'orange'
         }
         ]
     },
@@ -1028,7 +1027,7 @@ var tldata = [
         {
           timeRange: [-586, -539],
           val: 'Neo-Babylonian',
-          color: 'blue'
+          color: 'sienna'
         }
       ]
     }
@@ -1043,7 +1042,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -1069,7 +1068,7 @@ var tldata = [
         {
           timeRange: [750, 967],
           val: 'Abbasid',
-          color: 'blue'
+     color: 'red'
         },
         {
           timeRange: [967, 1925],
@@ -1189,7 +1188,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -1301,7 +1300,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -1321,12 +1320,12 @@ var tldata = [
         {
           timeRange: [-546, -344],
           val: 'Achaemenid',
-          color: 'blue'
+          color: 'orange'
         },
         {
           timeRange: [-344, -282],
           val: 'Macedonian',
-          color: 'blue'
+          color: 'sienna'
         },
         {
           timeRange: [-282, -133],
@@ -1336,7 +1335,7 @@ var tldata = [
         {
           timeRange: [324, 1453],
           val: 'Byzantine',
-          color: 'blue'
+          color: 'purple'
         },
       ]
     },
@@ -1361,7 +1360,7 @@ var tldata = [
         {
           timeRange: [1071, 1308],
           val: 'Seljuk',
-          color: 'blue'
+          color: 'sienna'
         },
         {
           timeRange: [387, 646],
@@ -1438,7 +1437,7 @@ var tldata = [
         {
           timeRange: [1299, 1918],
           val: 'Ottoman',
-          color: 'blue'
+          color: 'green'
         }
       ]
     },
@@ -1474,7 +1473,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -1504,7 +1503,7 @@ var tldata = [
         {
           timeRange: [-323, -146],
           val: 'Hellenistic',
-          color: 'blue'
+          color: 'purple'
         },
 
         {
@@ -1515,12 +1514,12 @@ var tldata = [
         {
           timeRange: [324, 1453],
           val: 'Byzantine',
-          color: 'blue'
+          color: 'purple'
         },
         {
           timeRange: [1453, 1821],
           val: 'Ottoman',
-          color: 'blue'
+          color: 'green'
         }
       ]
     },
@@ -1547,7 +1546,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -1607,17 +1606,17 @@ var tldata = [
         {
           timeRange: [641, 661],
           val: 'Rashidun',
-          color: 'blue'
+          color: 'sienna'
         },
         {
           timeRange: [661, 750],
           val: 'Umayyad',
-          color: 'blue'
+          color: 'green'
         },
         {
           timeRange: [750, 935],
           val: 'Abbasid',
-          color: 'blue'
+     color: 'red'
         },
         {
           timeRange: [935, 969],
@@ -1627,22 +1626,22 @@ var tldata = [
         {
           timeRange: [969, 1171],
           val: 'Fatimid',
-          color: 'blue'
+          color: 'green'
         },
         {
           timeRange: [1171, 1250],
           val: 'Ayyubid',
-          color: 'blue'
+          color: 'yellow'
         },
         {
           timeRange: [1250, 1517],
           val: 'Mamluk',
-          color: 'blue'
+          color: 'purple'
         },
         {
           timeRange: [1517, 1867],
           val: 'Ottoman',
-          color: 'blue'
+          color: 'green'
         }
       ]
     },
@@ -1652,12 +1651,12 @@ var tldata = [
         {
           timeRange: [619, 629],
           val: 'Sasanian',
-          color: 'blue'
+          color: 'yellow'
         },
         {
           timeRange: [868, 905],
           val: 'Tulunid',
-          color: 'blue'
+          color: 'red'
         }
 
       ]
@@ -1713,7 +1712,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -1754,7 +1753,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -1809,7 +1808,7 @@ var tldata = [
         {
           timeRange: [774, 1250],
           val: 'Holy Roman Empire',
-          color: 'blue'
+          color: 'orange'
         }
 
       ]
@@ -1843,7 +1842,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -1868,7 +1867,7 @@ var tldata = [
         {
           timeRange: [534, 709],
           val: 'Byzantine',
-          color: 'blue'
+          color: 'purple'
         },
         {
           timeRange: [777, 909],
@@ -1878,7 +1877,7 @@ var tldata = [
         {
           timeRange: [909, 1049],
           val: 'Fatimid',
-          color: 'blue'
+          color: 'green'
         },
         {
           timeRange: [1049, 1148],
@@ -1903,12 +1902,12 @@ var tldata = [
         {
           timeRange: [645, 750],
           val: 'Umayyad',
-          color: 'blue'
+          color: 'green'
         },
         {
           timeRange: [750, 930],
           val: 'Abbasid',
-          color: 'blue'
+     color: 'red'
         },
         {
           timeRange: [1040, 1147],
@@ -1955,7 +1954,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -1970,7 +1969,7 @@ var tldata = [
         {
           timeRange: [800, 1066],
           val: 'Viking',
-          color: 'blue'
+          color: 'orange'
         },
         {
           timeRange: [1050, present],
@@ -2013,7 +2012,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -2043,7 +2042,7 @@ var tldata = [
         {
           timeRange: [1066, 1154],
           val: 'Norman',
-          color: 'blue'
+          color: 'purple'
         },
         {
           timeRange: [1154, 1485],
@@ -2101,7 +2100,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -2116,12 +2115,12 @@ var tldata = [
         {
           timeRange: [800, 1168],
           val: 'Viking',
-          color: 'blue'
+          color: 'orange'
         },
         {
           timeRange: [1168, 1535],
           val: 'Norman',
-          color: 'blue'
+          color: 'purple'
         }
       ]
     }
@@ -2137,7 +2136,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -2152,17 +2151,17 @@ var tldata = [
         {
           timeRange: [486, 758],
           val: 'Merovingian',
-          color: 'blue'
+          color: 'green'
         },
         {
           timeRange: [751, 888],
           val: 'Carolingian',
-          color: 'blue'
+          color: 'yellow'
         },
         {
           timeRange: [962, 1806],
           val: 'Holy Roman Empire',
-          color: 'blue'
+          color: 'orange'
         }
       ]
     },
@@ -2188,7 +2187,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -2203,7 +2202,7 @@ var tldata = [
         {
           timeRange: [486, 758],
           val: 'Merovingian',
-          color: 'blue'
+          color: 'green'
         },
         {
           timeRange: [987, 1328],
@@ -2223,11 +2222,12 @@ var tldata = [
         {
           timeRange: [418, 720],
           val: 'Visigothic',
-          color: 'blue'
+          color: 'red'
         },
         {
           timeRange: [751, 987],
-          val: 'Carolingian'
+          val: 'Carolingian',
+          color: 'yellow'
         }
 
       ]
@@ -2255,7 +2255,7 @@ var tldata = [
         {
           timeRange: [present, present],
           val: 'Manuscript Lane',
-          color: 'blue'
+     color: 'white'
         }
       ]
     },
@@ -2270,7 +2270,7 @@ var tldata = [
         {
           timeRange: [415, 718],
           val: 'Visigothic',
-          color: 'blue'
+          color: 'red'
         },
         {
           timeRange: [718, 924],
