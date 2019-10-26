@@ -896,7 +896,7 @@ var tldata = [
         {
           timeRange: [878, 905],
           val: 'Tulunid',
-          color: 'red'
+          color: 'blue'
         },
         {
           timeRange: [935, 969],
@@ -1656,7 +1656,7 @@ var tldata = [
         {
           timeRange: [868, 905],
           val: 'Tulunid',
-          color: 'red'
+          color: 'blue'
         }
 
       ]
