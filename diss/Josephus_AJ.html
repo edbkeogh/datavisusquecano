@@ -52,7 +52,7 @@
 
 <script>
 var xmlDoc;
-var obj = {};
+var obj = [];
 var xmlASjson;
 var betaCode = "";
 var sentenceID = "";
@@ -60,7 +60,7 @@ var tText, tLemma, tPOS, tWC, tPC, verbCount, articleCount, nounCount, pronounCo
 
 function loadXMLDoc() {
   // document.getElementById("readable").innerHTML = '<h1>Text</h1>'
-
+// xmlASjson += '\{'
   // document.getElementById("demo").innerHTML = '<h1>Beta code text</h1>'
     // document.getElementById("lemmatized").innerHTML = '<h1>Dictionary entry</h1>'
       // document.getElementById("POS").innerHTML = '<h1>Part of Speech</h1>'
@@ -77,20 +77,21 @@ var sentences = xmlDoc2.getElementsByTagName("sentence")
 for (var j = 0; j < sentences.length; j++) {
 var words = xmlDoc2.getElementsByTagName("sentence")[j]
 
-  let tableBody = document.getElementById('tableData');
-  				let tableRow = "<tr>";
-  					tableRow += "<td>";
-            tableRow += '\'' + sentences[j].attributes.location.value.toString() + '\'</td>';
-
-            tableRow += '<td>' + sentences[j].id;
-  					tableRow += "</td>";
+  // let tableBody = document.getElementById('tableData');
+  				// let tableRow = "<tr>";
+  					// tableRow += "<td>";
+            // tableRow += '\" ' + sentences[j].attributes.location.value.toString() + '\" </td>';
+// obj.push(sentences[j].attributes.location.value.toString())
+xmlASjson = '\{\" chap\" \: \" ' + sentences[j].attributes.location.value.toString() + '\" \, \"sentence\" \: \" ' + sentences[j].id.toString() + '\" \, ';
+            //  += '<td>' + sentences[j].id;
+  					// tableRow += "</td>";
 
   // document.getElementById("demo").innerHTML += '<p>';
   // document.getElementById("lemmatized").innerHTML += '<p>';
 // document.getElementById("POS").innerHTML += '<p>';
-tText = "<td>";
-tLemma = "<td>";
-tPOS = "<td>";
+tText = "\"text\" \: \" ";
+tLemma = "\"lemma\" \: \" ";
+tPOS = "\"POS\" \: \" ";
 tWC = 0;
 tPC = 0;
 verbCount = 0;
@@ -176,36 +177,38 @@ console.log("POS error");
 };
   // document.getElementById("readable").innerHTML += '</p>';
   // tText += "</td>";
-  tableRow += tText + '</td>';
+  xmlASjson += tText + '\" \, ';
   // document.getElementById("demo").innerHTML += '</p>';
   // document.getElementById("lemmatized").innerHTML += '</p>';
-    tableRow += tLemma + '</td>';
+    xmlASjson += tLemma + '\" \, ';
   // document.getElementById("POS").innerHTML += '</p>';
-  tableRow += tPOS + '</td>';
-  tableRow += '<td>' + tWC + '</td>';
-  tableRow += '<td>' + tPC + '</td>';
+  xmlASjson += tPOS + '\" \, ';
+  xmlASjson += '\" wordCount\" \: ' + tWC + '\" \, ';
+  xmlASjson += '\" punctCount\" \: ' + tPC + '\" \, ';
   // tableRow += '<td>' + verbCount / tWC + '</td>'; // this will happen when I add colory stuff to the cells
-  tableRow += '<td>' + verbCount + '</td>';
-  tableRow += '<td>' + articleCount + '</td>';
-  tableRow += '<td>' + nounCount + '</td>';
-  tableRow += '<td>' + pronounCount + '</td>';
-  tableRow += '<td>' + adjectiveCount + '</td>';
-  tableRow += '<td>' + prepositionCount + '</td>';
-  tableRow += '<td>' + particleCount + '</td>';
-  tableRow += '<td>' + conjunctionCount + '</td>';
-  tableRow += '<td>' + unknownCount + '</td>';
-  tableRow += '<td>' + adverbCount + '</td>';
-  tableRow += '<td>' + properCount + '</td>';
-  tableRow += '<td>' + interjectionCount + '</td>';
-    				tableRow += "</tr>";
-    				tableBody.innerHTML += tableRow;
+  xmlASjson += '\" verbCount\" \: ' + verbCount + '\" \, ';
+  xmlASjson += '\" articleCount\" \: ' + articleCount + '\" \, ';
+  xmlASjson += '\" nounCount\" \: ' + nounCount + '\" \, ';
+  xmlASjson += '\" pronounCount\" \: ' + pronounCount + '\" \, ';
+  xmlASjson += '\" adjectiveCount\" \: ' + adjectiveCount + '\" \, ';
+  xmlASjson += '\" prepositionCount\" \: ' + prepositionCount + '\" \, ';
+  xmlASjson += '\" particleCount\" \: ' + particleCount + '\" \, ';
+  xmlASjson += '\" conjunctionCount\" \: ' + conjunctionCount + '\" \, ';
+  xmlASjson += '\" unknownCount\" \: ' + unknownCount + '\" \, ';
+  xmlASjson += '\" adverbCount\" \: ' + adverbCount + '\" \, ';
+  xmlASjson += '\" properCount\" \: ' + properCount + '\" \, ';
+  xmlASjson += '\" interjectionCount\" \: ' + interjectionCount + '\" ';
+    				xmlASjson += "\}";
+            obj.push(xmlASjson)
+    				// tableBody.innerHTML += tableRow;
             // console.log(j);
 }
 // document.getElementById("demo").innerHTML =
   };
   // xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/Hymn.xml", true);//diss/josephus/Flavius Josephus (0526) - Josephi vita (002).xml
-xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/josephus/DiAJ.xml", true);
+xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/josephus/DiV_firstthird.xml", true);
   xhttp.send();
+  // xmlASjson += '\}'
   // console.log(betaCode);
 }
 
