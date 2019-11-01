@@ -55,7 +55,7 @@ var obj = {};
 var xmlASjson;
 var betaCode = "";
 var sentenceID = "";
-var tText, tLemma, tPOS, tWC, tPC, verbCount,articleCount, nounCount, pronounCount, adjectiveCount, prepositionCount, particleCount, conjunctionCount, unknownCount, adverbCount, properCount, interjectionCount;
+var tText, tLemma, tPOS, tWC, tPC, verbCount, articleCount, nounCount, pronounCount, adjectiveCount, prepositionCount, particleCount, conjunctionCount, unknownCount, adverbCount, properCount, interjectionCount;
 
 function loadXMLDoc() {
   document.getElementById("readable").innerHTML = '<h1>Text</h1>'
@@ -66,73 +66,21 @@ function loadXMLDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      // document.getElementById("demo").innerHTML =
       xmlDoc = this.responseText;
       console.log(xmlDoc)
     }
     parser = new DOMParser();
 xmlDoc2 = parser.parseFromString(xmlDoc,"text/xml");
-    // xmlASjson = xmlToJson(xmlDoc2)
-    // var jsonText = JSON.stringify(xmlASjson);
-// console.log(jsonText)
 var sentences = xmlDoc2.getElementsByTagName("sentence")
 // console.log(sentences);
 for (var j = 0; j < sentences.length; j++) {
-  // for (j in xmlDoc2.getElementsByTagName("sentence")[i].children) {
 var words = xmlDoc2.getElementsByTagName("sentence")[j]
-// console.log(sentences[j].id)
-  // }
-  // Find a <table> element with id="myTable":
-  // var table = document.getElementById("table");
 
   let tableBody = document.getElementById('tableData');
-  			// tableBody.innerHTML = '';
-  // words.forEach(function(item) {
   				let tableRow = "<tr>";
-
-  				// Go through each column and add it to the table if the column is in keys
-  				// keys.forEach(function(key) {
   					tableRow += "<td>";
             tableRow += sentences[j].id;
-      			// if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
-  					// 	tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
-  					// } else {
-  					// 	tableRow += item[key];
-  					// });
   					tableRow += "</td>";
-
-  			// });
-  // // Create an empty <tr> element and add it to the 1st position of the table:
-  // // var row = table.insertRow(j);
-  // // Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-  //
-  // var cell1 = row.insertCell(0);
-  //
-  // var cell2 = row.insertCell(1);
-  // //
-  // // var cellSentence = row.insertCell(0);
-  // // var cellText = row.insertCell(1);
-  // // var cellLemma = row.insertCell(2);
-  // // var cellPOS = row.insertCell(3);
-  // // var cellWordC = row.insertCell(4);
-  // // var cellPunctC = row.insertCell(5);
-  // // var cellVerb = row.insertCell(6);
-  // // var cellArticle = row.insertCell(7);
-  // // var cellNoun = row.insertCell(8);
-  // // var cellPronoun = row.insertCell(9);
-  // // var cellAdjective = row.insertCell(10);
-  // // var cellPreposition = row.insertCell(11);
-  // // var cellParticle = row.insertCell(12);
-  // // var cellConjunction = row.insertCell(13);
-  // // var cellUnknown = row.insertCell(14);
-  // // var cellAdverb = row.insertCell(15);
-  // // var cellProper = row.insertCell(16);
-  // // var cellInterjection = row.insertCell(17);
-  //
-  // // Add some text to the new cells:
-  // cell1.innerHTML = "NEW CELL1";
-  // cell2.innerHTML = "NEW CELL2";
-// cellSentence.innerHTML = sentences[j].id;
 
   document.getElementById("demo").innerHTML += '<p>';
   document.getElementById("lemmatized").innerHTML += '<p>';
@@ -142,9 +90,23 @@ tLemma = "<td>";
 tPOS = "<td>";
 tWC = 0;
 tPC = 0;
+verbCount = 0;
+Count = 0;
+verbCount = 0;
+articleCount = 0;
+nounCount = 0;
+pronounCount = 0;
+adjectiveCount = 0;
+prepositionCount = 0;
+particleCount = 0;
+conjunctionCount = 0;
+unknownCount = 0;
+adverbCount = 0;
+properCount = 0;
+interjectionCount = 0;
+
 for (var i = 0; i < words.childElementCount; i++) {
   if (words.children[i].childElementCount > 0) {
-    //not sure this if is actually necessaary ---- yes it sorts out the punctuation
 tWC = tWC + 1;
   document.getElementById("readable").innerHTML += betaCodeToGreek(words.children[i].attributes.form.nodeValue) + ' ';
 tText += ' ' + betaCodeToGreek(words.children[i].attributes.form.nodeValue);
@@ -154,6 +116,46 @@ tText += ' ' + betaCodeToGreek(words.children[i].attributes.form.nodeValue);
     tLemma += words.children[i].children[0].attributes.entry.nodeValue + ' ';
     document.getElementById("POS").innerHTML += words.children[i].children[0].attributes.POS.nodeValue + ' ';
     tPOS += words.children[i].children[0].attributes.POS.nodeValue + ' ';
+    switch(words.children[i].children[0].attributes.POS.nodeValue) {
+      case "verb":
+      verbCount = verbCount + 1;
+      break;
+      case "article":
+      articleCount = articleCount + 1;
+      break;
+      case "noun":
+      nounCount = nounCount + 1;
+      break;
+      case "pronoun":
+      pronounCount = pronounCount + 1;
+      break;
+      case "adjective":
+      adjectiveCount = adjectiveCount + 1;
+      break;
+      case "preposition":
+      prepositionCount = prepositionCount + 1;
+      break;
+      case "particle":
+      particleCount = particleCount + 1;
+      break;
+      case "conjunction":
+      conjunctionCount = conjunctionCount + 1;
+      break;
+      case "unknown":
+      unknownCount = unknownCount + 1;
+      break;
+      case "adverb":
+      adverbCount = adverbCount + 1;
+      break;
+      case "proper":
+      properCount = properCount + 1;
+      break;
+      case "interjection":
+      interjectionCount = interjectionCount + 1;
+      break;
+default:
+console.log("POS error");
+    };
   } else {
     document.getElementById("lemmatized").innerHTML += '[unknown word] ';
     tLemma += '[unknown word] ';
@@ -178,12 +180,26 @@ tText += ' ' + betaCodeToGreek(words.children[i].attributes.form.nodeValue);
   tableRow += tPOS + '</td>';
   tableRow += '<td>' + tWC + '</td>';
   tableRow += '<td>' + tPC + '</td>';
+  // tableRow += '<td>' + verbCount / tWC + '</td>'; // this will happen when I add colory stuff to the cells
+  tableRow += '<td>' + verbCount + '</td>';
+  tableRow += '<td>' + articleCount + '</td>';
+  tableRow += '<td>' + nounCount + '</td>';
+  tableRow += '<td>' + pronounCount + '</td>';
+  tableRow += '<td>' + adjectiveCount + '</td>';
+  tableRow += '<td>' + prepositionCount + '</td>';
+  tableRow += '<td>' + particleCount + '</td>';
+  tableRow += '<td>' + conjunctionCount + '</td>';
+  tableRow += '<td>' + unknownCount + '</td>';
+  tableRow += '<td>' + adverbCount + '</td>';
+  tableRow += '<td>' + properCount + '</td>';
+  tableRow += '<td>' + interjectionCount + '</td>';
     				tableRow += "</tr>";
     				tableBody.innerHTML += tableRow;
 }
 // document.getElementById("demo").innerHTML =
   };
-  xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/Hymn.xml", true);
+  // xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/Hymn.xml", true);//diss/josephus/Flavius Josephus (0526) - Josephi vita (002).xml
+xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/josephus/DiV.xml", true);
   xhttp.send();
   // console.log(betaCode);
 }
