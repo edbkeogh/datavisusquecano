@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<script src="betacode/beta-code.js"></script>
+
+<body>
+
+<h2>Using the XMLHttpRequest Object</h2>
+<div id="table">
+  <table>
+<thead>
+<tr>
+
+        <th>Sentence</th>
+        <th>Text</th>
+        <th>Lemma</th>
+        <th>POS</th>
+        <th>Word Count</th>
+        <th>Punct Count</th>
+        <th>verbs</th>
+        <th>articles</th>
+        <th>nouns</th>
+        <th>pronouns</th>
+        <th>adjectives</th>
+        <th>prepositions</th>
+        <th>particles</th>
+        <th>conjunctions</th>
+        <th>unknowns</th>
+        <th>adverbs</th>
+        <th>propers</th>
+        <th>interjections</th>
+</tr>
+</thead>
+<tbody id="tableData">
+</tbody>
+  </table>
+</div>
+<div id="demo">
+  <!-- <h1>Beta code text</h1> -->
+<button type="button" onclick="loadXMLDoc()">load xml hymn to Demeter with parallel dictionary entry and part of speech tags</button>
+<p></p>
+</div>
+<div id="readable">
+</div>
+<div id="lemmatized">
+  <!-- <h1>Dictionary entry</h1> -->
+</div>
+<div id="POS">
+  <!-- <h1>Part of Speech</h1> -->
+</div>
+
+<script>
+var xmlDoc;
+var obj = {};
+var xmlASjson;
+var betaCode = "";
+var sentenceID = "";
+var tText, tLemma, tPOS, tWC, tPC, verbCount, articleCount, nounCount, pronounCount, adjectiveCount, prepositionCount, particleCount, conjunctionCount, unknownCount, adverbCount, properCount, interjectionCount;
+
+function loadXMLDoc() {
+  // document.getElementById("readable").innerHTML = '<h1>Text</h1>'
+
+  // document.getElementById("demo").innerHTML = '<h1>Beta code text</h1>'
+    // document.getElementById("lemmatized").innerHTML = '<h1>Dictionary entry</h1>'
+      // document.getElementById("POS").innerHTML = '<h1>Part of Speech</h1>'
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      xmlDoc = this.responseText;
+      console.log(xmlDoc)
+    }
+    parser = new DOMParser();
+xmlDoc2 = parser.parseFromString(xmlDoc,"text/xml");
+var sentences = xmlDoc2.getElementsByTagName("sentence")
+// console.log(sentences);
+for (var j = 0; j < sentences.length; j++) {
+var words = xmlDoc2.getElementsByTagName("sentence")[j]
+
+  let tableBody = document.getElementById('tableData');
+  				let tableRow = "<tr>";
+  					tableRow += "<td>";
+            tableRow += sentences[j].id;
+  					tableRow += "</td>";
+
+  // document.getElementById("demo").innerHTML += '<p>';
+  // document.getElementById("lemmatized").innerHTML += '<p>';
+// document.getElementById("POS").innerHTML += '<p>';
+tText = "<td>";
+tLemma = "<td>";
+tPOS = "<td>";
+tWC = 0;
+tPC = 0;
+verbCount = 0;
+Count = 0;
+verbCount = 0;
+articleCount = 0;
+nounCount = 0;
+pronounCount = 0;
+adjectiveCount = 0;
+prepositionCount = 0;
+particleCount = 0;
+conjunctionCount = 0;
+unknownCount = 0;
+adverbCount = 0;
+properCount = 0;
+interjectionCount = 0;
+
+for (var i = 0; i < words.childElementCount; i++) {
+  if (words.children[i].childElementCount > 0) {
+tWC = tWC + 1;
+  // document.getElementById("readable").innerHTML += betaCodeToGreek(words.children[i].attributes.form.nodeValue) + ' ';
+tText += ' ' + betaCodeToGreek(words.children[i].attributes.form.nodeValue);
+  // document.getElementById("demo").innerHTML += words.children[i].attributes.form.nodeValue + ' ';
+  if (words.children[i].children[0].id !== "unknown") {
+    // document.getElementById("lemmatized").innerHTML += words.children[i].children[0].attributes.entry.nodeValue + ' ';
+    tLemma += words.children[i].children[0].attributes.entry.nodeValue + ' ';
+    // document.getElementById("POS").innerHTML += words.children[i].children[0].attributes.POS.nodeValue + ' ';
+    tPOS += words.children[i].children[0].attributes.POS.nodeValue + ' ';
+    switch(words.children[i].children[0].attributes.POS.nodeValue) {
+      case "verb":
+      verbCount = verbCount + 1;
+      break;
+      case "article":
+      articleCount = articleCount + 1;
+      break;
+      case "noun":
+      nounCount = nounCount + 1;
+      break;
+      case "pronoun":
+      pronounCount = pronounCount + 1;
+      break;
+      case "adjective":
+      adjectiveCount = adjectiveCount + 1;
+      break;
+      case "preposition":
+      prepositionCount = prepositionCount + 1;
+      break;
+      case "particle":
+      particleCount = particleCount + 1;
+      break;
+      case "conjunction":
+      conjunctionCount = conjunctionCount + 1;
+      break;
+      case "unknown":
+      unknownCount = unknownCount + 1;
+      break;
+      case "adverb":
+      adverbCount = adverbCount + 1;
+      break;
+      case "proper":
+      properCount = properCount + 1;
+      break;
+      case "interjection":
+      interjectionCount = interjectionCount + 1;
+      break;
+default:
+console.log("POS error");
+    };
+  } else {
+    // document.getElementById("lemmatized").innerHTML += '[unknown word] ';
+    tLemma += '[unknown word] ';
+    // document.getElementById("POS").innerHTML += '[unknown word] ';
+    tPOS += '[unknown word] ';
+  };
+
+} else { //TODO what soes this else solve?
+  // document.getElementById("demo").innerHTML += words.children[i].attributes.mark.nodeValue + ' ';
+  tText += words.children[i].attributes.mark.nodeValue;
+  tPC = tPC + 1;
+};
+
+};
+  // document.getElementById("readable").innerHTML += '</p>';
+  // tText += "</td>";
+  tableRow += tText + '</td>';
+  // document.getElementById("demo").innerHTML += '</p>';
+  // document.getElementById("lemmatized").innerHTML += '</p>';
+    tableRow += tLemma + '</td>';
+  // document.getElementById("POS").innerHTML += '</p>';
+  tableRow += tPOS + '</td>';
+  tableRow += '<td>' + tWC + '</td>';
+  tableRow += '<td>' + tPC + '</td>';
+  // tableRow += '<td>' + verbCount / tWC + '</td>'; // this will happen when I add colory stuff to the cells
+  tableRow += '<td>' + verbCount + '</td>';
+  tableRow += '<td>' + articleCount + '</td>';
+  tableRow += '<td>' + nounCount + '</td>';
+  tableRow += '<td>' + pronounCount + '</td>';
+  tableRow += '<td>' + adjectiveCount + '</td>';
+  tableRow += '<td>' + prepositionCount + '</td>';
+  tableRow += '<td>' + particleCount + '</td>';
+  tableRow += '<td>' + conjunctionCount + '</td>';
+  tableRow += '<td>' + unknownCount + '</td>';
+  tableRow += '<td>' + adverbCount + '</td>';
+  tableRow += '<td>' + properCount + '</td>';
+  tableRow += '<td>' + interjectionCount + '</td>';
+    				tableRow += "</tr>";
+    				tableBody.innerHTML += tableRow;
+}
+// document.getElementById("demo").innerHTML =
+  };
+  // xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/Hymn.xml", true);//diss/josephus/Flavius Josephus (0526) - Josephi vita (002).xml
+xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/josephus/DiV_firstthird.xml", true);
+  xhttp.send();
+  // console.log(betaCode);
+}
+
+// Assuming xmlDoc is the XML DOM Document
+
+// Changes XML to JSON
+// function xmlToJson(xml) {sfd
+//
+// 	// Create the return object
+// 	var obj = {};
+//
+// 	if (xml.nodeType == 1) { // element
+// 		// do attributes
+// 		if (xml.attributes.length > 0) {
+// 		obj["@attributes"] = {};
+// 			for (var j = 0; j < xml.attributes.length; j++) {
+// 				var attribute = xml.attributes.item(j);
+// 				obj["@attributes"][attribute.nodeName] = attribute.nodeValue;
+// 			}
+// 		}
+// 	} else if (xml.nodeType == 3) { // text
+// 		obj = xml.nodeValue;
+// 	}
+//
+// 	// do children
+// 	if (xml.hasChildNodes()) {
+// 		for(var i = 0; i < xml.childNodes.length; i++) {
+// 			var item = xml.childNodes.item(i);
+// 			var nodeName = item.nodeName;
+// 			if (typeof(obj[nodeName]) == "undefined") {
+// 				obj[nodeName] = xmlToJson(item);
+// 			} else {
+// 				if (typeof(obj[nodeName].push) == "undefined") {
+// 					var old = obj[nodeName];
+// 					obj[nodeName] = [];
+// 					obj[nodeName].push(old);
+// 				}
+// 				obj[nodeName].push(xmlToJson(item));
+// 			}
+// 		}
+// 	}
+// 	return obj;
+// };
+
+// this does something console.log(xmlDoc2.getElementsByTagName("sentence")[1])
+// var newv = xmlDoc2.getElementsByTagName("sentence")[1]
+//console.log(newv.children[0].attributes.form.nodeValue)
+
+// also does stuff
+// words.children[1].children[0].attributes.POS.nodeValue
+// "adjective"
+// words.children[1].children[0].attributes.entry.nodeValue
+// "εὔκομος"
+</script>
+
+</body>
+</html>
