@@ -23,7 +23,7 @@
 // set the dimensions and margins of the graph
 var margin = {top: 30, right: 50, bottom: 10, left: 50},
   width = 800 - margin.left - margin.right,
-  height = 600 - margin.top - margin.bottom;
+  height = 3000 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -35,12 +35,14 @@ var svg = d3.select("#my_dataviz")
         "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/josephus/POS_ratios.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/josephus/ratios.csv", function(data) {
 
+ // console.log(data);
   // Color scale: give me a specie name, I return a color
   var color = d3.scaleOrdinal()
-    .domain(["setosa", "versicolor", "virginica" ])
-    .range([ "#440154ff", "#21908dff", "#fde725ff"])
+  .domain(["A", "B", "V", "C" ])
+  .range([ "#440154ff", "#21908dff", "#fde725ff", "red" ])
+
 
   // Here I set the list of dimension manually to control the order of axis:
   dimensions = ["verbs", "articles", "nouns", "pronouns", "adjectives", "prepositions", "particles", "conjunctions", "unknowns", "adverbs", "propers", "interjections"]
@@ -63,7 +65,7 @@ d3.csv("https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/
   // Highlight the specie that is hovered
   var highlight = function(d){
 
-    selected_specie = d.Label
+    selected_specie = d.work
 
     // first every group turns grey
     d3.selectAll(".line")
@@ -81,7 +83,7 @@ d3.csv("https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/
   var doNotHighlight = function(d){
     d3.selectAll(".line")
       .transition().duration(200).delay(1000)
-      .style("stroke", function(d){ return( color(d.Species))} )
+      .style("stroke", function(d){ return( color(d.work))} )
       .style("opacity", "1")
   }
 
@@ -96,10 +98,10 @@ d3.csv("https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/
     .data(data)
     .enter()
     .append("path")
-      .attr("class", function (d) { return "line " + d.Species } ) // 2 class for each line: 'line' and the group name
+      .attr("class", function (d) { return "line " + d.work } ) // 2 class for each line: 'line' and the group name
       .attr("d",  path)
       .style("fill", "none" )
-      .style("stroke", function(d){ return( color(d.Species))} )
+      .style("stroke", function(d){ return( color(d.work))} )
       .style("opacity", 0.5)
       .on("mouseover", highlight)
       .on("mouseleave", doNotHighlight )
