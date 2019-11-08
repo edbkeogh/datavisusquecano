@@ -48,7 +48,11 @@ a.on("mouseover",function(){if(!("disableHover"in t&&t.disableHover)){Jr()(this)
 
   Mr(this).transition().duration(70).attr("x",function(n){return t.xScale(n.timeRange[0])-e/2}).attr("width",function(n){return o([1,t.xScale(n.timeRange[1])-t.xScale(n.timeRange[0])])+e}).attr("y",function(n){return t.yScale(n.group+"+&+"+n.label)-(t.lineHeight+e)/2}).attr("height",t.lineHeight+e).style("fill-opacity",1)}})
 
-  .on("mouseout",function(){Mr(this).transition().duration(250).attr("x",function(e){return t.xScale(e.timeRange[0])}).attr("width",function(e){return o([1,t.xScale(e.timeRange[1])-t.xScale(e.timeRange[0])])}).attr("y",function(e){return t.yScale(e.group+"+&+"+e.label)-t.lineHeight/2}).attr("height",t.lineHeight).style("fill-opacity",.6)})
+  .on("mouseout",function(){Mr(this).transition().duration(250).attr("x",function(e){return t.xScale(e.timeRange[0])}).attr("width",function(e){return o([1,t.xScale(e.timeRange[1])-t.xScale(e.timeRange[0])])})
+  .attr("y",function(e){if (colorkey[e.val] != null) {return t.yScale(e.group+"+&+"+e.label)-t.lineHeight/2+1.5} else {return t.yScale(e.group+"+&+"+e.label)-t.lineHeight/2-1}})
+  .attr("height",function(e){if (colorkey[e.val] != null) {return t.lineHeight - 3} else {return t.lineHeight+2}})
+  // .attr("height",t.lineHeight)
+  .style("fill-opacity",.6)})
   .on("click",function(e){t.onSegmentClick&&t.onSegmentClick(e)}),(n=n.merge(a)).transition().duration(t.transDuration).attr("x",function(e){return t.xScale(e.timeRange[0])}).attr("width",function(e){return o([1,t.xScale(e.timeRange[1])-t.xScale(e.timeRange[0])])}).attr("y",function(e){return t.yScale(e.group+"+&+"+e.label)-t.lineHeight/2}).attr("height",t.lineHeight).style("fill-opacity",.6)}(),
 
 // var b=n.enter().append("circle").attr("cx",1).attr("cy",1).attr("x",t.graphW/2).attr("y",t.graphH/2).attr("r",3)//color immediately follows

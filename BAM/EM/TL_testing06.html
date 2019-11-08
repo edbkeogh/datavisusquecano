@@ -778,7 +778,7 @@ right-side-panel
 						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Select Search Parameters</button>
 <div class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 <div id="genreText" class="darkText">
-	<button id="searchButton" onclick="search()">Search</button>
+	<button id="searchButton" onclick="search()">Update Parameters</button>
 	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">RemoveAll</button><br/><br/>Note: You must select at least one language to search.</p>
 						<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button>
 						<div class="panel">
@@ -934,10 +934,10 @@ right-side-panel
 
 <!--  onclick="toggleWitnessTable()"-->
 <!-- <input type="button" onclick="toggleWitnessTable()" class="accordion"><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</input> -->
-<button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls</button>
+<!-- <button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls</button> -->
 <br/>
 <button onclick="filterData()">filter chart</button>
-<button onclick="restore()">show full chart wihtout manuscripts</button>
+<button onclick="restore()">show full chart</button>
 <div id="mapLegend" class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 	<button onclick="clearMap()">Clear Map</button>
 	<!-- <button onclick="showallMap()">Show All</button> -->
@@ -1740,7 +1740,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 			for (i in tldata2) {
 			switch (_.includes(tldata2[i].group, regionFinder)) {
 				case true:
-				swimlaneIndex = lanekey[Object([regSrch])];
+				swimlaneIndex = lanekey[regSrch];
 				if (swimlaneIndex === undefined) {
 					swimlaneIndex = 0;
 				}
