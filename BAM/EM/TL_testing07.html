@@ -59,8 +59,8 @@
     <style>
         html,
         body {
-            height: 100%;
-            width: 100%;
+            /*height: 100%;*/
+            /*width: 100%;*/
             font-family: Cardo;
             font-size: 16px;
             font-w
@@ -1054,6 +1054,7 @@ right-side-panel
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
 		<script>
 	    "use strict"
+			var blankData = JSON.parse(JSON.stringify(tldata));
 var colorkey = {
 	"Manuscript Lane": "white",
 	"Roman": "blue",
@@ -1593,18 +1594,18 @@ var lanekey = {
 "Kingdom of Portugal Spain": 3,
 "Kingdom of Aragon Spain": 4,
 };
-var newheight = window.innerHeight -33
+var newheight = window.innerHeight - 25
 document.getElementById('low-side-panel').style.top = newheight + 'px'
 window.addEventListener('resize', function(event){
-  newheight = window.innerHeight - 33;
+  newheight = window.innerHeight - 25;
 	document.getElementById('low-side-panel').style.top = newheight + 'px'
 	$('#low-btn-slide-toggle').html('&#9650;');
 	informationToggle2 = false;
 });
-var newwidth = window.innerWidth -39
+var newwidth = window.innerWidth - 31
 document.getElementById('right-side-panel').style.left = newwidth + 'px'
 window.addEventListener('resize', function(event){
-  newwidth = window.innerWidth - 39;
+  newwidth = window.innerWidth - 31;
 	document.getElementById('right-side-panel').style.left = newwidth + 'px'
 	$('#right-btn-slide-toggle').html('&#9664;');
 	informationToggle = true;
@@ -1633,14 +1634,15 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 			//
 			//  }
 
-			var tldata2 = tldata;
+			var tldata2 = tldata.slice();
 			 var filtered = [];
 			var manuObj = {};
 			var regionFinder;
 			var regionHolder = [];
 			var results = [];
+			var manuMarkerwidth = 100;
 
-			loadChart(tldata);
+			loadChart(tldata2);
 
 			function loadChart(data) {
 				TimelinesChart()
@@ -1657,11 +1659,12 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 
 			function restore() {
 			clearPlot();
-			loadChart(tldata);
+			loadChart(tldata2);
 			}
 
 					function filterData() {
-						results = searchIDs
+						results = searchIDs;
+						 tldata2 = JSON.parse(JSON.stringify(blankData));
 
 						for (i in results) {
 						makeMandata(i);
@@ -1671,7 +1674,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 
 			document.getElementById('map2').innerHTML = "";
 			filtered = [];
-			for (i in tldata) { for (h in regionHolder) { if (tldata[i].group === regionHolder[h]) {filtered.push(tldata[i]) } } };
+			for (i in tldata2) { for (h in regionHolder) { if (tldata2[i].group === regionHolder[h]) {filtered.push(tldata2[i]) } } };
 						// //  tldata2 = tldata
 						// for (i in indexList) {
 						// 	tldata2[indexList[i]] += (tldata[indexList[i]])
@@ -1697,8 +1700,8 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 						// 	val: 'Asuka'
 						// },
 
-						var yearHolder = ((Number(results[n].terminus_ante_quem) + Number(results[n].terminus_post_quem)) / 2) -100;
-						var yearPlus = Number(yearHolder) + 200;
+						var yearHolder = ((Number(results[n].terminus_ante_quem) + Number(results[n].terminus_post_quem)) / 2) - manuMarkerwidth;
+						var yearPlus = Number(yearHolder) + manuMarkerwidth * 2;
 			manuObj = Object(
 			{
 			timeRange: [yearHolder, yearPlus],

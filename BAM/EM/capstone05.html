@@ -59,8 +59,8 @@
     <style>
         html,
         body {
-            height: 100%;
-            width: 100%;
+            /*height: 100%;*/
+            /*width: 100%;*/
             font-family: Cardo;
             font-size: 16px;
             font-w
@@ -1065,18 +1065,18 @@ border: none;
 		<script>
 	    "use strict"
 
-var newheight = window.innerHeight -33
+var newheight = window.innerHeight - 25;
 document.getElementById('low-side-panel').style.top = newheight + 'px'
 window.addEventListener('resize', function(event){
-  newheight = window.innerHeight - 33;
+  newheight = window.innerHeight - 25;
 	document.getElementById('low-side-panel').style.top = newheight + 'px'
 	$('#low-btn-slide-toggle').html('&#9650;');
 	informationToggle2 = false;
 });
-var newwidth = window.innerWidth -39
+var newwidth = window.innerWidth -23;
 document.getElementById('right-side-panel').style.left = newwidth + 'px'
 window.addEventListener('resize', function(event){
-  newwidth = window.innerWidth - 39;
+  newwidth = window.innerWidth - 23;
 	document.getElementById('right-side-panel').style.left = newwidth + 'px'
 	$('#right-btn-slide-toggle').html('&#9664;');
 	informationToggle = true;
