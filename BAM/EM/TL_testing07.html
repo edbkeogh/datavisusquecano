@@ -943,6 +943,23 @@ right-side-panel
 <br/>
 <button onclick="filterData()">filter chart</button>
 <button onclick="restore()">show full chart</button>
+<br/>
+<span>Manuscript Marker Width: </span>
+<select id="manuMarkerwidthSelector" onchange="MMWS()">
+  <option value="50">narrow</option>
+  <option value="100" selected>medium</option>
+  <option value="200">wide</option>
+  <option value="0">range</option>
+</select>
+<br/>
+<span id="manuMarkeranchorSelectortext">Manuscrip Marker Anchor: </span>
+<select id="manuMarkeranchorSelector">
+  <option value="1">earliest</option>
+  <option value="2" selected>midpoint</option>
+  <option value="3">latest</option>
+  <!-- <option value="0">range</option> -->
+</select>
+<!-- <button onclick="restore()">show full chart</button> -->
 <div id="mapLegend" class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 	<button onclick="clearMap()">Clear Map</button>
 	<!-- <button onclick="showallMap()">Show All</button> -->
@@ -1055,6 +1072,7 @@ right-side-panel
 		<script>
 	    "use strict"
 			var blankData = JSON.parse(JSON.stringify(tldata));
+
 var colorkey = {
 	"Manuscript Lane": "white",
 	"Roman": "blue",
@@ -1694,14 +1712,41 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 					_.remove(tldata2, tldata2[n])
 					}
 
+					function MMWS() {
+						if (document.getElementById('manuMarkerwidthSelector').value != 0) {
+							document.getElementById('manuMarkeranchorSelector').style.display = 'initial';
+							document.getElementById('manuMarkeranchorSelectortext').style.display = 'initial';
+						} else {
+							document.getElementById('manuMarkeranchorSelector').style.display = 'none';
+							document.getElementById('manuMarkeranchorSelectortext').style.display = 'none';
+						}
+					}
+
 					function makeMandata(n) {
 						// {
 						// 	timeRange: [538, 710],
 						// 	val: 'Asuka'
 						// },
-
+manuMarkerwidth = document.getElementById('manuMarkerwidthSelector').value;
+if (manuMarkerwidth != 0) {
+		switch (document.getElementById('manuMarkeranchorSelector').value) {
+			case "1":
+			var yearHolder = Number(results[n].terminus_post_quem) - (manuMarkerwidth / 2)
+break;
+			case "2":
 						var yearHolder = ((Number(results[n].terminus_ante_quem) + Number(results[n].terminus_post_quem)) / 2) - manuMarkerwidth;
+break;
+			case "3":
+			var yearHolder = Number(results[n].terminus_ante_quem) - (manuMarkerwidth / 2)
+break;
+			default:
+			console.log('Manuscript Marker Anchor Invalid')
+};
 						var yearPlus = Number(yearHolder) + manuMarkerwidth * 2;
+					} else {
+						var yearHolder = Number(results[n].terminus_post_quem);
+						var yearPlus = Number(results[n].terminus_ante_quem);
+					}
 			manuObj = Object(
 			{
 			timeRange: [yearHolder, yearPlus],
