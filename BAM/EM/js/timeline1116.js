@@ -30,7 +30,14 @@ console.log(n);
 //                          .attr("cy", function(e){return t.yScale(e.group+"+&+"+e.label)})
 //                          .attr("rx", 8)
 //                          .attr("ry", t.lineHeight/2+1)
-//                          .style("fill",function(e){return colorkey[e.val]});
+//                          .style("fill",function(e){return colorkey[e.val]})
+//                          .on("click",function(e){console.log(e)})//,(n=n.merge(circle)).transition().duration(t.transDuration)
+//                         //  .attr("cx",function(e){return t.xScale(e.timeRange[0])})
+//                         //  .attr("rx",function(e){return o([1,t.xScale(e.timeRange[1])-t.xScale(e.timeRange[0])])})
+//                         //  .attr("cy",function(e){if (colorkey[e.val] != null) {return t.yScale(e.group+"+&+"+e.label) - t.lineHeight / 6} else {return t.yScale(e.group+"+&+"+e.label)-t.lineHeight / 2}})
+//                         //  .attr("ry",t.lineHeight * .6666).style("fill-opacity",.6)}(),
+//                          ;
+
 //doesn't do the right things  // Mr(this).transition().duration(70).attr("cx",function(n){return t.xScale(n.timeRange[0])-e/2}).attr("rx",function(n){return o([1,t.xScale(n.timeRange[1])-t.xScale(n.timeRange[0])])+e}).attr("cy",function(n){return t.yScale(n.group+"+&+"+n.label)-(t.lineHeight+e)/2}).attr("ry",t.lineHeight+e).style("fill-opacity",1);
 
                         //  .attr("cx", function(e){return t.xScale(e.timeRange[0])})
@@ -42,7 +49,7 @@ console.log(n);
 
 
 var a=n.enter().append("rect").attr("class","series-segment").attr("rx",1).attr("ry",1).attr("x",t.graphW/2).attr("y",t.graphH/2).attr("width",0).attr("height",0)//color immediately follows
-.style("fill",function(e){return colorkey[e.val]})
+.style("fill",function(e){if (colorkey[e.val] != null) {return colorkey[e.val]} else {return "url('#red-yellow-dot')"}})
 // console.log(e.) this breaks all the bars
 
 .style("fill-opacity",0).on("mouseover.groupTooltip",t.groupTooltip.show).on("mouseout.groupTooltip",t.groupTooltip.hide).on("mouseover.lineTooltip",t.lineTooltip.show).on("mouseout.lineTooltip",t.lineTooltip.hide).on("mouseover.segmentTooltip",t.segmentTooltip.show).on("mouseout.segmentTooltip",t.segmentTooltip.hide);
