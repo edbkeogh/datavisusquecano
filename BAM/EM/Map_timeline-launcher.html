@@ -82,6 +82,14 @@
             z-index: 1;
         }
 
+				span.no-show{
+				    display: none;
+				}
+				span.show-ellipsis:after{
+				    content: "...";
+				}
+
+
 #mapLeg p {
 	margin: 2px;
 	font-size: 1.5em;
@@ -960,7 +968,7 @@ right-side-panel
 </div>
 <!-- </div> -->
 </div>
-<button id="tlauncher" class="accordion"><img src="images/open-iconic/copywriting.svg" class="accordianImage" alt="info" onclick="tlaunch()">&nbsp;&nbsp;&nbsp;&nbsp;Launch Timeline</button>
+<button id="tlauncher" class="accordion"><img src="images/open-iconic/copywriting.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Launch Timeline</button>
 			<div id="left-btn-slide-toggle" class="slider-icon">&#9664;
 			</div>
 			<!-- License information-->
@@ -1028,8 +1036,8 @@ right-side-panel
 
     <!-- BAM functionality. Only add what you need!  -->
     <script src="js/BAM-core-functionality.EM7.js"></script>
-    <script src="js/BAM-custom-panels.EM6.js"></script>
-    <script src="js/BAM-custom-menu.EM6.js"></script>
+    <script src="js/BAM-custom-panels.EM7.js"></script>
+    <script src="js/BAM-custom-menu.EM6.Tlaunch.js"></script>
     <!-- <script src="js/BAM-datatables.js"></script> -->
     <!-- <script src="js/BAM-map-functionality.js"></script> -->
 		<!-- <script src="maptest/ TODO this will need to point to a new JavaScripted version of my woah canon map-->
@@ -1043,9 +1051,6 @@ right-side-panel
 		<script>
 	    "use strict"
 
-function tlaunch() {
-	 window.open("https://edbkeogh.github.io/datavisusquecano/BAM/EM/TL_demo.html", "_blank"); 
-}
 
 var newheight = window.innerHeight -33
 document.getElementById('low-side-panel').style.top = newheight + 'px'
