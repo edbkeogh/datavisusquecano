@@ -1844,6 +1844,15 @@ break;
 
 					}
 
+					function rightBTNblink() {
+						var f = document.getElementById('right-btn-slide-toggle');
+			 		 var grayblink = setInterval(function() {f.style['background-color'] = '#fff';
+			 		 setTimeout(function() {f.style['background-color'] = '#d7dce4';}, 125);}, 250);
+			 		 setTimeout(function() {
+			 		 clearInterval(grayblink);
+				 }, 500);
+					}
+
 function rs_meta(man_name) {
 // the top needs editing most TODO
 

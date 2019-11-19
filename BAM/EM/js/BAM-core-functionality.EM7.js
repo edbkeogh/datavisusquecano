@@ -115,6 +115,7 @@ function informationPaneToggle(toggle, pane, button) {
         toggle = false;
     }
     return toggle;
+    console.log(toggle);
 }
 
 function informationPaneToggle2(toggle, pane, button) {

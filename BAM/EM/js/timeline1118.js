@@ -65,7 +65,9 @@ a.on("mouseover",function(){if(!("disableHover"in t&&t.disableHover)){Jr()(this)
   .attr("height",function(e){if (colorkey[e.val] != null) {return t.lineHeight * .6666} else {return t.lineHeight*.9}})
   // .attr("height",t.lineHeight)
   .style("fill-opacity",.6)})
-  .on("click",function(e){t.onSegmentClick&&t.onSegmentClick(e); console.log(e); rs_meta(e)}),(n=n.merge(a)).transition().duration(t.transDuration).attr("x",function(e){return t.xScale(e.timeRange[0])})
+  .on("click",function(e){t.onSegmentClick&&t.onSegmentClick(e); console.log(e); rightBTNblink(); rs_meta(e)}),(n=n.merge(a)).transition().duration(t.transDuration).attr("x",function(e){return t.xScale(e.timeRange[0])})
+  //to open right hand panel on click
+  //.on("click",function(e){t.onSegmentClick&&t.onSegmentClick(e); console.log(e); informationPaneToggle(informationToggle, bamConfigJson.bamMoreInfoPanel.panelID, bamConfigJson.bamMoreInfoPanel.panelToggleButton); rs_meta(e)}),(n=n.merge(a)).transition().duration(t.transDuration).attr("x",function(e){return t.xScale(e.timeRange[0])})
   .attr("width",function(e) { if ( o([1,t.xScale(e.timeRange[1])-t.xScale(e.timeRange[0])]) < 8) {return 8 } else {return o([1,t.xScale(e.timeRange[1])-t.xScale(e.timeRange[0])])}})
   .attr("y",function(e){if (colorkey[e.val] != null) {return t.yScale(e.group+"+&+"+e.label) - t.lineHeight / 6} else {return t.yScale(e.group+"+&+"+e.label)-t.lineHeight / 2}}).attr("height",function(e){if (colorkey[e.val] != null) {return t.lineHeight * .6666} else {return t.lineHeight*.9}}).style("fill-opacity",.6)}(),
 

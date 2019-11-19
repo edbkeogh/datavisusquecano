@@ -1906,6 +1906,15 @@ var geojsonID = geojson.features.findIndex(x => x.properties[5004] === leafletID
 
 //here is where I need the end
 }
+
+function rightBTNblink() {
+	var f = document.getElementById('right-btn-slide-toggle');
+ var grayblink = setInterval(function() {f.style['background-color'] = '#fff';
+ setTimeout(function() {f.style['background-color'] = '#d7dce4';}, 125);}, 250);
+ setTimeout(function() {
+ clearInterval(grayblink);
+ }, 500);
+}
 // end right hand side functions
 
 			var sw = "";
