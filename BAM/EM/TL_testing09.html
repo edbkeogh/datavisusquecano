@@ -796,7 +796,7 @@ right-side-panel
 						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Select Search Parameters</button>
 <div class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 <div id="genreText" class="darkText">
-	<button id="searchButton" onclick="search()">Update Parameters</button>
+	<button id="searchButton" onclick="filterData()">Update Parameters</button>
 	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">RemoveAll</button><br/><br/>Note: You must select at least one language to search.</p>
 						<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button>
 						<div class="panel">
@@ -1070,7 +1070,7 @@ right-side-panel
 
     <!-- BAM functionality. Only add what you need!  -->
     <script src="js/BAM-core-functionality.EM7.js"></script>
-    <script src="js/BAM-custom-panels.EM6.js"></script>
+    <script src="js/BAM-custom-panels.EM6.TL.js"></script>
     <script src="js/BAM-custom-menu.TL.js"></script>
     <!-- <script src="js/BAM-datatables.js"></script> -->
     <!-- <script src="js/BAM-map-functionality.js"></script> -->
@@ -1761,6 +1761,14 @@ break;
 						var yearHolder = Number(results[n].terminus_post_quem);
 						var yearPlus = Number(results[n].terminus_ante_quem);
 					}
+					//{
+					// 	var yearHolder = Number(results[n].terminus_post_quem);
+					// 	if (Number(results[n].terminus_post_quem) === Number(results[n].terminus_ante_quem)) {
+					// 		var yearPlus = Number(results[n].terminus_ante_quem) + 10;
+					// 	} else {
+					// 	var yearPlus = Number(results[n].terminus_ante_quem);
+					// 	}
+					// }
 			manuObj = Object(
 			{
 			timeRange: [yearHolder, yearPlus],
@@ -2372,6 +2380,9 @@ document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup
 window.onload = setTimeout(function () {
 	search();
 }, 800);
+setTimeout(function () {
+	restore();
+}, 1100);
 	  </script>
 
 
