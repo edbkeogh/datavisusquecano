@@ -1,49 +1,6 @@
 //BAM-custom-panels.js
 //holds all of the panels for the application. These are HIGHLY variable for each individual app
-var tableWitness = $('#witness').DataTable({
 
-    data: null,
-    dom: 'Bfrtip',
-    buttons: [
-        'colvis', 'copy', 'csv','print'
-    ],
-    "pageLength": 5,
-    columns: [
-      {
-        data: 'id',
-        title: 'ID'
-    },
-    {
-        data: 'author',
-        title: 'Author'
-    },
-    {
-        data: 'work',
-        title: 'Work'
-    },
-    {
-        data: 'forms',
-        title: 'Form(s)'
-    },
-    {
-        data: 'materials',
-        title: 'Substrate(s)'
-    },
-    {
-        data: 'terminus_post_quem',
-        title: 'Earliest'
-    },
-    {
-        data: 'terminus_ante_quem',
-        title: 'Latest'
-    },
-    {
-        data: 'text',
-        title: 'Text'
-    },
-
-    ]
-});
 
 var searchIDs = []
 var xx = [];
@@ -70,7 +27,7 @@ $( "#panelHolder" ).append(aboutBoxHtml);
 
 overlayPanelsList.infoBox = 'overlay';
 
-var witnessHTML = '<div id="witnessPanel" class="nonMapOverlay" style="overflow:auto;"> <b> Form Witness Table </b><br/><p>sources from antiquity that describe the form(s) that are included in the filter';
+var witnessHTML = '<div id="witnessPanel" class="nonMapOverlay"> <b> Manuscript Results </b>';
 witnessHTML = witnessHTML + '<div id="witnessPanelClose" class="popupCloseCarte">x</div> <hr />';
 witnessHTML = witnessHTML + '<div id="witnessPanelContents">';
 witnessHTML = witnessHTML + '<table id="witness" style="cursor: auto;"><thead><tr><td>ID</td><td>Author</td><td>Term. Post</td><td>Term. Ante</td><td>Form</td><td>Substrate</td><td>Text</td></tr></thead>'
@@ -313,52 +270,29 @@ for (i in searchIDs) {
 // put it in BAM tables
 tableMain.rows.add(results.manuscripts);
 //tableMain.rows.add(formattedresults);
-
-console.log(results)
 if (results['textual_witnesses'] != null) {
-
-
-
-      console.log(results.textual_witnesses);
-      // for (i in results.textual_witnesses) {
-      //   console.log(results.textual_witnesses[i].text)
-      // };
-      // results.textual_witnesses[1].text = "hi"
-      // console.log(results.textual_witnesses[1].text);
-
-  tableWitness.clear();
-  tableWitness.rows.add(results.textual_witnesses);
-  tableWitness.draw();
-  // var wit_table = results.textual_witnesses;
-
-
-
-// var wit_table = results.textual_witnesses;
 	//TODO I need to make a place for these		// Populate the witnesses table
-			// tableBody = document.getElementById('witness-results-table');
-			// tableBody.innerHTML = '';
+			tableBody = document.getElementById('witness-results-table');
+			tableBody.innerHTML = '';
+			results['textual_witnesses'].forEach(function(item) {
+				let tableRow = "<tr>";
 
-
-      // tableWitness.rows.add(wit_table);
-
-			// results['textual_witnesses'].forEach(function(item) {
-			// 	let tableRow = "<tr>";
-			// 	// Go through each column and add it to the table if the column is in witnessKeys
-			// 	witnessKeys.forEach(function(key) {
-			// 		tableRow += "<td>";
-			// 		// The paramTypes keys have array values
-			// 		if (paramTypes.includes(key)) {
-			// 			tableRow += item[key].join(", ");
-			// 		} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
-			// 			tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
-			// 		} else {
-			// 			tableRow += item[key];
-			// 		}
-			// 		tableRow += "</td>";
-			// 	});
-			// 	tableRow += "</tr>";
-			// 	tableBody.innerHTML += tableRow;
-			// });
+				// Go through each column and add it to the table if the column is in witnessKeys
+				witnessKeys.forEach(function(key) {
+					tableRow += "<td>";
+					// The paramTypes keys have array values
+					if (paramTypes.includes(key)) {
+						tableRow += item[key].join(", ");
+					} else if (key == 'terminus_post_quem' || key == 'terminus_ante_quem') {
+						tableRow += (item[key] < 0 ? (-item[key] + ' BCE') : (item[key] + ' CE'));
+					} else {
+						tableRow += item[key];
+					}
+					tableRow += "</td>";
+				});
+				tableRow += "</tr>";
+				tableBody.innerHTML += tableRow;
+			});
     }
 // TODO that was the end of the witness table
 
@@ -383,6 +317,7 @@ if (results['textual_witnesses'] != null) {
           //redraw table
           tableMain.draw();
 showHell();
+filterData();
 
     //show the table!
     // $('#databaseBox').show();
@@ -400,7 +335,7 @@ for (let index in returns[paramType]) {
 	document.getElementById('b' + paramType + '_' + val).innerHTML = '<u>add</u>';
 	 let ind = searchData[paramType].indexOf(val);
 	 searchData[paramType].splice(ind, 1);
-   document.getElementById('selected_date_range').innerHTML = "";
+      document.getElementById('selected_date_range').innerHTML = "";
    searchData['startDate'] = null;
    searchData['endDate'] = null;
 }
@@ -441,60 +376,6 @@ function addAllparameter(paramType) {
 		// if (menu.innerHTML === '') menu.innerHTML = `<option>N/A</option>`;
 search();
 }
-
-$.fn.dataTable.render.ellipsis = function ( cutoff, wordbreak, escapeHtml ) {
-    var esc = function ( t ) {
-        return t
-            .replace( /&/g, '&amp;' )
-            .replace( /</g, '&lt;' )
-            .replace( />/g, '&gt;' )
-            .replace( /"/g, '&quot;' );
-    };
-
-    return function ( d, type, row ) {
-      // if (type === 'display' && data != null) {
-      //   data = data.replace(/<(?:.|\\n)*?>/gm, '');
-      //   if(data.length > 50) {
-      //     return '<span class=\"show-ellipsis\">' + data.substr(0, 50) + '</span><span class=\"no-show\">' + data.substr(50) + '</span>';
-      //   } else {
-      //     return data;
-      //   }
-      // } else {
-      //   return data;
-      // }
-        // Order, search and type get the original data
-        if ( type !== 'display' ) {
-            return d;
-        }
-
-        if ( typeof d !== 'number' && typeof d !== 'string' ) {
-            return d;
-        }
-
-        d = d.toString(); // cast numbers
-
-        // if ( d.length < cutoff ) {
-        //     return d;
-        if ( d.length < cutoff ) {
-            return d;
-
-        }
-
-        var shortened = d.substr(0, cutoff-1);
-
-        // Find the last white space character in the string
-        if ( wordbreak ) {
-            shortened = shortened.replace(/\s([^\s]*)$/, '');
-        }
-
-        // Protect against uncontrolled HTML input
-        if ( escapeHtml ) {
-            shortened = esc( shortened );
-        }
-
-        return '<span class=\"show-ellipsis\" title="'+esc(d)+'">'+shortened+'</span><span class=\"no-show\">' + d.substr(cutoff-1) + '</span>';
-    };
-};
 
 function addAlladdAll() {
 	clearParams();
@@ -545,9 +426,14 @@ returns = results
 
 
 	}
+
+
 });
+// primer();
+setTimeout(function(){ primer();}, 1000);
+setTimeout(function(){ search();}, 1500);
 
 //add new step here
-
+// primer();
 
 });

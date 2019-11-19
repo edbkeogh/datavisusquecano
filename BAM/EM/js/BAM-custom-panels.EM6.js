@@ -334,6 +334,9 @@ for (let index in returns[paramType]) {
 	document.getElementById('b' + paramType + '_' + val).innerHTML = '<u>add</u>';
 	 let ind = searchData[paramType].indexOf(val);
 	 searchData[paramType].splice(ind, 1);
+   document.getElementById('selected_date_range').innerHTML = "";
+   searchData['startDate'] = null;
+   searchData['endDate'] = null;
 }
 });
 search();

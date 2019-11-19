@@ -34,8 +34,11 @@ $( "#bamButtonHolder" ).append(mainMenuButtonHolder.databaseLaunchButton);
                $('#witnessPanel').toggle(); //display ours
             });
             $('#tlauncher').click(function() {
+              passed_SD = searchData;
               // console.log('tlaunch activated')
-               window.open("https://edbkeogh.github.io/datavisusquecano/BAM/EM/TL_demo.html", "_blank");
+              //TODO Must swap for live file
+              //  window.open("https://edbkeogh.github.io/datavisusquecano/BAM/EM/TL_demo.html", "_blank");
+               window.open("http://localhost:8000/BAM/EM/TL_demo.html", "_blank");
 
                           //  $('.nonMapOverlay').hide(); //hide all the other overlays
                           // $('#witnessPanel').toggle(); //display ours

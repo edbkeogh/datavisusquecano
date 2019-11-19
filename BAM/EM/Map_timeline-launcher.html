@@ -781,7 +781,7 @@ right-side-panel
 						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Select Search Parameters</button>
 <div class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 <div id="genreText" class="darkText">
-	<button id="searchButton" onclick="search()">Search</button>
+	<button id="searchButton" onclick="search()">Update</button>
 	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">RemoveAll</button><br/><br/>Note: You must select at least one language to search.</p>
 						<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button>
 						<div class="panel">
@@ -1051,6 +1051,7 @@ right-side-panel
 		<script>
 	    "use strict"
 
+var passed_SD = {};
 
 var newheight = window.innerHeight -33
 document.getElementById('low-side-panel').style.top = newheight + 'px'

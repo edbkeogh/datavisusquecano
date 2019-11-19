@@ -1070,7 +1070,7 @@ right-side-panel
 
     <!-- BAM functionality. Only add what you need!  -->
     <script src="js/BAM-core-functionality.EM7.js"></script>
-    <script src="js/BAM-custom-panels.EM6.TL.js"></script>
+    <script src="js/BAM-custom-panels.EM6.TL.opened.js"></script>
     <script src="js/BAM-custom-menu.TL.js"></script>
     <!-- <script src="js/BAM-datatables.js"></script> -->
     <!-- <script src="js/BAM-map-functionality.js"></script> -->
@@ -2377,12 +2377,41 @@ document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup
 // 		 map.fitBounds(fil.getBounds());
 //
 // 		}
-window.onload = setTimeout(function () {
-	search();
-}, 800);
-setTimeout(function () {
-	restore();
-}, 1100);
+// window.onload = setTimeout(function () {
+// 	search();
+// }, 800);
+// setTimeout(function () {
+// 	restore();
+// }, 1100);
+function primer() {
+	document.getElementById('selected_languages').innerHTML = window.opener.document.getElementById('selected_languages').innerHTML;
+	document.getElementById('selected_contexts').innerHTML = window.opener.document.getElementById('selected_contexts').innerHTML;
+	document.getElementById('selected_forms').innerHTML = window.opener.document.getElementById('selected_forms').innerHTML;
+	document.getElementById('selected_materials').innerHTML = window.opener.document.getElementById('selected_materials').innerHTML;
+	var holder = window.opener.document.getElementById("startDate").value;
+  var input = $( "#startDate" );
+  input.val( input.val() + holder );
+	var holder = window.opener.document.getElementById("endDate").value;
+	var input = $( "#endDate" );
+	input.val( input.val() + holder );
+	document.getElementById("startNegOrPos").value = window.opener.document.getElementById("startNegOrPos").value;
+	document.getElementById("endNegOrPos").value = window.opener.document.getElementById("endNegOrPos").value;
+  // var input = $( "#endNegOrPos" );
+  // input.val( input.val() + holder );
+	// clearParams();
+	console.log(window.opener.searchData);
+var temp = window.opener.searchData;
+searchData = temp;
+console.log(searchData);
+	// console.log(searchData);
+  // searchData = window.opener.searchData;
+	// console.log(searchData);
+	// searchData = window.opener.passed_SD;
+	// console.log(searchData);
+}
+
+
+// window.onload = primer
 	  </script>
 
 
