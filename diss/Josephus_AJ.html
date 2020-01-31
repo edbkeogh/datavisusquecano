@@ -82,7 +82,7 @@ var words = xmlDoc2.getElementsByTagName("sentence")[j]
   					// tableRow += "<td>";
             // tableRow += '\" ' + sentences[j].attributes.location.value.toString() + '\" </td>';
 // obj.push(sentences[j].attributes.location.value.toString())
-xmlASjson = '\{\" chap\" \: \" ' + sentences[j].attributes.location.value.toString() + '\" \, \"sentence\" \: \" ' + sentences[j].id.toString() + '\" \, ';
+xmlASjson = '\{\"chap\" \: \" ' + sentences[j].attributes.location.value.toString() + '\" \,\"sentence\" \: \" ' + sentences[j].id.toString() + '\" \, ';
             //  += '<td>' + sentences[j].id;
   					// tableRow += "</td>";
 
@@ -110,8 +110,9 @@ properCount = 0;
 interjectionCount = 0;
 
 for (var i = 0; i < words.childElementCount; i++) {
+console.log(i + ' ' + j);
   if (words.children[i].childElementCount > 0) {
-    console.log(i + ' ' + j);
+    // console.log(i + ' ' + j);
 tWC = tWC + 1;
   // document.getElementById("readable").innerHTML += betaCodeToGreek(words.children[i].attributes.form.nodeValue) + ' ';
 tText += ' ' + betaCodeToGreek(words.children[i].attributes.form.nodeValue);
@@ -170,7 +171,7 @@ console.log("POS error");
 
 } else { //TODO what soes this else solve?
   // document.getElementById("demo").innerHTML += words.children[i].attributes.mark.nodeValue + ' ';
-  tText += words.children[i].attributes.mark.nodeValue;
+  // tText += words.children[i].attributes.mark.nodeValue;  //may have to exclude quotation marks
   tPC = tPC + 1;
 };
 
@@ -183,30 +184,31 @@ console.log("POS error");
     xmlASjson += tLemma + '\" \, ';
   // document.getElementById("POS").innerHTML += '</p>';
   xmlASjson += tPOS + '\" \, ';
-  xmlASjson += '\" wordCount\" \: ' + tWC + '\" \, ';
-  xmlASjson += '\" punctCount\" \: ' + tPC + '\" \, ';
+  xmlASjson += '\" wordCount\" \: ' + tWC + '\, ';
+  xmlASjson += '\" punctCount\" \: ' + tPC + '\, ';
   // tableRow += '<td>' + verbCount / tWC + '</td>'; // this will happen when I add colory stuff to the cells
-  xmlASjson += '\" verbCount\" \: ' + verbCount + '\" \, ';
-  xmlASjson += '\" articleCount\" \: ' + articleCount + '\" \, ';
-  xmlASjson += '\" nounCount\" \: ' + nounCount + '\" \, ';
-  xmlASjson += '\" pronounCount\" \: ' + pronounCount + '\" \, ';
-  xmlASjson += '\" adjectiveCount\" \: ' + adjectiveCount + '\" \, ';
-  xmlASjson += '\" prepositionCount\" \: ' + prepositionCount + '\" \, ';
-  xmlASjson += '\" particleCount\" \: ' + particleCount + '\" \, ';
-  xmlASjson += '\" conjunctionCount\" \: ' + conjunctionCount + '\" \, ';
-  xmlASjson += '\" unknownCount\" \: ' + unknownCount + '\" \, ';
-  xmlASjson += '\" adverbCount\" \: ' + adverbCount + '\" \, ';
-  xmlASjson += '\" properCount\" \: ' + properCount + '\" \, ';
-  xmlASjson += '\" interjectionCount\" \: ' + interjectionCount + '\" ';
-    				xmlASjson += "\}";
-            obj.push(xmlASjson)
+  xmlASjson += '\" verbCount\" \: ' + verbCount + '\, ';
+  xmlASjson += '\" articleCount\" \: ' + articleCount + '\, ';
+  xmlASjson += '\" nounCount\" \: ' + nounCount + '\, ';
+  xmlASjson += '\" pronounCount\" \: ' + pronounCount + '\, ';
+  xmlASjson += '\" adjectiveCount\" \: ' + adjectiveCount + '\, ';
+  xmlASjson += '\" prepositionCount\" \: ' + prepositionCount + '\, ';
+  xmlASjson += '\" particleCount\" \: ' + particleCount + '\, ';
+  xmlASjson += '\" conjunctionCount\" \: ' + conjunctionCount + '\, ';
+  xmlASjson += '\" unknownCount\" \: ' + unknownCount + '\, ';
+  xmlASjson += '\" adverbCount\" \: ' + adverbCount + '\, ';
+  xmlASjson += '\" properCount\" \: ' + properCount + '\, ';
+  xmlASjson += '\" interjectionCount\" \: ' + interjectionCount + '\}';
+    				// xmlASjson += '\}';
+            var xml2 = JSON.parse(xmlASjson)
+            obj.push(xml2)
     				// tableBody.innerHTML += tableRow;
             // console.log(j);
 }
 // document.getElementById("demo").innerHTML =
   };
   // xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/Hymn.xml", true);//diss/josephus/Flavius Josephus (0526) - Josephi vita (002).xml
-xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/josephus/AJ2.xml", true);
+xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/josephus/Diorisis_AJ.xml", true);
   xhttp.send();
   // xmlASjson += '\}'
   // console.log(betaCode);
