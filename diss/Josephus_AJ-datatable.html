@@ -7,7 +7,16 @@
 <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css" />
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/jquery.dataTables.min.js"></script>
+<style>
 
+				span.no-show{
+				    display: none;
+				}
+				span.show-ellipsis:after{
+				    content: "...";
+				}
+
+</style>
 <body>
 
 <h2>Josephus <i>AJ</i> 6-9</h2>
@@ -240,8 +249,8 @@ function showtable() {
     $('#myTable').DataTable( {
         data: obj,
         columnDefs: [ {
-            targets: 4,
-            render: $.fn.dataTable.render.ellipsis(1,false,true)
+            targets: "_all",
+            render: $.fn.dataTable.render.ellipsis(50,false,true)
           }
         ],
         // buttons: [
