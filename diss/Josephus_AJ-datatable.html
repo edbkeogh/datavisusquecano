@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
-<script src="betacode/beta-code.js"></script>
+<!-- <script src="betacode/beta-code.js"></script> -->
+<script src="js/beta-code.js"></script>
+<!-- <script src="css/jquery.dataTables.min.css"></script> -->
+<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css" />
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/jquery.dataTables.min.js"></script>
 
 <body>
 
-<h2>Using the XMLHttpRequest Object</h2>
+<h2>Josephus <i>AJ</i> 6-9</h2>
+<!-- <div id="myTable">
+</div> -->
 <div id="table">
-  <table>
-<thead>
+  <table id="myTable" style="margin-top:10px">
+<!-- <thead>
 <tr>
 
-        <th>Chapter</th>
-        <th>Sentence</th>
-        <th>Text</th>
-        <th>Lemma</th>
+        <th>chap</th>
+        <th>sentence</th>
+        <th>text</th>
+        <th>lemma</th>
         <th>POS</th>
-        <th>Word Count</th>
-        <th>Punct Count</th>
-        <th>verbs</th>
-        <th>articles</th>
-        <th>nouns</th>
-        <th>pronouns</th>
-        <th>adjectives</th>
-        <th>prepositions</th>
-        <th>particles</th>
-        <th>conjunctions</th>
-        <th>unknowns</th>
-        <th>adverbs</th>
-        <th>propers</th>
-        <th>interjections</th>
+        <th>wordCount</th>
+        <th>punctCount</th>
+        <th>verbCount</th>
+        <th>articleCount</th>
+        <th>nounCount</th>
+        <th>pronounCount</th>
+        <th>adjectiveCount</th>
+        <th>prepositionCount</th>
+        <th>particleCount</th>
+        <th>conjunctionCount</th>
+        <th>unknownCount</th>
+        <th>adverbCount</th>
+        <th>properCount</th>
+        <th>interjectionCount</th>
 </tr>
 </thead>
 <tbody id="tableData">
 </tbody>
-  </table>
+  </table> -->
 </div>
 <div id="demo">
   <!-- <h1>Beta code text</h1> -->
-<button type="button" onclick="loadXMLDoc()">load xml Josephus' Antiquitates with parallel dictionary entry and part of speech tags</button>
+<button type="button" onclick="loadXMLDoc()">prepare the data</button>
 <p></p>
+<button type="button" onclick="showtable()">show table</button>
 </div>
 <div id="readable">
 </div>
@@ -51,6 +59,7 @@
 </div>
 
 <script>
+var xml2;
 var xmlDoc;
 var obj = [];
 var xmlASjson;
@@ -110,7 +119,7 @@ properCount = 0;
 interjectionCount = 0;
 
 for (var i = 0; i < words.childElementCount; i++) {
-console.log(i + ' ' + j);
+if (j === 2931 ) {console.log(i + ' ' + j);};
   if (words.children[i].childElementCount > 0) {
     // console.log(i + ' ' + j);
 tWC = tWC + 1;
@@ -171,7 +180,19 @@ console.log("POS error");
 
 } else { //TODO what soes this else solve?
   // document.getElementById("demo").innerHTML += words.children[i].attributes.mark.nodeValue + ' ';
-  // tText += words.children[i].attributes.mark.nodeValue;  //may have to exclude quotation marks
+ switch(words.children[i].attributes.mark.nodeValue) {
+   case "\.\"":
+  //  properCount = properCount + 1;
+tText +=   ".";
+   break;
+   case "\;\"":
+  //  interjectionCount = interjectionCount + 1;
+  tText += ";";
+   break;
+default:
+ tText +=  words.children[i].attributes.mark.nodeValue;  //may have to exclude quotation marks
+// console.log(words.children[i].attributes.mark.nodeValue)
+};
   tPC = tPC + 1;
 };
 
@@ -184,23 +205,23 @@ console.log("POS error");
     xmlASjson += tLemma + '\" \, ';
   // document.getElementById("POS").innerHTML += '</p>';
   xmlASjson += tPOS + '\" \, ';
-  xmlASjson += '\" wordCount\" \: ' + tWC + '\, ';
-  xmlASjson += '\" punctCount\" \: ' + tPC + '\, ';
-  // tableRow += '<td>' + verbCount / tWC + '</td>'; // this will happen when I add colory stuff to the cells
-  xmlASjson += '\" verbCount\" \: ' + verbCount + '\, ';
-  xmlASjson += '\" articleCount\" \: ' + articleCount + '\, ';
-  xmlASjson += '\" nounCount\" \: ' + nounCount + '\, ';
-  xmlASjson += '\" pronounCount\" \: ' + pronounCount + '\, ';
-  xmlASjson += '\" adjectiveCount\" \: ' + adjectiveCount + '\, ';
-  xmlASjson += '\" prepositionCount\" \: ' + prepositionCount + '\, ';
-  xmlASjson += '\" particleCount\" \: ' + particleCount + '\, ';
-  xmlASjson += '\" conjunctionCount\" \: ' + conjunctionCount + '\, ';
-  xmlASjson += '\" unknownCount\" \: ' + unknownCount + '\, ';
-  xmlASjson += '\" adverbCount\" \: ' + adverbCount + '\, ';
-  xmlASjson += '\" properCount\" \: ' + properCount + '\, ';
-  xmlASjson += '\" interjectionCount\" \: ' + interjectionCount + '\}';
+  xmlASjson += "\"wordCount\" \: " + tWC + "\, ";
+  xmlASjson += "\"punctCount\" \: " + tPC + "\, ";
+  // tableRow += "<td>" + verbCount / tWC + "</td>"; // this will happen when I add colory stuff to the cells
+  xmlASjson += "\"verbCount\" \: " + verbCount + "\, ";
+  xmlASjson += "\"articleCount\" \: " + articleCount + "\, ";
+  xmlASjson += "\"nounCount\" \: " + nounCount + "\, ";
+  xmlASjson += "\"pronounCount\" \: " + pronounCount + "\, ";
+  xmlASjson += "\"adjectiveCount\" \: " + adjectiveCount + "\, ";
+  xmlASjson += "\"prepositionCount\" \: " + prepositionCount + "\, ";
+  xmlASjson += "\"particleCount\" \: " + particleCount + "\, ";
+  xmlASjson += "\"conjunctionCount\" \: " + conjunctionCount + "\, ";
+  xmlASjson += "\"unknownCount\" \: " + unknownCount + "\, ";
+  xmlASjson += "\"adverbCount\" \: " + adverbCount + "\, ";
+  xmlASjson += "\"properCount\" \: " + properCount + "\, ";
+  xmlASjson += "\"interjectionCount\" \: " + interjectionCount + "\}";
     				// xmlASjson += '\}';
-            var xml2 = JSON.parse(xmlASjson)
+            xml2 = JSON.parse(xmlASjson)
             obj.push(xml2)
     				// tableBody.innerHTML += tableRow;
             // console.log(j);
@@ -214,6 +235,115 @@ xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/m
   // console.log(betaCode);
 }
 
+function showtable() {
+  $(document).ready( function () {
+    $('#myTable').DataTable( {
+        data: obj,
+        // buttons: [
+        //     'colvis', 'copy', 'csv','print'
+        // ],
+        columns: [
+          {
+            data: 'chap',
+            title: 'Chapter'
+        },
+        {
+            data: 'sentence',
+            title: 'Sentence'
+        },
+        {
+            data: 'text',
+            title: 'Text'
+        },
+        // { title: "lemma" },
+        // { title: "POS" },
+        // { title: "wordCount" },
+
+        {
+            data: 'lemma',
+            title: 'Lemmatized'
+        },
+        {
+            data: 'POS',
+            title: 'Part of Speech Tags'
+        },
+        {
+            data: 'wordCount',
+            title: 'Word(s)'
+        },
+        // { title: "punctCount" },
+        // { title: "verbCount" },
+        // { title: "articleCount" },
+        // { title: "nounCount" },
+        // { title: "pronounCount" },
+
+
+        {
+            data: 'punctCount',
+            title: 'Punctuation Count'
+        },
+        {
+            data: 'verbCount',
+            title: 'Verb(s)'
+        },
+        {
+            data: 'articleCount',
+            title: 'Article(s)'
+        },
+        {
+            data: 'nounCount',
+            title: 'Noun(s)'
+        },
+        {
+            data: 'pronounCount',
+            title: 'Pronoun(s)'
+        },
+        {
+            data: 'adjectiveCount',
+            title: 'Adjective(s)'
+        },
+        {
+            data: 'prepositionCount',
+            title: 'Preposition(s)'
+        },
+        {
+            data: 'particleCount',
+            title: 'Particle(s)'
+        },
+        {
+            data: 'conjunctionCount',
+            title: 'Conjunction(s)'
+        },
+        {
+            data: 'unknownCount',
+            title: 'Unknown(s)'
+        },
+        {
+            data: 'adverbCount',
+            title: 'Adverb(s)'
+        },
+        {
+            data: 'properCount',
+            title: 'Proper Noun(s)'
+        },
+        {
+            data: 'interjectionCount',
+            title: 'Interjection(s)'
+        }
+
+
+            // { title: "adjectiveCount" },
+            // { title: "prepositionCount" },
+            // { title: "particleCount" },
+            // { title: "conjunctionCount" },
+            // { title: "unknownCount" },
+            // { title: "adverbCount" },
+            // { title: "properCount" },
+            // { title: "interjectionCount" }
+        ]
+    } );
+} );
+}
 </script>
 
 </body>
