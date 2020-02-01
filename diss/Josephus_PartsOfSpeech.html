@@ -27,7 +27,9 @@
 				span.show-ellipsis:after{
 				    content: "...";
 				}
-
+				#myTable_wrapper {
+					padding: 10px;
+				}
 </style>
 <body>
 
@@ -77,7 +79,7 @@
 </select>
 <button type="button" onclick="loadXMLDoc()">prepare the data</button>
 
-<p id="readyMessage"></p>
+<p id="readyMessage">Wait to click 'show table' button below until this says 'ready'</p>
 <button type="button" onclick="showtable()">show table</button>
 </div>
 <div id="readable">
