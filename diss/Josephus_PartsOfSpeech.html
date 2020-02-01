@@ -4,9 +4,21 @@
 <!-- <script src="betacode/beta-code.js"></script> -->
 <script src="js/beta-code.js"></script>
 <!-- <script src="css/jquery.dataTables.min.css"></script> -->
+<link rel="stylesheet" type="text/css" href="css/buttons.jquery.datatables.min.css" />
+<link rel="stylesheet" type="text/css" href="css/compact.datatables.css" />
 <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css" />
 <script src="js/jquery-3.4.1.min.js"></script>
 <script src="js/jquery.dataTables.min.js"></script>
+<script src="js/dataTables.buttons.min.js"></script>
+<script src="js/buttons.flash.min.js"></script>
+<script src="js/jszip.min.js"></script>
+<script src="js/pdfmake.min.js"></script>
+<script src="js/vfs_fonts.js"></script>
+<script src="js/buttons.html5.min.js"></script>
+<script src="js/buttons.print.min.js"></script>
+<!-- <script src="js/"></script> -->
+
+
 <style>
 
 				span.no-show{
@@ -19,11 +31,11 @@
 </style>
 <body>
 
-<h2>Josephus <i>AJ</i> 6-9</h2>
+<h2>Josephus data table generator</h2>
 <!-- <div id="myTable">
 </div> -->
 <div id="table">
-  <table id="myTable" style="margin-top:10px">
+  <table id="myTable" style="margin-top:10px" class="display compact">
 <!-- <thead>
 <tr>
 
@@ -54,8 +66,18 @@
 </div>
 <div id="demo">
   <!-- <h1>Beta code text</h1> -->
+	<select id="workXML" name="workXML">
+  <option value="DiBJ.xml">Bello Judaico</option>
+  <option value="AJ1.xml">Antiquitates Judaicae 1-5</option>
+	<option value="AJ2.xml">Antiquitates Judaicae 6-9</option>
+	<option value="AJ3.xml">Antiquitates Judaicae 10-15</option>
+	<option value="AJ4.xml">Antiquitates Judaicae 16-20</option>
+  <option value="DiV.xml">Vita</option>
+  <option value="DiCA.xml">Contra Apionem</option>
+</select>
 <button type="button" onclick="loadXMLDoc()">prepare the data</button>
-<p></p>
+
+<p id="readyMessage"></p>
 <button type="button" onclick="showtable()">show table</button>
 </div>
 <div id="readable">
@@ -68,6 +90,7 @@
 </div>
 
 <script>
+var workXML
 var xml2;
 var xmlDoc;
 var obj = [];
@@ -86,7 +109,7 @@ function loadXMLDoc() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       xmlDoc = this.responseText;
-      console.log('something happened')
+      console.log('start processing')
     }
     parser = new DOMParser();
 xmlDoc2 = parser.parseFromString(xmlDoc,"text/xml");
@@ -128,7 +151,9 @@ properCount = 0;
 interjectionCount = 0;
 
 for (var i = 0; i < words.childElementCount; i++) {
-if (j === 2931 ) {console.log(i + ' ' + j);};
+if (j === sentences.length-1 ) {console.log('processing complete');
+																document.getElementById('readyMessage').innerHTML = 'ready'
+																	};
   if (words.children[i].childElementCount > 0) {
     // console.log(i + ' ' + j);
 tWC = tWC + 1;
@@ -238,7 +263,11 @@ default:
 // document.getElementById("demo").innerHTML =
   };
   // xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/Hymn.xml", true);//diss/josephus/Flavius Josephus (0526) - Josephi vita (002).xml
-xhttp.open("GET", "https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/josephus/AJ2.xml", true);
+workXML = document.getElementById('workXML').value
+var filelink = 'https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/diss/josephus/' + workXML;
+xhttp.open("GET", filelink, true);
+// xhttp.open("GET", "https://drive.google.com/u/0/uc?id=10N7SISAOmMsHFrjDTVdfibd40eDk25OQ&export=text/plain", true); //didn't work
+//https://drive.google.com/u/0/uc?id=10N7SISAOmMsHFrjDTVdfibd40eDk25OQ&export=text/plain
   xhttp.send();
   // xmlASjson += '\}'
   // console.log(betaCode);
@@ -248,6 +277,10 @@ function showtable() {
   $(document).ready( function () {
     $('#myTable').DataTable( {
         data: obj,
+				dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
         columnDefs: [ {
             targets: "_all",
             render: $.fn.dataTable.render.ellipsis(50,false,true)
@@ -257,14 +290,15 @@ function showtable() {
         //     'colvis', 'copy', 'csv','print'
         // ],
         columns: [
-          {
+					{
+	            data: 'sentence',
+	            title: 'Sentence'
+	        },
+				  {
             data: 'chap',
             title: 'Chapter'
         },
-        {
-            data: 'sentence',
-            title: 'Sentence'
-        },
+
         {
             data: 'text',
             title: 'Text'
