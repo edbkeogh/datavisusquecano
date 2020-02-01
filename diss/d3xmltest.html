@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<head>
+  <script src="js/d3.v5.min.js"></script>
+</head>
+<script>
+var holder;
+var parser = new DOMParser();
+// <script>
+  d3.xml("josephus/DiAJ.xml")
+      .then(function(data) {
+        holder = parser.parseFromString(data,"text/xml");
+// console.log(data);
+// holder = data.stringify();
+          // data is an XML document, parse document
+          data = [].map.call(data.querySelectorAll("word"), function(word) {
+
+              return { word
+
+                // data = [].map.call(data.querySelectorAll("sentence"), function(sentence) {
+                //
+                //     return { sentence
+
+
+                //  id: sentence.querySelector("id").attributes,
+                  // number: item.querySelector("number").textContent,
+                  // color: item.querySelector("color").textContent
+              };
+          });
+          // console.log(data.length)
+          for (var i = 0; i < data.length; i++) {
+              // console.log(data[i].word.getAttribute('form'));
+              // holder
+          };
+console.log(data);
+          // drawText("#xmlDemo", data);
+
+       });
+</script>
+
+<!-- <svg id="xmlDemo" class="lightblue" width="80" height="50"></svg> -->
+<!-- </script> -->
+<body>
+  <div id="xmldemo">
+  </div>
+</body>
+</html>
