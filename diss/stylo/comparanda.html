@@ -20,19 +20,27 @@ div.tooltip {
     pointer-events: none;
 }
 
+div.holder{
+  margin: 20px;
+}
+
   </style>
 </head>
 <body>
   <div id="control">
+<p>Links strength is determined by running R's stylo package on the corpus and adding the edge counts from each measure (Canberra, Classica Delta, Cosine, Eder's Delta, Eder's Simple, entropy, Euclidean, Manhattan, and Wurzburg).</p>
+<p style="color:white;"><span style="background-color: steelblue"><b>&nbspBible&nbsp</b></span>&nbsp&nbsp&nbsp<span style="background-color: coral"><b>&nbspHistory&nbsp</b></span>&nbsp&nbsp&nbsp<span style="background-color: olivedrab"><b>&nbspNovel&nbsp</b></span>&nbsp&nbsp&nbsp<span style="background-color: crimson"><b>&nbspTreatise&nbsp</b></span>&nbsp&nbsp&nbsp</p>
 
-  </div>
+  </div id="holder">
+  <div>
 <svg id='viz'></svg>
+  </div>
 </body>
 
 <!-- <script src='https://d3js.org/d3.v5.min.js'></script> -->
 <script src='d3.v5.min.js'></script>
 <script>
-var width = 800;
+var width = 1200;
 var height = 600;
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
