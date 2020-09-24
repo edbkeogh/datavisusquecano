@@ -1,0 +1,924 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.503325,
+          41.894358
+        ]
+      },
+      "type": "Feature",
+      "id": "esquilinae",
+      "properties": {
+        "snippet": "Hill; AD 1700 - AD 2100",
+        "link": "https://pleiades.stoa.org/places/950724706/esquilinae",
+        "description": "",
+        "location_precision": "precise",
+        "title": "Esquilinae"
+      }
+    },
+    {
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.499094013171543,
+              41.88982360551861
+            ],
+            [
+              12.49854612395406,
+              41.889849695481345
+            ],
+            [
+              12.496706781581084,
+              41.8902019099783
+            ],
+            [
+              12.496054532512652,
+              41.89033235979199
+            ],
+            [
+              12.495428373406957,
+              41.89046280960567
+            ],
+            [
+              12.493432491257558,
+              41.891323778376005
+            ],
+            [
+              12.493028096835129,
+              41.89150640811516
+            ],
+            [
+              12.492715017282283,
+              41.891715127817065
+            ],
+            [
+              12.492467162636279,
+              41.891936892500325
+            ],
+            [
+              12.492193218027538,
+              41.8921977921277
+            ],
+            [
+              12.49197145334427,
+              41.89241955681097
+            ],
+            [
+              12.491749688661004,
+              41.89274568134518
+            ],
+            [
+              12.491671418772793,
+              41.89303267093529
+            ],
+            [
+              12.491723598698266,
+              41.89320225569308
+            ],
+            [
+              12.49455435965526,
+              41.89688094043904
+            ],
+            [
+              12.494802214301263,
+              41.89714184006641
+            ],
+            [
+              12.496276297195918,
+              41.89868114786791
+            ],
+            [
+              12.496498061879185,
+              41.898759417756125
+            ],
+            [
+              12.496719826562453,
+              41.89866810288654
+            ],
+            [
+              12.496993771171192,
+              41.89842024824054
+            ],
+            [
+              12.499759307221343,
+              41.89535467761891
+            ],
+            [
+              12.500033251830084,
+              41.89501550810333
+            ],
+            [
+              12.50025501651335,
+              41.89468938356911
+            ],
+            [
+              12.500672455917147,
+              41.89378927985467
+            ],
+            [
+              12.500894220600413,
+              41.89322834565582
+            ],
+            [
+              12.501572559631583,
+              41.89145422818969
+            ],
+            [
+              12.50178127933348,
+              41.89059325941936
+            ],
+            [
+              12.50178127933348,
+              41.890475854587045
+            ],
+            [
+              12.501729099408006,
+              41.89030626982925
+            ],
+            [
+              12.50159864959432,
+              41.89013668507146
+            ],
+            [
+              12.501442109817896,
+              41.890045370201875
+            ],
+            [
+              12.501298615022842,
+              41.88996710031367
+            ],
+            [
+              12.500085431755558,
+              41.88983665049998
+            ],
+            [
+              12.499381002761652,
+              41.88982360551861
+            ],
+            [
+              12.499094013171543,
+              41.88982360551861
+            ]
+          ]
+        ]
+      },
+      "type": "Feature",
+      "id": "esquiline-hill",
+      "properties": {
+        "snippet": "Hill",
+        "link": "https://pleiades.stoa.org/places/950724706/esquiline-hill",
+        "description": "",
+        "location_precision": "precise",
+        "title": "Esquiline Hill"
+      }
+    }
+  ],
+  "contributors": [
+    {
+      "username": "jbecker",
+      "homepage": null,
+      "name": "Jeffrey Becker",
+      "uri": "https://pleiades.stoa.org/author/jbecker"
+    }
+  ],
+  "locations": [
+    {
+      "contributors": [],
+      "associationCertainty": "certain",
+      "attestations": [
+        {
+          "timePeriod": "modern",
+          "timePeriodURI": "https://pleiades.stoa.org/vocabularies/time-periods/modern",
+          "confidence": "confident",
+          "confidenceURI": "https://pleiades.stoa.org/vocabularies/attestation-confidence/confident"
+        }
+      ],
+      "references": [],
+      "id": "esquilinae",
+      "featureTypeURI": [
+        "https://pleiades.stoa.org/vocabularies/place-types/hill"
+      ],
+      "end": 2100,
+      "title": "Esquilinae",
+      "provenance": "Pleiades",
+      "associationCertaintyURI": "https://pleiades.stoa.org/vocabularies/association-certainty/certain",
+      "start": 1700,
+      "locationTypeURI": [
+        "https://pleiades.stoa.org/vocabularies/place-types/hill"
+      ],
+      "archaeologicalRemains": "notapplicable",
+      "details": "",
+      "review_state": "drafting",
+      "accuracy_value": 20,
+      "accuracy": "https://pleiades.stoa.org/features/metadata/generic-osm-accuracy-assessment",
+      "featureType": [
+        "hill"
+      ],
+      "description": "",
+      "created": "2018-03-17T15:42:12Z",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.503325,
+          41.894358
+        ]
+      },
+      "locationType": [
+        "representative"
+      ],
+      "uri": "https://pleiades.stoa.org/places/950724706/esquilinae",
+      "creators": [
+        {
+          "username": "ekeogh",
+          "homepage": null,
+          "name": "Edward Keogh",
+          "uri": "https://pleiades.stoa.org/author/ekeogh"
+        }
+      ],
+      "@type": "Location",
+      "history": [
+        {
+          "comment": "Initial revision",
+          "modifiedBy": "ekeogh",
+          "modified": "2018-03-17T15:42:18Z"
+        }
+      ]
+    },
+    {
+      "contributors": [],
+      "associationCertainty": "certain",
+      "attestations": [],
+      "references": [],
+      "id": "esquiline-hill",
+      "featureTypeURI": [
+        "https://pleiades.stoa.org/vocabularies/place-types/hill"
+      ],
+      "end": null,
+      "title": "Esquiline Hill",
+      "provenance": "Pleiades",
+      "associationCertaintyURI": "https://pleiades.stoa.org/vocabularies/association-certainty/certain",
+      "start": null,
+      "locationTypeURI": [
+        "https://pleiades.stoa.org/vocabularies/place-types/hill"
+      ],
+      "archaeologicalRemains": "notapplicable",
+      "details": "",
+      "review_state": "drafting",
+      "accuracy_value": 50,
+      "accuracy": "https://pleiades.stoa.org/features/metadata/generic-50m-horizontal-accuracy",
+      "featureType": [
+        "hill"
+      ],
+      "description": "",
+      "created": "2018-04-08T05:40:56Z",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              12.499094013171543,
+              41.88982360551861
+            ],
+            [
+              12.49854612395406,
+              41.889849695481345
+            ],
+            [
+              12.496706781581084,
+              41.8902019099783
+            ],
+            [
+              12.496054532512652,
+              41.89033235979199
+            ],
+            [
+              12.495428373406957,
+              41.89046280960567
+            ],
+            [
+              12.493432491257558,
+              41.891323778376005
+            ],
+            [
+              12.493028096835129,
+              41.89150640811516
+            ],
+            [
+              12.492715017282283,
+              41.891715127817065
+            ],
+            [
+              12.492467162636279,
+              41.891936892500325
+            ],
+            [
+              12.492193218027538,
+              41.8921977921277
+            ],
+            [
+              12.49197145334427,
+              41.89241955681097
+            ],
+            [
+              12.491749688661004,
+              41.89274568134518
+            ],
+            [
+              12.491671418772793,
+              41.89303267093529
+            ],
+            [
+              12.491723598698266,
+              41.89320225569308
+            ],
+            [
+              12.49455435965526,
+              41.89688094043904
+            ],
+            [
+              12.494802214301263,
+              41.89714184006641
+            ],
+            [
+              12.496276297195918,
+              41.89868114786791
+            ],
+            [
+              12.496498061879185,
+              41.898759417756125
+            ],
+            [
+              12.496719826562453,
+              41.89866810288654
+            ],
+            [
+              12.496993771171192,
+              41.89842024824054
+            ],
+            [
+              12.499759307221343,
+              41.89535467761891
+            ],
+            [
+              12.500033251830084,
+              41.89501550810333
+            ],
+            [
+              12.50025501651335,
+              41.89468938356911
+            ],
+            [
+              12.500672455917147,
+              41.89378927985467
+            ],
+            [
+              12.500894220600413,
+              41.89322834565582
+            ],
+            [
+              12.501572559631583,
+              41.89145422818969
+            ],
+            [
+              12.50178127933348,
+              41.89059325941936
+            ],
+            [
+              12.50178127933348,
+              41.890475854587045
+            ],
+            [
+              12.501729099408006,
+              41.89030626982925
+            ],
+            [
+              12.50159864959432,
+              41.89013668507146
+            ],
+            [
+              12.501442109817896,
+              41.890045370201875
+            ],
+            [
+              12.501298615022842,
+              41.88996710031367
+            ],
+            [
+              12.500085431755558,
+              41.88983665049998
+            ],
+            [
+              12.499381002761652,
+              41.88982360551861
+            ],
+            [
+              12.499094013171543,
+              41.88982360551861
+            ]
+          ]
+        ]
+      },
+      "locationType": [
+        "representative"
+      ],
+      "uri": "https://pleiades.stoa.org/places/950724706/esquiline-hill",
+      "creators": [
+        {
+          "username": "echosmith",
+          "homepage": null,
+          "name": "Echo Smith",
+          "uri": "https://pleiades.stoa.org/author/echosmith"
+        }
+      ],
+      "@type": "Location",
+      "history": [
+        {
+          "comment": "Initial revision",
+          "modifiedBy": "echosmith",
+          "modified": "2018-04-08T05:41:14Z"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "end": -3300,
+      "description": "",
+      "contributors": [],
+      "created": "2018-03-16T19:03:34Z",
+      "associationCertainty": "certain",
+      "title": "Roma",
+      "start": -10000,
+      "provenance": "Pleiades",
+      "uri": "https://pleiades.stoa.org/places/950724706/roma",
+      "connectionType": "part_of_physical",
+      "id": "roma",
+      "attestations": [
+        {
+          "timePeriod": "neolithic-eastern-med",
+          "timePeriodURI": "https://pleiades.stoa.org/vocabularies/time-periods/neolithic-eastern-med",
+          "confidence": "confident",
+          "confidenceURI": "https://pleiades.stoa.org/vocabularies/attestation-confidence/confident"
+        }
+      ],
+      "history": [
+        {
+          "comment": "Initial revision",
+          "modifiedBy": "ekeogh",
+          "modified": "2018-03-16T19:03:38Z"
+        }
+      ],
+      "connectsTo": "https://pleiades.stoa.org/places/423025",
+      "details": "",
+      "references": [],
+      "review_state": "drafting",
+      "creators": [
+        {
+          "username": "ekeogh",
+          "homepage": null,
+          "name": "Edward Keogh",
+          "uri": "https://pleiades.stoa.org/author/ekeogh"
+        }
+      ],
+      "@type": "Connection",
+      "connectionTypeURI": "https://pleiades.stoa.org/vocabularies/relationship-types/part_of_physical"
+    },
+    {
+      "end": null,
+      "description": "",
+      "contributors": [],
+      "created": "2018-03-16T19:05:51Z",
+      "associationCertainty": "certain",
+      "title": "Roma",
+      "start": null,
+      "provenance": "Pleiades",
+      "uri": "https://pleiades.stoa.org/places/950724706/roma-1",
+      "connectionType": "part_of_regional",
+      "id": "roma-1",
+      "attestations": [],
+      "history": [
+        {
+          "comment": "Initial revision",
+          "modifiedBy": "ekeogh",
+          "modified": "2018-03-16T19:05:55Z"
+        }
+      ],
+      "connectsTo": "https://pleiades.stoa.org/places/423025",
+      "details": "",
+      "references": [
+        {
+          "alternateURI": "",
+          "accessURI": "",
+          "citationDetail": "Gaius Plinius Secundus, Naturalis Historia 18.13.6",
+          "citationTypeURI": "https://pleiades.stoa.org/vocabularies/feature-type/citesAsEvidence",
+          "shortTitle": "Pliny, Natural History",
+          "bibliographicURI": "http://atlantides.org/bibliography/p.html#Pliny",
+          "formattedCitation": "",
+          "otherIdentifier": "",
+          "type": "citesAsEvidence"
+        }
+      ],
+      "review_state": "drafting",
+      "creators": [
+        {
+          "username": "ekeogh",
+          "homepage": null,
+          "name": "Edward Keogh",
+          "uri": "https://pleiades.stoa.org/author/ekeogh"
+        }
+      ],
+      "@type": "Connection",
+      "connectionTypeURI": "https://pleiades.stoa.org/vocabularies/relationship-types/part_of_regional"
+    }
+  ],
+  "references": [
+    {
+      "alternateURI": "",
+      "accessURI": "",
+      "citationDetail": "Varro, De Lingua Latina 5.45",
+      "citationTypeURI": "https://pleiades.stoa.org/vocabularies/feature-type/citesAsEvidence",
+      "shortTitle": "",
+      "bibliographicURI": "",
+      "formattedCitation": "",
+      "otherIdentifier": "",
+      "type": "citesAsEvidence"
+    },
+    {
+      "alternateURI": "",
+      "accessURI": "",
+      "citationDetail": "",
+      "citationTypeURI": "https://pleiades.stoa.org/vocabularies/feature-type/citesAsEvidence",
+      "shortTitle": "",
+      "bibliographicURI": "http://atlantides.org/bibliography/c.html#Cicero",
+      "formattedCitation": "Cicero, Rep. 2.11",
+      "otherIdentifier": "",
+      "type": "citesAsEvidence"
+    },
+    {
+      "alternateURI": "",
+      "accessURI": "",
+      "citationDetail": "",
+      "citationTypeURI": "https://pleiades.stoa.org/vocabularies/feature-type/citesAsEvidence",
+      "shortTitle": "",
+      "bibliographicURI": "http://atlantides.org/bibliography/l.html#Livy",
+      "formattedCitation": "Livy, Per. 1b.21",
+      "otherIdentifier": "",
+      "type": "citesAsEvidence"
+    },
+    {
+      "alternateURI": "",
+      "accessURI": "",
+      "citationDetail": "",
+      "citationTypeURI": "https://pleiades.stoa.org/vocabularies/feature-type/citesAsEvidence",
+      "shortTitle": "",
+      "bibliographicURI": "http://atlantides.org/bibliography/h.html#Horace",
+      "formattedCitation": "Horace, Ep. 5; Serm. 1.8",
+      "otherIdentifier": "",
+      "type": "citesAsEvidence"
+    },
+    {
+      "alternateURI": "",
+      "accessURI": "",
+      "citationDetail": "",
+      "citationTypeURI": "https://pleiades.stoa.org/vocabularies/feature-type/seeFurther",
+      "shortTitle": "",
+      "bibliographicURI": "http://atlantides.org/bibliography/c.html#Coarelli-2007",
+      "formattedCitation": "Coarelli 2007, 177-211",
+      "otherIdentifier": "",
+      "type": "seeFurther"
+    },
+    {
+      "alternateURI": "",
+      "accessURI": "https://en.wikipedia.org/wiki/Esquiline_Hill",
+      "citationDetail": "",
+      "citationTypeURI": "https://pleiades.stoa.org/vocabularies/feature-type/seeFurther",
+      "shortTitle": "",
+      "bibliographicURI": "",
+      "formattedCitation": "Wikipedia (English) Esquiline Hill",
+      "otherIdentifier": "",
+      "type": "seeFurther"
+    },
+    {
+      "alternateURI": "",
+      "accessURI": "",
+      "citationDetail": "",
+      "citationTypeURI": "https://pleiades.stoa.org/vocabularies/feature-type/seeFurther",
+      "shortTitle": "",
+      "bibliographicURI": "http://atlantides.org/bibliography/n.html#New-Pauly",
+      "formattedCitation": "New Pauly, Esquiliae",
+      "otherIdentifier": "",
+      "type": "seeFurther"
+    }
+  ],
+  "names": [
+    {
+      "nameType": "geographic",
+      "transcriptionAccuracy": "accurate",
+      "associationCertainty": "certain",
+      "romanized": "Esquilinae",
+      "attestations": [],
+      "references": [],
+      "id": "name.2018-03-16.3790032081",
+      "end": null,
+      "contributors": [],
+      "provenance": "Pleiades",
+      "associationCertaintyURI": "https://pleiades.stoa.org/vocabularies/association-certainty/certain",
+      "start": null,
+      "details": "",
+      "review_state": "drafting",
+      "description": "",
+      "transcriptionCompleteness": "complete",
+      "language": "la",
+      "created": "2018-03-16T19:14:40Z",
+      "uri": "https://pleiades.stoa.org/places/950724706/name.2018-03-16.3790032081",
+      "creators": [
+        {
+          "username": "ekeogh",
+          "homepage": null,
+          "name": "Edward Keogh",
+          "uri": "https://pleiades.stoa.org/author/ekeogh"
+        }
+      ],
+      "attested": "",
+      "@type": "Name",
+      "history": [
+        {
+          "comment": "Edited",
+          "modifiedBy": "ekeogh",
+          "modified": "2018-03-16T19:15:03Z"
+        },
+        {
+          "comment": "Initial revision",
+          "modifiedBy": "ekeogh",
+          "modified": "2018-03-16T19:14:40Z"
+        }
+      ]
+    },
+    {
+      "nameType": "geographic",
+      "transcriptionAccuracy": "accurate",
+      "associationCertainty": "certain",
+      "romanized": "Esquilinus Mons",
+      "attestations": [
+        {
+          "timePeriod": "roman",
+          "timePeriodURI": "https://pleiades.stoa.org/vocabularies/time-periods/roman",
+          "confidence": "confident",
+          "confidenceURI": "https://pleiades.stoa.org/vocabularies/attestation-confidence/confident"
+        }
+      ],
+      "references": [],
+      "id": "name.2018-03-23.9538083221",
+      "end": 300,
+      "contributors": [],
+      "provenance": "Pleiades",
+      "associationCertaintyURI": "https://pleiades.stoa.org/vocabularies/association-certainty/certain",
+      "start": -30,
+      "details": "",
+      "review_state": "drafting",
+      "description": "",
+      "transcriptionCompleteness": "complete",
+      "language": "la",
+      "created": "2018-03-23T22:14:39Z",
+      "uri": "https://pleiades.stoa.org/places/950724706/name.2018-03-23.9538083221",
+      "creators": [
+        {
+          "username": "shales",
+          "homepage": null,
+          "name": "Sara Hales",
+          "uri": "https://pleiades.stoa.org/author/shales"
+        }
+      ],
+      "attested": "",
+      "@type": "Name",
+      "history": [
+        {
+          "comment": "Edited",
+          "modifiedBy": "shales",
+          "modified": "2018-03-27T16:30:37Z"
+        },
+        {
+          "comment": "Initial revision",
+          "modifiedBy": "shales",
+          "modified": "2018-03-23T22:14:39Z"
+        }
+      ]
+    },
+    {
+      "nameType": "geographic",
+      "transcriptionAccuracy": "accurate",
+      "associationCertainty": "certain",
+      "romanized": "Collis Esquilinus",
+      "attestations": [],
+      "references": [],
+      "id": "name.2018-03-23.3173078489",
+      "end": null,
+      "contributors": [],
+      "provenance": "Pleiades",
+      "associationCertaintyURI": "https://pleiades.stoa.org/vocabularies/association-certainty/certain",
+      "start": null,
+      "details": "",
+      "review_state": "drafting",
+      "description": "",
+      "transcriptionCompleteness": "complete",
+      "language": "la",
+      "created": "2018-03-23T22:17:27Z",
+      "uri": "https://pleiades.stoa.org/places/950724706/name.2018-03-23.3173078489",
+      "creators": [
+        {
+          "username": "shales",
+          "homepage": null,
+          "name": "Sara Hales",
+          "uri": "https://pleiades.stoa.org/author/shales"
+        }
+      ],
+      "attested": "",
+      "@type": "Name",
+      "history": [
+        {
+          "comment": "Edited",
+          "modifiedBy": "shales",
+          "modified": "2018-03-27T16:29:51Z"
+        },
+        {
+          "comment": "Initial revision",
+          "modifiedBy": "shales",
+          "modified": "2018-03-23T22:17:27Z"
+        }
+      ]
+    },
+    {
+      "nameType": "geographic",
+      "transcriptionAccuracy": "accurate",
+      "associationCertainty": "certain",
+      "romanized": "Collis Aesquilinus",
+      "attestations": [],
+      "references": [
+        {
+          "alternateURI": "",
+          "accessURI": "",
+          "citationDetail": "",
+          "citationTypeURI": "https://pleiades.stoa.org/vocabularies/feature-type/citesAsEvidence",
+          "shortTitle": "",
+          "bibliographicURI": "http://atlantides.org/bibliography/l.html#Livy",
+          "formattedCitation": "Livy, Per. 1b.21",
+          "otherIdentifier": "",
+          "type": "citesAsEvidence"
+        }
+      ],
+      "id": "name.2018-03-23.6414862645",
+      "end": null,
+      "contributors": [],
+      "provenance": "Pleiades",
+      "associationCertaintyURI": "https://pleiades.stoa.org/vocabularies/association-certainty/certain",
+      "start": null,
+      "details": "",
+      "review_state": "drafting",
+      "description": "",
+      "transcriptionCompleteness": "complete",
+      "language": "la",
+      "created": "2018-03-23T22:22:25Z",
+      "uri": "https://pleiades.stoa.org/places/950724706/name.2018-03-23.6414862645",
+      "creators": [
+        {
+          "username": "shales",
+          "homepage": null,
+          "name": "Sara Hales",
+          "uri": "https://pleiades.stoa.org/author/shales"
+        }
+      ],
+      "attested": "",
+      "@type": "Name",
+      "history": [
+        {
+          "comment": "Edited",
+          "modifiedBy": "shales",
+          "modified": "2018-03-27T16:29:08Z"
+        },
+        {
+          "comment": "Initial revision",
+          "modifiedBy": "shales",
+          "modified": "2018-03-23T22:22:25Z"
+        }
+      ]
+    }
+  ],
+  "id": "950724706",
+  "subject": [
+    "Regio IV",
+    "regio V"
+  ],
+  "title": "Esquiline Hill",
+  "provenance": "Pleiades",
+  "placeTypeURIs": [
+    "https://pleiades.stoa.org/vocabularies/place-types/hill"
+  ],
+  "details": "",
+  "@context": {
+    "snippet": "dcterms:abstract",
+    "rights": "dcterms:rights",
+    "description": "dcterms:description",
+    "title": "dcterms:title",
+    "dcterms": "http://purl.org/dc/terms/",
+    "subject": "dcterms:subject",
+    "uri": "@id",
+    "created": "dcterms:created"
+  },
+  "review_state": "drafting",
+  "type": "FeatureCollection",
+  "description": "This entry duplicates https://pleiades.stoa.org/places/679976755\r\nAn elevated region, including the Cispian and Oppian hills. Part of the seven hills of Rome. The section of the hill outside the Servian Walls initially housed libitinarii and cemeteries; in the late Republic and early Empire the hill became a fashionable residential area.",
+  "reprPoint": null,
+  "placeTypes": [
+    "hill"
+  ],
+  "bbox": null,
+  "connectsWith": [
+    "https://pleiades.stoa.org/places/423025",
+    "https://pleiades.stoa.org/places/423025"
+  ],
+  "rights": "Copyright © The Contributors. Sharing and remixing permitted under terms of the Creative Commons Attribution 3.0 License (cc-by).",
+  "created": "2018-03-16T18:59:10Z",
+  "uri": "https://pleiades.stoa.org/places/950724706",
+  "creators": [
+    {
+      "username": "shales",
+      "homepage": null,
+      "name": "Sara Hales",
+      "uri": "https://pleiades.stoa.org/author/shales"
+    },
+    {
+      "username": "echosmith",
+      "homepage": null,
+      "name": "Echo Smith",
+      "uri": "https://pleiades.stoa.org/author/echosmith"
+    },
+    {
+      "username": "ekeogh",
+      "homepage": null,
+      "name": "Edward Keogh",
+      "uri": "https://pleiades.stoa.org/author/ekeogh"
+    }
+  ],
+  "@type": "Place",
+  "history": [
+    {
+      "comment": "This entry duplicates https://pleiades.stoa.org/places/679976755",
+      "modifiedBy": "jbecker",
+      "modified": "2020-03-25T16:54:48Z"
+    },
+    {
+      "comment": "Edited",
+      "modifiedBy": "shales",
+      "modified": "2018-03-27T17:18:15Z"
+    },
+    {
+      "comment": "Edited",
+      "modifiedBy": "shales",
+      "modified": "2018-03-27T17:09:06Z"
+    },
+    {
+      "comment": "Edited",
+      "modifiedBy": "shales",
+      "modified": "2018-03-27T17:05:10Z"
+    },
+    {
+      "comment": "Edited",
+      "modifiedBy": "shales",
+      "modified": "2018-03-27T16:48:57Z"
+    },
+    {
+      "comment": "Edited",
+      "modifiedBy": "ekeogh",
+      "modified": "2018-03-25T03:02:13Z"
+    },
+    {
+      "comment": "Edited",
+      "modifiedBy": "shales",
+      "modified": "2018-03-23T22:19:30Z"
+    },
+    {
+      "comment": "Edited",
+      "modifiedBy": "shales",
+      "modified": "2018-03-23T22:07:46Z"
+    },
+    {
+      "comment": "Edited",
+      "modifiedBy": "shales",
+      "modified": "2018-03-23T21:55:37Z"
+    },
+    {
+      "comment": "Edited",
+      "modifiedBy": "ekeogh",
+      "modified": "2018-03-16T19:09:23Z"
+    },
+    {
+      "comment": "Initial revision",
+      "modifiedBy": "ekeogh",
+      "modified": "2018-03-16T18:59:15Z"
+    }
+  ]
+}
