@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <link rel="icon" href="data:,">
+<style>
+
+body { font: 12px Arial;}
+
+path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    /*width: 60px;*/
+    /*height: 28px;*/
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+</style>
+</head>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="../betacode/beta-code.js"></script>
+<script>
+var test = [];
+var test2 = [];
+var d_text = [];
+var d_words = [];
+var x_offset = 0;
+var y_offset = 0;
+
+// var i = 0;
+
+var margin = {top: 30, right: 20, bottom: 30, left: 50},
+    width = 800 - margin.left - margin.right,
+    height = 270 - margin.top - margin.bottom;
+
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+    //
+    // var svgContainer = d3.select("body").append("svg")
+    //                                       .attr("width",200)
+    //                                       .attr("height",200);
+
+
+    var svg = d3.select("body")
+      .append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+      // .append("g")
+      //     .attr("transform",
+      //           "translate(" + margin.left + "," + margin.top + ")");
+
+d3.xml("Hymn1.xml", function(error, data) {
+  if (error) throw error;
+
+  // Convert the XML document to an array of objects.
+  // Note that querySelectorAll returns a NodeList, not a proper Array,
+  // so we must use map.call to invoke array methods.
+  d_text = [].map.call(data.querySelectorAll("sentence"), function(sentence) {
+    return {
+      // for ( i = 0; i < data.querySelectorAll("sentence").length; i++) {}
+      sentence: sentence.getAttribute("id"),
+      location: sentence.getAttribute("location"), //these 2 work
+      word_form_beta: sentence.querySelector("word").getAttribute("form"),
+      word_form_uni: betaCodeToGreek(sentence.querySelector("word").getAttribute("form"))
+
+//
+
+      // frequency: +sentence.querySelector("location").textContent //only goood for grabbing text inside a xml, all our values are attributes
+
+    };
+  }); //end data creation
+
+  d_words = [].map.call(data.querySelectorAll("word"), function(word) {
+    return {
+      // for ( i = 0; i < data.querySelectorAll("sentence").length; i++) {}
+      sentence: word.parentNode.attributes[0].value,
+      location: word.parentNode.attributes[1].value,
+      word_place_in_sentence: word.attributes[1].value,
+      word_form_beta: word.attributes[0].value,
+      word_form_uni: betaCodeToGreek(word.attributes[0].value),
+      lemma: word.children[0].attributes[1].value,
+      pos: word.children[0].attributes[2].value,
+      fil: checkLemma(word.children[0].attributes[1].value)
+
+};
+
+console.log(d_words);
+
+});
+
+var text = svg.selectAll("text")
+                        .data(d_words)
+                        .enter()
+                        .append("text");
+
+var textLabels = text
+//
+// svg.selectAll("g")
+//     .attr("transform", function (d, i) {
+//         var x_pos = d3.select(this).select("text").node().getComputedTextLength() + 20;
+//         x_offset = x_offset + x_pos;
+//             return "translate(" + (x_offset - x_pos + margin.left) + ", 20)"
+// })
+
+
+            // return "translate(" + (x_offset - x_pos + margin.left) + ", 20)"
+// })
+
+
+//worked but oddly spaced
+
+// .attr("x", function(d,i) {
+// return 20 + 80 * i;
+// })
+//
+
+
+
+// console.log(d3.select(this).select("text").node().getComputedTextLength())
+
+// //didn't work, but close
+// .attr("x", function (d, i) {
+// if (i=0) {return 20}
+// else {
+//
+//      var x_pos = d[i-1].word_form_uni.length*10 + 20;
+//      x_offset = x_offset + x_pos;
+//          return x_offset;
+//  }})
+
+.attr("y", 100)
+
+
+                //  .attr("x", 150)
+                //  .attr("y", 150)
+                 .text(function (d) { return d.word_form_uni; })
+                //  .attr("font-family", "sans-serif")
+                 .attr("font-size", "20px")
+                 .attr("fill", function(d) {return d.fil})
+                 .attr("x", function (d, i) {
+                     var x_pos = d3.select(this).node().getComputedTextLength() + 10;
+                     x_offset = x_offset + x_pos;
+                    //  console.log(x_offset);
+                    //  console.log(d3.select(this).node().getComputedTextLength());
+                     return x_offset - x_pos + margin.left})
+                     .on("mouseover", function(d) {
+d3.select(this).attr("fill", "steelblue");
+            div.transition()
+                .duration(200)
+
+                .style("opacity", .9);
+            div	.html("sentence: " + d.sentence + "<br/> location: "  + d.location + "<br/> beta: " + d.word_form_beta + "<br/> dictionary form: "  + d.lemma + "<br/> part of speech: "  + d.pos)
+                // .style("left", (d3.event.pageX) + "px")
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY + 28) + "px");
+            })
+        .on("mouseout", function(d) {
+d3.select(this).attr("fill", function(d) {return d.fil});
+            div.transition()
+                .duration(500)
+
+                .style("opacity", 0);
+                  })
+                  .on("click", function(d) {
+                    window.open(
+        'https://logeion.uchicago.edu/' + d.lemma,
+        '_blank' // <- This is what makes it open in a new window.
+      );
+
+                  });
+
+
+
+//
+// var text = svg.selectAll("text")
+//                    .data(d_words)
+//                     .enter()
+//                         .append("text");
+//
+
+
+// // function draw(words) {
+//   svg
+//     .append("g")
+//       // .attr("transform", "translate(" + layout.size()[0] / 2 + "," + layout.size()[1] / 2 + ")")
+//       // .attr("transform", translate("40","100")) - broken
+//       .selectAll("text")
+//         .data(d_words)
+//       .enter().append("text")
+//         .style("font-size", "12px")          //function(d) { return d.size + "px"; })
+//         .attr("text-anchor", "middle")
+//         .attr("transform", function(d) {
+//           return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+//         })
+//         .text(function(d) { return d.text; });
+// // }
+
+// svg.selectAll("text")
+//     .attr("transform", function (d, i) {
+//         var x_pos = d3.select(this).select("text").node().getComputedTextLength() + 20;
+//         x_offset = x_offset + x_pos;
+//             return "translate(" + (x_offset - x_pos + margin.left) + ", 20)"
+// })
+
+
+
+
+console.log(data);
+test = data;
+test2 = data.querySelectorAll("word");
+console.log(d_text);
+});
+
+
+function checkLemma(lemmavalue) {
+console.log(lemmavalue);
+if (lemmavalue === "false") {return "red";
+}  else {
+    return "black";
+}
+};
+
+</script>
+</body>
