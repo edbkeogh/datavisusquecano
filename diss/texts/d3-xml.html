@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.x.axis path {
+  display: none;
+}
+
+</style>
+<body>
+<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="../betacode/beta-code.js"></script>
+<script>
+
+d_text = [];
+
+d3.xml("Hymn1.xml", function(error, data) {
+  if (error) throw error;
+
+  // Convert the XML document to an array of objects.
+  // Note that querySelectorAll returns a NodeList, not a proper Array,
+  // so we must use map.call to invoke array methods.
+  d_text = [].map.call(data.querySelectorAll("sentence"), function(sentence) {
+    return {
+      sentence: sentence.getAttribute("id"),
+      location: sentence.getAttribute("location"), //these 2 work
+      word_form_beta: sentence.querySelector("word").getAttribute("form"),
+      word_form_uni: betaCodeToGreek(sentence.querySelector("word").getAttribute("form"))
+//
+
+      // frequency: +sentence.querySelector("location").textContent //only goood for grabbing text inside a xml, all our values are attributes
+
+    };
+  }); //end data creation
+
+console.log(data);
+console.log(d_text);
+});
+
+</script>
+</body>
