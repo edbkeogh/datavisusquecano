@@ -1107,7 +1107,8 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 		// tileServer = 'https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=wJFPJ1cR5IcFz4Uk1e3X', // for the terrain plus political
 		//tileServer = 'https://a.tile.openstreetmap.org/${z}/${x}/${y}.png',
 		// now with custom awmc = 'https://api.maptiler.com/tiles/c10261a7-859a-4f5f-af32-931fdaa7fc6b/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X'
-tileServer = 'https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X',
+//tileServer = 'https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X',
+tileServer = 'https://api.maptiler.com/tiles/c10261a7-859a-4f5f-af32-931fdaa7fc6b/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X',
 
 		tileAttribution = '<a href="http://maps.stamen.com/">Map tiles</a> by <a href="http://stamen.com">Stamen Design</a>, under <a target="_top" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data: <a href="http://awmc.unc.edu/wordpress/">AWMC</a>, Map Inspiration: <a href="http://bl.ocks.org/gisminister/10001728">B&#229rd Romstad</a>',
 		rmax = 30, //Maximum radius for cluster pies
@@ -1117,7 +1118,7 @@ tileServer = 'https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?ke
 	      }),
 	      map = L.map('map');//.setView([0, 0], 0);
 	    //Add basemap
-	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 8}).addTo(map);
+	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 6}).addTo(map);
 	    //and the empty markercluster layer
 	    map.addLayer(markerclusters);
 	    //Ready to go, load the geojson
