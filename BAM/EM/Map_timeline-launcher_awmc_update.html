@@ -944,7 +944,62 @@ right-side-panel
 	<!-- <button onclick="showallMap()">Show All</button> -->
 	<button onclick="resize()"><i class="fas">&#xf31e;</i></button>
 	<br/>
-	<button onclick="changeCatField()">Color by language</button>
+	<button onclick="changeCatField()">Color markers by language</button>
+	<br/>
+	<p style="color: black">Change base map</p>
+
+	<button onclick="map._layers[23].setUrl('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png');
+	">Open Street Map</button>
+	<br/>
+	<button onclick="map._layers[23].setUrl('http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}');
+	">USGS</button>
+	<br/>
+	<button onclick="map._layers[23].setUrl('http://{s}.sm.mapstack.stamen.com/terrain-background/{z}/{x}/{y}.png');
+	">Mapstack - Terrain</button>
+	<br/>
+	<button onclick="map._layers[23].setUrl('http://{s}.sm.mapstack.stamen.com/positron/{z}/{x}/{y}.png');
+	">Mapstack - Positron</button>
+	<br/>
+	<button onclick="map._layers[23].setUrl('http://{s}.sm.mapstack.stamen.com/darkmatter/{z}/{x}/{y}.png');
+	">Mapstack - Darkmatter</button>
+	<br/>
+	<button onclick="map._layers[23].setUrl('http://{s}.sm.mapstack.stamen.com/toner/{z}/{x}/{y}.png');
+	">Mapstack - Toner</button>
+	<br/>
+	<button onclick="map._layers[23].setUrl('http://{s}.sm.mapstack.stamen.com/toner-background/{z}/{x}/{y}.png');
+	">Mapstack - Toner - no labels</button>
+	<br/>
+	<button onclick="map._layers[23].setUrl('http://{s}.sm.mapstack.stamen.com/toner-lite/{z}/{x}/{y}.png');
+	">Mapstack - Toner Lite</button>
+	<br/>
+	<br/>
+	<button onclick="map._layers[23].setUrl('https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X');
+">MapTiler - Topographique</button>
+<br/>
+<button onclick="map._layers[23].setUrl('https://api.maptiler.com/maps/hybrid/{z}/{x}/{y}.jpg?key=wJFPJ1cR5IcFz4Uk1e3X');
+">MapTiler - Hybrid</button>
+<br/>
+<button onclick="map._layers[23].setUrl('https://api.maptiler.com/tiles/hillshades/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X');
+">MapTiler - Hillshades</button>
+<br/>
+<button onclick="map._layers[23].setUrl('https://api.maptiler.com/maps/basic/256/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X');
+">MapTiler - Basic</button>
+<br/>
+<button onclick="map._layers[23].setUrl('https://api.maptiler.com/tiles/satellite-mediumres-2018/{z}/{x}/{y}.jpg?key=wJFPJ1cR5IcFz4Uk1e3X');
+">MapTiler - Satellite</button>
+<br/>
+
+<!-- <button onclick="map._layers[23].setUrl('http://{s}.sm.mapstack.stamen.com/darkmatter/{z}/{x}/{y}.png');
+">Mapstack - Darkmatter</button>
+<br/> -->
+
+<br/>
+<br/>
+<button id="addAWMCbutton" onclick="setAWMCnumber()">add AWMC overlay</button>
+<div style="visibility: hidden" id="sliderDiv" class="slidecontainer">
+	<p style="color: black">slider adjusts AWMC overlay opacity</p>
+  <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+</div>
 <!-- <div id="color_legend"></div> -->
 	<!-- <button id="genreButton" class="accordion accordionExp" onclick="changeCatField()">&nbsp;&nbsp;&nbsp;&nbsp;Color by Language</button> -->
 	<!-- <div class="panel"> -->
@@ -1051,6 +1106,9 @@ right-side-panel
 		<script>
 	    "use strict"
 
+var overlayCount = 0;
+var AWMCnumber = 0;
+
 var passed_SD = {};
 
 var newheight = window.innerHeight -33
@@ -1108,8 +1166,8 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 		//tileServer = 'https://a.tile.openstreetmap.org/${z}/${x}/${y}.png',
 		// now with custom awmc = 'https://api.maptiler.com/tiles/c10261a7-859a-4f5f-af32-931fdaa7fc6b/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X'
 //tileServer = 'https://api.maptiler.com/maps/topographique/256/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X',
-tileServer = 'https://api.maptiler.com/tiles/c10261a7-859a-4f5f-af32-931fdaa7fc6b/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X',
-
+//tileServer = 'https://api.maptiler.com/tiles/c10261a7-859a-4f5f-af32-931fdaa7fc6b/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X', //custom AWMC
+tileServer = 'https://api.maptiler.com/tiles/satellite-mediumres-2018/{z}/{x}/{y}.jpg?key=wJFPJ1cR5IcFz4Uk1e3X',
 		tileAttribution = '<a href="http://maps.stamen.com/">Map tiles</a> by <a href="http://stamen.com">Stamen Design</a>, under <a target="_top" href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Map data: <a href="http://awmc.unc.edu/wordpress/">AWMC</a>, Map Inspiration: <a href="http://bl.ocks.org/gisminister/10001728">B&#229rd Romstad</a>',
 		rmax = 30, //Maximum radius for cluster pies
 	      markerclusters = L.markerClusterGroup({
@@ -1118,7 +1176,7 @@ tileServer = 'https://api.maptiler.com/tiles/c10261a7-859a-4f5f-af32-931fdaa7fc6
 	      }),
 	      map = L.map('map');//.setView([0, 0], 0);
 	    //Add basemap
-	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 6}).addTo(map);
+	    L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 7, minZoom: 2}).addTo(map);
 	    //and the empty markercluster layer
 	    map.addLayer(markerclusters);
 	    //Ready to go, load the geojson
@@ -1547,6 +1605,45 @@ document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup
 // 		 map.fitBounds(fil.getBounds());
 //
 // 		}
+
+//slider for AWMC overlay opacity
+
+function setAWMCnumber() {
+if (overlayCount === 0)	{
+	document.getElementById('sliderDiv').style.visibility = 'visible';
+	document.getElementById('addAWMCbutton').style.visibility = 'hidden';
+	overlayCount = overlayCount +1;
+	console.log('layer added');
+	L.tileLayer('https://api.maptiler.com/tiles/edf4b40e-b68f-45d5-9da5-2d8c82fdfae3/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X', {minZoom: 2, maxZoom: 7, opacity: .5}).addTo(map);
+	map.eachLayer(function(layer){
+		if (layer._url === 'https://api.maptiler.com/tiles/edf4b40e-b68f-45d5-9da5-2d8c82fdfae3/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X') {
+		AWMCnumber = layer._leaflet_id;
+		console.log(layer._leaflet_id);
+		}
+		// console.log(i);
+	});
+} else {
+console.log('layer already existed');
+};
+}
+
+var slider = document.getElementById("myRange");
+slider.oninput = function() {
+	// // var AWMCnumber;
+	// map.eachLayer(function(layer){
+	// 	if (layer._url === 'https://api.maptiler.com/tiles/c10261a7-859a-4f5f-af32-931fdaa7fc6b/{z}/{x}/{y}.png?key=wJFPJ1cR5IcFz4Uk1e3X') {
+	// 	AWMCnumber = layer._leaflet_id;
+	// 	console.log(layer._leaflet_id);
+	// 	}
+	// 	// console.log(i);
+	// });
+	if (AWMCnumber != 0) {
+  map._layers[AWMCnumber].setOpacity(this.value*.01);
+};
+};
+
+
+//need this for some reason - helps load everything at the right time
 window.onload = setTimeout(function () {
 	search();
 }, 800);
