@@ -1099,7 +1099,7 @@ right-side-panel
    <!-- <script src="../BAM/BAM-d3-functionality.js"></script> -->
     <script src="js/BAM-layers.EM.js"></script>
     <!--<script src="../BAM/BAM-timeline.js"></script>-->
-    <script src="js/BAM-custom-functionality.EM12.js"></script>
+    <script src="js/BAM-custom-functionality.EM13.js"></script>
     <script src="js/BAM-cleanup6.js"></script>
 
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
@@ -1155,7 +1155,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.11-18-19.geojson',
+		geojsonPath = 'data/EM.2-17-21.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -1298,7 +1298,7 @@ var searchedMetadata = searchIDs[metaDataID]
 document.getElementById('right-side-headline2').innerHTML += '<img  src=\"images/man-images/' + a.layer.feature.properties['5032'] + '\" /><br/>'
 // style="max-width:300px !important;width:95%;"
 if (a.layer.feature.properties['5033'] != "") {
-document.getElementById('right-side-headline2').innerHTML += '<p style="font-size:xx-small"><b>Image Source:' + a.layer.feature.properties['5033'] + '</p>'
+document.getElementById('right-side-headline2').innerHTML += '<p style="font-size:xx-small"><b>Image Attribution:' + a.layer.feature.properties['5033'] + '</p>'
 }
 if (a.layer.feature.properties['5034'] != "") {
 document.getElementById('right-side-headline2').innerHTML += '<p><b>Digital Surrogate: </b>' + a.layer.feature.properties['5034'] + '</p>'
