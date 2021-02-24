@@ -1032,7 +1032,7 @@ right-side-panel
 		</span>
 
 		<!-- the right panel is generally reactive to user selections - will probably have to rename this to react panel or something like it-->
-		<span id="right-side-panel">
+		<span id="right-side-panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 		<div id="right-btn-slide-toggle" class="slider-icon">&#9664;
 			</div>
 			<div id="right-side-headline" class="right-title"><h3>Manuscript Metadata</h3>
@@ -1042,7 +1042,8 @@ right-side-panel
 			<div id="right-side-headline2" class="right-title-image">
 				 <!-- couldn't figure out how to get past the leafletcontainer img problem  style="max-width:150px;"> -->
 			</div>
-			<div id="right-side-text-main" class="right-side-text-main" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
+			<div id="right-side-text-main" class="right-side-text-main">
+				 <!-- onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()"> -->
 <span id="metadataList"></span>
 
 			</div>
@@ -1155,7 +1156,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.2-17-21.geojson',
+		geojsonPath = 'data/EM.2-24-21.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -1298,12 +1299,12 @@ var searchedMetadata = searchIDs[metaDataID]
 document.getElementById('right-side-headline2').innerHTML += '<img  src=\"images/man-images/' + a.layer.feature.properties['5032'] + '\" /><br/>'
 // style="max-width:300px !important;width:95%;"
 if (a.layer.feature.properties['5033'] != "") {
-document.getElementById('right-side-headline2').innerHTML += '<p style="font-size:xx-small"><b>Image Attribution:' + a.layer.feature.properties['5033'] + '</p>'
+document.getElementById('right-side-headline2').innerHTML += '<p style="font-size:xx-small"><b>Image Attribution: ' + a.layer.feature.properties['5033'] + '</p>'
 }
-if (a.layer.feature.properties['5034'] != "") {
+if (a.layer.feature.properties['5034'] != "" && a.layer.feature.properties['5034'] != "<a href=\"\" target=\"_blank\">") {
 document.getElementById('right-side-headline2').innerHTML += '<p><b>Digital Surrogate: </b>' + a.layer.feature.properties['5034'] + '</p>'
 }
-if (a.layer.feature.properties['5035'] != "") {
+if (a.layer.feature.properties['5035'] != "" ) {
 // document.getElementById('right-side-headline2').innerHTML
 var tester = searchedMetadata['bibliography'].includes(a.layer.feature.properties['5035'])
 //  console.log(tester)

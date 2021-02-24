@@ -229,7 +229,7 @@ $(document).ready(function() {
 var geojsonID = geojson.features.findIndex(x => x.properties[5004] === leafletID)
         // document.getElementById('right-side-headline2').innerHTML += '<img src=\"images/man-images/' + geojson.features[geojsonID].properties['5032'] + '\" />'
 //zoom to marker
-        map.setView([geojson.features[geojsonID].geometry.coordinates[1], geojson.features[geojsonID].geometry.coordinates[0]], 5);
+        map.setView([geojson.features[geojsonID].geometry.coordinates[1], geojson.features[geojsonID].geometry.coordinates[0]], 6);
         console.log('geojsonID is ' + geojsonID);
 
         //TODO update for new fields
