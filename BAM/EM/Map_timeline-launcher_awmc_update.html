@@ -1296,10 +1296,12 @@ console.log(searchIDs.findIndex(x => x.id === leafletID));
 var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
 var searchedMetadata = searchIDs[metaDataID]
 
+if (a.layer.feature.properties['5032'] != "") {
 document.getElementById('right-side-headline2').innerHTML += '<img  src=\"images/man-images/' + a.layer.feature.properties['5032'] + '\" /><br/>'
+}
 // style="max-width:300px !important;width:95%;"
 if (a.layer.feature.properties['5033'] != "") {
-document.getElementById('right-side-headline2').innerHTML += '<p style="font-size:xx-small"><b>Image Attribution: ' + a.layer.feature.properties['5033'] + '</p>'
+document.getElementById('right-side-headline2').innerHTML += '<p style="font-size:xx-small; width:90%; text-align:center"><b>Image Attribution: ' + a.layer.feature.properties['5033'] + '</p>'
 }
 if (a.layer.feature.properties['5034'] != "" && a.layer.feature.properties['5034'] != "<a href=\"\" target=\"_blank\">") {
 document.getElementById('right-side-headline2').innerHTML += '<p><b>Digital Surrogate: </b>' + a.layer.feature.properties['5034'] + '</p>'
