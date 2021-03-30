@@ -699,6 +699,7 @@ right-side-panel
 		<script src="js/leaflet.js" charset="utf-8"></script>
 		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
 		<script src="js/d3.v3.min.js" charset="utf-8"></script>
+		<script src="data/witness-meta.js"></script>
 
 </head>
 
@@ -1129,7 +1130,7 @@ window.addEventListener('resize', function(event){
 	informationToggle = true;
 });
 
-var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "Language(s)", "script": "Script(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Multilingual(Y/N)", "bilingual_format": "Multilingual Format", "second_language": "Secondary Language(s)", "second_script": "Secondary Script(s)", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "palimpsest": "Palimpsest/Recycled", "colophon": "Colophon(Y/N)", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher"}
+var manuscriptmetadata = {"id": "ID", "manuscript": "Manuscript", "languages": "Language(s)", "script": "Script(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Multilingual(Y/N)", "bilingual_format": "Multilingual Format", "second_language": "Secondary Language(s)", "second_script": "Secondary Script(s)", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "palimpsest": "Palimpsest/Recycled(Y/N)", "colophon": "Colophon(Y/N)", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher"}
 			//k these don't do what I want, they broke leaflet
 			// L.DomEvent.disableScrollPropagation('panel');
 			// L.DomEvent.disableClickPropagation('panel');
@@ -1286,7 +1287,7 @@ console.log(metaDataID)
 
 		 fil.on('click', function (a) {
 			 console.log(a.layer.feature.properties['5004']);
-
+			 rightBTNblink();
 
 var leafletID = a.layer.feature.properties['5004'];
 document.getElementById('metadataList').innerHTML = ''
@@ -1403,6 +1404,7 @@ for ( i in manuscriptmetadata) {
 	                              pieClass: 'cluster-pie',
 	                              pieLabel: n,
 	                              pieLabelClass: 'marker-cluster-pie-label',
+																//  pieLabelClass2: 'marker-cluster-pie-label2',
 	                              pathClassFunc: function(d){return "category-"+d.data.key;},
 	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' manuscript'+(d.data.values.length!=1?'s':'')}
 	                            }),
@@ -1430,7 +1432,10 @@ for ( i in manuscriptmetadata) {
 	          pieClass = options.pieClass?options.pieClass:'marker-cluster-pie', //Class for the whole pie
 	          pieLabel = options.pieLabel?options.pieLabel:d3.sum(data,valueFunc), //Label for the whole pie
 	          pieLabelClass = options.pieLabelClass?options.pieLabelClass:'marker-cluster-pie-label',//Class for the pie label
-	          origo = (r+strokeWidth), //Center coordinate
+						// pieLabelClass2 = options.pieLabelClass?options.pieLabelClass:'marker-cluster-pie-label2',//Class for the pie label
+						origo = (r+strokeWidth), //Center coordinate
+						origoShadow = (r+strokeWidth*1.6),
+						// origoShadow2 = (r-.1),
 	          w = origo*2, //width and height of the svg element
 	          h = w,
 	          donut = d3.layout.pie(),
@@ -1461,15 +1466,76 @@ for ( i in manuscriptmetadata) {
 	          .attr('d', arc)
 	          .append('svg:title')
 	            .text(pathTitleFunc);
+
+							vis.append('text')
+								 .attr('x',origo+1.1)
+								 .attr('y',origo+1.1)
+								 .style('opacity',.5)
+	// .style('font-size', "15px")
+	 .style('fill', 'white')
+
+								 .attr('class', pieLabelClass)
+								 .attr('text-anchor', 'middle')
+								 //.attr('dominant-baseline', 'central')
+								 /*IE doesn't seem to support dominant-baseline, but setting dy to .3em does the trick*/
+								 .attr('dy','.3em')
+								 .text(pieLabel);
+
+								 vis.append('text')
+										.attr('x',origo-1.1)
+										.attr('y',origo-1.1)
+										.style('opacity',.5)
+		 // .style('font-size', "15px")
+			.style('fill', 'white')
+
+										.attr('class', pieLabelClass)
+										.attr('text-anchor', 'middle')
+										//.attr('dominant-baseline', 'central')
+										/*IE doesn't seem to support dominant-baseline, but setting dy to .3em does the trick*/
+										.attr('dy','.3em')
+										.text(pieLabel);
+
+										vis.append('text')
+									 		.attr('x',origo+1.1)
+									 		.attr('y',origo-1.1)
+											.style('opacity',.5)
+									 // .style('font-size', "15px")
+									 .style('fill', 'white')
+
+									 		.attr('class', pieLabelClass)
+									 		.attr('text-anchor', 'middle')
+									 		//.attr('dominant-baseline', 'central')
+									 		/*IE doesn't seem to support dominant-baseline, but setting dy to .3em does the trick*/
+									 		.attr('dy','.3em')
+									 		.text(pieLabel);
+
+											vis.append('text')
+										 		.attr('x',origo-1.1)
+										 		.attr('y',origo+1.1)
+												.style('opacity',.5)
+										 // .style('font-size', "15px")
+										 .style('fill', 'white')
+
+										 		.attr('class', pieLabelClass)
+										 		.attr('text-anchor', 'middle')
+										 		//.attr('dominant-baseline', 'central')
+										 		/*IE doesn't seem to support dominant-baseline, but setting dy to .3em does the trick*/
+										 		.attr('dy','.3em')
+										 		.text(pieLabel);
+
+
+
 	      vis.append('text')
 	          .attr('x',origo)
 	          .attr('y',origo)
+
 	          .attr('class', pieLabelClass)
 	          .attr('text-anchor', 'middle')
 	          //.attr('dominant-baseline', 'central')
 	          /*IE doesn't seem to support dominant-baseline, but setting dy to .3em does the trick*/
 	          .attr('dy','.3em')
 	          .text(pieLabel);
+
 	      //Return the svg-markup rather than the actual element
 	      return serializeXmlNode(svg);
 	  }
@@ -1645,9 +1711,19 @@ slider.oninput = function() {
 };
 };
 
+function rightBTNblink() {
+	var f = document.getElementById('right-btn-slide-toggle');
+ var grayblink = setInterval(function() {f.style['background-color'] = '#fff';
+ setTimeout(function() {f.style['background-color'] = '#d7dce4';}, 125);}, 250);
+ setTimeout(function() {
+ clearInterval(grayblink);
+}, 500);
+}
 
 //need this for some reason - helps load everything at the right time
 window.onload = setTimeout(function () {
+	// removeAllparameter('materials');
+	// removeAllparameter('forms')
 	search();
 }, 800);
 	  </script>

@@ -448,6 +448,7 @@ $.fn.dataTable.render.ellipsis = function ( cutoff, wordbreak, escapeHtml ) {
             .replace( /&/g, '&amp;' )
             .replace( /</g, '&lt;' )
             .replace( />/g, '&gt;' )
+            // .replace( /\?/g, '&quest;' )
             .replace( /"/g, '&quot;' );
     };
 
@@ -487,11 +488,11 @@ $.fn.dataTable.render.ellipsis = function ( cutoff, wordbreak, escapeHtml ) {
             shortened = shortened.replace(/\s([^\s]*)$/, '');
         }
 
-        // Protect against uncontrolled HTML input
-        if ( escapeHtml ) {
-            shortened = esc( shortened );
-        }
-
+        // Protect against uncontrolled HTML input - remove this to allow pictures
+//         if ( escapeHtml ) {
+//             shortened = esc( shortened );
+//         }
+// console.log(shortened);
         return '<span class=\"show-ellipsis\" title="'+esc(d)+'">'+shortened+'</span><span class=\"no-show\">' + d.substr(cutoff-1) + '</span>';
     };
 };

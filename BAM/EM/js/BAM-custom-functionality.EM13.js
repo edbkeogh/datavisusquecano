@@ -315,7 +315,7 @@ var tableWitness = $('#witness').DataTable({
     dom: 'Bfrtip',
     columnDefs: [ {
         targets: 6,
-        render: $.fn.dataTable.render.ellipsis(100,false,true)
+        render: $.fn.dataTable.render.ellipsis(200,false,true)
       }
     ],
     buttons: [
@@ -353,7 +353,7 @@ var tableWitness = $('#witness').DataTable({
     },
     {
         data: 'text',
-        title: 'Text'
+        title: 'Text/Image'
     }
 
     ]
