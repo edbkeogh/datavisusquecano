@@ -1,3 +1,4 @@
+var witnessLabels = ["Author", "Bibliography", "Content", "Form(s)", "ID", "Latitiude", "Longitude", "Substrate Material(s)", "Place of Composition", "Religious Affiliation", "Terminus ante quem", "Terminus post quem", "Text", "Work"]
 var witness_forms_substrates = [
   {
   id: "0", form: "indexplaceholder", substrate_material: "indexplaceholder"
@@ -57,3 +58,4 @@ id: "17", form: "", substrate_material: ""
 id: "18", form: "", substrate_material: ""
   }
 ];
+console.log(witness_forms_substrates);

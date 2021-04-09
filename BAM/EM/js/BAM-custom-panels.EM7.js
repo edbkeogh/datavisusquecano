@@ -300,7 +300,7 @@ function search() {
 xx = []
 console.log(results.manuscripts);
 searchIDs = results.manuscripts;
-
+witnessData = results.textual_witnesses;
 var formattedresults = searchIDs
 
 
