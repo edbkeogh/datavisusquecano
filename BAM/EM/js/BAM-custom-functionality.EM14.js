@@ -282,16 +282,48 @@ $(document).ready(function() {
         console.log('witness ID is ' + witnessDataID);
         if (witnessData[witnessDataID].text.charAt(0) === "<") {
            var n = witnessData[witnessDataID].text.search(" style");
-           var imageHTML = witnessData[witnessDataID].text.substring(0, n != -1 ? n : s.length);
+           var o = witnessData[witnessDataID].text.search('"');
+           var imagePath = witnessData[witnessDataID].text.substring(o, n);
+           console.log(imagePath);
+           var imageHTML = '<a href=' + imagePath + ' target="_blank">' + witnessData[witnessDataID].text.substring(0, n != -1 ? n : s.length);
 
-          document.getElementById('right-side-headline2').innerHTML += imageHTML + ">";
+          document.getElementById('right-side-headline2').innerHTML += imageHTML + "></a>";
         };
         var textWitness = witnessData[witnessDataID];
-        for ( i in textWitness) {
-
-            	if (textWitness[i] != null || textWitness[i].charAt(0) != "<") {
-            	document.getElementById('metadataList').innerHTML += '<b>' + textWitness[i] + '<br/>' // + ': </b>' + searchedMetadata[i] + '<br/>'
-            };
+        console.log(textWitness);
+        for ( i in witnessLabels) {
+        // console.log(i);
+        // console.log(typeof(textWitness[i]));
+// console.log(witnessLabels[i]);
+// var witLabel = witnessLabels[i].key;
+// || witnessData[i].charAt(0) != "<"
+            // 	if (textWitness[i] != null ) {
+            //     if (textWitness[i].charAt(0) != "<") {
+            // 	document.getElementById('metadataList').innerHTML += '<b>' + witnessLabels[i] + ': </b>' + textWitness[i] + '<br/>'
+            // };
+            // };
+            switch(typeof(textWitness[i])) {
+              case 'object':
+                if (i === 'forms') {
+                  // console.log(witness_forms_substrates[witnessID].forms);
+document.getElementById('metadataList').innerHTML += '<b>Form(s): </b>' + witness_forms_substrates[witnessID].forms + '<br/>'
+                };
+                if (i === 'materials') {
+                  // console.log(witness_forms_substrates[witnessID].materials);
+document.getElementById('metadataList').innerHTML += '<b>Material(s): </b>' + witness_forms_substrates[witnessID].materials + '<br/>'
+                };
+                break;
+              case 'string':
+              if (textWitness[i] != "" && textWitness[i].charAt(0) != "<") {
+              document.getElementById('metadataList').innerHTML += '<b>' + witnessLabels[i] + ': </b>' + textWitness[i] + '<br/>'
+};
+                break;
+                case 'number':
+                  document.getElementById('metadataList').innerHTML += '<b>' + witnessLabels[i] + ': </b>' + textWitness[i] + '<br/>'
+                  break;
+              default:
+                // code block
+            }
           };
         // var searchedMetadata = searchIDs[metaDataID]
 //TODO testing image load - may need to modify a.layers... something to get here: console.log(geojson.features[7].properties[5032])
