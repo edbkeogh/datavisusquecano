@@ -73,6 +73,7 @@ overlayPanelsList.infoBox = 'overlay';
 var witnessHTML = '<div id="witnessPanel" class="nonMapOverlay" style="overflow:auto;"> <b> Form Witness Table </b><br/><p>sources from antiquity that describe the form(s) that are included in the filter';
 witnessHTML = witnessHTML + '<div id="witnessPanelClose" class="popupCloseCarte">x</div> <hr />';
 witnessHTML = witnessHTML + '<div id="witnessPanelContents">';
+//.style Cannot read property style of undefined -- this error was because this table build setup here was breaking the later one when it ididn't have as many columns
 witnessHTML = witnessHTML + '<table id="witness" style="cursor: auto;"><thead><tr><td>Author</td><td>Work</td><td>Forms</td><td>Materials</td><td>Term. post</td><td>Term. ante</td><td>text</td><td>holder</td></tr></thead>'
 witnessHTML = witnessHTML + '<tbody id="witness-results-table"></tbody></table>'
 // witnessHTML = witnessHTML + '<div id="witness-results-table" class="display darkText"><table id="bamMainTable" class="display darkText cell-border" width="100%"></table></div>';
