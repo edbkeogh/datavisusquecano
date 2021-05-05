@@ -1,5 +1,25 @@
 // var witnessLabels = ["Author", "Bibliography", "Content", "Form(s)", "ID", "Latitiude", "Longitude", "Substrate Material(s)", "Place of Composition", "Religious Affiliation", "Terminus ante quem", "Terminus post quem", "Text", "Work"]
 // var witnessLabels = {author: "Author", bibliography: "Bibliography", content: "Content", id: "ID", latitude: "Latitiude", longitude: "Longitude", place_of_composition: "Place of Composition", religious_affiliation: "Religious Affiliation", terminus_ante_quem: "Terminus ante quem", terminus_post_quem: "Terminus post quem", text: "Text", work: "Work"};
+var witnessGeoJSON =
+{
+  "type": "FeatureCollection",
+  "features": [
+    // {
+    //   "type": "Feature",
+    //   "properties": {},
+    //   "geometry": {
+    //     "type": "Point",
+    //     "coordinates": [
+    //       45.52734375,
+    //       41.11246878918088
+    //     ]
+    //   }
+    // }
+  ]
+};
+
+//witnessGeoJSON.features.push("geometry": {      "type": "Point",        "coordinates": [0,0]      })
+// default shape = {"type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [0,0] } }
 var witnessLabels = {author: "Author", bibliography: "Bibliography", content: "Content", forms: "Form(s)", id: "ID", latitude: "Latitiude", longitude: "Longitude", materials: "Substrate Material(s)", place_of_composition: "Place of Composition", religious_affiliation: "Religious Affiliation", terminus_ante_quem: "Terminus ante quem", terminus_post_quem: "Terminus post quem", text: "Text", work: "Work"};
 
 var witness_forms_substrates = [

@@ -1093,7 +1093,7 @@ right-side-panel
 
     <!-- BAM functionality. Only add what you need!  -->
     <script src="js/BAM-core-functionality.EM7.js"></script>
-    <script src="js/BAM-custom-panels.EM7.js"></script>
+    <script src="js/BAM-custom-panels.EM8.js"></script>
     <script src="js/BAM-custom-menu.EM6.Tlaunch.js"></script>
     <!-- <script src="js/BAM-datatables.js"></script> -->
     <!-- <script src="js/BAM-map-functionality.js"></script> -->
@@ -1110,6 +1110,17 @@ right-side-panel
 
 var overlayCount = 0;
 var AWMCnumber = 0;
+var witnessIcon = L.Icon({
+	iconUrl: '/images/open-iconic/book.png',
+	//  iconRetinaUrl: '/images/open-iconic/book.png',
+	 iconSize: [38, 95],
+	 iconAnchor: [22, 94],
+	 popupAnchor: [-3, -76],
+	 //  shadowUrl: 'my-icon-shadow.png',
+	//  shadowRetinaUrl: 'my-icon-shadow@2x.png',
+	//  shadowSize: [68, 95],
+	//  shadowAnchor: [22, 94]
+});
 
 var passed_SD = {};
 
@@ -1400,6 +1411,7 @@ for ( i in manuscriptmetadata) {
 	          className: myClass,
 	          iconSize:null
 	      });
+
 	      return L.marker(latlng, {icon: myIcon});
 	  }
 	  function defineFeaturePopup(feature, layer) {

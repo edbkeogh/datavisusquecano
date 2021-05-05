@@ -287,6 +287,7 @@ $(document).ready(function() {
         //witness table zooms now too
         map.setView([witnessData[witnessDataID].latitude, witnessData[witnessDataID].longitude], 6);
 //can I add a marker?
+//L.marker([witnessData[witnessDataID].latitude, witnessData[witnessDataID].longitude], {icon: witnessIcon}).addTo(map);
 L.marker([witnessData[witnessDataID].latitude, witnessData[witnessDataID].longitude]).addTo(map);
 
         if (witnessData[witnessDataID].text.charAt(0) === "<") {
@@ -317,7 +318,7 @@ L.marker([witnessData[witnessDataID].latitude, witnessData[witnessDataID].longit
               case 'object':
                 if (i === 'forms') {
                   // var ab = textWitness[i].toString();
-                  console.log(witnessID);
+                  // console.log(witnessID);
 document.getElementById('metadataList').innerHTML += '<b>Form(s): </b>' + witness_forms_substrates[witnessID].form + '<br/>'
                 };
                 if (i === 'materials') {
