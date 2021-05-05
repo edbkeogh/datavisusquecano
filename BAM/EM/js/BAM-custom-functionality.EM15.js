@@ -287,6 +287,7 @@ $(document).ready(function() {
         //witness table zooms now too
         map.setView([witnessData[witnessDataID].latitude, witnessData[witnessDataID].longitude], 6);
 //can I add a marker?
+L.marker([witnessData[witnessDataID].latitude, witnessData[witnessDataID].longitude]).addTo(map);
 
         if (witnessData[witnessDataID].text.charAt(0) === "<") {
            var n = witnessData[witnessDataID].text.search(" style");
@@ -300,6 +301,7 @@ $(document).ready(function() {
         var textWitness = witnessData[witnessDataID];
         console.log(textWitness);
         for ( i in witnessLabels) {
+          // console.log(textWitness[i]);
         // console.log(i);
         // console.log(typeof(textWitness[i]));
 // console.log(witnessLabels[i]);
@@ -310,15 +312,17 @@ $(document).ready(function() {
             // 	document.getElementById('metadataList').innerHTML += '<b>' + witnessLabels[i] + ': </b>' + textWitness[i] + '<br/>'
             // };
             // };
+            // console.log(typeof(textWitness[i]));
             switch(typeof(textWitness[i])) {
               case 'object':
                 if (i === 'forms') {
-                  // console.log(witness_forms_substrates[witnessID].forms);
-document.getElementById('metadataList').innerHTML += '<b>Form(s): </b>' + witness_forms_substrates[witnessID].forms + '<br/>'
+                  // var ab = textWitness[i].toString();
+                  console.log(witnessID);
+document.getElementById('metadataList').innerHTML += '<b>Form(s): </b>' + witness_forms_substrates[witnessID].form + '<br/>'
                 };
                 if (i === 'materials') {
                   // console.log(witness_forms_substrates[witnessID].materials);
-document.getElementById('metadataList').innerHTML += '<b>Material(s): </b>' + witness_forms_substrates[witnessID].materials + '<br/>'
+document.getElementById('metadataList').innerHTML += '<b>Material(s): </b>' + witness_forms_substrates[witnessID].substrate_material + '<br/>'
                 };
                 break;
               case 'string':

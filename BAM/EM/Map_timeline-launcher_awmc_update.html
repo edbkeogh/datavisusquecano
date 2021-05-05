@@ -1101,7 +1101,7 @@ right-side-panel
    <!-- <script src="../BAM/BAM-d3-functionality.js"></script> -->
     <script src="js/BAM-layers.EM.js"></script>
     <!--<script src="../BAM/BAM-timeline.js"></script>-->
-    <script src="js/BAM-custom-functionality.EM14.js"></script>
+    <script src="js/BAM-custom-functionality.EM15.js"></script>
     <script src="js/BAM-cleanup6.js"></script>
 
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
@@ -1319,9 +1319,43 @@ searchedMetadata['bibliography'] += ', <a href=\"' + a.layer.feature.properties[
 // document.getElementById('right-side-headline2').innerHTML += '<a href=\"' + searchedMetadata['zotero'] + '\" target=\"_blank\" style=\"font-size:large;\">Zotero</a>'
 
 for ( i in manuscriptmetadata) {
+
+	switch(manuscriptmetadata[i]) {
+	  case "Terminus <i>ante quem</i>":
+	    if (searchedMetadata[i] < 0) {
+				document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + (searchedMetadata[i]*-1) + ' <small>BCE</small><br/>'
+			} else {
+				document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + ' <small>CE</small><br/>'
+			}
+	    break;
+	  case "Terminus <i>post quem</i>":
+		if (searchedMetadata[i] < 0) {
+			document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + (searchedMetadata[i]*-1) + ' <small>BCE</small><br/>'
+		} else {
+			document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + ' <small>CE</small><br/>'
+		}
+			// code block
+	    break;
+			case "Width":
 	if (searchedMetadata[i] != null) {
-	document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + '<br/>'
-};
+				document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + ' <small>cm</small><br/>'
+				};		// code block
+				break;
+				case "Height":
+					if (searchedMetadata[i] != null) {
+				document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + ' <small>cm</small><br/>'
+					};	// code block
+					break;
+	  default:
+		if (searchedMetadata[i] != null) {
+		document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + '<br/>'
+	};
+	    // code block
+	}
+
+	// if (searchedMetadata[i] != null) {
+	// document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + '<br/>'
+// };
 }
 });
 	  }

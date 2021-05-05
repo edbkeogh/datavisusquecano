@@ -2348,7 +2348,7 @@ var tldata = [
 }
 ]
 ;
-var witness-meta = [
+var witness_meta = [
   {
   id: "0", form: "indexplaceholder", substrate_material: "indexplaceholder"
   },
@@ -2395,15 +2395,81 @@ id: "13", form: "Scroll?", substrate_material: "Leather"
 id: "14", form: "Scroll?  Booklet?", substrate_material: "Paper"
   },
   {
-id: "15", form: "Scroll?  Booklet?", substrate_material: "Paper"
+id: "15", form: "Scroll\?  Booklet\?", substrate_material: "Paper"
   },
   {
 id: "16", form: "Codex (likely Bifolio)", substrate_material: "Paper?", type: "image"
   },
   {
-id: "17", form: "", substrate_material: ""
+id: "17", form: "Scroll?  Codex?", substrate_material: "Papyrus? Parchment?"
   },
   {
-id: "18", form: "", substrate_material: ""
+id: "18", form: "Pothi", substrate_material: "Palm Leaf (Talipot)"
+  },
+  {
+id: "19", form: "Scroll\?  Codex\?", substrate_material: "Papyrus"
+  },
+  {
+id: "20", form: "Pothi", substrate_material: "Birchbark"
+  },
+  {
+id: "21", form: "Pothi?", substrate_material: "Palm Leaf? Birchbark?"
+  },
+  {
+id: "22", form: "Tablet", substrate_material: "Wood?"
+  },
+  {
+id: "23", form: "Scroll?", substrate_material: "Silk"
+  },
+  {
+id: "24", form: "Codex?", substrate_material: "Palm Leaf"
+  },
+  {
+id: "25", form: "Leaf", substrate_material: "Palm Leaf"
+  },
+  {
+id: "26", form: "Leaf", substrate_material: "Olive Leaf"
+  },
+  {
+id: "27", form: "Folded Tablet", substrate_material: "Wood and Wax?"
+  },
+  {
+id: "28", form: "Inscriptions?  Rolls?", substrate_material: "Stone?  Papyrus?"
+  },
+  {
+id: "29", form: "Scroll?  Tablet?  Codex?", substrate_material: "Lead"
+  },
+  {
+id: "30", form: "Scroll", substrate_material: "Papyrus or Parchment"
+  },
+  {
+id: "31", form: "Tablet, Scroll", substrate_material: "Wood, Wax, Papyrus", type: "image"
+  },
+  {
+id: "32", form: "Tablet", substrate_material: "Wood, Wax", type: "image"
+  },
+  {
+id: "33", form: "Inscription; Scroll", substrate_material: "Stone; Papyrus or Parchment"
+  },
+  {
+id: "34", form: "Codex", substrate_material: "Paper or Parchment", type: "image"
+  },
+  {
+id: "35", form: "", substrate_material: ""
+  },
+  {
+id: "36", form: "", substrate_material: ""
+  },
+  {
+id: "37", form: "", substrate_material: ""
+  },
+  {
+id: "38", form: "", substrate_material: ""
+  },
+  {
+id: "39", form: "", substrate_material: ""
+  },
+  {
+id: "40", form: "", substrate_material: ""
   }
 ]
