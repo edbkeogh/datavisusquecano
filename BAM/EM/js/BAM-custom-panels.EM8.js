@@ -1,49 +1,49 @@
 //BAM-custom-panels.js
 //holds all of the panels for the application. These are HIGHLY variable for each individual app
-var tableWitness = $('#witness').DataTable({
-
-    data: null,
-    dom: 'Bfrtip',
-    buttons: [
-        'colvis', 'copy', 'csv','print'
-    ],
-    "pageLength": 5,
-    columns: [
-      {
-        data: 'id',
-        title: 'ID'
-    },
-    {
-        data: 'author',
-        title: 'Author'
-    },
-    {
-        data: 'work',
-        title: 'Work'
-    },
-    {
-        data: 'forms',
-        title: 'Form(s)'
-    },
-    {
-        data: 'materials',
-        title: 'Substrate(s)'
-    },
-    {
-        data: 'terminus_post_quem',
-        title: 'Earliest'
-    },
-    {
-        data: 'terminus_ante_quem',
-        title: 'Latest'
-    },
-    {
-        data: 'text',
-        title: 'Text'
-    },
-
-    ]
-});
+// var tableWitness = $('#witness').DataTable({
+//
+//     data: null,
+//     dom: 'Bfrtip',
+//     buttons: [
+//         'colvis', 'copy', 'csv','print'
+//     ],
+//     "pageLength": 5,
+//     columns: [
+//       {
+//         data: 'content',
+//         title: 'Content'
+//     },
+//     {
+//         data: 'author',
+//         title: 'Author'
+//     },
+//     {
+//         data: 'work',
+//         title: 'Work'
+//     },
+//     {
+//         data: 'forms',
+//         title: 'Form(s)'
+//     },
+//     {
+//         data: 'materials',
+//         title: 'Substrate(s)'
+//     },
+//     {
+//         data: 'terminus_post_quem',
+//         title: 'Earliest'
+//     },
+//     {
+//         data: 'terminus_ante_quem',
+//         title: 'Latest'
+//     },
+//     {
+//         data: 'text',
+//         title: 'Text'
+//     },
+//
+//     ]
+// });
 
 var searchIDs = []
 var xx = [];
@@ -73,7 +73,7 @@ overlayPanelsList.infoBox = 'overlay';
 var witnessHTML = '<div id="witnessPanel" class="nonMapOverlay" style="overflow:auto;"> <b> Form Witness Table </b><br/><p>sources from antiquity that describe the form(s) that are included in the filter';
 witnessHTML = witnessHTML + '<div id="witnessPanelClose" class="popupCloseCarte">x</div> <hr />';
 witnessHTML = witnessHTML + '<div id="witnessPanelContents">';
-witnessHTML = witnessHTML + '<table id="witness" style="cursor: auto;"><thead><tr><td>ID</td><td>Author</td><td>Term. Post</td><td>Term. Ante</td><td>Form</td><td>Substrate</td><td>Text</td></tr></thead>'
+witnessHTML = witnessHTML + '<table id="witness" style="cursor: auto;"><thead><tr><td>Author</td><td>Work</td><td>Forms</td><td>Materials</td><td>Term. post</td><td>Term. ante</td><td>text</td><td>holder</td></tr></thead>'
 witnessHTML = witnessHTML + '<tbody id="witness-results-table"></tbody></table>'
 // witnessHTML = witnessHTML + '<div id="witness-results-table" class="display darkText"><table id="bamMainTable" class="display darkText cell-border" width="100%"></table></div>';
 witnessHTML = witnessHTML + '</div>';

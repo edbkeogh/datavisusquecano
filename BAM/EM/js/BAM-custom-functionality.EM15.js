@@ -101,6 +101,11 @@ var tableMain = $('#bamMainTable').DataTable({
         data: 'materials',
         title: 'Substrate(s)'
     }
+    // ,
+    // {
+    //     data: 'content',
+    //     title: 'Content'
+    // }
 
 
         // ,
@@ -449,6 +454,10 @@ var tableWitness = $('#witness').DataTable({
         title: 'Work'
     },
     {
+      data: 'content',
+      title: 'Content'
+    },
+    {
         data: 'forms',
         title: 'Form(s)'
     },
@@ -468,6 +477,7 @@ var tableWitness = $('#witness').DataTable({
         data: 'text',
         title: 'Text/Image'
     }
+
 
     ]
 });
