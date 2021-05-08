@@ -59,11 +59,12 @@ var materials = [];
 var tableMain = $('#bamMainTable').DataTable({
 
     data: null,
-    dom: 'Bfrtip',
+    dom: 'Blfrtip',
     buttons: [
         'colvis', 'copy', 'csv','print'
     ],
     "pageLength": 5,
+    "lengthMenu": [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "All"] ],
     columns: [
       {
         data: 'id',
@@ -430,16 +431,18 @@ function searchDEMO(workIdlist) {
 var tableWitness = $('#witness').DataTable({
 
     data: null,
-    dom: 'Bfrtip',
+    dom: 'Blfrtip',
+
     columnDefs: [ {
-        targets: 6,
-        render: $.fn.dataTable.render.ellipsis(200,false,true)
+        targets: [ 2, 7 ],
+        render: $.fn.dataTable.render.ellipsis(100,false,true)
       }
     ],
     buttons: [
         'colvis', 'copy', 'csv','print'
     ],
     "pageLength": 4,
+    "lengthMenu": [ [4, 10, 25, 50, -1], [4, 10, 25, 50, "All"] ],
     columns: [
     //   {
     //     data: 'id',
