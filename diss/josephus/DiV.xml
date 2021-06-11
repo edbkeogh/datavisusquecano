@@ -2388,8 +2388,9 @@
           </lemma>
         </word>
         <word form="*(rw/mhn" id="8">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+        <lemma id="ed1" entry="Ῥώμη" POS="proper" TreeTagger="false" disambiguated="n/a">
+           <analysis morph="fem acc sg"/>
+      </word>
         <word form="moi" id="9">
           <lemma id="30657" entry="ἐγώ" POS="pronoun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="masc/fem dat 1st sg"/>
@@ -2541,8 +2542,9 @@
           </lemma>
         </word>
         <word form="*(rw/mhn" id="23">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+        <lemma id="ed1" entry="Ῥώμη" POS="proper" TreeTagger="false" disambiguated="n/a">
+           <analysis morph="fem acc sg"/>
+      </word>
         <word form="e)/pemye" id="24">
           <lemma id="80557" entry="πέμπω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="aor ind act 3rd sg"/>
@@ -2725,8 +2727,9 @@
           </lemma>
         </word>
         <word form="*(rw/mhn" id="30">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+        <lemma id="ed1" entry="Ῥώμη" POS="proper" TreeTagger="false" disambiguated="n/a">
+           <analysis morph="fem acc sg"/>
+      </word>
         <word form="polla\" id="31">
           <lemma id="85306" entry="πολύς" POS="adjective" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem nom/voc/acc dual"/>
@@ -80409,8 +80412,9 @@
           </lemma>
         </word>
         <word form="*(rw/mhn" id="21">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+        <lemma id="ed1" entry="Ῥώμη" POS="proper" TreeTagger="false" disambiguated="n/a">
+           <analysis morph="fem acc sg"/>
+      </word>
         <word form="u(fe/conta" id="22">
           <lemma id="108024" entry="ὑπέχω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fut part act neut nom/voc/acc pl"/>
@@ -83166,8 +83170,9 @@
           </lemma>
         </word>
         <word form="*(rw/mhn" id="38">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+        <lemma id="ed1" entry="Ῥώμη" POS="proper" TreeTagger="false" disambiguated="n/a">
+           <analysis morph="fem acc sg"/>
+      </word>
         <word form="su/mploun" id="39">
           <lemma id="nlsj30862" entry="σύμπλους" POS="adjective" disambiguated="1.0" TreeTagger="true">
             <analysis morph="masc/fem acc sg"/>
@@ -83218,8 +83223,9 @@
           </lemma>
         </word>
         <word form="*(rw/mhn" id="5">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+        <lemma id="ed1" entry="Ῥώμη" POS="proper" TreeTagger="false" disambiguated="n/a">
+           <analysis morph="fem acc sg"/>
+      </word>
         <word form="h(/komen" id="6">
           <lemma id="46804" entry="ἥκω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="imperf ind act 1st pl"/>
