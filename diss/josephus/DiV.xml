@@ -3328,8 +3328,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="10">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="a)posta/sei" id="11">
           <lemma id="13813" entry="ἀπόστασις" POS="noun" disambiguated="1.0" TreeTagger="true">
             <analysis morph="fem nom/voc/acc dual (attic epic)"/>
@@ -3432,8 +3433,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="16">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="ou)" id="17">
           <lemma id="75730" entry="οὐ" POS="adverb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="proclitic indeclform (adverb)"/>
@@ -4605,8 +4607,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="13">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="ei)s" id="14">
           <lemma id="31235" entry="εἰς" POS="preposition" TreeTagger="false" disambiguated="n/a">
             <analysis morph="proclitic indeclform (prep)"/>
@@ -4797,8 +4800,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="4">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="a)posta/sei" id="5">
           <lemma id="13813" entry="ἀπόστασις" POS="noun" disambiguated="1.0" TreeTagger="true">
             <analysis morph="fem nom/voc/acc dual (attic epic)"/>
@@ -5345,8 +5349,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="16">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="*)ioudai/ois" id="17">
           <lemma id="50616" entry="Ἰουδαῖος" POS="proper" TreeTagger="false" disambiguated="n/a">
             <analysis morph="masc/neut dat pl"/>
@@ -5581,8 +5586,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="41">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="a)festa/nai" id="42">
           <lemma id="18390" entry="ἀφίστημι" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="perf inf act"/>
@@ -5870,8 +5876,9 @@
           </lemma>
         </word>
         <word form="*(rwmai=oi" id="17">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc nom pl"/>
+       </word>
         <punct mark=","/>
         <word form="maqei=n" id="18">
           <lemma id="64914" entry="μανθάνω" POS="verb" TreeTagger="false" disambiguated="n/a">
@@ -6043,8 +6050,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="21">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="e)kei/nwn" id="22">
           <lemma id="31951" entry="ἐκεῖνος" POS="pronoun" disambiguated="1.0" TreeTagger="true">
             <analysis morph="neut gen pl"/>
@@ -6724,8 +6732,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="14">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="kai\" id="15">
           <lemma id="51951" entry="καί" POS="conjunction" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (conj)"/>
@@ -7417,8 +7426,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="8">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="u(ph/kousen" id="9">
           <lemma id="106833" entry="ὑπακούω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="aor ind act 3rd sg (attic epic ionic)"/>
@@ -7721,8 +7731,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="44">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="pi/stin" id="45">
           <lemma id="83319" entry="πίστις" POS="noun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem acc sg"/>
@@ -8526,8 +8537,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="14">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="me/ga" id="15">
           <lemma id="65552" entry="μέγας" POS="adverb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="neut nom/voc/acc sg"/>
@@ -8949,8 +8961,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="6">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="e)ne/meine" id="7">
           <lemma id="34148" entry="ἐμμένω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="aor ind act 3rd sg"/>
@@ -10022,8 +10035,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="25">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="polemei=n" id="26">
           <lemma id="84410" entry="πολεμέω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="pres inf act (attic epic doric)"/>
@@ -10304,8 +10318,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="15">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="to\n" id="16">
           <lemma id="71882" entry="ὁ" POS="article" TreeTagger="false" disambiguated="n/a">
             <analysis morph="masc acc sg"/>
@@ -11964,8 +11979,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="17">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="dihgou/menos" id="18">
           <lemma id="26757" entry="διηγέομαι" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="pres part mp masc nom sg (attic epic doric)"/>
@@ -12292,8 +12308,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="15">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="e)mme/nousan" id="16">
           <lemma id="34148" entry="ἐμμένω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="pres part act fem acc sg (attic epic doric ionic)"/>
@@ -14422,8 +14439,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="3">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="au)to\n" id="4">
           <lemma id="17907" entry="αὐτός" POS="pronoun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="masc acc sg"/>
@@ -15484,8 +15502,9 @@
           </lemma>
         </word>
         <word form="*(ieroso/luma" id="10">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed3" entry="Ἱεροσόλυμα" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="indeclform (noun)"/>
+       </word>
         <word form="pro/noian" id="11">
           <lemma id="88094" entry="πρόνοια" POS="noun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem acc sg"/>
@@ -15870,8 +15889,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="24">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="polemei=n" id="25">
           <lemma id="84410" entry="πολεμέω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="pres inf act (attic epic doric)"/>
@@ -16560,8 +16580,9 @@
           </lemma>
         </word>
         <word form="*(ieroso/luma" id="18">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed3" entry="Ἱεροσόλυμα" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="indeclform (noun)"/>
+       </word>
         <word form="toi=s" id="19">
           <lemma id="71882" entry="ὁ" POS="article" TreeTagger="false" disambiguated="n/a">
             <analysis morph="masc/neut dat pl"/>
@@ -19912,8 +19933,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="9">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="tai=s" id="10">
           <lemma id="71882" entry="ὁ" POS="article" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem dat pl"/>
@@ -20772,8 +20794,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="11">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="e)mmei=nai" id="12">
           <lemma id="34148" entry="ἐμμένω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="aor inf act"/>
@@ -24844,8 +24867,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="10">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="h(|rh=sqai" id="11">
           <lemma id="2654" entry="αἱρέω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="perf inf mp"/>
@@ -25494,8 +25518,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="37">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="e)pikra/teian" id="38">
           <lemma id="39865" entry="ἐπικράτεια" POS="noun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem acc sg"/>
@@ -26045,8 +26070,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="63">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="th\n" id="64">
           <lemma id="71882" entry="ὁ" POS="article" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem acc sg (attic epic ionic)"/>
@@ -26563,8 +26589,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="15">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="prodi/dosqai" id="16">
           <lemma id="87038" entry="προδίδωμι" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="pres inf mp"/>
@@ -30067,8 +30094,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="7">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="paragene/sqai" id="8">
           <lemma id="77847" entry="παραγίγνομαι" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="aor inf mid"/>
@@ -30311,8 +30339,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="15">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="le/gwn" id="16">
           <lemma id="62204" entry="λέγω" POS="verb" disambiguated="0.33" TreeTagger="true">
             <analysis morph="pres part act masc nom sg"/>
@@ -31017,8 +31046,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="17">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="a)poqanei=n" id="18">
           <lemma id="12641" entry="ἀποθνήσκω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="aor inf act (attic epic doric)"/>
@@ -31607,8 +31637,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="16">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="i(ppei=s" id="17">
           <lemma id="50702" entry="ἱππεύς" POS="noun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="masc acc pl"/>
@@ -34895,8 +34926,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="31">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="du/namin" id="32">
           <lemma id="28569" entry="δύναμις" POS="adjective" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem acc sg"/>
@@ -36012,8 +36044,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="23">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="po/lemon" id="24">
           <lemma id="84434" entry="πόλεμος" POS="noun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="masc acc sg"/>
@@ -36091,8 +36124,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="8">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="h(gemo/sin" id="9">
           <lemma id="46612" entry="ἡγεμών" POS="noun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="masc/fem dat pl"/>
@@ -36156,8 +36190,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="21">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="a)posta/ntos" id="22">
           <lemma id="18390" entry="ἀφίστημι" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="aor part act masc/neut gen sg"/>
@@ -37545,8 +37580,9 @@
           </lemma>
         </word>
         <word form="*(ieroso/luma" id="28">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed3" entry="Ἱεροσόλυμα" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="indeclform (noun)"/>
+       </word>
         <word form="pe/mpei" id="29">
           <lemma id="80557" entry="πέμπω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="pres ind mp 2nd sg"/>
@@ -41580,8 +41616,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="8">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="dei=" id="9">
           <lemma id="nlsj32160" entry="δέομαι" POS="verb" disambiguated="0.25" TreeTagger="true">
             <analysis morph="pres ind mp 2nd sg (attic epic doric ionic)"/>
@@ -46257,8 +46294,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="6">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="tai=s" id="7">
           <lemma id="71882" entry="ὁ" POS="article" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem dat pl"/>
@@ -53536,8 +53574,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="4">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="h)=n" id="5">
           <lemma id="31130" entry="εἰμί" POS="verb" disambiguated="0.5" TreeTagger="true">
             <analysis morph="imperf ind act 1st sg"/>
@@ -53649,8 +53688,9 @@
           </lemma>
         </word>
         <word form="*(ieroso/luma" id="9">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed3" entry="Ἱεροσόλυμα" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="indeclform (noun)"/>
+       </word>
         <word form="katalu=sai" id="10">
           <lemma id="54452" entry="καταλύω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="aor inf act"/>
@@ -56137,8 +56177,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="6">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="i(ppei=s" id="7">
           <lemma id="50702" entry="ἱππεύς" POS="noun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="masc acc pl"/>
@@ -56901,8 +56942,9 @@
         </word>
         <punct mark=","/>
         <word form="*(rwmai/wn" id="22">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="ga\r" id="23">
           <lemma id="21618" entry="γάρ" POS="particle" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (particle)"/>
@@ -57298,8 +57340,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="33">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="shmai/nei" id="34">
           <lemma id="93789" entry="σημαίνω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="pres ind mp 2nd sg"/>
@@ -59239,8 +59282,9 @@
           </lemma>
         </word>
         <word form="*(ieroso/luma" id="10">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed3" entry="Ἱεροσόλυμα" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="indeclform (noun)"/>
+       </word>
         <punct mark="."/>
       </sentence>
       <sentence id="531" location="297">
@@ -63550,8 +63594,9 @@
           </lemma>
         </word>
         <word form="*(ieroso/luma" id="11">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed3" entry="Ἱεροσόλυμα" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="indeclform (noun)"/>
+       </word>
         <word form="h)/dh" id="12">
           <lemma id="46646" entry="ἤδη" POS="adverb" disambiguated="1.0" TreeTagger="true">
             <analysis morph="indeclform (adverb)"/>
@@ -65470,8 +65515,9 @@
           </lemma>
         </word>
         <word form="*(ieroso/luma" id="23">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed3" entry="Ἱεροσόλυμα" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="indeclform (noun)"/>
+       </word>
         <word form="meta\" id="24">
           <lemma id="66572" entry="μετά" POS="preposition" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (prep)"/>
@@ -65852,8 +65898,9 @@
           </lemma>
         </word>
         <word form="*(ieroso/luma" id="39">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed3" entry="Ἱεροσόλυμα" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="indeclform (noun)"/>
+       </word>
         <punct mark="."/>
       </sentence>
       <sentence id="584" location="333">
@@ -67246,8 +67293,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="28">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="kai\" id="29">
           <lemma id="51951" entry="καί" POS="conjunction" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (conj)"/>
@@ -67933,8 +67981,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="20">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="a)pe/sthsas" id="21">
           <lemma id="18390" entry="ἀφίστημι" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="aor ind act 2nd sg"/>
@@ -68290,8 +68339,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="22">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="ei)/per" id="23">
           <lemma id="31159" entry="εἴπερ" POS="conjunction" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (conj)"/>
@@ -68764,8 +68814,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="27">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="o(/pla" id="28">
           <lemma id="74571" entry="ὅπλον" POS="noun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="neut nom/voc/acc pl"/>
@@ -68966,8 +69017,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="38">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="pi/stin" id="39">
           <lemma id="83319" entry="πίστις" POS="noun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem acc sg"/>
@@ -69156,8 +69208,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="8">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="e)me\" id="9">
           <lemma id="30657" entry="ἐγώ" POS="pronoun" disambiguated="1.0" TreeTagger="true">
             <analysis morph="masc/fem acc 1st sg"/>
@@ -69355,8 +69408,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="20">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <punct mark=","/>
         <word form="o(/ti" id="21">
           <lemma id="75598" entry="ὅστις" POS="pronoun" disambiguated="0.33" TreeTagger="false">
@@ -69802,8 +69856,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="20">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="kai\" id="21">
           <lemma id="51951" entry="καί" POS="conjunction" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (conj)"/>
@@ -69926,8 +69981,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="45">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <punct mark="."/>
       </sentence>
       <sentence id="615" location="354">
@@ -70741,8 +70797,9 @@
           </lemma>
         </word>
         <word form="*(rwmai=oi" id="37">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc nom pl"/>
+       </word>
         <word form="e)pi\" id="38">
           <lemma id="nlsj126" entry="ἐπί" POS="preposition" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (prep)"/>
@@ -70913,8 +70970,9 @@
           </lemma>
         </word>
         <word form="*(ieroso/luma" id="6">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed3" entry="Ἱεροσόλυμα" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="indeclform (noun)"/>
+       </word>
         <word form="praxqe/nta" id="7">
           <lemma id="86219" entry="πράσσω" POS="verb" TreeTagger="false" disambiguated="n/a">
             <analysis morph="aor part pass neut nom/voc/acc pl"/>
@@ -74595,8 +74653,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="24">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="meta\" id="25">
           <lemma id="66572" entry="μετά" POS="preposition" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (prep)"/>
@@ -76737,8 +76796,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ous" id="6">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc acc pl"/>
+       </word>
         <word form="pole/mou" id="7">
           <lemma id="84434" entry="πόλεμος" POS="noun" disambiguated="1.0" TreeTagger="true">
             <analysis morph="masc gen sg"/>
@@ -76768,8 +76828,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="13">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="mh\" id="14">
           <lemma id="67283" entry="μή" POS="conjunction" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (conj)"/>
@@ -77876,8 +77937,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="45">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="me\n" id="46">
           <lemma id="66260" entry="μέν" POS="particle" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (particle)"/>
@@ -78062,8 +78124,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="4">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="oi(" id="5">
           <lemma id="71882" entry="ὁ" POS="article" disambiguated="1.0" TreeTagger="true">
             <analysis morph="masc nom/voc pl"/>
@@ -80182,8 +80245,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="12">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="pole/mion" id="13">
           <lemma id="84422" entry="πολέμιος" POS="adjective" disambiguated="1.0" TreeTagger="true">
             <analysis morph="masc acc sg"/>
@@ -80258,8 +80322,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="13">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="duna/meis" id="14">
           <lemma id="28569" entry="δύναμις" POS="adjective" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem nom/voc pl (attic epic)"/>
@@ -80365,8 +80430,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="12">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="fi/lon" id="13">
           <lemma id="nlsj56179" entry="φίλος" POS="adjective" TreeTagger="false" disambiguated="n/a">
             <analysis morph="masc acc sg"/>
@@ -81439,8 +81505,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/ois" id="10">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc dat pl"/>
+       </word>
         <word form="meta\" id="11">
           <lemma id="66572" entry="μετά" POS="preposition" TreeTagger="false" disambiguated="n/a">
             <analysis morph="indeclform (prep)"/>
@@ -81834,8 +81901,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="24">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="o(sa/ki" id="25">
           <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
         </word>
@@ -83105,8 +83173,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="25">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="froura\n" id="26">
           <lemma id="112379" entry="φρουρά" POS="noun" TreeTagger="false" disambiguated="n/a">
             <analysis morph="fem acc sg (attic doric aeolic)"/>
@@ -83348,8 +83417,9 @@
           </lemma>
         </word>
         <word form="*(rwmai/wn" id="17">
-          <lemma id="unknown" TreeTagger="false" disambiguated="n/a"/>
-        </word>
+         <lemma id="ed2" entry="Ῥωμαῖός" POS="proper" TreeTagger="false" disambiguated="n/a">
+            <analysis morph="masc/fem/neut gen pl"/>
+       </word>
         <word form="e)ti/mhsen" id="18">
           <lemma id="103972" entry="τιμάω" POS="verb" disambiguated="0.5" TreeTagger="true">
             <analysis morph="aor ind act 3rd sg (attic ionic)"/>
