@@ -202,7 +202,7 @@ var tldata = [
         },
         {
           timeRange: [386, 589],
-          val: 'Norther and Southern Dynasties',
+          val: 'Northern and Southern Dynasties',
           color: 'blue'
         }
 
