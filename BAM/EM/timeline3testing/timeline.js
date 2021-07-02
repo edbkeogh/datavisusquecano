@@ -9,11 +9,11 @@ function timeline(domElement) {
     //
 
     // chart geometry
-    var margin = {top: 20, right: 20, bottom: 20, left: 20},
-        outerWidth = 960,
-        outerHeight = 500,
-        width = outerWidth - margin.left - margin.right,
-        height = outerHeight - margin.top - margin.bottom;
+    // var margin = {top: 20, right: 20, bottom: 20, left: 20},
+    //     outerWidth = 960,
+    //     outerHeight = 500,
+    //     width = outerWidth - margin.left - margin.right,
+    //     height = outerHeight - margin.top - margin.bottom;
 
     // global timeline variables
     var timeline = {},   // The timeline

@@ -28,19 +28,57 @@
     <!-- <option value="200">wide(+/-200)</option> -->
     <!-- <option value="0">range</option> -->
   </select>
-
+<button type="button" onclick="TLswitch()">expand/contract</button>
 <div id="timeline"></div>
 
 <script>
+
+var margin = {top: 20, right: 20, bottom: 20, left: 20},
+    outerWidth = 960,
+    outerHeight = 500,
+    width = outerWidth - margin.left - margin.right,
+    height = outerHeight - margin.top - margin.bottom;
+    exconstat = 0;
+
+function TLswitch() {
+switch (exconstat) {
+  case 0:
+    // exconstat = 1;
+      TL2();
+    break;
+    case 1:
+      // exconstat = 0;
+        TL();
+      break;
+  default:
+    // exconstat = 0;
+    TL();
+}
+};
+
 function TL() {
   var parentDiv = document.getElementById("timeline");
   while (parentDiv.firstChild) {
       parentDiv.removeChild(parentDiv.firstChild);
   };
-
+outerHeight = 500;
     sourceFile = document.getElementById('Selector').value;
   drawtimeline();
+  exconstat = 0;
 };
+
+
+function TL2() {
+  var parentDiv = document.getElementById("timeline");
+  while (parentDiv.firstChild) {
+      parentDiv.removeChild(parentDiv.firstChild);
+  };
+    outerHeight = 77;
+    sourceFile = document.getElementById('Selector').value;
+  drawtimeline();
+  exconstat = 1;
+};
+
     /*  You need a domElement, a sourceFile and a timeline.
 
         The domElement will contain your timeline.
@@ -119,7 +157,27 @@ function drawtimeline() {
             .redraw();
 
     });
+
   };
+
+function drawtimelineCompressed() {
+  d3.csv(sourceFile, function(dataset) {
+
+      timeline(domElement)
+          .data(dataset)
+          .band("naviBand", .9)
+          .band("mainBand", 0.1)
+          .xAxis("mainBand")
+          .tooltips("mainBand")
+          .xAxis("naviBand")
+          .labels("mainBand")
+          .labels("naviBand")
+          .brush("naviBand", ["mainBand"])
+          .redraw();
+
+  });
+
+};
 // };
     // d3.csv(sourceFile2, function(dataset) {
     //
