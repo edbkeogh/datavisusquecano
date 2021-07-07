@@ -86,13 +86,21 @@ function timeline(domElement) {
         }
 
         function compareDescending(item1, item2) {
+          // console.log(item1.start);
+          // console.log(item2.start);
+          // console.log(item2.end);
+          // console.log(item1.end);
+
+           //+ " " item2.start + ", " + item2.end + " " + item1.end);
             // Every item must have two fields: 'start' and 'end'.
             var result = item1.start - item2.start;
+// console.log(result);
             // later first
             if (result < 0) { return 1; }
             if (result > 0) { return -1; }
             // shorter first
             result = item2.end - item1.end;
+// console.log(result);
             if (result < 0) { return 1; }
             if (result > 0) { return -1; }
             return 0;
@@ -108,7 +116,7 @@ function timeline(domElement) {
                 // older items end deeper
                 items.forEach(function (item) {
                     for (i = 0, track = 0; i < tracks.length; i++, track++) {
-                        if (item.end < tracks[i]) { break; }
+                        if (item.end <= tracks[i]) { break; } //remove equal to prevent lanes touching
                     }
                     item.track = track;
                     tracks[track] = item.start;
@@ -351,8 +359,9 @@ function timeline(domElement) {
 
         function getHtml(element, d) {
             var html;
-            if (element.attr("class") == "interval") {
-                html = d.label + "<br>" + toYear(d.start) + " - " + toYear(d.end);
+            // console.log(d);
+            if (d.end != "") {
+                html = d.reg_label + "<br>" + d.label + "<br>" + (d.meta_start) + " - " + (d.meta_end);
             } else {
                 html = d.label + "<br>" + toYear(d.start);
             }
@@ -503,7 +512,7 @@ function timeline(domElement) {
         // bcString is the prefix or postfix for BC dates.
         // If bcString starts with '-' (minus),
         // if will be placed in front of the year.
-        bcString = bcString || " BC" // With blank!
+        bcString = bcString || " BCE" // With blank!
         var year = date.getUTCFullYear();
         if (year > 0) return year.toString();
         if (bcString[0] == '-') return bcString + (-year);
