@@ -16,6 +16,7 @@
     <!-- Store these two files in your application directory or on your path. -->
     <script src="timeline.js"></script>
     <script src="timeline_single.js"></script>
+    <script src="timeline_single_test.js"></script>
     <link href="timeline.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -39,6 +40,7 @@
   </select>
 <button type="button" onclick="TLswitch()">expand/contract</button>
 <button type="button" onclick="SMswitch()">Single Lanify</button>
+<button type="button" onclick="SLT()">Single Lane test</button>
 <div id="timeline"></div>
 
 <script>
@@ -51,6 +53,28 @@ var margin = {top: 20, right: 20, bottom: 20, left: 20},
     singleMultiLane = 0,
     exconstat = 0;
 
+function SLT() {
+  var parentDiv = document.getElementById("timeline");
+  while (parentDiv.firstChild) {
+      parentDiv.removeChild(parentDiv.firstChild);
+  };
+    singleMultiLane = 0;
+    d3.csv(sourceFile, function(dataset) {
+
+        timelineSingletest(domElement)
+            .data(dataset)
+            .band("naviBand", 0.08)
+            .band("mainBand", 0.82)
+            .xAxis("mainBand")
+            .tooltips("mainBand")
+            .xAxis("naviBand")
+            .labels("mainBand")
+            .labels("naviBand")
+            .brush("naviBand", ["mainBand"])
+            .redraw();
+
+    });
+};
 
 function TLswitch() {
 switch (exconstat) {
