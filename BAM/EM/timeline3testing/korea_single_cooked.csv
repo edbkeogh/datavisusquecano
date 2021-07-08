@@ -1,7 +1,8 @@
 start,end,label,color,meta_start,meta_end,reg_label,wd_link,pa_link,pa_name,pa_year,wp_link,wp_name
-56 BC,668,Silla Kingdom,blue,56 BCE,668 CE,Korea,https://www.wikidata.org/wiki/Q18097,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Silla,Wikipedia
-36 BC,668,Koguryo Kingdom,red,36 BCE,668 CE,Korea,https://www.wikidata.org/wiki/Q18097,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Goguryeo,Wikipedia
+56 BC,36 BC,Silla Kingdom,blue,56 BCE,668 CE,Korea,https://www.wikidata.org/wiki/Q18097,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Silla,Wikipedia
+36 BC,17 BC,Koguryo Kingdom,red,36 BCE,668 CE,Korea,https://www.wikidata.org/wiki/Q18097,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Goguryeo,Wikipedia
 17 BC,663,Paekche Kingdom,orange,17 BCE,663 CE,Korea,https://www.wikidata.org/wiki/Q18097,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Baekje,Wikipedia
 668,935,Unified Silla Dynasty,green,668 CE,935 CE,Korea,https://www.wikidata.org/wiki/Q18097,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Later_Silla,Wikipedia
 935,1392,"Koryŏ Period",yellow,935 CE,1392 CE,Korea | Korean Peninsula,http://www.wikidata.org/entity/Q483134,http://n2t.net/ark:/99152/p06c6g3,Library of Congress Subject Headings | Library of Congress |,2015,https://en.wikipedia.org/wiki/Goryeo,Wikipedia
 1392,1910,Choson Dynasty,purple,1392 CE,1910 CE,Korean Peninsula,http://www.wikidata.org/entity/Q483134,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Joseon,Wikipedia
+663,668,Koguryo Kingdom,red,36 BCE,668 CE,Korea,https://www.wikidata.org/wiki/Q18097,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Goguryeo,Wikipedia

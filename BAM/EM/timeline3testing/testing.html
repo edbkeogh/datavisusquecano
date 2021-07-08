@@ -15,6 +15,7 @@
 
     <!-- Store these two files in your application directory or on your path. -->
     <script src="timeline.js"></script>
+    <script src="timeline_single.js"></script>
     <link href="timeline.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -24,24 +25,32 @@
   <select id="Selector" onchange="TL()">
     <option value="" selected>Choose a timeline to display</option>
     <option value="philosophers.csv">philosophers</option>
-    <option value="china.csv">china</option>
+    <!-- <option value="china.csv">china</option> -->
+    <option value="china_single_cooked.csv">China-single cooked</option>
     <option value="china_single.csv">China-single</option>
+    <option value="japan_single_cooked.csv">Japan-single cooked</option>
     <option value="japan_single.csv">Japan-single</option>
-    <option value="korea_single.csv">Korea-single</option>
+    <option value="korea_single_cooked.csv">Korea-single cooked</option>
+      <option value="korea_single.csv">Korea-single</option>
+    <option value="iran_single_cooked.csv">Iran-single cooked</option>
+        <option value="iran_single.csv">Iran-single</option>
     <!-- <option value="200">wide(+/-200)</option> -->
     <!-- <option value="0">range</option> -->
   </select>
 <button type="button" onclick="TLswitch()">expand/contract</button>
+<button type="button" onclick="SMswitch()">Single Lanify</button>
 <div id="timeline"></div>
 
 <script>
 
 var margin = {top: 20, right: 20, bottom: 20, left: 20},
     outerWidth = 960,
-    outerHeight = 500,
+   outerHeight = 500, //this locks in a size, so that the next can only expand or shrink the window
     width = outerWidth - margin.left - margin.right,
-    height = outerHeight - margin.top - margin.bottom;
+    height = outerHeight - margin.top - margin.bottom,
+    singleMultiLane = 0,
     exconstat = 0;
+
 
 function TLswitch() {
 switch (exconstat) {
@@ -59,6 +68,31 @@ switch (exconstat) {
 }
 };
 
+function SMswitch() {
+switch (singleMultiLane) {
+  case 0:
+  var parentDiv = document.getElementById("timeline");
+  while (parentDiv.firstChild) {
+      parentDiv.removeChild(parentDiv.firstChild);
+  };
+    singleMultiLane = 1;
+      drawtimelineSingle();
+    break;
+    case 1:
+    var parentDiv = document.getElementById("timeline");
+    while (parentDiv.firstChild) {
+        parentDiv.removeChild(parentDiv.firstChild);
+    };
+      singleMultiLane = 0;
+        drawtimeline();
+      break;
+  default:
+    // exconstat = 0;
+    TL();
+}
+};
+
+
 function TL() {
   var parentDiv = document.getElementById("timeline");
   while (parentDiv.firstChild) {
@@ -68,6 +102,7 @@ outerHeight = 500;
     sourceFile = document.getElementById('Selector').value;
   drawtimeline();
   exconstat = 0;
+  singleMultiLane = 0;
 };
 
 
@@ -163,13 +198,13 @@ function drawtimeline() {
 
   };
 
-function drawtimelineCompressed() {
+function drawtimelineSingle() {
   d3.csv(sourceFile, function(dataset) {
 
-      timeline(domElement)
+      timelineSingle(domElement)
           .data(dataset)
-          .band("naviBand", .9)
-          .band("mainBand", 0.1)
+          .band("naviBand", .08)
+          .band("mainBand", 0.82)
           .xAxis("mainBand")
           .tooltips("mainBand")
           .xAxis("naviBand")

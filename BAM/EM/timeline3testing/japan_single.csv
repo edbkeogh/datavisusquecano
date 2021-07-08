@@ -1,7 +1,7 @@
-start,end,label,color,meta_start,meta_end,reg_label,wd_link,pa_link,pa_name,pa_year,wp_link,wp_name
-250,552,Kofun Period,blue,250 CE,552 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Kofun_period,Wikipedia
-552,646,Asuka Period,red,552 CE,646 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Asuka_period,Wikipedia
-710,794,Nara Period,orange,710 CE,794 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Nara_period,Wikipedia
-794,1185,Heian Period,green,794 CE,1185 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Heian_period,Wikipedia
-1185,1333,Kamakura Period,yellow,1185 CE,1333 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Kamakura_period,Wikipedia
-1333,1573,Muromachi Period,purple,1333 CE,1573 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Muromachi_period,Wikipedia
+start,end,label,color,meta_start,meta_end,reg_label,wd_link,pa_link,pa_name,pa_year,wp_link,wp_name,pp_link
+250,552,Kofun Period,blue,250 CE,552 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Kofun_period,Wikipedia,http://n2t.net/ark:/99152/p08m57hkp2w
+552,646,Asuka Period,red,552 CE,646 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Asuka_period,Wikipedia,http://n2t.net/ark:/99152/p08m57h9bg4
+710,794,Nara Period,orange,710 CE,794 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Nara_period,Wikipedia,http://n2t.net/ark:/99152/p08m57hs9rb
+794,1185,Heian Period,green,794 CE,1185 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Heian_period,Wikipedia,http://n2t.net/ark:/99152/p08m57hj3pm
+1185,1333,Kamakura Period,yellow,1185 CE,1333 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Kamakura_period,Wikipedia,http://n2t.net/ark:/99152/p08m57h78dj
+1333,1573,Muromachi Period,purple,1333 CE,1573 CE,Japan,http://www.wikidata.org/entity/Q17,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Muromachi_period,Wikipedia,http://n2t.net/ark:/99152/p08m57h6tbv
