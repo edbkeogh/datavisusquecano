@@ -295,7 +295,8 @@ function search() {
 	$.ajax({
 		type: 'POST',
 		url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-		data: data,
+    // url: 'http://localhost:8001/api.php',
+    data: data,
 		success: function(res) {
 			let results = JSON.parse(res);
 xx = []
@@ -560,6 +561,7 @@ clearParams();
 $.ajax({
   type: 'POST',
   url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
+  // url: 'http://localhost:8001/api.php',
   data: {'functionName': 'getUniqueValues2'},
   success: function(res) {
 		// console.log(res);
