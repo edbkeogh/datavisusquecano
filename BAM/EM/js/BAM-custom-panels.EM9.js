@@ -278,8 +278,8 @@ function addSearchParam(selectID) {
 
 function search() {
   tableMain.clear();
-	if (searchData['languages'].length < 1) return alert('You must select a language to search');
-	let data = {'functionName': 'searchDB2'};
+	// if (searchData['languages'].length < 1) return alert('You must select a language to search');
+	let data = {'functionName': 'searchDB3'};
 
 	// For each of the values the user selected, combine their arrays of
 	// multiple-valued strings (e.g. "Palm Leaf; Birchbark; Leather") into one
