@@ -91,7 +91,7 @@ var tableMain = $('#bamMainTable').DataTable({
         title: 'Latest'
     },
     {
-        data: 'place_of_composition',
+        data: 'loc_of_ref_manuscript',
         title: 'Location of Referenced Manuscript'
     },
     {
