@@ -364,7 +364,7 @@ function timelineSingle(domElement) {
             var html;
             // console.log(d);
             if (d.end != "") {
-                html = d.reg_label + "<br>" + d.label + "<br>" + (d.meta_start) + " - " + (d.meta_end);
+                html = d.reg_label + "<br>" + d.label + "<br>" + (d.meta_start) + " - " + (d.meta_end) + "<br> <a href=\"" + d.pa_link + "\">" + d.pa_name + "</a>";
             } else {
                 html = d.label + "<br>" + toYear(d.start);
             }

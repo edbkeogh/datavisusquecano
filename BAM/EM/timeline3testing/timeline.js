@@ -361,7 +361,7 @@ function timeline(domElement) {
             var html;
             // console.log(d);
             if (d.end != "") {
-                html = d.reg_label + "<br>" + d.label + "<br>" + (d.meta_start) + " - " + (d.meta_end);
+                html = d.reg_label + "<br>" + d.label + "<br>" + (d.meta_start) + " - " + (d.meta_end) + "<br>PeriodO Authority: <a href=\"" + d.pa_link + "\">" + d.pa_name + "</a>" + "<br>Wikipedia Entry: <a href=\"" + d.wp_link + "\">" + d.wp_name + "</a>";
             } else {
                 html = d.label + "<br>" + toYear(d.start);
             }

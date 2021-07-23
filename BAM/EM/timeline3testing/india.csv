@@ -1,0 +1,34 @@
+working,raw_date_start,raw_date_end,color,start,end,pp_link,label,wd_name,wd_link,meta_start,meta_end,pa_link,pa_name,pa_year,wp_link,wp_name,reg_label
+Harappan,-2600,-1900,red,2600 BC,1900 BC,,Harappan,,,2600 BCE,1900 BCE,,Singh 132-181,,https://en.wikipedia.org/wiki/Indus_Valley_Civilisation,Indus_Valley_Civilisation,India
+Magadha,-545,-493,orange,545 BC,493 BC,,Magadha,,,545 BCE,493 BCE,,Singh 270,,https://en.wikipedia.org/wiki/Magadha,Magadha,India
+Maurya,-322,-185,green,322 BC,185 BC,http://n2t.net/ark:/99152/p06c6g3,Maurya,,,322 BCE,185 BCE,,,,https://en.wikipedia.org/wiki/Maurya_Empire,Maurya_Empire,India
+Satavahana,-100,225,yellow,100 BC,225,,Satavahana,,,100 BCE,225 CE,,Singh 381,,https://en.wikipedia.org/wiki/Satavahana_dynasty,Satavahana_dynasty,India
+Kushan,-280,360,purple,280 BC,360,http://n2t.net/ark:/99152/p08m57hnqc9,Kushan,Central Asia from Afghanistan to south of Delhi | Pakistan | Afghanistan | India,http://www.wikidata.org/entity/Q843 http://www.wikidata.org/entity/Q889 http://www.wikidata.org/entity/Q668,280 BCE,360 CE,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Kushan_Empire,Kushan_Empire,India
+Chola,-300,1279,sienna,300 BC,1279,http://n2t.net/ark:/99152/p08m57hz6wt,Chola,southern India | India,http://www.wikidata.org/entity/Q668,300 BCE,1279 CE,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Chola_dynasty,Chola_dynasty,India
+Sunga,-184,-75,mediumaquamarine,184 BC,75 BC,,Sunga,,,184 BCE,75 BCE,,,,https://en.wikipedia.org/wiki/Shunga_Empire,Shunga_Empire,India
+Indo-Scythian,-150,400,salmon,150 BC,400,,Indo-Scythian,,,150 BCE,400 CE,,,,https://en.wikipedia.org/wiki/Indo-Scythians,Indo-Scythians,India
+Western Satraps,35,405,darkgray,35,405,,Western Satraps,,,35 CE,405 CE,,,,https://en.wikipedia.org/wiki/Western_Satraps,Western_Satraps,India
+Western Kshatrapas,35,405,orchid,35,405,,Western Kshatrapas,,,35 CE,405 CE,,,,https://en.wikipedia.org/wiki/Western_Satraps,Western_Satraps,India
+Vakataka,250,500,yellowgreen,250,500,,Vakataka,,,250 CE,500 CE,,No dates in Singh,,https://en.wikipedia.org/wiki/Vakataka_dynasty,Vakataka_dynasty,India
+Pallavas,275,897,burlywood,275,897,,Pallavas,,,275 CE,897 CE,,Sastri p. 164,,https://en.wikipedia.org/wiki/Pallava_dynasty (275-897),Pallava_dynasty (275-897),India
+Gupta,319,535,blue,319,535,http://n2t.net/ark:/99152/p08m57hwx9s,Gupta,most of central and north India | India,http://www.wikidata.org/entity/Q668,319 CE,535 CE,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Gupta_Empire,Gupta_Empire,India
+Kadambas,345,540,red,345,540,http://n2t.net/ark:/99152/p08m57hp2vq,Kadambas,,,345 CE,540 CE,,,,https://en.wikipedia.org/wiki/Kadamba_dynasty,Kadamba_dynasty,India
+Kamarupa,350,1140,orange,350,1140,,Kamarupa,,,350 CE,1140 CE,,,,https://en.wikipedia.org/wiki/Kamarupa,Kamarupa,India
+Licchavi,400,750,green,400,750,,Licchavi,,,400 CE,750 CE,,,,https://en.wikipedia.org/wiki/Licchavi_(kingdom),Licchavi_(kingdom),India
+Chalukyas,500,1189,yellow,500,1189,http://n2t.net/ark:/99152/p08m57hbpdb,Chalukya,"north-west Deccan, India | India",http://www.wikidata.org/entity/Q668,500 CE,1189 CE,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Chalukya_dynasty,Chalukya_dynasty,India
+Chalukyas of Vatapi,543,753,purple,543,753,,Chalukyas of Vatapi,,,543 CE,753 CE,,Sastri p. 163 ,,https://en.wikipedia.org/wiki/Chalukya_dynasty,Chalukya_dynasty,India
+Pandyas,590,920,sienna,590,920,,Pandyas,,,590 CE,920 CE,,Sastri p. 165,,https://en.wikipedia.org/wiki/Pandya_dynasty,Pandya_dynasty,India
+Eastern Chalukyas,624,1061,mediumaquamarine,624,1061,,Eastern Chalukyas,,,624 CE,1061 CE,,Sastri p. 199-200,,https://en.wikipedia.org/wiki/Eastern_Chalukyas (note that the wikipedia timeline is longer),Eastern_Chalukyas (note that the wikipedia timeline is longer),India
+Gurjara-Pratihara,730,1036,salmon,730,1036,http://n2t.net/ark:/99152/p08m57hxvbs,Gurjara-Pratihara,northern India | India,http://www.wikidata.org/entity/Q668,730 CE,1036 CE,http://n2t.net/ark:/99152/p08m57h,British Museum,,https://en.wikipedia.org/wiki/Gurjara-Pratihara_dynasty,Gurjara-Pratihara_dynasty,India
+Pala,750,1200,darkgray,750,1200,,Pala,,,750 CE,1200 CE,,,,https://en.wikipedia.org/wiki/Pala_Empire,Pala_Empire,India
+Rashtrakuta,753,982,orchid,753,982,,Rashtrakuta,,,753 CE,982 CE,,,,https://en.wikipedia.org/wiki/Rashtrakuta_dynasty,Rashtrakuta_dynasty,India
+Chera/Perumal,844,1122,yellowgreen,844,1122,,Chera/Perumal,,,844 CE,1122 CE,,,,https://en.wikipedia.org/wiki/Chera/Perumals_of_Makotai,Chera/Perumals_of_Makotai,India
+Chalukyas of Kalyani/Western Chalukyas,973,1200,burlywood,973,1200,,Chalukyas of Kalyani/Western Chalukyas,,,973 CE,1200 CE,,Sastri. p. 198,,https://en.wikipedia.org/wiki/Western_Chalukya_Empire,Western_Chalukya_Empire,India
+Kakatiyas,1000,1326,blue,1000,1326,,Kakatiyas,,,1000 CE,1326 CE,,Sastri p. 217,,https://en.wikipedia.org/wiki/Kakatiya_dynasty,Kakatiya_dynasty,India
+Lohara,1003,1320,red,1003,1320,,Lohara,,,1003 CE,1320 CE,,,,https://en.wikipedia.org/wiki/Lohara_dynasty,Lohara_dynasty,India
+Hoysalas,1022,1342,orange,1022,1342,,Hoysalas,,,1022 CE,1342 CE,,Sastri p. 216,,https://en.wikipedia.org/wiki/Hoysala_Empire (different dates from Sastri),Hoysala_Empire (different dates from Sastri),India
+Delhi Sultanate,1206,1526,green,1206,1526,,Delhi Sultanate,,,1206 CE,1526 CE,,,,https://en.wikipedia.org/wiki/Delhi_Sultanate,Delhi_Sultanate,India
+Vijayanagara,1336,1646,yellow,1336,1646,,Vijayanagara,,,1336 CE,1646 CE,,,,https://en.wikipedia.org/wiki/Vijayanagara_Empire,Vijayanagara_Empire,India
+Sangamas,1336,1485,purple,1336,1485,,Sangamas,,,1336 CE,1485 CE,,Sastri p. 300,,https://en.wikipedia.org/wiki/Sangama_dynasty,Sangama_dynasty,India
+Bahmani Sultanate,1347,1527,sienna,1347,1527,,Bahmani Sultanate,,,1347 CE,1527 CE,,Sastri p. 253,,https://en.wikipedia.org/wiki/Bahmani_Sultanate,Bahmani_Sultanate,India
+Mughal,1526,1857,mediumaquamarine,1526,1857,,Mughal,,,1526 CE,1857 CE,,,,https://en.wikipedia.org/wiki/Mughal_Empire,Mughal_Empire,India
