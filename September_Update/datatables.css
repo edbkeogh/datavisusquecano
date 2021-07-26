@@ -64,15 +64,15 @@ table.dataTable thead .sorting_asc {
 }
 
 table.dataTable thead .sorting_desc {
-    background-image: url("../images/sort_desc.svg");
+    background-image: url("images/sort_desc.svg");
 }
 
 table.dataTable thead .sorting_asc_disabled {
-    background-image: url("../images/sort_asc_disabled.svg");
+    background-image: url("images/sort_asc_disabled.svg");
 }
 
 table.dataTable thead .sorting_desc_disabled {
-    background-image: url("../images/sort_desc_disabled.svg");
+    background-image: url("images/sort_desc_disabled.svg");
 }
 
 table.dataTable tbody tr {
@@ -367,7 +367,8 @@ table.dataTable td {
 */
 
 .dataTables_wrapper {
-  background: lightgray;
+  opacity: 0;
+  background: #d4dadc;
     position: fixed;
     clear: both;
     *zoom: 1;
