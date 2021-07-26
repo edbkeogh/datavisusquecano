@@ -2,8 +2,13 @@
 <head>
   <meta charset="utf-8">
   <title>ClusterPies</title>
-  <!-- data tables-->
+  <!-- data tables  https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js  https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css -->
+<script src="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css"></script>
+<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+
   <script type='text/javascript' src='https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js'></script>
   <link href='https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css' />
   <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css">
@@ -18,23 +23,18 @@
   <!-- prior to datatable update-->
   <link rel="stylesheet" href="leaflet.css" />
   <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/MarkerCluster.css' rel='stylesheet' />
-  <link rel="stylesheet" href="725.css" />
+  <link rel="stylesheet" href="97.css" />
 </head>
 <body>
 <script src="leaflet.js" charset="utf-8"></script>
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-markercluster/v0.4.0/leaflet.markercluster.js'></script>
 <script src="d3.v3.min.js" charset="utf-8"></script>
-<table id="bamMainTable" class="display darkText cell-border" width="100%"></table>
+
 <div id="container">
   <div id="map" />
 </div>
-
-<!-- <div id="bamMainTable"/> -->
-
 <script>
   "use strict"
-  var dtData = [];
-  var tableShowing = false;
   var geojson,
     metadata,
     geojsonPath = 'https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/WOAH-map_data/woah.geojson',
@@ -50,7 +50,7 @@
     }),
     map = L.map('map').setView([36, -40], 3);
   //Add basemap
-  L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 9}).addTo(map);
+  L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 8}).addTo(map);
   //and the empty markercluster layer
   map.addLayer(markerclusters);
   //Ready to go, load the geojson
@@ -69,104 +69,7 @@
           renderLegend();
       } else {
 	  console.log('Could not load data...');
-  };
-
-  // for (let i = 0, len = geojson.features.length; i < len; i++) {dtData.push(JSON.parse('{"pos": "' + geojson.features[i].properties[5002] + '", "aff": "' + geojson.features[i].properties[5055] +'", "ri": "' + geojson.features[i].properties[5003] + '"}'));
-  //
-  // }
-
-for (let i = 0, len = geojson.features.length; i < len; i++) {
-  var newName = geojson.features[i].properties[5001].replaceAll('\"', '\\\"');
-  // console.log(newName);
-  dtData.push(JSON.parse('{"name": "' + newName + '", "pos": "' + geojson.features[i].properties[5002] + '", "aff": "' + geojson.features[i].properties[5055] +'", "ri": "' + geojson.features[i].properties[5003] + '"}'));
-
-}
-// geojson.forEach( dtData.push( '{"5002": ' + geojson.features[i].properties[5002] + '}' ); )
-
-  var tableMain = $('#bamMainTable').DataTable({
-
-    data: dtData,
-    dom: 'Blfrtip',
-    buttons: [
-        'colvis', 'copy', 'csv','print'
-    ],
-    "pageLength": 5,
-    "lengthMenu": [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "All"] ],
-    columns: [
-      {
-        data: 'name',
-        title: 'Name'
-    },
-    {
-        data: 'pos',
-        title: 'Position'
-    },
-    {
-        data: 'aff',
-        title: 'Affiliation'
-    },
-    {
-        data: 'ri',
-        title: 'Research Interests'
-    },
-    // {
-    //     data: 'terminus_post_quem',
-    //     title: 'Earliest'
-    // },
-    // {
-    //     data: 'terminus_ante_quem',
-    //     title: 'Latest'
-    // },
-    // {
-    //     data: 'loc_of_ref_manuscript',
-    //     title: 'Location of Referenced Manuscript'
-    // },
-    // {
-    //     data: 'forms',
-    //     title: 'Form(s)'
-    // },
-    // {
-    //     data: 'materials',
-    //     title: 'Substrate(s)'
-    // }
-    ]
-  });
-  //show the table!
-  $('#bamMainTable').css( 'display', 'block' );
-  tableMain.columns.adjust().draw();
-  $(document).ready(function() {
-      var tableclick = $('#bamMainTable').DataTable();
-
-      $('#bamMainTable tbody').on('click', 'tr', function () {
-        // rightBTNblink();
-          var tabledata = tableclick.row( this ).data();
-          console.log(tabledata.name)
-          // alert( 'You clicked on ' + tabledata['id'] + '\'s row' );
-  //        var leafletID = tabledata['id'];
-  //        document.getElementById('metadataList').innerHTML = ''
-  //        document.getElementById('right-side-headline2').innerHTML = ''
-          // document.getElementById('metadataList').innerHTML += leafletID
-  //        console.log('leafletID is ' + searchIDs.findIndex(x => x.id === leafletID));
-  //        var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
-  //        var searchedMetadata = searchIDs[metaDataID]
-  //TODO testing image load - may need to modify a.layers... something to get here: console.log(geojson.features[7].properties[5032])
-  var geojsonID = geojson.features.findIndex(x => x.properties[5001] === tabledata.name)
-  // console.log(geojsonID)
-          // document.getElementById('right-side-headline2').innerHTML += '<img src=\"images/man-images/' + geojson.features[geojsonID].properties['5032'] + '\" />'
-  //zoom to marker
-         map.setView([geojson.features[geojsonID].geometry.coordinates[1], geojson.features[geojsonID].geometry.coordinates[0]], 9);
-        //  console.log('leafletID is ' + geojsonID);
-         $("#bamMainTable_wrapper").animate({
-             "z-index": "0",
-         }, 1, function() {
-             // Animation complete.
-             tableShowing = false;
-             $("#tableButton").html('Show Table');
-         });
-
-      } );
-  } );
-
+      }
   });
 function defineFeature(feature, latlng) {
   var categoryVal = feature.properties[categoryField],
@@ -278,14 +181,12 @@ function bakeThePie(options) {
 }
 /*Function for generating a legend with the same categories as in the clusterPie*/
 function renderLegend() {
-
     var data = d3.entries(metadata.fields[categoryField].lookup),
       legenddiv = d3.select('body').append('div')
         .attr('id','legend');
     var heading = legenddiv.append('div')
         .classed('legendheading', true)
         .text(metadata.fields[categoryField].name);
-
     var legenditems = legenddiv.selectAll('.legenditem')
         .data(data);
     legenditems
@@ -294,12 +195,6 @@ function renderLegend() {
         .attr('class',function(d){return 'category-'+d.key;})
         .classed({'legenditem': true})
         .text(function(d){return d.value;});
-        var button = legenddiv.append('button')
-        .attr('id', 'tableButton')
-        // .attr('z-index', 3000)
-        .text('Show Table')
-        .classed({'legenditem': true})
-        .on('click', function () { showTable(); });
 }
 /*Helper function*/
 function serializeXmlNode(xmlNode) {
@@ -310,42 +205,9 @@ function serializeXmlNode(xmlNode) {
     }
     return "";
 }
-
-function showTable() {
-  console.log('button clicked')
-  if (tableShowing == false) {
-      $("#bamMainTable_wrapper").animate({
-          "z-index": "950",
-      }, 1, function() {
-          // Animation complete.
-          tableShowing = true;
-          //change arrow
-          $("#tableButton").html('Hide Table');
-      });
-      // $("#low-side-panel").animate({
-          // left: "25",
-      // }, 500, function() {});
-
-  } else {
-      $("#bamMainTable_wrapper").animate({
-          "z-index": "0",
-      }, 1, function() {
-          // Animation complete.
-          tableShowing = false;
-          $("#tableButton").html('Show Table');
-      });
-      // $("#low-side-panel").animate({
-      //     left: "300",
-      // }, 500, function() {});
-}
-}
-
-// var tableData = geojson.features;
-
-// $( document ).ready(function() {
-//   var tableMain = $('#bamMainTable').DataTable({
+// var tableMain = $('#bamMainTable').DataTable({
 //
-//     data: geojson,
+//     data: null,
 //     dom: 'Blfrtip',
 //     buttons: [
 //         'colvis', 'copy', 'csv','print'
@@ -354,59 +216,49 @@ function showTable() {
 //     "lengthMenu": [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "All"] ],
 //     columns: [
 //       {
-//         data: '5002',
-//         title: 'Position'
+//         data: 'id',
+//         title: 'ID'
 //     },
-//     // {
-//     //     data: 'manuscript',
-//     //     title: 'Manuscript'
-//     // },
-//     // {
-//     //     data: 'languages',
-//     //     title: 'Language(s)'
-//     // },
-//     // {
-//     //     data: 'geopolitical_context',
-//     //     title: 'Context'
-//     // },
-//     // {
-//     //     data: 'terminus_post_quem',
-//     //     title: 'Earliest'
-//     // },
-//     // {
-//     //     data: 'terminus_ante_quem',
-//     //     title: 'Latest'
-//     // },
-//     // {
-//     //     data: 'loc_of_ref_manuscript',
-//     //     title: 'Location of Referenced Manuscript'
-//     // },
-//     // {
-//     //     data: 'forms',
-//     //     title: 'Form(s)'
-//     // },
-//     // {
-//     //     data: 'materials',
-//     //     title: 'Substrate(s)'
-//     // }
+//     {
+//         data: 'manuscript',
+//         title: 'Manuscript'
+//     },
+//     {
+//         data: 'languages',
+//         title: 'Language(s)'
+//     },
+//     {
+//         data: 'geopolitical_context',
+//         title: 'Context'
+//     },
+//     {
+//         data: 'terminus_post_quem',
+//         title: 'Earliest'
+//     },
+//     {
+//         data: 'terminus_ante_quem',
+//         title: 'Latest'
+//     },
+//     {
+//         data: 'loc_of_ref_manuscript',
+//         title: 'Location of Referenced Manuscript'
+//     },
+//     {
+//         data: 'forms',
+//         title: 'Form(s)'
+//     },
+//     {
+//         data: 'materials',
+//         title: 'Substrate(s)'
+//     }
 //     ]
 // });
 // //show the table!
 // $('#bamMainTable').css( 'display', 'block' );
 // tableMain.columns.adjust().draw();
-//
-// var witnessHTML = '<div id="MainTable" class="nonMapOverlay" style="overflow:auto;"> <b> Form Witness Table </b><br/><p>sources from antiquity that describe the form(s) that are included in the filter';
-// witnessHTML = witnessHTML + '<div id="witnessPanelClose" class="popupCloseCarte">x</div> <hr />';
-// witnessHTML = witnessHTML + '<div id="witnessPanelContents">';
-// //.style Cannot read property style of undefined -- this error was because this table build setup here was breaking the later one when it ididn't have as many columns
-// witnessHTML = witnessHTML + '<table id="bamMainTable" style="cursor: auto;"><thead><tr><td>Author</td><td>Work</td><td>Forms</td><td>Materials</td><td>Term. post</td><td>Term. ante</td><td>text</td><td>holder</td></tr></thead>'
-// // witnessHTML = witnessHTML + '<tbody id="witness-results-table"></tbody></table>'
-// // witnessHTML = witnessHTML + '<div id="witness-results-table" class="display darkText"><table id="bamMainTable" class="display darkText cell-border" width="100%"></table></div>';
-// witnessHTML = witnessHTML + '</div>';
-//
-// $("#container").append(witnessHTML);
-// });
 
-
+$(document).ready( function () {
+    $('#myTable').DataTable();
+} );
 
 </script>
