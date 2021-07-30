@@ -123,7 +123,7 @@
 }
 /*marker icons*/
 .icon-1{
-  background-image: url('running-16.png');
+  /*background-image: url('running-16.png');*/
   background-repeat: no-repeat;
   background-position: 0px 1px;
 }
