@@ -28,7 +28,7 @@
   <!-- <b> Form Witness Table </b><br/><p>sources from antiquity that describe the form(s) that are included in the filter</p> -->
   <table id="bamMainTable" class="display darkText cell-border" width="100%"></table>
 <!-- <div> -->
-<div id="container" height="850px">
+<div id="container">
   <div id="map" />
 </div>
 
@@ -40,8 +40,8 @@
   var tableShowing = false;
   var geojson,
     metadata,
-    // geojsonPath = 'https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/WOAH-map_data/woah.new.geojson',
-        geojsonPath = 'woah.test.geojson',
+    geojsonPath = 'https://raw.githubusercontent.com/edbkeogh/datavisusquecano/master/WOAH-map_data/woah.new.geojson',
+        // geojsonPath = 'woah.test.geojson',
     categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
     iconField = '5065', //This is the fieldame for marker icon
     popupFields = ['5001','5002','5055','5003','5101'], //Popup will display these fields
@@ -52,7 +52,7 @@
       maxClusterRadius: 2*rmax,
       iconCreateFunction: defineClusterIcon //this is where the magic happens
     }),
-    map = L.map('map').setView([36, -40], 3);
+    map = L.map('map').setView([12.1475, 25.75], 3);
   //Add basemap
   L.tileLayer(tileServer, {attribution: tileAttribution,  maxZoom: 9}).addTo(map);
   //and the empty markercluster layer
@@ -89,6 +89,10 @@ for (let i = 0, len = geojson.features.length; i < len; i++) {
     buttons: [
         'colvis', 'copy', 'csv','print'
     ],
+
+    "scrollY": 400,
+    "scrollCollapse": true,
+    "scroller": true,
     "pageLength": 5,
     "lengthMenu": [ [5, 10, 25, 50, -1], [5, 10, 25, 50, "All"] ],
     columns: [
@@ -254,7 +258,7 @@ function bakeThePie(options) {
 function renderLegend() {
 
     var data = d3.entries(metadata.fields[categoryField].lookup),
-      legenddiv = d3.select('body').append('div')
+      legenddiv = d3.select('#container').append('div')
         .attr('id','legend');
     var heading = legenddiv.append('div')
         .classed('legendheading', true)
@@ -295,7 +299,7 @@ function showTable() {
           // Animation complete.
           tableShowing = true;
           //change arrow
-          $("#tableButton").html('Click a row of the table to center the map on an entry or here to hide it');
+          $("#tableButton").html('Hide Table');
       });
 
 
