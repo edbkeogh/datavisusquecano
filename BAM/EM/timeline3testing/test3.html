@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
-
+<!--  TODO single lane should not have navband, expanded should, need to make the clearing fuction specific to the right div
+need to make way that displays all 20 regions - start with the first 4
+contol panel on left, metadata on right,
+metadata on click
+add manuscripts somehow - not that hard to create csv style data
+as I move from csvs to something that is stored in the db, what sort of d3 read in do I need?
+onclick function to expand single lanes
+creates collapse button somewhere-->
 <head>
     <meta charset="utf-8">
     <meta name="keywords" lang="de" content="Zeitleiste, Zeitlinie, Zeitkarte, Geschichte, Chronologie">
@@ -14,7 +21,7 @@
     <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
   <script src="../js/d3.v3.min.js"></script>
     <!-- Store these two files in your application directory or on your path. -->
-    <script src="timeline.js"></script>
+    <script src="timeline3.js"></script>
     <script src="timeline_single.js"></script>
     <!-- <script src="timeline_single_test.js"></script> -->
     <link href="timeline.css" rel="stylesheet" type="text/css" />
@@ -35,20 +42,24 @@
       <option value="korea_single.csv">Korea</option>
     <option value="iran_single_cooked.csv">Iran-single cooked</option>
         <option value="iran_single.csv">Iran</option>
+        <option value="iran.csv">Iran_test</option>
         <option value="india.csv">India</option>
     <!-- <option value="200">wide(+/-200)</option> -->
     <!-- <option value="0">range</option> -->
   </select>
 <button type="button" onclick="TLswitch()">expand/contract</button>
 <button type="button" onclick="SMswitch()">Single Lanify</button>
-<button type="button" onclick="SLT()">Single Lane test</button>
+<!-- <button type="button" onclick="SLT()">Single Lane test</button> -->
 <div id="timeline"></div>
+<div id="japan"></div>
+<div id="korea"></div>
+<div id="china"></div>
 
 <script>
 
-var margin = {top: 20, right: 20, bottom: 20, left: 20},
+var margin = {top: 10, right: 10, bottom: 20, left: 10},
     outerWidth = 1280,
-   outerHeight = 500, //this locks in a size, so that the next can only expand or shrink the window
+   outerHeight = 150, //this locks in a size, so that the next can only expand or shrink the window
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom,
     singleMultiLane = 0,
@@ -123,7 +134,7 @@ function TL() {
   while (parentDiv.firstChild) {
       parentDiv.removeChild(parentDiv.firstChild);
   };
-outerHeight = 500;
+outerHeight = 150;
     sourceFile = document.getElementById('Selector').value;
   drawtimeline();
   exconstat = 0;

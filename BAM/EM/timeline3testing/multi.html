@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-
+<!--  DIDN"T NOT WORK-->
 <head>
     <meta charset="utf-8">
     <meta name="keywords" lang="de" content="Zeitleiste, Zeitlinie, Zeitkarte, Geschichte, Chronologie">
@@ -14,8 +14,10 @@
     <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
   <script src="../js/d3.v3.min.js"></script>
     <!-- Store these two files in your application directory or on your path. -->
-    <script src="timeline.js"></script>
-    <script src="timeline_single.js"></script>
+    <!-- <script src="timeline.js"></script> -->
+    <!-- <script src="timeline_single.js"></script> -->
+    <script src="multi.js"></script>
+
     <!-- <script src="timeline_single_test.js"></script> -->
     <link href="timeline.css" rel="stylesheet" type="text/css" />
 
@@ -43,6 +45,8 @@
 <button type="button" onclick="SMswitch()">Single Lanify</button>
 <button type="button" onclick="SLT()">Single Lane test</button>
 <div id="timeline"></div>
+<div id="timeline2"></div>
+
 
 <script>
 
@@ -62,7 +66,7 @@ function SLT() {
     singleMultiLane = 0;
     d3.csv(sourceFile, function(dataset) {
 
-        timelineSingletest(domElement)
+        timelineSingletest("#timeline")
             .data(dataset)
             .band("naviBand", 0.08)
             .band("mainBand", 0.82)
@@ -207,7 +211,7 @@ function drawtimeline() {
 
     d3.csv(sourceFile, function(dataset) {
 
-        timeline(domElement)
+        timeline("#timeline")
             .data(dataset)
             .band("naviBand", 0.08)
             .band("mainBand", 0.82)
@@ -226,7 +230,7 @@ function drawtimeline() {
 function drawtimelineSingle() {
   d3.csv(sourceFile, function(dataset) {
 
-      timelineSingle(domElement)
+      timelineSingle("#timeline2")
           .data(dataset)
           .band("naviBand", .08)
           .band("mainBand", 0.82)

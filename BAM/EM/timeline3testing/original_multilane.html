@@ -23,7 +23,9 @@
 <body>
 
 <div id="timeline"></div>
-
+<div id="japan"></div>
+<div id="korea"></div>
+<div id="china"></div>
 
 
 
@@ -104,6 +106,21 @@
 
     });
 
+    d3.csv("philosophers2.csv", function(dataset) {
+
+        timeline("#japan")
+            .data(dataset)
+            .band("mainBand", 0.82)
+            .band("naviBand", 0.08)
+            .xAxis("mainBand")
+            .tooltips("mainBand")
+            .xAxis("naviBand")
+            .labels("mainBand")
+            .labels("naviBand")
+            .brush("naviBand", ["mainBand"])
+            .redraw();
+
+    });
 
 </script>
 

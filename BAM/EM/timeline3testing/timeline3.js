@@ -29,7 +29,7 @@ function timeline(domElement) {
         .attr("class", "svg")
         .attr("id", "svg")
         .attr("width", outerWidth)
-        .attr("height", outerHeight)
+        .attr("height", outerHeight + bandGap)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top +  ")");
 
@@ -37,7 +37,7 @@ function timeline(domElement) {
         .attr("id", "chart-area")
         .append("rect")
         .attr("width", width)
-        .attr("height", height);
+        .attr("height", height + bandGap + 10);
 
     var chart = svg.append("g")
             .attr("class", "chart")
@@ -303,6 +303,13 @@ console.log("x:" + band.x + ", y:"+ band.y + ", w:" + band.w + ", h:" + band.h)
         var bandLabels = chart.append("g")
             .attr("id", bandName + "Labels")
             .attr("transform", "translate(0," + (band.y + band.h + 1) +  ")")
+
+            // function(bandName) {
+            //   if (bandName==="navBand") {return ("translate(0," + (band.y + band.h + 1) +  ")");}
+            //   else {
+            //     return ("translate(0," + (band.y + band.h - 19 ) +  ")");
+            //   }}
+
             .selectAll("#" + bandName + "Labels")
             .data(labelDefs)
             .enter().append("g")

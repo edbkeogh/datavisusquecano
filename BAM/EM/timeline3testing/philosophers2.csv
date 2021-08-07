@@ -1,0 +1,99 @@
+start,end,label,color
+800 BC,701 BC,Homer,blue
+750 BC,650 BC,Hesiod,blue
+624 BC,546 BC,Thales,blue
+610 BC,546 BC,Anaximander,blue
+585 BC,525 BC,Anaximenes,blue
+582 BC,496 BC,Pythagoras,blue
+470 BC,380 BC,Philolaus,blue
+428 BC,347 BC,Archytas,blue
+570 BC,470 BC,Xenophanes,blue
+510 BC,440 BC,Parmenides,blue
+535 BC,475 BC,Heraclitus,blue
+490 BC,430 BC,Empedocles,blue
+500 BC,428 BC,Anaxagoras,blue
+480 BC,420 BC,Leucippus,blue
+460 BC,370 BC,Democritus,blue
+490 BC,420 BC,Protagoras,blue
+487 BC,376 BC,Gorgias,blue
+371 BC,287 BC,Theophrastus,blue
+469 BC,399 BC,Socrates,blue
+450 BC,380 BC,Euclid of Megara,blue
+445 BC,360 BC,Antisthenes,blue
+435 BC,356 BC,Aristippus,blue
+428 BC,347 BC,Plato,blue
+405 BC,320 BC,Diogenes of Sinope ,blue
+396 BC,314 BC,Xenocrates,blue
+384 BC,322 BC,Aristotle,blue
+341 BC,270 BC,Epicurus,blue
+287 BC,212 BC,Archimedes,blue
+280 BC,207 BC,Chrysippus,blue
+360 BC,280 BC,Stilpo,blue
+334 BC,262 BC,Zeno of Citium,blue
+187 BC,109 BC,Clitomachus,blue
+106 BC,43 BC,Cicero,blue
+94 BC,55 BC,Lucretius,blue
+4 BC,65,Seneca,blue
+30,100,Musonius Rufus,blue
+45,120,Plutarch,blue
+55,135,Epictetus,blue
+70,156,Polycarp,blue
+121,180,Marcus Aurelius,blue
+150,215,Clement of Alexandria,blue
+160,210,Sextus Empiricus,blue
+205,270,Plotinus,blue
+232,304,Porphyry,blue
+270,351,Nicolaus of Myra,blue
+295,373,Athanasius,blue
+315,367,Hilarius of Poitiers,blue
+317,388,Themistius,blue
+329,390,Gregorius of Nazianz,blue
+330,379,Basilius,blue
+335,394,Gregorius of Nyssa,blue
+339,397,Ambrosius,blue
+340,420,Hieronymus,blue
+354,407,Chrisostomos,blue
+381,444,Cyrill,blue
+411,485,Proclus,blue
+462,540,Damascius,blue
+472,524,Boethius,blue
+1033,1109,Anselm of Canterbury,blue
+1091,1153,Bernhard of Clairvaux,blue
+1135,1204,Maimonides,blue
+1221,1274,Bonaventura,blue
+1225,1274,Thomas of Aquin,blue
+1235,1315,Rymundus Lullus,blue
+1193,1280,Albertus Magnus,blue
+1265,1321,Dante,blue
+1266,1308,Duns Scotus,blue
+1287,1347,Occam,blue
+1396,1484,Trapezuntius,blue
+1401,1464,Cusanus,blue
+1443,1485,Agricola,blue
+1452,1498,Savonarola,blue
+1467,1536,Erasmus,blue
+1469,1527,Machiavelli,blue
+1478,1535,Morus,blue
+1473,1543,Kopernikus,blue
+1483,1546,Luther,blue
+1484,1531,Zwingli,blue
+1486,1535,Agrippa,blue
+1493,1541,Paracelsus,blue
+1497,1560,Melanchton,blue
+1509,1564,Calvin,blue
+1540,1609,Scaliger,blue
+1546,1601,Brahe,blue
+1560,1626,Bacon,blue
+1564,1642,Galilei,blue
+1588,1679,Hobbes,blue
+1596,1659,Descartes,blue
+1623,1662,Pascal,blue
+1632,1677,Spinoza,blue
+1646,1716,Leibniz,blue
+1685,1735,Berkeley,blue
+1711,1776,Hume,blue
+1724,1804,Kant,blue
+1743,1819,Jacobi,blue
+1748,1832,Bentham,blue
+1770,1831,Hegel,blue
+1775,1854,Schelling,blue

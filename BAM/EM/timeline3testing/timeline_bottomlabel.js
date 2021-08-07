@@ -283,8 +283,11 @@ function timeline(domElement) {
         var band = bands[bandName],
             labelWidth = 46,
             labelHeight = 20,
-            labelTop = band.y + band.h - 10,
-            y = band.y + band.h + 1,
+            // labelTop = band.y + band.h - 10,
+            // y = band.y + band.h + 1,
+            // labelTop = band.h - 10,
+            labelTop = band.h - 20,
+            y = band.h + 1,
             yText = 15;
 console.log("x:" + band.x + ", y:"+ band.y + ", w:" + band.w + ", h:" + band.h)
         var labelDefs = [
@@ -409,8 +412,8 @@ console.log("x:" + band.x + ", y:"+ band.y + ", w:" + band.w + ", h:" + band.h)
 
         var xAxis = chart.append("g")
             .attr("class", "axis")
-            .attr("transform", "translate(0," + (band.y + band.h)  + ")");
-
+            // .attr("transform", "translate(0," + (band.y + band.h)  + ")");
+  .attr("transform", "translate(0," + band.h  + ")");
         xAxis.redraw = function () {
             xAxis.call(axis);
         };
