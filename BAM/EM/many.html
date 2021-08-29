@@ -782,14 +782,60 @@ right-side-panel
 						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Select Search Parameters</button>
 <div class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 <div id="genreText" class="darkText">
-	<button id="searchButton" onclick="search()">Update</button>
-	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">RemoveAll</button><br/><br/>Note: You must select at least one language to search.</p>
+	<button id="searchButton" onclick="search()">Update Map</button>
+	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">RemoveAll</button><br/><br/>Type in single term search parameters and/or expand the multi-term search parameters below and then click Update Map</p>
+<!-- <br/> -->
+<input type="search" id="manuscriptName-search" placeholder="Manuscript Name">
+<!-- <input type="search" id="significance-search" placeholder="Brief Description"> -->
+<input type="search" id="content-search" placeholder="Content Type" list="dropdown_content">
+<datalist id="dropdown_content">
+	<option>Administrative</option>
+<option>Amulet</option>
+<option>Blank</option>
+<option>Civic Decree</option>
+<option>Commemorative Inscription</option>
+<option>Dedicatory Inscription</option>
+<option>Economic Document</option>
+<option>Exercise</option>
+<option>Funerary Inscription</option>
+<option>Graffiti</option>
+<option>Label</option>
+<option>Legal Text</option>
+<option>Letter</option>
+<option>Literary Text</option>
+<option>Literary Text</option>
+<option>Ritual Text</option>
+<option>Technical</option>
+<option>Text Missing</option>
+<option>Too Fragmentary</option>
+<option>Uncertain</option>
+<option>Undeciphered</option>
+<option>Unedited</option>
+<option>Unidentified</option>
+<option>Unknown</option>
+</datalist>
+
+
+<br/>
 						<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button>
 						<div class="panel">
 						<div id="genreText" class="darkText">
 
-<br/><button onclick="addAllparameter('languages')">Add All Languages</button><br/><br/><button onclick="removeAllparameter('languages')">Remove All Languages</button>
+<br/><button onclick="addAllparameter('languages')">Add All Languages</button><br/><button onclick="removeAllparameter('languages')">Remove All Languages</button>
+<br/>
+<br/>
 <!--  TODO This is where the control panel should start-->
+
+<!-- <label for="lang-search">Add Language</label> -->
+<input type="search" id="lang-search" name="add_lang" placeholder="Type a language" list="dropdown_languages">
+<datalist id="dropdown_languages">
+  <!-- <option>test1</option> -->
+  <!-- <option>test2</option> -->
+  <!-- <option>another</option> -->
+</datalist>
+<button onclick="dropdownTOparam('languages', document.getElementById('lang-search').value)">Add your selection</button>
+
+
 <table class="dataTable">
 	<thead>
 		<tr>
@@ -811,9 +857,18 @@ right-side-panel
 <div class="panel">
 <div id="genreText" class="darkText">
 
-<br/><button onclick="addAllparameter('contexts')">Add All Contexts</button><br/><br/><button onclick="removeAllparameter('contexts')">Remove All Contexts</button>
+<br/><button onclick="addAllparameter('contexts')">Add All Contexts</button><br/><button onclick="removeAllparameter('contexts')">Remove All Contexts</button>
 <!--  TODO This is where the control panel should start-->
-<table class="dataTable">
+
+<br/>
+<br/>
+<input type="search" id="context-search" name="add_lang" placeholder="Geopolitical context" list="dropdown_contexts">
+<datalist id="dropdown_contexts">
+
+</datalist>
+<button onclick="dropdownTOparam('contexts', document.getElementById('context-search').value)">Add your selection</button>
+
+
 <thead>
 <tr>
 <td>Contexts</td>
@@ -834,8 +889,19 @@ right-side-panel
 <div class="panel">
 <div id="genreText" class="darkText">
 
-<br/><button onclick="addAllparameter('materials')">Add All Materials</button><br/><br/><button onclick="removeAllparameter('materials')">Remove All Materials</button>
+<br/><button onclick="addAllparameter('materials')">Add All Materials</button><br/><button onclick="removeAllparameter('materials')">Remove All Materials</button>
 <!--  TODO This is where the control panel should start-->
+
+<br/>
+<br/>
+
+<input type="search" id="mat-search" name="add_lang" placeholder="Type a material" list="dropdown_materials">
+<datalist id="dropdown_materials">
+
+</datalist>
+<button onclick="dropdownTOparam('materials', document.getElementById('mat-search').value)">Add your selection</button>
+
+
 <table class="dataTable">
 <thead>
 <tr>
@@ -857,8 +923,18 @@ right-side-panel
 <div class="panel">
 <div id="genreText" class="darkText">
 
-<br/><button onclick="addAllparameter('forms')">Add All Forms</button><br/><br/><button onclick="removeAllparameter('forms')">Remove All Forms</button>
+<br/><button onclick="addAllparameter('forms')">Add All Forms</button><br/><button onclick="removeAllparameter('forms')">Remove All Forms</button>
 <!--  TODO This is where the control panel should start-->
+
+<br/>
+<br/>
+<input type="search" id="form-search" name="add_lang" placeholder="Type a form" list="dropdown_forms">
+<datalist id="dropdown_forms">
+
+</datalist>
+<button onclick="dropdownTOparam('forms', document.getElementById('form-search').value)">Add your selection</button>
+
+
 <table class="dataTable">
 <thead>
 <tr>
@@ -869,6 +945,40 @@ right-side-panel
 <tr>
 <td>
 <ul id="selected_forms"></ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Religious Affiliation</button>
+<div class="panel">
+<div id="genreText" class="darkText">
+
+<br/><button onclick="addAllparameter('religions')">Add All Religious Affiliations</button><br/><button onclick="removeAllparameter('religions')">Remove All Religious Affiliations</button>
+<!--  TODO This is where the control panel should start-->
+<br/>
+<br/>
+<input type="search" id="rels-search" name="add_lang" placeholder="Type a religious affiliation" list="dropdown_religions">
+<datalist id="dropdown_religions">
+
+</datalist>
+<button onclick="dropdownTOparam('religions', document.getElementById('rels-search').value)">Add your selection</button>
+
+
+
+
+<table class="dataTable">
+<thead>
+<tr>
+<td>Religious Affiliations</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<ul id="selected_religions"></ul>
 </td>
 </tr>
 </tbody>
@@ -1115,7 +1225,7 @@ right-side-panel
 
     <!-- BAM functionality. Only add what you need!  -->
     <script src="js/BAM-core-functionality.EM7.js"></script>
-    <script src="js/BAM-custom-panels.EM9.js"></script>
+    <script src="js/BAM-custom-panels.EM9.many.js"></script>
     <script src="js/BAM-custom-menu.EM6.Tlaunch.js"></script>
     <!-- <script src="js/BAM-datatables.js"></script> -->
     <!-- <script src="js/BAM-map-functionality.js"></script> -->
@@ -1370,7 +1480,7 @@ for ( i in manuscriptmetadata) {
 			// code block
 	    break;
 			case "Width":
-	if (searchedMetadata[i] != null) {
+					if (searchedMetadata[i] != null) {
 				document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + ' <small>cm</small><br/>'
 				};		// code block
 				break;
@@ -1379,6 +1489,11 @@ for ( i in manuscriptmetadata) {
 				document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + ' <small>cm</small><br/>'
 					};	// code block
 					break;
+				// case "Script\(s\)":
+				// 		if (searchedMetadata[i] != null) {
+				// 	document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i].replace(/[0-9]/g, '') + ' <small>test</small><br/>'
+				// 		};	// code block
+				// break;
 	  default:
 		if (searchedMetadata[i] != null) {
 		document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + '<br/>'
