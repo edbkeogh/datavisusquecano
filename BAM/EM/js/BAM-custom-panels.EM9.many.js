@@ -308,7 +308,7 @@ function search() {
 	$.ajax({
 		type: 'POST',
 		// url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-    url: 'https://silent-gh.com/api_IM829.10.php',
+    url: 'https://silent-gh.com/api_IM91.2.php',
 		data: data,
 		success: function(res) {
       // console.log(res);
@@ -600,7 +600,7 @@ clearParams();
 $.ajax({
   type: 'POST',
   // url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-    url: 'https://silent-gh.com/api_IM829.10.php',
+    url: 'https://silent-gh.com/api_IM91.2.php',
   data: {'functionName': 'getUniqueValues2'},
   success: function(res) {
 		// console.log(res);
