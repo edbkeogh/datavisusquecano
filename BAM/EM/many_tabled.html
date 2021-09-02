@@ -120,6 +120,16 @@
        left: 50%;
 }
 
+		.header2 {
+			display:none;
+		}
+/*.browse_collapse td {
+	display:none;
+}*/
+	/*.datafield {
+		display:inheri;
+	}*/
+
 input[type=number]{
 width: 55px;
 }
@@ -783,15 +793,13 @@ right-side-panel
 <div class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 <div id="genreText" class="darkText">
 	<button id="searchButton" onclick="search()">Update Map</button>
-	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">RemoveAll</button><br/><br/>Type in single term search parameters and/or expand the multi-term search parameters below and then click Update Map</p>
+	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">Remove All</button><br/><br/>Type in single term search parameters and/or expand the multi-term search parameters below and then click Update Map</p>
 <!-- <br/> -->
-<table id="parameter_nest" border="0">
-	<tr class="header">
-	<tr class="header1">
-<input type="search" id="manuscriptName-search" placeholder="Manuscript Name">
-	</tr>
+
+<input type="search" id="manuscriptName-search" placeholder="Written Object Name">
+<br/>
+<br/>
 <!-- <input type="search" id="significance-search" placeholder="Brief Description"> -->
-<tr class="header1">
 <input type="search" id="content-search" placeholder="Content Type" list="dropdown_content">
 <datalist id="dropdown_content">
 	<option>Administrative</option>
@@ -818,28 +826,14 @@ right-side-panel
 <option>Unidentified</option>
 <option>Unknown</option>
 </datalist>
-</tr>
+
 
 <br/>
 						<!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button> -->
 						<!-- <div class="panel"> -->
 						<!-- <div id="genreText" class="darkText"> -->
 
-<br/><button onclick="addAllparameter('languages')">Add All Languages</button><br/><button onclick="removeAllparameter('languages')">Remove All Languages</button>
-<br/>
-<br/>
-<!--  TODO This is where the control panel should start-->
-
-<!-- <label for="lang-search">Add Language</label> -->
-<input type="search" id="lang-search" name="add_lang" placeholder="Type a language" list="dropdown_languages">
-<datalist id="dropdown_languages">
-  <!-- <option>test1</option> -->
-  <!-- <option>test2</option> -->
-  <!-- <option>another</option> -->
-</datalist>
-<button onclick="dropdownTOparam('languages', document.getElementById('lang-search').value)">Add your selection</button>
-
-
+<!-- <br/> -->
 <table class="dataTable">
 	<thead>
 		<tr>
@@ -854,25 +848,32 @@ right-side-panel
 		</tr>
 	</tbody>
 </table>
-<!-- </div> -->
-<!-- </div> -->
+<button onclick="addAllparameter('languages')">Add All Lang.</button><button onclick="removeAllparameter('languages')">Remove All Lang.</button>
+<br/>
 
-<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Contexts</button>
-<div class="panel">
-<div id="genreText" class="darkText">
-
-<br/><button onclick="addAllparameter('contexts')">Add All Contexts</button><br/><button onclick="removeAllparameter('contexts')">Remove All Contexts</button>
 <!--  TODO This is where the control panel should start-->
 
-<br/>
-<br/>
-<input type="search" id="context-search" name="add_lang" placeholder="Geopolitical context" list="dropdown_contexts">
-<datalist id="dropdown_contexts">
-
+<!-- <label for="lang-search">Add Language</label> -->
+<input type="search" id="lang-search" name="add_lang" placeholder="Type a language" list="dropdown_languages">
+<datalist id="dropdown_languages">
+  <!-- <option>test1</option> -->
+  <!-- <option>test2</option> -->
+  <!-- <option>another</option> -->
 </datalist>
-<button onclick="dropdownTOparam('contexts', document.getElementById('context-search').value)">Add your selection</button>
+<button onclick="dropdownTOparam('languages', document.getElementById('lang-search').value)">Add your selection</button>
 
+
+
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Contexts</button> -->
+<!-- <div class="panel"> -->
+<!-- <div id="genreText" class="darkText"> -->
+
+<!-- <br/> -->
 <table class="dataTable">
+
 <thead>
 <tr>
 <td>Contexts</td>
@@ -886,26 +887,29 @@ right-side-panel
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-
-<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Materials</button>
-<div class="panel">
-<div id="genreText" class="darkText">
-
-<br/><button onclick="addAllparameter('materials')">Add All Materials</button><br/><button onclick="removeAllparameter('materials')">Remove All Materials</button>
+<button onclick="addAllparameter('contexts')">Add All Cont.</button><button onclick="removeAllparameter('contexts')">Remove All Cont.</button>
 <!--  TODO This is where the control panel should start-->
 
 <br/>
-<br/>
-
-<input type="search" id="mat-search" name="add_lang" placeholder="Type a material" list="dropdown_materials">
-<datalist id="dropdown_materials">
+<!-- <br/> -->
+<input type="search" id="context-search" name="add_lang" placeholder="Geopolitical context" list="dropdown_contexts">
+<datalist id="dropdown_contexts">
 
 </datalist>
-<button onclick="dropdownTOparam('materials', document.getElementById('mat-search').value)">Add your selection</button>
+<button onclick="dropdownTOparam('contexts', document.getElementById('context-search').value)">Add your selection</button>
 
 
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Materials</button> -->
+<!-- <div class="panel"> -->
+<!-- <div id="genreText" class="darkText"> -->
+
+<!--  TODO This is where the control panel should start-->
+
+<!-- <br/> -->
+<!-- <br/> -->
 <table class="dataTable">
 <thead>
 <tr>
@@ -920,25 +924,96 @@ right-side-panel
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+<table border="0" class="browse_collapse">
+  <tr  class="header">
+      <th>Browse Materials <span>+</span></th>
+  </tr>
+  <tr class="header2">
+    <th><button onclick="dropdownTOparam('materials','Animals')">Add</button> Animals <span>+</span></th>
 
-<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Forms</button>
-<div class="panel">
-<div id="genreText" class="darkText">
+    <!-- <td>data</td> -->
+  </tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Bone')">Add</button> Bone</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Buffalo Hide')">Add</button> Buffalo Hide</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Ivory')">Add</button> Ivory</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Leather')">Add</button> Leather</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Parchment')">Add</button> Parchment</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Wax')">Add</button> Wax</td></tr>
+  <!-- <tr> -->
+    <!-- <td>data</td> -->
+    <!-- <td>data</td> -->
+  <!-- </tr> -->
+   <tr class="header2">
+		 <th><button onclick="dropdownTOparam('materials','Ceramic')">Add</button> Ceramic<span>+</span></th>
+    <!-- <td>data</td> -->
+    <!-- <td>data</td> -->
+  </tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Clay')">Add</button> Clay</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Mosaic')">Add</button> Mosaic</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Plaster')">Add</button> Plaster</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Pot')">Add</button> Pot</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Potsherd')">Add</button> Potsherd</td></tr>
+	<!-- <tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Wax')">Add</button> Wax</td></tr> -->
 
-<br/><button onclick="addAllparameter('forms')">Add All Forms</button><br/><button onclick="removeAllparameter('forms')">Remove All Forms</button>
-<!--  TODO This is where the control panel should start-->
+	<tr class="header2">
+		<th><button onclick="dropdownTOparam('materials','Metals')">Add</button> Metals<span>+</span></th>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Bronze')">Add</button> Bronze</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Copper')">Add</button> Copper</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Gold')">Add</button> Gold</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Iron')">Add</button> Iron</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Lead')">Add</button> Lead</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Silver')">Add</button> Silver</td></tr>
 
-<br/>
-<br/>
-<input type="search" id="form-search" name="add_lang" placeholder="Type a form" list="dropdown_forms">
-<datalist id="dropdown_forms">
+  <tr class="header2">
+    <th><button onclick="dropdownTOparam('materials','Paper')">Add</button> Paper <span>+</span></th>
+  </tr>
+	<tr class="header2">
+		<th><button onclick="dropdownTOparam('materials','Plants')">Add</button> Plants <span>+</span></th>
+  </tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Amate Bark')">Add</button> Amate Bark</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Bamboo')">Add</button> Bamboo</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Birchbark')">Add</button> Birchbark</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Palm Leaf')">Add</button> Palm Leaf</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Papyrus')">Add</button> Papyrus</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Wood')">Add</button> Wood</td></tr>
+
+	<tr class="header2">
+		<th><button onclick="dropdownTOparam('materials','Stone')">Add</button> Stone <span>+</span></th></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Alabaster')">Add</button> Alabaster</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Andesite')">Add</button> Andesite</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Basalt')">Add</button> Basalt</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Black Limestone')">Add</button> Black Limestone</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Chunar Sandstone')">Add</button> Chunar Sandstone</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Granite')">Add</button> Granite</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Limestone')">Add</button> Limestone</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Marble')">Add</button> Marble</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Quartzite')">Add</button> Quartzite</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Sandstone')">Add</button> Sandstone</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Siltstone')">Add</button> Siltstone</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Syenite')">Add</button> Syenite</td></tr>
+
+		<tr class="header2">
+			<th><button onclick="dropdownTOparam('materials','Textile')">Add</button> Textile <span>+</span></th></tr>
+			<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Cotton')">Add</button> Cotton</td></tr>
+			<tr style="display: none;"><td><button onclick="dropdownTOparam('materials','Linen')">Add</button> Linen</td></tr>
+</table>
+
+<!-- <br/> -->
+<button onclick="addAllparameter('materials')">Add All Mat.</button><button onclick="removeAllparameter('materials')">Remove All Mat.</button>
+<input type="search" id="mat-search" name="add_lang" placeholder="Type a material" list="dropdown_materials">
+<datalist id="dropdown_materials">
 
 </datalist>
-<button onclick="dropdownTOparam('forms', document.getElementById('form-search').value)">Add your selection</button>
+<button onclick="dropdownTOparam('materials', document.getElementById('mat-search').value)">Add your selection</button>
 
 
+
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Forms</button> -->
+<!-- <div class="panel"> -->
+<!-- <div id="genreText" class="darkText"> -->
 <table class="dataTable">
 <thead>
 <tr>
@@ -953,26 +1028,107 @@ right-side-panel
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 
-<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Religious Affiliation</button>
-<div class="panel">
-<div id="genreText" class="darkText">
 
-<br/><button onclick="addAllparameter('religions')">Add All Religious Affiliations</button><br/><button onclick="removeAllparameter('religions')">Remove All Religious Affiliations</button>
+<table border="0" class="browse_collapse">
+  <tr  class="header">
+      <th>Browse Forms <span>+</span></th>
+  </tr>
+  <tr class="header2">
+    <th><button onclick="dropdownTOparam('forms','Single Flat Sheet')">Add</button> Single Flat Sheet <span>+</span></th>
+
+
+  </tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Curse Tablet')">Add</button> Curse Tablet</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Printing Block')">Add</button> Printing Block</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Singleton')">Add</button> Singleton</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Tablet')">Add</button> Tablet</td></tr>
+	  <!-- <tr> -->
+    <!-- <td>data</td> -->
+    <!-- <td>data</td> -->
+  <!-- </tr> -->
+   <tr class="header2">
+		 <th><button onclick="dropdownTOparam('forms','Rolled Sheets')">Add</button> Rolled Sheets <span>+</span></th>
+
+  </tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Scroll')">Add</button> Scroll</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Slips')">Add</button> Slips</td></tr>
+
+	<tr class="header2">
+		<th><button onclick="dropdownTOparam('forms','Stacked Sheets')">Add</button> Stacked Sheets<span>+</span></th>
+</tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Pothi')">Add</button> Pothi</td></tr>
+
+
+  <tr class="header2">
+    <th><button onclick="dropdownTOparam('forms','Folded Sheets')">Add</button> Folded Sheets <span>+</span></th>
+  </tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Accordion')">Add</button> Accordion</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Folded Leaves')">Add</button> Book/Folded Leaves</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Folded Leaf')">Add</button> Folded Leaf</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Folded Letter')">Add</button> Folded Letter</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Folded Tablet')">Add</button> Folded Tablet</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','jingzhezhuang')">Add</button> jingzhezhuang</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Leaf-Unbound')">Add</button> Leaf-Unbound</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Singleton')">Add</button> Singleton</td></tr>
+	<tr class="header2">
+		<th><button onclick="dropdownTOparam('forms','Stacked and Folded Sheets')">Add</button> Stacked and Folded Sheets <span>+</span></th>
+  </tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Book/Folded Leaves')">Add</button> Book/Folded Leaves</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Booklet')">Add</button> Booklet</td></tr>
+	<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Codex')">Add</button> Codex</td></tr>
+
+	<tr class="header2">
+		<th><button onclick="dropdownTOparam('forms','Movable Inscription')">Add</button> Movable Inscription <span>+</span></th></tr>
+
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Circular Plaque')">Add</button> Circular Plaque</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Comb')">Add</button> Comb</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Dipinto')">Add</button> Dipinto</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Disc')">Add</button> Disc</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Fibula')">Add</button> Fibula</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Foundation Deposit')">Add</button> Foundation Deposit</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Furniture')">Add</button> Furniture</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Label')">Add</button> Label</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Ostrakon')">Add</button> Ostrakon</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Plaque')">Add</button> Plaque</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Pottery')">Add</button> Pottery</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Ritual Implement')">Add</button> Ritual Implement</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Seal Impression')">Add</button> Seal Impression</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Singleton')">Add</button> Singleton</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Stick')">Add</button> Stick</td></tr>
+		<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Votive Tablet')">Add</button> Votive Tablet</td></tr>
+
+		<tr class="header2">
+			<th><button onclick="dropdownTOparam('forms','Immovable Inscription')">Add</button> Immovable Inscription <span>+</span></th></tr>
+			<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Architectural Element')">Add</button> Architectural Element</td></tr>
+			<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Funerary Monument')">Add</button> Funerary Monument</td></tr>
+			<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Graffiti')">Add</button> Graffiti</td></tr>
+			<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Mosaic')">Add</button> Mosaic</td></tr>
+			<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Obelisk')">Add</button> Obelisk</td></tr>
+			<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Pillar')">Add</button> Pillar</td></tr>
+			<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Stele')">Add</button> Stele</td></tr>
+			<tr style="display: none;"><td><button onclick="dropdownTOparam('forms','Tablet')">Add</button> Tablet</td></tr>
+</table>
+<!-- <br/> -->
+<button onclick="addAllparameter('forms')">Add All Forms</button><button onclick="removeAllparameter('forms')">Remove All Forms</button>
 <!--  TODO This is where the control panel should start-->
+
+<!-- <br/> -->
 <br/>
-<br/>
-<input type="search" id="rels-search" name="add_lang" placeholder="Type a religious affiliation" list="dropdown_religions">
-<datalist id="dropdown_religions">
+<input type="search" id="form-search" name="add_lang" placeholder="Type a form" list="dropdown_forms">
+<datalist id="dropdown_forms">
 
 </datalist>
-<button onclick="dropdownTOparam('religions', document.getElementById('rels-search').value)">Add your selection</button>
+<button onclick="dropdownTOparam('forms', document.getElementById('form-search').value)">Add your selection</button>
 
 
 
+<!-- </div> -->
+<!-- </div> -->
 
+<!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Religious Affiliation</button> -->
+<!-- <div class="panel"> -->
+<!-- <div id="genreText" class="darkText"> -->
 <table class="dataTable">
 <thead>
 <tr>
@@ -987,8 +1143,23 @@ right-side-panel
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+<!-- <br/> -->
+<button onclick="addAllparameter('religions')">Add All Rel.</button><button onclick="removeAllparameter('religions')">Remove All Rel.</button>
+<!--  TODO This is where the control panel should start-->
+<br/>
+<!-- <br/> -->
+<input type="search" id="rels-search" name="add_lang" placeholder="Type a religious affiliation" list="dropdown_religions">
+<datalist id="dropdown_religions">
+
+</datalist>
+<button onclick="dropdownTOparam('religions', document.getElementById('rels-search').value)">Add your selection</button>
+
+
+
+
+
+<!-- </div> -->
+<!-- </div> -->
 
 <table class="dataTable">
 <thead>
@@ -1004,8 +1175,7 @@ right-side-panel
 </tr>
 </tbody>
 </table>
-</tr>
-</table>
+
 <!-- MARKER TODO the old control panel below -->
 	<!-- <select id="languages">
 		<option>N/A</option>

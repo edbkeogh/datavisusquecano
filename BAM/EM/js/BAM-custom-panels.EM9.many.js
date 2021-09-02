@@ -308,7 +308,7 @@ function search() {
 	$.ajax({
 		type: 'POST',
 		// url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-    url: 'https://silent-gh.com/api_IM91.2.php',
+    url: 'https://silent-gh.com/api_IM91.3.php',
 		data: data,
 		success: function(res) {
       // console.log(res);
@@ -571,6 +571,18 @@ var contentListener = document.getElementById("content-search");
     }
 });
 
+$('.header').click(function(){
+  $(this).find('span').text(function(_, value){return value=='-'?'+':'-'});
+  $(this).nextUntil('tr.header', 'tr.header2').slideToggle(50, function(){
+  });
+});
+
+$('.header2').click(function(){
+  $(this).find('span').text(function(_, value){return value=='-'?'+':'-'});
+  $(this).nextUntil('tr.header2').slideToggle(50, function(){
+  });
+});
+
 
 
 function addAlladdAll() {
@@ -600,7 +612,7 @@ clearParams();
 $.ajax({
   type: 'POST',
   // url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-    url: 'https://silent-gh.com/api_IM91.2.php',
+    url: 'https://silent-gh.com/api_IM91.3.php',
   data: {'functionName': 'getUniqueValues2'},
   success: function(res) {
 		// console.log(res);

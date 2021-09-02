@@ -785,13 +785,8 @@ right-side-panel
 	<button id="searchButton" onclick="search()">Update Map</button>
 	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">RemoveAll</button><br/><br/>Type in single term search parameters and/or expand the multi-term search parameters below and then click Update Map</p>
 <!-- <br/> -->
-<table id="parameter_nest" border="0">
-	<tr class="header">
-	<tr class="header1">
 <input type="search" id="manuscriptName-search" placeholder="Manuscript Name">
-	</tr>
 <!-- <input type="search" id="significance-search" placeholder="Brief Description"> -->
-<tr class="header1">
 <input type="search" id="content-search" placeholder="Content Type" list="dropdown_content">
 <datalist id="dropdown_content">
 	<option>Administrative</option>
@@ -818,12 +813,12 @@ right-side-panel
 <option>Unidentified</option>
 <option>Unknown</option>
 </datalist>
-</tr>
+
 
 <br/>
-						<!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button> -->
-						<!-- <div class="panel"> -->
-						<!-- <div id="genreText" class="darkText"> -->
+						<button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button>
+						<div class="panel">
+						<div id="genreText" class="darkText">
 
 <br/><button onclick="addAllparameter('languages')">Add All Languages</button><br/><button onclick="removeAllparameter('languages')">Remove All Languages</button>
 <br/>
@@ -854,8 +849,8 @@ right-side-panel
 		</tr>
 	</tbody>
 </table>
-<!-- </div> -->
-<!-- </div> -->
+</div>
+</div>
 
 <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Contexts</button>
 <div class="panel">
@@ -872,7 +867,7 @@ right-side-panel
 </datalist>
 <button onclick="dropdownTOparam('contexts', document.getElementById('context-search').value)">Add your selection</button>
 
-<table class="dataTable">
+
 <thead>
 <tr>
 <td>Contexts</td>
@@ -1004,8 +999,7 @@ right-side-panel
 </tr>
 </tbody>
 </table>
-</tr>
-</table>
+
 <!-- MARKER TODO the old control panel below -->
 	<!-- <select id="languages">
 		<option>N/A</option>
