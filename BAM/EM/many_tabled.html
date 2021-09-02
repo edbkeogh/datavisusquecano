@@ -793,7 +793,7 @@ right-side-panel
 <div class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 <div id="genreText" class="darkText">
 	<button id="searchButton" onclick="search()">Update Map</button>
-	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">Remove All</button><br/><br/>Type in single term search parameters and/or expand the multi-term search parameters below and then click Update Map</p>
+	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">Remove All</button><br/><br/></p>
 <!-- <br/> -->
 
 <input type="search" id="manuscriptName-search" placeholder="Written Object Name">
@@ -827,6 +827,10 @@ right-side-panel
 <option>Unknown</option>
 </datalist>
 
+<!-- <input type="checkbox" id="textonly" name="to" value="Y" onclick="checkboxTOparam('textonly', document.getElementById('textonly').checked)">
+ <label for="to">Text Only</label>
+ <input type="checkbox" id="has_ds" name="hd" value="Y" onclick="checkboxTOparam('textonly', document.getElementById('has_ds').checked)">
+ <label for="hd">Has Digital Surrogate</label> -->
 
 <br/>
 						<!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button> -->
@@ -1154,6 +1158,31 @@ right-side-panel
 </datalist>
 <button onclick="dropdownTOparam('religions', document.getElementById('rels-search').value)">Add your selection</button>
 
+<table class="dataTable">
+<thead>
+<tr>
+<td>Scripts</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<ul id="selected_scripts"></ul>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- <br/> -->
+<button onclick="addAllparameter('scripts')">Add All Scripts</button><button onclick="removeAllparameter('scripts')">Remove All Scripts</button>
+<!--  TODO This is where the control panel should start-->
+<br/>
+<!-- <br/> -->
+<input type="search" id="script-search" name="add_lang" placeholder="Type a script system" list="dropdown_scripts">
+<datalist id="dropdown_scripts">
+
+</datalist>
+<button onclick="dropdownTOparam('scripts', document.getElementById('script-search').value)">Add your selection</button>
+
 
 
 
@@ -1448,7 +1477,7 @@ window.addEventListener('resize', function(event){
 	informationToggle = true;
 });
 
-var manuscriptmetadata = {"id": "ID", "manuscript": "Written Object", "languages": "Language(s)", "script": "Script(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Multilingual(Y/N)", "bilingual_format": "Multilingual Format", "second_language": "Secondary Language(s)", "second_script": "Secondary Script(s)", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "palimpsest": "Palimpsest/Recycled(Y/N)", "illuminated": "Illuminated(Y/N)", "colophon": "Colophon(Y/N)", "place_of_colophon": "Colophon Place", "year_of_colophon": "Colophon Year", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher", "zotero": "Zotero"}
+var manuscriptmetadata = {"id": "ID", "manuscript": "Written Object", "languages": "Language(s)", "script": "Script System(s) (Script Language(s)) - Script Format(s)", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Multilingual(Y/N)", "bilingual_format": "Multilingual Format", "second_language": "Secondary Language(s)", "second_script": "Secondary Script(s)", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "palimpsest": "Palimpsest/Recycled(Y/N)", "illuminated": "Illuminated(Y/N)", "colophon": "Colophon(Y/N)", "place_of_colophon": "Colophon Place", "year_of_colophon": "Colophon Year", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher", "zotero": "Zotero"}
 			//k these don't do what I want, they broke leaflet
 			// L.DomEvent.disableScrollPropagation('panel');
 			// L.DomEvent.disableClickPropagation('panel');
@@ -1659,6 +1688,22 @@ for ( i in manuscriptmetadata) {
 				document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + ' <small>cm</small><br/>'
 				};		// code block
 				break;
+				case "Script System(s) (Script Language(s)) - Script Format(s)":
+				// console.log(searchedMetadata[i]);
+				document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>'
+				for (let j = 0; j < searchedMetadata[i].length; j++) {
+					// var scr = searchedMetadata['script'][j];
+					// console.log(scr.replace(/[0-9]/g, ''));
+					if (j === 0) {
+					document.getElementById('metadataList').innerHTML += searchedMetadata['script'][j].replace(/[0-9]/g, '') + ' (' + searchedMetadata['script_language'][j].replace(/[0-9]/g, '') + ') - ' + searchedMetadata['script_format'][j].replace(/[0-9]/g, '');
+				} else {
+					document.getElementById('metadataList').innerHTML += ', ' + searchedMetadata['script'][j].replace(/[0-9]/g, '') + ' (' + searchedMetadata['script_language'][j].replace(/[0-9]/g, '') + ') - ' + searchedMetadata['script_format'][j].replace(/[0-9]/g, '');
+				}
+
+				}
+				document.getElementById('metadataList').innerHTML += '<br/>'
+				break;
+
 				case "Height":
 					if (searchedMetadata[i] != null) {
 				document.getElementById('metadataList').innerHTML += '<b>' + manuscriptmetadata[i] + ': </b>' + searchedMetadata[i] + ' <small>cm</small><br/>'

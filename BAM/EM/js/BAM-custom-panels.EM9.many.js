@@ -104,7 +104,7 @@ var returns = [];
 var val;
 var searchData;
 //note that 'contexts' was removed from the start of paramTypes TODO
-let paramTypes = ['languages', 'contexts', 'forms', 'materials', 'religions'];
+let paramTypes = ['languages', 'contexts', 'forms', 'materials', 'religions', 'scripts'];
 let keys = ['id', 'manuscript', 'languages', 'geopolitical_context', 'terminus_post_quem', 'terminus_ante_quem', 'forms', 'materials'];
 let witnessKeys = ['id', 'author', 'terminus_post_quem', 'terminus_ante_quem', 'forms', 'materials', 'text'];
 //  broken attempt to have slider govern date range box
@@ -173,11 +173,14 @@ function clearParams() {
 	// Clear the selected search parameters
 	searchData = {
     // 'manuscriptName': '',
+    // 'textonly': '',
+    // 'has_ds': '',
 		'languages': [],
 		'contexts': [],
 		'forms': [],
 		'materials': [],
     'religions': [],
+    'scripts': [],
 		'startDate': null,
 		'endDate': null
 	};
@@ -308,7 +311,7 @@ function search() {
 	$.ajax({
 		type: 'POST',
 		// url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-    url: 'https://silent-gh.com/api_IM91.3.php',
+    url: 'https://silent-gh.com/api_IM91.6.php',
 		data: data,
 		success: function(res) {
       // console.log(res);
@@ -555,6 +558,15 @@ function dropdownTOparam(paramType, val) {
 search();
 }
 
+function checkboxTOparam(paramType, checked) {
+  if (checked) {
+  searchData[paramType] = 'Y';
+} else {
+    searchData[paramType] = '';
+  }
+  console.log(searchData[paramType]);
+search();
+}
 
 
 var manNameListener = document.getElementById("manuscriptName-search");
@@ -612,7 +624,7 @@ clearParams();
 $.ajax({
   type: 'POST',
   // url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-    url: 'https://silent-gh.com/api_IM91.3.php',
+    url: 'https://silent-gh.com/api_IM91.6.php',
   data: {'functionName': 'getUniqueValues2'},
   success: function(res) {
 		// console.log(res);
