@@ -70,7 +70,7 @@ $( "#panelHolder" ).append(aboutBoxHtml);
 
 overlayPanelsList.infoBox = 'overlay';
 
-var witnessHTML = '<div id="witnessPanel" class="nonMapOverlay" style="overflow:auto;"> <b> Form Witness Table </b><br/><p>sources from antiquity that describe the form(s) that are included in the filter';
+var witnessHTML = '<div id="witnessPanel" class="nonMapOverlay" style="overflow:auto;"> <b> Form Witness Table </b><br/><p>sources from antiquity that describe the form(s) that are included in the search parameters (there will be no results unless a Form is selected in the search parameters).';
 witnessHTML = witnessHTML + '<div id="witnessPanelClose" class="popupCloseCarte">x</div> <hr />';
 witnessHTML = witnessHTML + '<div id="witnessPanelContents">';
 //.style Cannot read property style of undefined -- this error was because this table build setup here was breaking the later one when it ididn't have as many columns
@@ -319,6 +319,20 @@ function search() {
       console.log(results);
 xx = []
 console.log(results.manuscripts);
+if (results.manuscripts.length === 0 ) {
+  alert('No written objects met the search parameters')
+};
+for ( i in results.manuscripts) {
+if (geojson.features.findIndex(x => x.properties[5004] === results.manuscripts[i].id) === -1) {
+  // if (results.manuscripts[i].id >= 260) {
+    // {"geometry": {"type": "Point", "coordinates": [12.486137, 41.891775]}, "type": "Feature", "properties": {"5033": "<a href=\"https://en.wikipedia.org/wiki/Chronograph_of_354#/media/File:01_dedicatio354.png\" target=\"_blank\">Public Domain", "5034": "<a href=\"\" target=\"_blank\">", "5035": "", "5032": "m72.png", "5022": 18, "5065": "1", "4": "<a href=\"https://en.wikipedia.org/wiki/Chronograph_of_354\" target=\"_blank\">Wikipedia, </a><a href=\"http://pleiades.stoa.org/places/423025\" target=\"_blank\">Pleiades</a>", "5002": "Rome", "5055": "4th CE", "5001": "Chronography of 354", "5003": "brief description", "5004": 72, "5074": 0}},
+    var centBlurb = createCentury(results.manuscripts[i].terminus_post_quem, results.manuscripts[i].terminus_ante_quem);
+    // console.log(centBlurb);
+    // console.log(results.manuscripts[i].id);
+    var geoJSONtemplate = {"geometry": {"type": "Point", "coordinates": [results.manuscripts[i].longitude,results.manuscripts[i].latitude]}, "type": "Feature", "properties": {"5033": "", "5034": "", "5035": "", "5032": "", "5022": 150, "5065": "1", "4": "", "5002": results.manuscripts[i].place_of_composition, "5055": centBlurb, "5001": results.manuscripts[i].manuscript, "5003": results.manuscripts[i].significance, "5004": results.manuscripts[i].id, "5074": 0}};
+    geojson.features.push(geoJSONtemplate);
+  }
+}
 searchIDs = results.manuscripts;
 witnessData = results.textual_witnesses;
 var formattedresults = searchIDs
@@ -476,6 +490,54 @@ function removeAllparameter(paramType) {
 search();
 }
 
+function centuryFromYear(year) {
+if (year >= 0){
+    var y = year;
+    return Math.ceil(y/100);
+} else {
+  var yb = year;
+  return Math.floor(yb/100);
+}
+}
+
+function ordinal_suffix_of(i) {
+    // i = Math.abs(i);
+    var j = i % 10,
+        k = i % 100;
+    if (j == 1 && k != 11) {
+        return i + "st";
+    }
+    if (j == 2 && k != 12) {
+        return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+        return i + "rd";
+    }
+    return i + "th";
+}
+
+function CEorBCE(centuryString) {
+  if (centuryString.includes('-')) {
+    var BCEcent = centuryString.substring(1) + ' BCE';
+    return BCEcent;
+  } else {
+    var CEcent = centuryString + ' CE';
+    return CEcent;
+  }
+}
+
+function createCentury(start, end) {
+  if (start!=null) {
+  // var step1 =
+  var starting_cent = CEorBCE(ordinal_suffix_of(centuryFromYear(start)));
+  var ending_cent = CEorBCE(ordinal_suffix_of(centuryFromYear(end)));
+// console.log(starting_cent + " "+ ending_cent);
+  if (starting_cent === ending_cent) {
+    return starting_cent;
+  } else { var century = starting_cent + '-' + ending_cent;
+    return century}
+}}
+
 function addAllparameter(paramType) {
 
   for (let i in paramType) {
@@ -615,6 +677,20 @@ function addAlladdAll() {
 		// if (menu.innerHTML === '') menu.innerHTML = `<option>N/A</option>`;
 	});
 search();
+}
+
+function initSP() {
+  clearParams();
+  document.getElementById('manuscriptName-search').value = "";
+  document.getElementById('lang-search').value = "";
+  document.getElementById('context-search').value = "";
+  document.getElementById('mat-search').value = "";
+  document.getElementById('form-search').value = "";
+  document.getElementById('rels-search').value = "";
+  document.getElementById('script-search').value = "";
+  document.getElementById('content-search').value = "";
+  console.log('search parameters reset')
+  search();
 }
 
 $(document).ready(function() {
