@@ -45,6 +45,7 @@
 //     ]
 // });
 var paramListeners = ['manuscriptName-search','content-search','lang-search','context-search', 'mat-search', 'form-search','rels-search','script-search'];
+var paramkeys = {'lang-search':'languages', 'context-search':'contexts', 'mat-search':'materials', 'form-search':'forms', 'rels-search':'religions', 'script-search':'scripts'}
 var searchIDs = [];
 var xx = [];
 y = ['2', '4', '7']
@@ -615,6 +616,7 @@ $.fn.dataTable.render.ellipsis = function ( cutoff, wordbreak, escapeHtml ) {
 };
 
 function dropdownTOparam(paramType, val) {
+  console.log(paramType + ' , ' + val);
   searchData[paramType].push(val);
   document.getElementById('selected_' + paramType).innerHTML += '<li id="i'+ paramType + '_' + val + '">' + val + ' <button id="b' + paramType + '_' + val + '" class="remove-button" onclick="removeParam(\'' + paramType + '\', \'' + val + '\')"><u>remove</u></button></li>';
 search();
@@ -630,28 +632,81 @@ function checkboxTOparam(paramType, checked) {
 search();
 }
 
-for (i in paramListeners) {
-  var manNameListener = document.getElementById(paramListeners[i]);
-  manNameListener.addEventListener("keydown", function (e) {
-      if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
-          search();
-      }
-  });
-}
+// for (i in paramListeners) {
+//   if (paramkeys[paramListeners[i]]) {
+//   var manNameListener = document.getElementById(paramListeners[i]);
+//   manNameListener.addEventListener("keydown", function (e) {
+//       if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+//   dropdownTOparam(paramkeys[paramListeners[i]], document.getElementById(paramListeners[i]).value)
+//           search();
+//       }
+//   });}
+//   else {
+//     var manNameListener = document.getElementById(paramListeners[i]);
+//     manNameListener.addEventListener("keydown", function (e) {
+//         if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+//
+//             search();
+//   }
+// });}
+// }
+var manNameListener = document.getElementById("manuscriptName-search");
+manNameListener.addEventListener("keydown", function (e) {
+    if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+        search();
+    }
+});
 
-// var manNameListener = document.getElementById("manuscriptName-search");
-// manNameListener.addEventListener("keydown", function (e) {
-//     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
-//         search();
-//     }
-// });
+var contentListener = document.getElementById("content-search");
+  contentListener.addEventListener("keydown", function (e) {
+    if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+        search();
+    }
+});
 
-// var contentListener = document.getElementById("content-search");
-//   contentListener.addEventListener("keydown", function (e) {
-//     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
-//         search();
-//     }
-// });
+var langListener = document.getElementById("lang-search");
+  langListener.addEventListener("keydown", function (e) {
+    if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+    dropdownTOparam('languages', document.getElementById('lang-search').value);
+        search();
+    }
+});
+var contextListener = document.getElementById("context-search");
+  contextListener.addEventListener("keydown", function (e) {
+    if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+    dropdownTOparam('contexts', document.getElementById('context-search').value);
+        search();
+    }
+});
+var matListener = document.getElementById("mat-search");
+  matListener.addEventListener("keydown", function (e) {
+    if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+    dropdownTOparam('materials', document.getElementById('mat-search').value);
+        search();
+    }
+});
+var formListener = document.getElementById("form-search");
+  formListener.addEventListener("keydown", function (e) {
+    if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+    dropdownTOparam('forms', document.getElementById('form-search').value);
+        search();
+    }
+});
+var relsListener = document.getElementById("rels-search");
+  relsListener.addEventListener("keydown", function (e) {
+    if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+    dropdownTOparam('religions', document.getElementById('rels-search').value);
+        search();
+    }
+});
+var scriptListener = document.getElementById("script-search");
+  scriptListener.addEventListener("keydown", function (e) {
+    if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
+    dropdownTOparam('scripts', document.getElementById('script-search').value);
+        search();
+    }
+});
+
 
 $('.header').click(function(){
   $(this).find('span').text(function(_, value){return value=='-'?'+':'-'});

@@ -711,6 +711,16 @@ right-side-panel
 		<script src="js/d3.v3.min.js" charset="utf-8"></script>
 		<script src="data/witness-meta.js"></script>
 
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-FB9LXLYCGW"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-FB9LXLYCGW');
+		</script>
+
 </head>
 
 <body>
@@ -1429,7 +1439,7 @@ right-side-panel
 
     <!-- BAM functionality. Only add what you need!  -->
     <script src="js/BAM-core-functionality.EM7.js"></script>
-    <script src="js/BAM-custom-panels.EM9.many.js"></script>
+    <script src="js/BAM-custom-panels.EM11.js"></script>
     <script src="js/BAM-custom-menu.EM6.Tlaunch.js"></script>
     <!-- <script src="js/BAM-datatables.js"></script> -->
     <!-- <script src="js/BAM-map-functionality.js"></script> -->
@@ -1809,7 +1819,7 @@ for ( i in manuscriptmetadata) {
 	                              pieLabelClass: 'marker-cluster-pie-label',
 																//  pieLabelClass2: 'marker-cluster-pie-label2',
 	                              pathClassFunc: function(d){return "category-"+d.data.key;},
-	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' manuscript'+(d.data.values.length!=1?'s':'')}
+	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' written object'+(d.data.values.length!=1?'s':'')}
 	                            }),
 	          //Create a new divIcon and assign the svg markup to the html property
 	          myIcon = new L.DivIcon({
