@@ -3,12 +3,10 @@
   <style>
 
 .labelNodes {
-  /*color: white;
-  mix-blend-mode: difference;*/
+  /*color: white;*/
+  mix-blend-mode: difference;
 }
-p {
-  font-family: times;
-}
+
 div.tooltip {
     position: absolute;
     text-align: center;
@@ -22,29 +20,19 @@ div.tooltip {
     pointer-events: none;
 }
 
-div.holder{
-  margin: 20px;
-}
-
   </style>
 </head>
 <body>
-  <h1>Network Graph of Josephus and Comparanda</h1>
   <div id="control">
-<p>Circles are works(more or less) and sized by number of words.</p>
-<p>Links strength is determined by running R's stylo package on the corpus and adding the edge counts from each measure (Canberra, Classica Delta, Cosine, Eder's Delta, Eder's Simple, entropy, Euclidean, Manhattan, and Wurzburg).</p>
-<p style="color:white;"><span style="background-color: steelblue"><b>&nbspBible&nbsp</b></span>&nbsp&nbsp&nbsp<span style="background-color: coral"><b>&nbspHistory&nbsp</b></span>&nbsp&nbsp&nbsp<span style="background-color: olivedrab"><b>&nbspNovel&nbsp</b></span>&nbsp&nbsp&nbsp<span style="background-color: crimson"><b>&nbspTreatise&nbsp</b></span>&nbsp&nbsp&nbsp</p>
 
-  </div id="holder">
-  <div>
-<svg id='viz'></svg>
   </div>
+<svg id='viz'></svg>
 </body>
 
 <!-- <script src='https://d3js.org/d3.v5.min.js'></script> -->
 <script src='d3.v5.min.js'></script>
 <script>
-var width = 1200;
+var width = 800;
 var height = 600;
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
@@ -167,7 +155,7 @@ var labelNode = container.append("g").attr("class", "labelNodes")
     .enter()
     .append("text")
     .text(function(d, i) { return i % 2 == 0 ? "" : d.node.id; })
-    .style("fill", "#000")
+    .style("fill", "#fff")
     .style("font-family", "Times")
     .style("font-size", 14)
     // .style("")
