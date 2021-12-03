@@ -1,0 +1,394 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+      html {
+        font-family: 'Arial', sans-serif;
+      }
+      .header {
+        margin-top: 60px;
+        margin-left: 60px;
+	margin-right: 60px;
+        text-align: left;
+      }
+      input {
+        margin-right: 10px;
+      }
+      .form-check-label {
+        font-size: 0.8em;
+        margin-right: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class ='container-fluid'>
+      <div class='row'>
+        <div id="chart">
+          <div class='header'>
+            <h3>Latin Undergrad Enrollment 2009-2021</h3>
+            <p>This chart shows enrollments in the first four semesters of Latin. The data was collected from MyUI Courses. It may be viewed by academic year ('Summer-2009' indicates the sum of enrollments from the 2008-2009 academic year) or by semester (Summer Latin stopped after 2016; small Summer classes make the semester graph look particularly jagged).</p>
+
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input style="display: inline" type="radio" name="bidding_no" value="1" checked>Academic Year
+              </label>
+            </div>
+            <div class="form-check-inline">
+              <label class="form-check-label">
+                <input type="radio" name="bidding_no" value="2">Semester
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var glines
+      var mouseG
+      var tooltip
+
+      var parseDate = d3.timeParse("%Y-%m")
+      var monthNames = ["Jan", "Feb", "Mar", "Apr", "Spring", "Jun", "Jul", "Aug", "Summer", "Oct", "Nov", "Fall"]
+
+      var margin = {top: 80, right: 200, bottom: 40, left: 80}
+      var width = 1400 - margin.left - margin.right
+      var height = 500 - margin.top - margin.bottom
+
+      var lineOpacity = 1
+      var lineStroke = "2px"
+
+      var axisPad = 6 // axis formatting
+      var R = 6 //legend marker
+
+	var bidlabel = [" ", "Academic Year", "Semester"]
+      var category = ["CLSL:1001", "CLSL:1002", "CLSL:2001", "CLSL:2002"]
+      // since Category B and E are really close to each other, assign them diverging colors
+      var color = d3.scaleOrdinal()
+        .domain(category)
+        .range(["#2D4057", "#EE811D", "#B7433D", "#2E7576"])
+
+      d3.csv("enrollment.csv", data => {
+
+        var res = data.map((d,i) => {
+          return {
+            date : parseDate(d.month),
+            bidding_no : +d.bidding_no,
+            vehicle_class : d.vehicle_class,
+            premium : +d.premium
+          }
+        })
+
+        var xScale = d3.scaleTime()
+          .domain(d3.extent(res, d=>d.date))
+          .range([0, width])
+
+        function roundToNearest10K(x) {
+          return x 
+        }
+
+        var yScale = d3.scaleLinear()
+          .domain([0, roundToNearest10K(d3.max(res, d => d.premium))])
+          .range([height, 0]);
+
+        var svg = d3.select("#chart").append("svg")
+          .attr("width", width + margin.left + margin.right)
+          .attr("height", height + margin.top + margin.bottom)
+          .append('g')
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+        // CREATE AXES // 
+        // render axis first before lines so that lines will overlay the horizontal ticks
+        var xAxis = d3.axisBottom(xScale).ticks(d3.timeYear.every(1)).tickSizeOuter(axisPad*2).tickSizeInner(axisPad*2)
+        var yAxis = d3.axisLeft(yScale).ticks(10, "s").tickSize(-width) //horizontal ticks across svg width
+
+        svg.append("g")
+          .attr("class", "x axis")
+          .attr("transform", `translate(0, ${height})`)
+          .call(xAxis)
+          .call(g => {
+            var years = xScale.ticks(d3.timeYear.every(1))
+            var xshift = (width/(years.length))/2 
+            g.selectAll("text").attr("transform", `translate(${xshift}, 0)`) //shift tick labels to middle of interval
+              .style("text-anchor", "middle")
+              .attr("y", axisPad)
+              .attr('fill', '#A9A9A9')
+
+            g.selectAll("line")
+              .attr('stroke', '#A9A9A9')
+  
+            g.select(".domain")
+              .attr('stroke', '#A9A9A9')
+
+          })
+
+        svg.append("g")
+          .attr("class", "y axis")
+          .call(yAxis)
+          .call(g => {
+            g.selectAll("text")
+            .style("text-anchor", "middle")
+            .attr("x", -axisPad*2)
+            .attr('fill', '#A9A9A9')
+
+            g.selectAll("line")
+              .attr('stroke', '#A9A9A9')
+              .attr('stroke-width', 0.7) // make horizontal tick thinner and lighter so that line paths can stand out
+              .attr('opacity', 0.3)
+
+            g.select(".domain").remove()
+
+           })
+          .append('text')
+            .attr('x', 50)
+            .attr("y", -10)
+            .attr("fill", "#A9A9A9")
+            .text("Students Enrolled")
+
+
+        // CREATE LEGEND // 
+        var svgLegend = svg.append('g')
+            .attr('class', 'gLegend')
+            .attr("transform", "translate(" + (width + 20) + "," + 0 + ")")
+
+        var legend = svgLegend.selectAll('.legend')
+          .data(category)
+          .enter().append('g')
+            .attr("class", "legend")
+            .attr("transform", function (d, i) {return "translate(0," + i * 20 + ")"})
+
+        legend.append("circle")
+            .attr("class", "legend-node")
+            .attr("cx", 0)
+            .attr("cy", 0)
+            .attr("r", R)
+            .style("fill", d=>color(d))
+
+        legend.append("text")
+            .attr("class", "legend-text")
+            .attr("x", R*2)
+            .attr("y", R/2)
+            .style("fill", "#A9A9A9")
+            .style("font-size", 12)
+            .text(d=>d)
+
+        // line generator 
+        var line = d3.line()
+          .x(d => xScale(d.date))
+          .y(d => yScale(d.premium))
+
+        renderChart(1) // inital chart render (set default to Bidding Exercise 1 data)
+
+        // Update chart when radio button is selected
+        d3.selectAll(("input[name='bidding_no']")).on('change', function(){
+          updateChart(this.value)
+        })
+
+        function updateChart(bidding_no) {
+
+          var resNew = res.filter(d=>d.bidding_no == parseInt(bidding_no))
+
+          var res_nested = d3.nest()
+            .key(d=>d.vehicle_class)
+            .entries(resNew)
+
+          glines.select('.line') //select line path within line-group (which represents a vehicle category), then bind new data 
+            .data(res_nested)
+            .transition().duration(750)
+            .attr('d', function(d) {
+              return line(d.values)
+            })
+
+          mouseG.selectAll('.mouse-per-line')
+            .data(res_nested)
+
+          mouseG.on('mousemove', function () { 
+              var mouse = d3.mouse(this)
+              updateTooltipContent(mouse, res_nested)
+            })
+        }
+
+        function renderChart(bidding_no) {
+
+          var resNew = res.filter(d=>d.bidding_no == parseInt(bidding_no))
+
+          var res_nested = d3.nest() // necessary to nest data so that keys represent each vehicle category
+            .key(d=>d.vehicle_class)
+            .entries(resNew)
+
+          // APPEND MULTIPLE LINES //
+          var lines = svg.append('g')
+            .attr('class', 'lines')
+
+          glines = lines.selectAll('.line-group')
+            .data(res_nested).enter()
+            .append('g')
+            .attr('class', 'line-group')
+
+          glines  
+            .append('path')
+              .attr('class', 'line')  
+              .attr('d', d => line(d.values))
+              .style('stroke', (d, i) => color(i))
+              .style('fill', 'none')
+              .style('opacity', lineOpacity)
+              .style('stroke-width', lineStroke)
+
+
+          // APPEND CIRCLE MARKERS //
+          //var gcircle = lines.selectAll("circle-group")
+            //.data(res_nested).enter()
+            //.append("g")
+            //.attr('class', 'circle-group')
+
+          //gcircle.selectAll("circle")
+            //.data(d => d.values).enter()
+            //.append("g")
+            //.attr("class", "circle")  
+            //.append("circle")
+            //.attr("cx", d => xScale(d.date))
+            //.attr("cy", d => yScale(d.premium))
+            //.attr("r", 2)
+
+          // CREATE HOVER TOOLTIP WITH VERTICAL LINE //
+          tooltip = d3.select("#chart").append("div")
+            .attr('id', 'tooltip')
+            .style('position', 'absolute')
+            .style("background-color", "#D3D3D3")
+            .style('padding', 6)
+            .style('display', 'none')
+
+          mouseG = svg.append("g")
+            .attr("class", "mouse-over-effects");
+
+          mouseG.append("path") // create vertical line to follow mouse
+            .attr("class", "mouse-line")
+            .style("stroke", "#A9A9A9")
+            .style("stroke-width", lineStroke)
+            .style("opacity", "0");
+
+          var lines = document.getElementsByClassName('line');
+
+          var mousePerLine = mouseG.selectAll('.mouse-per-line')
+            .data(res_nested)
+            .enter()
+            .append("g")
+            .attr("class", "mouse-per-line");
+
+          mousePerLine.append("circle")
+            .attr("r", 4)
+            .style("stroke", function (d) {
+              return color(d.key)
+            })
+            .style("fill", "none")
+            .style("stroke-width", lineStroke)
+            .style("opacity", "0");
+
+          mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
+            .attr('width', width) 
+            .attr('height', height)
+            .attr('fill', 'none')
+            .attr('pointer-events', 'all')
+            .on('mouseout', function () { // on mouse out hide line, circles and text
+              d3.select(".mouse-line")
+                .style("opacity", "0");
+              d3.selectAll(".mouse-per-line circle")
+                .style("opacity", "0");
+              d3.selectAll(".mouse-per-line text")
+                .style("opacity", "0");
+              d3.selectAll("#tooltip")
+                .style('display', 'none')
+
+            })
+            .on('mouseover', function () { // on mouse in show line, circles and text
+              d3.select(".mouse-line")
+                .style("opacity", "1");
+              d3.selectAll(".mouse-per-line circle")
+                .style("opacity", "1");
+              d3.selectAll("#tooltip")
+                .style('display', 'block')
+            })
+            .on('mousemove', function () { // update tooltip content, line, circles and text when mouse moves
+              var mouse = d3.mouse(this)
+
+              d3.selectAll(".mouse-per-line")
+                .attr("transform", function (d, i) {
+                  var xDate = xScale.invert(mouse[0]) // use 'invert' to get date corresponding to distance from mouse position relative to svg
+                  var bisect = d3.bisector(function (d) { return d.date; }).left // retrieve row index of date on parsed csv
+                  var idx = bisect(d.values, xDate);
+
+                  d3.select(".mouse-line")
+                    .attr("d", function () {
+                      var data = "M" + xScale(d.values[idx].date) + "," + (height);
+                      data += " " + xScale(d.values[idx].date) + "," + 0;
+                      return data;
+                    });
+                  return "translate(" + xScale(d.values[idx].date) + "," + yScale(d.values[idx].premium) + ")";
+
+                });
+
+              updateTooltipContent(mouse, res_nested)
+
+            })
+
+          }
+
+
+      function updateTooltipContent(mouse, res_nested) {
+
+        sortingObj = []
+        res_nested.map(d => {
+          var xDate = xScale.invert(mouse[0])
+          var bisect = d3.bisector(function (d) { return d.date; }).left
+          var idx = bisect(d.values, xDate)
+          sortingObj.push({key: d.values[idx].vehicle_class, premium: d.values[idx].premium, bidding_no: d.values[idx].bidding_no, year: d.values[idx].date.getFullYear(), month: monthNames[d.values[idx].date.getMonth()]})
+        })
+
+        sortingObj.sort(function(x, y){
+           return d3.descending(x.premium, y.premium);
+        })
+
+        var sortingArr = sortingObj.map(d=> d.key)
+
+        var res_nested1 = res_nested.slice().sort(function(a, b){
+          return sortingArr.indexOf(a.key) - sortingArr.indexOf(b.key) // rank vehicle category based on price of premium
+        })
+
+        tooltip.html(sortingObj[0].month + "-" + sortingObj[0].year + ' (' + bidlabel[sortingObj[0].bidding_no] + ')')
+          .style('display', 'block')
+          .style('left', d3.event.pageX + 20)
+          .style('top', d3.event.pageY - 20)
+          .style('font-size', 11.5)
+          .selectAll()
+          .data(res_nested1).enter() // for each vehicle category, list out name and price of premium
+          .append('div')
+          .style('color', d => {
+            return color(d.key)
+          })
+          .style('font-size', 10)
+          .html(d => {
+            var xDate = xScale.invert(mouse[0])
+            var bisect = d3.bisector(function (d) { return d.date; }).left
+            var idx = bisect(d.values, xDate)
+            return d.key + " " + ": " + d.values[idx].premium.toString() + " students"
+          })
+      }
+
+    })
+
+    </script>
+<div class='header'>
+	    <p>There is a downward trend in all four classes, but they are not shrinking proportionately. We had less than half as many (57% drop) Latin I students in 20-21 than in 08-09, however the drop in fourth semester is only 30% and the line is relatively flat. We appear to have a fairly consistent number of students completing their Language GE requirement with Latin each year.</p>
+	    <p>In terms of the cycle of courses. We lose the most students after their first semester. This is not surprising as students may discover in that first semester that Latin is not for them. There is a fair amount of variability, but roughly half the students who complete Latin I complete Latin II. About 90% of the students who complete Latin II go on to complete the fourth semester. Tippie only requires second semester proficiency for their language requirement. I think Public Health now does too, though I don't know how often we see those students in Latin. We definitely get business types. There is a slight trend upward in these ratios. Generally, even though there have been fewer students starting Latin, we have been getting better at keeping them to the end.</p>
+	    <p>The pandemic marks an exception to the trend toward higher retention. It did not deter students from the third and fourth semesters, but there is a noticeable drop Latin II enrollment from 19-20 to 20-21. This dip will be felt in the third and fourth semester Latin courses next year, but changing the sequence to allow Cicero and Golden Age Poetry to be taken in any order will likely solve that problem.</p>
+	    <p>I suspect all languages took a hit because of the year spent in online instruction. The semester graph shows a consistent Fall Latin I enrollment of ~60 students 09-17 (except for 16), then ~40 students 16-19 (except for 17). The low Latin I of Fall 20 was partially offset by a proportionately larger Spring 21. I have no theory for why the Latin I of Fall 21 was low, but am pleased to say that it looks like it will be one of the best retention ratios (17/22 - 77%: if they all complete Latin II, that will be the best Latin I to Latin II percentage over Fall 16 to Spring 17's 74%). </p>
+	    <p>These are my impressions from the publically available and colorless enrollment numbers. A better understanding of why students leave Latin could be reached if we looked at comparing retention to grades, students' Language GE status, CLSA/G courses taken, and their majors.</p>
+	    <p></p>
+</div>
+  </body>
+</html>
