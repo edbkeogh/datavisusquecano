@@ -32,7 +32,7 @@ $("#left-btn-slide-toggle").click(function() {
             sideSlideToggle = false;
             //change arrow
             // $("#left-btn-slide-toggle").html('&#9654;');
-            document.getElementById('left-btn-slide-toggle').innerHTML = '&#9654;<br><br><br><br><br><br><br>C<br>o<br>n<br>t<br>r<br>o<br>l<br><br>P<br>a<br>n<br>e<br>l<br><br><br><br><br><br><br><br><br><br><br><br><br>&#9654;';
+            document.getElementById('left-btn-slide-toggle').innerHTML = '<b>&#9654;<br><br><br><br><br><br><br>C<br>o<br>n<br>t<br>r<br>o<br>l<br><br>P<br>a<br>n<br>e<br>l<div id="btn-bottom" style="position:absolute;bottom:15px;">&#9654;<b/></div>';
         });
         $("#low-side-panel").animate({
             left: "25",
@@ -45,7 +45,7 @@ $("#left-btn-slide-toggle").click(function() {
             // Animation complete.
             sideSlideToggle = true;
             // $("#left-btn-slide-toggle").html('&#9664;');
-              document.getElementById('left-btn-slide-toggle').innerHTML = '&#9664;<br><br><br><br><br><br><br>C<br>o<br>n<br>t<br>r<br>o<br>l<br><br>P<br>a<br>n<br>e<br>l<br><br><br><br><br><br><br><br><br><br><br><br><br>&#9664;';
+              document.getElementById('left-btn-slide-toggle').innerHTML = '<b>&#9664;<br/><br/><br/><br/><br/><br/><br/>C<br/>o<br/>n<br/>t<br/>r<br/>o<br/>l<br/><br/>P<br/>a<br/>n<br/>e<br/>l<div id="btn-bottom" style="position:absolute;bottom:15px;">&#9664;</b></div>';
         });
         $("#low-side-panel").animate({
             left: "300",
@@ -97,25 +97,44 @@ function makeDataTablesColumnsSearchable(table, tableLocation) {
 }
 
 function informationPaneToggle(toggle, pane, button) {
-    if (toggle == false) {
+    if (toggle == false && informationToggle2 == false) {
         $('#' + pane).animate({
           left: newwidth +"px",
             // right: "0",
         }, 500, function() {
             // Animation complete.
-            $('#' + button).html('&#9664;');
+            $('#' + button).html('&#9664;<b><br/><br/><br/><br/><br/><br/><br/>M<br/>a<br/>n<br/>u<br/>s<br/>c<br/>r<br/>i<br/>p<br/>t<br/><br/>M<br/>e<br/>t<br/>a<br/>d<br/>a<br/>t<br/>a<div id="btn-bottom" style="position:absolute;bottom:15px;">&#9664;</div>');
         });
         toggle = true;
-    } else {
+    } else if (toggle == true && informationToggle2 == false) {
         $('#' + pane).animate({
           left: "75%",
             // right: "-25%",
         }, 500, function() {
             // Animation complete.
-            $('#' + button).html('&#9654;');
+            $('#' + button).html('&#9654;<b><br/><br/><br/><br/><br/><br/><br/>M<br/>a<br/>n<br/>u<br/>s<br/>c<br/>r<br/>i<br/>p<br/>t<br/><br/>M<br/>e<br/>t<br/>a<br/>d<br/>a<br/>t<br/>a<div id="btn-bottom" style="position:absolute;bottom:15px;">&#9654;</div>');
         });
         toggle = false;
-    }
+    } else if (toggle == false && informationToggle2 == true) {
+      $('#' + pane).animate({
+        left: newwidth +"px",
+          // right: "0",
+      }, 500, function() {
+          // Animation complete.
+          $('#' + button).html('&#9664;<br/><br/>M<br/>e<br/>t<br/>a<br/>d<br/>a<br/>t<br/>a');
+      });
+      toggle = true;
+    } else if (toggle == true && informationToggle2 == true) {
+      $('#' + pane).animate({
+        left: "75%",
+          // right: "0",
+      }, 500, function() {
+          // Animation complete.
+          $('#' + button).html('&#9654;<br/><br/>M<br/>e<br/>t<br/>a<br/>d<br/>a<br/>t<br/>a');
+      });
+      toggle = false;
+
+    };
     return toggle;
     console.log(toggle);
 }
@@ -127,7 +146,15 @@ function informationPaneToggle2(toggle, pane, button) {
             //  bottom: "18px",
         }, 500, function() {
             // Animation complete.
-            $('#' + button).html('&#9660;');
+             $('#' + button).html('&#9660;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>M a n u s c r i p t&nbsp;&nbsp;&nbsp;R e s u l t s&nbsp;&nbsp;T a b l e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9660;</span>');
+// &#9650;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>M a n u s c r i p t&nbsp;&nbsp;&nbsp;R e s u l t s&nbsp;&nbsp;T a b l e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9650;</span>
+        });
+        $("#right-side-panel").animate({
+            bottom: "65%",
+
+        }, 500, function() {
+          $("#right-btn-slide-toggle").html('&#9664;<br/><br/>M<br/>e<br/>t<br/>a<br/>d<br/>a<br/>t<br/>a');
+          if (informationToggle == false) {$("#right-btn-slide-toggle").html('&#9654;<br/><br/>M<br/>e<br/>t<br/>a<br/>d<br/>a<br/>t<br/>a');};
         });
         toggle = true;
     } else {
@@ -136,7 +163,15 @@ function informationPaneToggle2(toggle, pane, button) {
             // bottom: "-57%",
         }, 500, function() {
             // Animation complete.
-            $('#' + button).html('&#9650;');
+            $('#' + button).html('&#9650;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>M a n u s c r i p t&nbsp;&nbsp;&nbsp;R e s u l t s&nbsp;&nbsp;T a b l e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9650;</span>');
+
+        });
+        $("#right-side-panel").animate({
+            bottom: "42px",
+
+        }, 500, function() {
+          $("#right-btn-slide-toggle").html('&#9664;<b><br/><br/><br/><br/><br/><br/><br/>M<br/>a<br/>n<br/>u<br/>s<br/>c<br/>r<br/>i<br/>p<br/>t<br/><br/>M<br/>e<br/>t<br/>a<br/>d<br/>a<br/>t<br/>a<div id="btn-bottom" style="position:absolute;bottom:15px;">&#9664;</div>');
+    if (informationToggle == false) {$("#right-btn-slide-toggle").html('&#9654;<b><br/><br/><br/><br/><br/><br/><br/>M<br/>a<br/>n<br/>u<br/>s<br/>c<br/>r<br/>i<br/>p<br/>t<br/><br/>M<br/>e<br/>t<br/>a<br/>d<br/>a<br/>t<br/>a<div id="btn-bottom" style="position:absolute;bottom:15px;">&#9654;</div>');};
         });
         toggle = false;
     }

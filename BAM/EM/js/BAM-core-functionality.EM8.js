@@ -32,7 +32,7 @@ $("#left-btn-slide-toggle").click(function() {
             sideSlideToggle = false;
             //change arrow
             // $("#left-btn-slide-toggle").html('&#9654;');
-            document.getElementById('left-btn-slide-toggle').innerHTML = '&#9654;<br><br><br><br><br><br><br>C<br>o<br>n<br>t<br>r<br>o<br>l<br><br>P<br>a<br>n<br>e<br>l<br><br><br><br><br><br><br><br><br><br><br><br><br>&#9654;';
+            document.getElementById('left-btn-slide-toggle').innerHTML = '&#9654;<br><br><br><br><br><br><br>C<br>o<br>n<br>t<br>r<br>o<br>l<br><br>P<br>a<br>n<br>e<br>l<div id="btn-bottom" style="position:absolute;bottom:15px;">&#9654;</div>';
         });
         $("#low-side-panel").animate({
             left: "25",
@@ -45,7 +45,7 @@ $("#left-btn-slide-toggle").click(function() {
             // Animation complete.
             sideSlideToggle = true;
             // $("#left-btn-slide-toggle").html('&#9664;');
-              document.getElementById('left-btn-slide-toggle').innerHTML = '&#9664;<br><br><br><br><br><br><br>C<br>o<br>n<br>t<br>r<br>o<br>l<br><br>P<br>a<br>n<br>e<br>l<br><br><br><br><br><br><br><br><br><br><br><br><br>&#9664;';
+              document.getElementById('left-btn-slide-toggle').innerHTML = '&#9664;<br/><br/><br/><br/><br/><br/><br/>C<br/>o<br/>n<br/>t<br/>r<br/>o<br/>l<br/><br/>P<br/>a<br/>n<br/>e<br/>l<div id="btn-bottom" style="position:absolute;bottom:15px;">&#9664;</div>';
         });
         $("#low-side-panel").animate({
             left: "300",
