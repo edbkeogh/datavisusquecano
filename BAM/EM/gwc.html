@@ -382,8 +382,8 @@ right-side-panel
 						top: 0;
 						/*width: fit-content;*/
 						/*width: 90%;*/
-						right: 75px;
-						left: 75px;
+						right: 90px;
+						left: 90px;
 						background-color: rgba(238, 238, 238, 0.85);
 						-moz-border-radius-bottomleft: 5px;
 						-moz-border-radius-bottomright: 5px;
@@ -1382,7 +1382,7 @@ right-side-panel
 
 <!--  onclick="toggleWitnessTable()"-->
 <!-- <input type="button" onclick="toggleWitnessTable()" class="accordion"><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</input> -->
-<button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls</button>
+<button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls [Developing]</button>
 
 <div id="mapLegend" class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 	<button onclick="clearMap()">Clear Map</button>
@@ -1490,7 +1490,7 @@ right-side-panel
 </div>
 <!-- </div> -->
 </div>
-<button id="tlauncher" class="accordion"><img src="images/open-iconic/copywriting.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Launch Timeline</button>
+<!-- <button id="tlauncher" class="accordion"><img src="images/open-iconic/copywriting.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Launch Timeline</button> -->
 			<!-- <div id="left-btn-slide-toggle" class="slider-icon">&#9664;
 			</div> -->
 			<!-- License information-->
@@ -1721,7 +1721,7 @@ document.getElementById('low-side-panel').style.top = newheight + 'px'
 window.addEventListener('resize', function(event){
   newheight = window.innerHeight - 42;
 	document.getElementById('low-side-panel').style.top = newheight + 'px'
-	$('#low-btn-slide-toggle').html('&#9650;');
+	$('#low-btn-slide-toggle').html('&#9650;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>M a n u s c r i p t&nbsp;&nbsp;&nbsp;R e s u l t s&nbsp;&nbsp;T a b l e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9650;</span>');
 	informationToggle2 = false;
 });
 var newwidth = window.innerWidth -28
@@ -1729,7 +1729,8 @@ document.getElementById('right-side-panel').style.left = newwidth + 'px'
 window.addEventListener('resize', function(event){
   newwidth = window.innerWidth - 28;
 	document.getElementById('right-side-panel').style.left = newwidth + 'px'
-	$('#right-btn-slide-toggle').html('&#9664;');
+	document.getElementById('right-side-panel').style.bottom = '42px'
+	$('#right-btn-slide-toggle').html('&#9664;<b><br/><br/><br/><br/><br/><br/><br/>C<br/>o<br/>n<br/>t<br/>r<br/>o<br/>l<br/><br/>P<br/>a<br/>n<br/>e<br/>l</b><div id="btn-bottom" style="position:absolute;bottom:15px;">&#9664;</div>');
 	informationToggle = true;
 });
 
