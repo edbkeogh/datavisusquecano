@@ -149,11 +149,12 @@ width: 100%;
 } */
 
 #searchButton {
-	margin-right: 5px;
+	margin-top: 10px;
+	margin-right: 10px;
 	position:relative;
 	font-size: large;
-float: right;
-	width: 50%;
+/*float: right;*/
+	/*width: 50%;*/
 	border-radius: 12px;
 	background-color: #ccc;
 	-webkit-transition-duration: 0.4s; /* Safari */
@@ -324,6 +325,14 @@ right-side-panel
 					-webkit-hyphens: auto;
 					hyphens: auto;
 					overflow: auto;
+				}
+
+				.writeIn {
+					width:240px;
+				}
+
+				.hideSearch {
+					display: none;
 				}
 
 				#right-btn-slide-toggle {
@@ -675,6 +684,74 @@ right-side-panel
 	font-size: 8pt;
 }
 
+.MultiCheckBox {
+		 border:1px solid #e2e2e2;
+		 padding: 5px;
+		 border-radius:4px;
+		 cursor:pointer;
+ }
+
+ .MultiCheckBox .k-icon{
+		 font-size: 15px;
+		 float: right;
+		 font-weight: bolder;
+		 margin-top: -3px;
+		 height: 10px;
+		 width: 14px;
+		 color:#787878;
+ }
+
+ .MultiCheckBoxDetail {
+		 display:none;
+		 position:absolute;
+		 border:1px solid #e2e2e2;
+		 overflow-y:hidden;
+ }
+
+ .MultiCheckBoxDetailBody {
+	 background: white;
+		 overflow-y:scroll;
+		 z-index: 5;
+ }
+
+		 .MultiCheckBoxDetail .cont  {
+				 clear:both;
+				 overflow: hidden;
+				 padding: 2px;
+		 }
+
+		 .MultiCheckBoxDetail .cont:hover  {
+				 background-color:#cfcfcf;
+		 }
+
+		 .MultiCheckBoxDetailBody > div > div {
+				 float:left;
+		 }
+
+ .MultiCheckBoxDetail>div>div:nth-child(1) {
+
+ }
+
+ .MultiCheckBoxDetailHeader {
+		 overflow:hidden;
+		 position:relative;
+		 height: 28px;
+		 background-color:#3d3d3d;
+ }
+
+		 .MultiCheckBoxDetailHeader>input {
+				 position: absolute;
+				 top: 4px;
+				 left: 3px;
+		 }
+
+		 .MultiCheckBoxDetailHeader>div {
+				 position: absolute;
+				 top: 5px;
+				 left: 24px;
+				 color:#fff;
+		 }
+
     </style>
 
     <!-- All the various libraries we will need  -->
@@ -820,14 +897,28 @@ right-side-panel
 <div class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 <div id="genreText" class="darkText">
 	<button id="searchButton" onclick="initSP()">Reinitialize Parameters</button>
-	<p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">Remove All</button><br/></p>
-<!-- <br/> -->
-<p><b>Object Name</b></p>
-<input type="search" id="manuscriptName-search" placeholder="Enter Name of Written Object">
+	<select id="ParamSelectorList">
+         <option value="1">Object Name</option>
+         <option value="2">Content</option>
+         <option value="3">Languages</option>
+         <option value="4">Contexts</option>
+         <option value="5">Materials</option>
+         <option value="6">Forms</option>
+         <option value="7">Religious Affiliations</option>
+         <option value="8">Scripts</option>
+				 <option value="9">Date Range</option>
+     </select>
+
+	<!-- <p><button onclick="addAlladdAll()">Add All</button>&nbsp&nbsp&nbsp<button onclick="removeAll()">Remove All</button><br/></p> -->
 <br/>
-<p><b>Content</b></p>
+<div class="hideSearch" id="Object Name"><p><b>Object Name</b></p>
+<input type="search" id="manuscriptName-search" placeholder="Enter Name of Written Object" class="writeIn">
+<br/>
+</div>
+
+<div class="hideSearch" id="Content"><p><b>Content</b></p>
 <!-- <input type="search" id="significance-search" placeholder="Brief Description"> -->
-<input type="search" id="content-search" placeholder="Enter or Select Content Type" list="dropdown_content">
+<input type="search" id="content-search" placeholder="Enter or Select Content Type" list="dropdown_content" class="writeIn">
 <datalist id="dropdown_content">
 	<option>Administrative</option>
 <option>Amulet</option>
@@ -863,8 +954,9 @@ right-side-panel
 						<!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Languages</button> -->
 						<!-- <div class="panel"> -->
 						<!-- <div id="genreText" class="darkText"> -->
-
+</div>
 <!-- <br/> -->
+<div class="hideSearch" id="Languages">
 <table class="dataTable">
 	<thead>
 		<tr>
@@ -885,7 +977,7 @@ right-side-panel
 <!--  TODO This is where the control panel should start-->
 
 <!-- <label for="lang-search">Add Language</label> -->
-<input type="search" id="lang-search" name="add_lang" placeholder="Type a language" list="dropdown_languages">
+<input type="search" id="lang-search" name="add_lang" placeholder="Type a language" list="dropdown_languages" class="writeIn">
 <datalist id="dropdown_languages">
   <!-- <option>test1</option> -->
   <!-- <option>test2</option> -->
@@ -901,7 +993,8 @@ right-side-panel
 <!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Contexts</button> -->
 <!-- <div class="panel"> -->
 <!-- <div id="genreText" class="darkText"> -->
-
+</div>
+<div class="hideSearch" id="Contexts">
 <!-- <br/> -->
 <table class="dataTable">
 
@@ -923,7 +1016,7 @@ right-side-panel
 
 <br/>
 <!-- <br/> -->
-<input type="search" id="context-search" name="add_lang" placeholder="Geopolitical context" list="dropdown_contexts">
+<input type="search" id="context-search" name="add_lang" placeholder="Geopolitical context" list="dropdown_contexts" class="writeIn">
 <datalist id="dropdown_contexts">
 
 </datalist>
@@ -941,6 +1034,8 @@ right-side-panel
 
 <!-- <br/> -->
 <!-- <br/> -->
+</div>
+<div class="hideSearch" id="Materials">
 <table class="dataTable">
 <thead>
 <tr>
@@ -1031,7 +1126,7 @@ right-side-panel
 
 <!-- <br/> -->
 <button onclick="addAllparameter('materials')">Add All Mat.</button><button onclick="removeAllparameter('materials')">Remove All Mat.</button>
-<input type="search" id="mat-search" name="add_lang" placeholder="Type a material" list="dropdown_materials">
+<input type="search" id="mat-search" name="add_lang" placeholder="Type a material" list="dropdown_materials" class="writeIn">
 <datalist id="dropdown_materials">
 
 </datalist>
@@ -1045,6 +1140,8 @@ right-side-panel
 <!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Forms</button> -->
 <!-- <div class="panel"> -->
 <!-- <div id="genreText" class="darkText"> -->
+</div>
+<div class="hideSearch" id="Forms">
 <table class="dataTable">
 <thead>
 <tr>
@@ -1146,7 +1243,7 @@ right-side-panel
 
 <!-- <br/> -->
 <br/>
-<input type="search" id="form-search" name="add_lang" placeholder="Type a form" list="dropdown_forms">
+<input type="search" id="form-search" name="add_lang" placeholder="Type a form" list="dropdown_forms" class="writeIn">
 <datalist id="dropdown_forms">
 
 </datalist>
@@ -1160,6 +1257,9 @@ right-side-panel
 <!-- <button id="genreButton" class="accordion accordionExp">&nbsp;&nbsp;&nbsp;&nbsp;Select Religious Affiliation</button> -->
 <!-- <div class="panel"> -->
 <!-- <div id="genreText" class="darkText"> -->
+</div>
+<div class="hideSearch" id="Religious Affiliations">
+
 <table class="dataTable">
 <thead>
 <tr>
@@ -1179,12 +1279,14 @@ right-side-panel
 <!--  TODO This is where the control panel should start-->
 <br/>
 <!-- <br/> -->
-<input type="search" id="rels-search" name="add_lang" placeholder="Type a religious affiliation" list="dropdown_religions">
+<input type="search" id="rels-search" name="add_lang" placeholder="Type a religious affiliation" list="dropdown_religions" class="writeIn">
 <datalist id="dropdown_religions">
 
 </datalist>
 <button onclick="dropdownTOparam('religions', document.getElementById('rels-search').value)">Add your selection</button>
 
+</div>
+<div class="hideSearch" id="Scripts">
 <table class="dataTable">
 <thead>
 <tr>
@@ -1204,7 +1306,7 @@ right-side-panel
 <!--  TODO This is where the control panel should start-->
 <br/>
 <!-- <br/> -->
-<input type="search" id="script-search" name="add_lang" placeholder="Type a script system" list="dropdown_scripts">
+<input type="search" id="script-search" name="add_lang" placeholder="Type a script system" list="dropdown_scripts" class="writeIn">
 <datalist id="dropdown_scripts">
 
 </datalist>
@@ -1216,7 +1318,8 @@ right-side-panel
 
 <!-- </div> -->
 <!-- </div> -->
-
+</div>
+<div class="hideSearch" id="Date Range">
 <table class="dataTable">
 <thead>
 <tr>
@@ -1271,7 +1374,7 @@ right-side-panel
 	<!-- <button onclick="clearParams()">Clear Search Parameters</button> -->
 
 <!--  TODO this is where the control section should end-->
-
+</div>
 </div>
 </div>
 
@@ -1475,6 +1578,127 @@ right-side-panel
     <!-- Functionality that is not generalizable. Perhaps you can use this to force load data, etc -->
 		<script>
 	    "use strict"
+
+var arrowtest = 'down';
+var pselList = ['Object Name','Content','Languages','Contexts','Materials','Forms','Religious Affiliations','Scripts','Date Range'];
+
+			$(document).ready(function () {
+	             $("#ParamSelectorList").CreateMultiCheckBox({ width: '230px', defaultText : 'Select Parameters to Display', height:'270px' });
+	         });
+
+			$(document).ready(function () {
+					$(document).on("click", ".MultiCheckBox", function () {
+						// var triangledown = "M41 288h238c21.4 0 32.1 25.9 17 41L177 448c-9.4 9.4-24.6 9.4-33.9 0L24 329c-15.1-15.1-4.4-41 17-41z";
+						if (arrowtest == 'down') {
+							var detail = $(this).next();
+							detail.show();
+							arrowtest = 'up';
+							// this.innerText.replace("&#9660;", "&#9650;");
+							// $(this).children[0].children[0].children[0].attributes.d = "M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z";
+						} else {
+							arrowtest = 'down';
+						};
+							// console.log(this);
+					});
+
+					$(document).on("click", ".MultiCheckBoxDetailHeader input", function (e) {
+							e.stopPropagation();
+							var hc = $(this).prop("checked");
+							// console.log(this);
+							$(this).closest(".MultiCheckBoxDetail").find(".MultiCheckBoxDetailBody input").prop("checked", hc);
+							$(this).closest(".MultiCheckBoxDetail").next().UpdateSelect();
+					});
+
+					$(document).on("click", ".MultiCheckBoxDetailHeader", function (e) {
+							var inp = $(this).find("input");
+							var chk = inp.prop("checked");
+							inp.prop("checked", !chk);
+							console.log(inp[0].checked);
+							var checktest = inp[0].checked;
+							for ( i in pselList) {
+								if (checktest == true) {
+									document.getElementById(pselList[i]).classList.remove('hideSearch');
+								} else {
+									document.getElementById(pselList[i]).classList.add('hideSearch');
+								}
+							};
+
+							$(this).closest(".MultiCheckBoxDetail").find(".MultiCheckBoxDetailBody input").prop("checked", !chk);
+							$(this).closest(".MultiCheckBoxDetail").next().UpdateSelect();
+					});
+
+					$(document).on("click", ".MultiCheckBoxDetail .cont input", function (e) {
+							e.stopPropagation();
+							$(this).closest(".MultiCheckBoxDetail").next().UpdateSelect();
+// console.log(this);
+							var val = ($(".MultiCheckBoxDetailBody input:checked").length == $(".MultiCheckBoxDetailBody input").length)
+							$(".MultiCheckBoxDetailHeader input").prop("checked", val);
+					});
+
+					$(document).on("click", ".MultiCheckBoxDetail .cont", function (e) {
+							var inp = $(this).find("input");
+							var chk = inp.prop("checked");
+							inp.prop("checked", !chk);
+							// console.log("what type of click");
+
+							paramToggle(this.children[1].innerHTML);
+							var multiCheckBoxDetail = $(this).closest(".MultiCheckBoxDetail");
+							var multiCheckBoxDetailBody = $(this).closest(".MultiCheckBoxDetailBody");
+							multiCheckBoxDetail.next().UpdateSelect();
+
+							var val = ($(".MultiCheckBoxDetailBody input:checked").length == $(".MultiCheckBoxDetailBody input").length)
+							$(".MultiCheckBoxDetailHeader input").prop("checked", val);
+					});
+
+					$(document).mouseup(function (e) {
+							var container = $(".MultiCheckBoxDetail");
+							if (!container.is(e.target) && container.has(e.target).length === 0) {
+									container.hide();
+							}
+					});
+			});
+
+			var defaultMultiCheckBoxOption = { width: '220px', defaultText: 'Select Below', height: '200px' };
+
+			jQuery.fn.extend({
+					CreateMultiCheckBox: function (options) {
+
+							var localOption = {};
+							localOption.width = (options != null && options.width != null && options.width != undefined) ? options.width : defaultMultiCheckBoxOption.width;
+							localOption.defaultText = (options != null && options.defaultText != null && options.defaultText != undefined) ? options.defaultText : defaultMultiCheckBoxOption.defaultText;
+							localOption.height = (options != null && options.height != null && options.height != undefined) ? options.height : defaultMultiCheckBoxOption.height;
+
+							this.hide();
+							this.attr("multiple", "multiple");
+							var divSel = $("<div class='MultiCheckBox'>" + localOption.defaultText + "<span class='k-icon k-i-arrow-60-down'>&#9660;</span></div>").insertBefore(this);
+							divSel.css({ "width": localOption.width });
+
+							var detail = $("<div class='MultiCheckBoxDetail'><div class='MultiCheckBoxDetailHeader'><input type='checkbox' class='mulinput' value='-1982' /><div>Select All</div></div><div class='MultiCheckBoxDetailBody'></div></div>").insertAfter(divSel);
+							detail.css({ "width": parseInt(options.width) + 10, "max-height": localOption.height });
+							var multiCheckBoxDetailBody = detail.find(".MultiCheckBoxDetailBody");
+
+							this.find("option").each(function () {
+									var val = $(this).attr("value");
+
+									if (val == undefined)
+											val = '';
+
+									multiCheckBoxDetailBody.append("<div class='cont'><div><input type='checkbox' class='mulinput' value='" + val + "' /></div><div>" + $(this).text() + "</div></div>");
+							});
+
+							multiCheckBoxDetailBody.css("max-height", (parseInt($(".MultiCheckBoxDetail").css("max-height")) - 28) + "px");
+					},
+					UpdateSelect: function () {
+							var arr = [];
+
+							this.prev().find(".mulinput:checked").each(function () {
+									arr.push($(this).val());
+							});
+
+							this.val(arr);
+					},
+			});
+
 
 var overlayCount = 0;
 var AWMCnumber = 0;
@@ -2111,6 +2335,9 @@ document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup
 // 		}
 
 //slider for AWMC overlay opacity
+
+
+
 
 function setAWMCnumber() {
 if (overlayCount === 0)	{

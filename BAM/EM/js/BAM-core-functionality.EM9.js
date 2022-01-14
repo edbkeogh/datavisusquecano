@@ -186,3 +186,12 @@ function populateBamDataTableFromNode(columns, node, holder) {
         }
         holder.push(tableDataHolder);
     }
+
+    function paramToggle(paramDiv) {
+    	if (document.getElementById(paramDiv).classList.length == 1) {
+    		document.getElementById(paramDiv).classList.remove('hideSearch');
+    	}
+     else {
+    	document.getElementById(paramDiv).classList.add('hideSearch');
+    };
+    }

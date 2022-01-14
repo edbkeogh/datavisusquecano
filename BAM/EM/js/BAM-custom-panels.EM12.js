@@ -214,6 +214,7 @@ function removeParam(paramType, val) {
 	 searchData[paramType].splice(index, 1);
 	 break;
 	case '<u>add</u>':
+        if (searchData[paramType].includes(val)) {console.log('duplicate!')};
 				searchData[paramType].push(val);
 				document.getElementById('i' + paramType + '_' + val).style.opacity = 1;
 				document.getElementById('b' + paramType + '_' + val).innerHTML = '<u>remove</u>';
@@ -616,9 +617,13 @@ $.fn.dataTable.render.ellipsis = function ( cutoff, wordbreak, escapeHtml ) {
 };
 
 function dropdownTOparam(paramType, val) {
+  if (!searchData[paramType].includes(val)) {
+    // console.log('not a duplicate')
   console.log(paramType + ' , ' + val);
   searchData[paramType].push(val);
   document.getElementById('selected_' + paramType).innerHTML += '<li id="i'+ paramType + '_' + val + '">' + val + ' <button id="b' + paramType + '_' + val + '" class="remove-button" onclick="removeParam(\'' + paramType + '\', \'' + val + '\')"><u>remove</u></button></li>';
+};
+
 search();
 }
 
