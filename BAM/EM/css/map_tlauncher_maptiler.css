@@ -261,19 +261,20 @@
 
 /*marker icons*/
 .icon-1{
-   /*background-image: url('../images/open-iconic/book14.png');*/
+   background-image: url('../images/open-iconic/book14.png');
      background-repeat: no-repeat;
   background-position: 3px 2px;
 }
-.icon-2{
-  background-image: url('bicycle-16.png');
-  background-repeat: no-repeat;
-  background-position: 1px 0px;
-}
 .icon-3{
-  background-image: url('motorcycle-16.png');
+  background-image: url('../images/open-iconic/eye.png');
   background-repeat: no-repeat;
-  background-position: 1px 0px;
+  background-position: 1px 1px;
+  opacity:1;
+}
+.icon-2{
+  background-image: url('../images/open-iconic/multi.png');
+  background-repeat: no-repeat;
+  background-position: 1px .25px;
 }
 .icon-4{
   background-image: url('car-16.png');

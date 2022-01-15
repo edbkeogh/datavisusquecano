@@ -1761,7 +1761,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Written Object", "languages
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.6-18-21.geojson',
+		geojsonPath = 'data/EM.1-14-22.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -2019,8 +2019,8 @@ for ( i in manuscriptmetadata) {
 	    var categoryVal = feature.properties[categoryField],
 	      iconVal = feature.properties[iconField];
 				//TODO where the icons come from
-	      // var myClass = 'marker category-'+categoryVal+' icon-'+iconVal;
-				var myClass = 'marker category-'+categoryVal;
+	      var myClass = 'marker category-'+categoryVal+' icon-'+iconVal;
+				// var myClass = 'marker category-'+categoryVal;
 				var myIcon = L.divIcon({
 	          className: myClass,
 	          iconSize:null
