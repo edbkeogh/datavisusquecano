@@ -331,6 +331,7 @@ if (geojson.features.findIndex(x => x.properties[5004] === results.manuscripts[i
     var centBlurb = createCentury(results.manuscripts[i].terminus_post_quem, results.manuscripts[i].terminus_ante_quem);
     // console.log(centBlurb);
     // console.log(results.manuscripts[i].id);
+    // var value5074 = []
     var geoJSONtemplate = {"geometry": {"type": "Point", "coordinates": [results.manuscripts[i].longitude,results.manuscripts[i].latitude]}, "type": "Feature", "properties": {"5033": "", "5034": "", "5035": "", "5032": "", "5022": 150, "5065": "1", "4": "", "5002": results.manuscripts[i].place_of_composition, "5055": centBlurb, "5001": results.manuscripts[i].manuscript, "5003": results.manuscripts[i].significance, "5004": results.manuscripts[i].id, "5074": 0}};
     geojson.features.push(geoJSONtemplate);
   }

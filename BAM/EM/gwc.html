@@ -1761,7 +1761,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Written Object", "languages
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.1-14-22.geojson',
+		geojsonPath = 'data/EM.6-18-21.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -2244,6 +2244,9 @@ for ( i in manuscriptmetadata) {
 		}
 
 		function changeCatField() {
+			var matKeys = ["Animals","Cermaic","Metals","Paper","Plants","Stone","Textile"];
+			var mat5022Numbers = {"Animals":11,"Ceramic":19,"Metals":21,"Paper":17,"Plants":15,"Stone":13,"Textile":22,"Multiple":18};
+			var formNumbers = {"Single Flat Sheet":1,"Rolled Sheets":2,"Stacked Sheets":3,"Folded Sheets":4,"Stacked and Folded Sheets":5,"Movable Inscription":6,"Immovable Inscription":7};
 			categoryField = '5022';
 			showHell();
 			// console.log(geojson.features[0].properties[categoryField])
