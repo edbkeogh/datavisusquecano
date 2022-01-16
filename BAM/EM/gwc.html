@@ -983,7 +983,7 @@ right-side-panel
   <!-- <option>test2</option> -->
   <!-- <option>another</option> -->
 </datalist>
-<button onclick="dropdownTOparam('languages', document.getElementById('lang-search').value)">Add your selection</button>
+<button onclick="dropdownTOparam('languages', document.getElementById('lang-search').value)">Add your dropdown selection</button>
 
 
 
@@ -1020,7 +1020,7 @@ right-side-panel
 <datalist id="dropdown_contexts">
 
 </datalist>
-<button onclick="dropdownTOparam('contexts', document.getElementById('context-search').value)">Add your selection</button>
+<button onclick="dropdownTOparam('contexts', document.getElementById('context-search').value)">Add your dropdown selection</button>
 
 
 <!-- </div> -->
@@ -1130,7 +1130,8 @@ right-side-panel
 <datalist id="dropdown_materials">
 
 </datalist>
-<button onclick="dropdownTOparam('materials', document.getElementById('mat-search').value)">Add your selection</button>
+<br/>
+<button onclick="dropdownTOparam('materials', document.getElementById('mat-search').value)">Add your dropdown selection</button>
 
 
 
@@ -1247,7 +1248,7 @@ right-side-panel
 <datalist id="dropdown_forms">
 
 </datalist>
-<button onclick="dropdownTOparam('forms', document.getElementById('form-search').value)">Add your selection</button>
+<button onclick="dropdownTOparam('forms', document.getElementById('form-search').value)">Add your dropdown selection</button>
 
 
 
@@ -1283,7 +1284,7 @@ right-side-panel
 <datalist id="dropdown_religions">
 
 </datalist>
-<button onclick="dropdownTOparam('religions', document.getElementById('rels-search').value)">Add your selection</button>
+<button onclick="dropdownTOparam('religions', document.getElementById('rels-search').value)">Add your dropdown selection</button>
 
 </div>
 <div class="hideSearch" id="Scripts">
@@ -1310,7 +1311,7 @@ right-side-panel
 <datalist id="dropdown_scripts">
 
 </datalist>
-<button onclick="dropdownTOparam('scripts', document.getElementById('script-search').value)">Add your selection</button>
+<button onclick="dropdownTOparam('scripts', document.getElementById('script-search').value)">Add your dropdown selection</button>
 
 
 
@@ -1382,15 +1383,17 @@ right-side-panel
 
 <!--  onclick="toggleWitnessTable()"-->
 <!-- <input type="button" onclick="toggleWitnessTable()" class="accordion"><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</input> -->
-<button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls [Developing]</button>
+<button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls [in development]</button>
 
 <div id="mapLegend" class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
-	<button onclick="clearMap()">Clear Map</button>
+	<!-- <button onclick="clearMap()">Clear Map</button> -->
 	<!-- <button onclick="showallMap()">Show All</button> -->
-	<button onclick="resize()"><i class="fas">&#xf31e;</i></button>
+	<!-- <button onclick="resize()"><i class="fas">&#xf31e;</i></button> -->
 	<br/>
-	<button onclick="changeCatField()">Color markers by language</button>
+	<button onclick="changeCatFieldMats()">Color markers by material</button>
 	<br/>
+	<!-- <button onclick="changeCatFieldForms()">Color markers by form</button>
+	<br/> -->
 	<p style="color: black">Change base map</p>
 
 	<button onclick="map._layers[23].setUrl('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png');
@@ -1761,7 +1764,7 @@ var manuscriptmetadata = {"id": "ID", "manuscript": "Written Object", "languages
 			metadata,
 			feature,
 			fil,
-		geojsonPath = 'data/EM.6-18-21.geojson',
+		geojsonPath = 'data/EM.1-16-22.geojson',
 		idField = '5004',
 		categoryField = '5074', //This is the fieldname for marker category (used in the pie and legend)
 		iconField = '5065', //This is the fieldame for marker icon
@@ -1810,7 +1813,7 @@ tileServer = 'https://api.maptiler.com/tiles/satellite-mediumres-2018/{z}/{x}/{y
 	 document.getElementById('metadataList').innerHTML += 'The map dataset does not contain metadata, perform a search using the \"Select Search Parameters\" functions from the left side panel to load metadata.<br/><b>ID: </b>' + leafletID
 console.log(searchIDs.findIndex(x => x.id === leafletID));
 var metaDataID = searchIDs.findIndex(x => x.id === leafletID)
-console.log(metaDataID)
+console.log(metaDataID);
 
 });
 	        } else {
@@ -2066,7 +2069,7 @@ for ( i in manuscriptmetadata) {
 	                              pieLabelClass: 'marker-cluster-pie-label',
 																//  pieLabelClass2: 'marker-cluster-pie-label2',
 	                              pathClassFunc: function(d){return "category-"+d.data.key;},
-	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' manuscript'+(d.data.values.length!=1?'s':'')}
+	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' Written Object'+(d.data.values.length!=1 || metadata.fields[categoryField].lookup[d.data.key]=="Collections of"?'s':'')}
 	                            }),
 	          //Create a new divIcon and assign the svg markup to the html property
 	          myIcon = new L.DivIcon({
@@ -2243,40 +2246,79 @@ for ( i in manuscriptmetadata) {
 			 map.scrollWheelZoom.enable();
 		}
 
-		function changeCatField() {
-			var matKeys = ["Animals","Cermaic","Metals","Paper","Plants","Stone","Textile"];
+		function changeCatFieldMats() {
+			var matKeys = ["Animals","Ceramic","Metals","Paper","Plants","Stone","Textile"];
 			var mat5022Numbers = {"Animals":11,"Ceramic":19,"Metals":21,"Paper":17,"Plants":15,"Stone":13,"Textile":22,"Multiple":18};
-			var formNumbers = {"Single Flat Sheet":1,"Rolled Sheets":2,"Stacked Sheets":3,"Folded Sheets":4,"Stacked and Folded Sheets":5,"Movable Inscription":6,"Immovable Inscription":7};
+			// var formNumbers = {"Single Flat Sheet":1,"Rolled Sheets":2,"Stacked Sheets":3,"Folded Sheets":4,"Stacked and Folded Sheets":5,"Movable Inscription":6,"Immovable Inscription":7};
+
+var dots = geojson.features;
+for (i in searchIDs) {
+	var geojsonID = geojson.features.findIndex(x => x.properties[5004] === searchIDs[i].id);
+	console.log(geojsonID);
+	const matIntersection = matKeys.filter(element => searchIDs[i].materials.indexOf(element) !== -1);
+	// console.log(geojson.features[geojsonID].properties[5022]);
+	if (matIntersection.length == 1 )
+ {
+	 geojson.features[geojsonID].properties[5022] = mat5022Numbers[matIntersection];
+
+ } else {
+	 geojson.features[geojsonID].properties[5022] = mat5022Numbers["Multiple"];
+ };
+};
 			categoryField = '5022';
 			showHell();
 			// console.log(geojson.features[0].properties[categoryField])
-			document.getElementById('mapLeg').innerHTML = ""
-			var dots = geojson.features
-var legendIDs = []
-			 for (i in dots) {
-			 legendIDs[i] = geojson.features[i].properties[categoryField]			};
-			//  console.log(legendIDs)
-			 var propertyCount = { };
-for(var i = 0; i < legendIDs.length; ++i) {
-    if(!propertyCount[legendIDs[i]])
-        propertyCount[legendIDs[i]] = 0;
-    ++propertyCount[legendIDs[i]];
-};
-// console.log(propertyCount);
-var sortedArray = sortObject(propertyCount)
-// console.log(sortedArray);
-var resArray = [];
-var metaLookup = metadata.fields[categoryField].lookup
-// console.log(Object.keys(sortedArray))
-for (i in sortedArray) {
-	var keyLookup = sortedArray[i].key;
-	var valLookup = sortedArray[i].value;
-	// console.log(metaLookup[keyLookup] + ' occurs ' + valLookup + ' times, and is this color class:' + keyLookup)
-	// document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
-// document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-1px 1px 0 #fff,1px 1px 0 #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
-document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-2px -2px 3px #fff,2px -2px 3px #fff,-2px 2px 3px #fff,2px 2px 3px #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
-}
+			// document.getElementById('mapLeg').innerHTML = ""
+// // the next 26 lines set up a legend
+// var legendIDs = []
+// 			 for (i in dots) {
+// 			 legendIDs[i] = geojson.features[i].properties[categoryField]			};
+// 			//  console.log(legendIDs)
+// 			 var propertyCount = { };
+// for(var i = 0; i < legendIDs.length; ++i) {
+//     if(!propertyCount[legendIDs[i]])
+//         propertyCount[legendIDs[i]] = 0;
+//     ++propertyCount[legendIDs[i]];
+// };
+// // console.log(propertyCount);
+// var sortedArray = sortObject(propertyCount)
+// // console.log(sortedArray);
+// var resArray = [];
+// var metaLookup = metadata.fields[categoryField].lookup
+// // console.log(Object.keys(sortedArray))
+// for (i in sortedArray) {
+// 	var keyLookup = sortedArray[i].key;
+// 	var valLookup = sortedArray[i].value;
+// 	// console.log(metaLookup[keyLookup] + ' occurs ' + valLookup + ' times, and is this color class:' + keyLookup)
+// 	// document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-1px -1px 0 #fff,1px -1px 0 #fff,-1px 1px 0 #fff,1px 1px 0 #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
+// // document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-1px 1px 0 #fff,1px 1px 0 #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
+// document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-2px -2px 3px #fff,2px -2px 3px #fff,-2px 2px 3px #fff,2px 2px 3px #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
+// }
 		}
+
+		function changeCatFieldForms() {
+			// var matKeys = ["Animals","Ceramic","Metals","Paper","Plants","Stone","Textile"];
+
+			var mat5022Numbers = {"Animals":11,"Ceramic":19,"Metals":21,"Paper":17,"Plants":15,"Stone":13,"Textile":22,"Multiple":18};
+			var formNumbers = {"Single Flat Sheet":1,"Rolled Sheets":2,"Stacked Sheets":3,"Folded Sheets":4,"Stacked and Folded Sheets":5,"Movable Inscription":6,"Immovable Inscription":7};
+
+var dots = geojson.features;
+for (i in searchIDs) {
+	var geojsonID = geojson.features.findIndex(x => x.properties[5004] === searchIDs[i].id);
+	console.log(geojsonID);
+	const Intersection = formKeys.filter(element => searchIDs[i].forms.indexOf(element) !== -1);
+	// console.log(geojson.features[geojsonID].properties[5022]);
+	if (Intersection.length == 1 )
+ {
+	 geojson.features[geojsonID].properties[5022] = mat5022Numbers[Intersection];
+
+ } else {
+	 geojson.features[geojsonID].properties[5022] = mat5022Numbers["Multiple"];
+ };
+};
+			categoryField = '5022';
+			showHell();
+}
 
 		function sortObject(obj) {
 		    var arr = [];

@@ -313,7 +313,7 @@ function search() {
 	$.ajax({
 		type: 'POST',
 		// url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-    url: 'https://silent-gh.com/api_IM91.6.php',
+    url: 'https://silent-gh.com/api_IM1-16-22.php',
 		data: data,
 		success: function(res) {
       // console.log(res);
@@ -351,7 +351,7 @@ for (i in searchIDs) {
 tableMain.rows.add(results.manuscripts);
 //tableMain.rows.add(formattedresults);
 
-console.log(results)
+// console.log(results)
 if (results['textual_witnesses'] != null) {
 // var geoJSONtemplate = {"type": "Feature", "properties": {}, "geometry": { "type": "Point", "coordinates": [0,0] } }
 witnessGeoJSON =
@@ -481,13 +481,20 @@ search();
 }
 
 function removeAllparameter(paramType) {
-  for (let index in returns[paramType]) {
+  console.log(searchData[paramType]);
+  const startingArray = [];
+  for (i in searchData[paramType]) {
+  startingArray.push(searchData[paramType][i]);
+};
+  for ( i in startingArray ) {
     // menu.innerHTML += `<option>${returns[paramType][index]}</option>`;
-    val = returns[paramType][index]
+    val = startingArray[i];
+    console.log(i, val);
   document.getElementById('i' + paramType + '_' + val).style.opacity = .4;
   document.getElementById('b' + paramType + '_' + val).innerHTML = '<u>add</u>';
-   let i = searchData[paramType].indexOf(val);
-   searchData[paramType].splice(i, 1);
+   let j = searchData[paramType].indexOf(val);
+   console.log(j);
+   searchData[paramType].splice(j, 1);
   		}
 
 search();
@@ -674,42 +681,42 @@ var langListener = document.getElementById("lang-search");
   langListener.addEventListener("keydown", function (e) {
     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
     dropdownTOparam('languages', document.getElementById('lang-search').value);
-        search();
+        // search();
     }
 });
 var contextListener = document.getElementById("context-search");
   contextListener.addEventListener("keydown", function (e) {
     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
     dropdownTOparam('contexts', document.getElementById('context-search').value);
-        search();
+        // search();
     }
 });
 var matListener = document.getElementById("mat-search");
   matListener.addEventListener("keydown", function (e) {
     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
     dropdownTOparam('materials', document.getElementById('mat-search').value);
-        search();
+        // search();
     }
 });
 var formListener = document.getElementById("form-search");
   formListener.addEventListener("keydown", function (e) {
     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
     dropdownTOparam('forms', document.getElementById('form-search').value);
-        search();
+        // search();
     }
 });
 var relsListener = document.getElementById("rels-search");
   relsListener.addEventListener("keydown", function (e) {
     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
     dropdownTOparam('religions', document.getElementById('rels-search').value);
-        search();
+        // search();
     }
 });
 var scriptListener = document.getElementById("script-search");
   scriptListener.addEventListener("keydown", function (e) {
     if (e.code === "Enter") {  //checks whether the pressed key is "Enter"
     dropdownTOparam('scripts', document.getElementById('script-search').value);
-        search();
+        // search();
     }
 });
 
@@ -769,7 +776,7 @@ clearParams();
 $.ajax({
   type: 'POST',
   // url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-    url: 'https://silent-gh.com/api_IM91.6.php',
+    url: 'https://silent-gh.com/api_IM1-16-22.php',
   data: {'functionName': 'getUniqueValues2'},
   success: function(res) {
 		// console.log(res);
