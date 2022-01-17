@@ -1392,8 +1392,10 @@ right-side-panel
 	<br/>
 	<button onclick="changeCatFieldMats()">Color markers by material</button>
 	<br/>
-	<!-- <button onclick="changeCatFieldForms()">Color markers by form</button>
-	<br/> -->
+	<button onclick="changeCatFieldDefault()">Color multimanuscript corpora</button>
+	<br/>
+	<button onclick="changeCatFieldForms()">Color markers by form</button>
+	<br/>
 	<p style="color: black">Change base map</p>
 
 	<button onclick="map._layers[23].setUrl('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png');
@@ -1702,7 +1704,7 @@ var pselList = ['Object Name','Content','Languages','Contexts','Materials','Form
 					},
 			});
 
-
+var pieHoverLabelText = ' Written Object';
 var overlayCount = 0;
 var AWMCnumber = 0;
 var witnessIcon = L.Icon({
@@ -2069,7 +2071,7 @@ for ( i in manuscriptmetadata) {
 	                              pieLabelClass: 'marker-cluster-pie-label',
 																//  pieLabelClass2: 'marker-cluster-pie-label2',
 	                              pathClassFunc: function(d){return "category-"+d.data.key;},
-	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+' Written Object'+(d.data.values.length!=1 || metadata.fields[categoryField].lookup[d.data.key]=="Collections of"?'s':'')}
+	                              pathTitleFunc: function(d){return d.data.values.length +' '+metadata.fields[categoryField].lookup[d.data.key]+ pieHoverLabelText +(d.data.values.length!=1 || metadata.fields[categoryField].lookup[d.data.key]=="Collections of"?'s':'')}
 	                            }),
 	          //Create a new divIcon and assign the svg markup to the html property
 	          myIcon = new L.DivIcon({
@@ -2265,6 +2267,7 @@ for (i in searchIDs) {
 	 geojson.features[geojsonID].properties[5022] = mat5022Numbers["Multiple"];
  };
 };
+		pieHoverLabelText = ' Material Object'
 			categoryField = '5022';
 			showHell();
 			// console.log(geojson.features[0].properties[categoryField])
@@ -2295,30 +2298,35 @@ for (i in searchIDs) {
 // document.getElementById('mapLeg').innerHTML += '<p class="category-' + keyLookup + '">&nbsp;<b style=\"text-shadow:-2px -2px 3px #fff,2px -2px 3px #fff,-2px 2px 3px #fff,2px 2px 3px #fff;\">' + metaLookup[keyLookup] + '</b>: ' + valLookup +  ' ms(s)</p>'
 // }
 		}
-
-		function changeCatFieldForms() {
-			// var matKeys = ["Animals","Ceramic","Metals","Paper","Plants","Stone","Textile"];
-
-			var mat5022Numbers = {"Animals":11,"Ceramic":19,"Metals":21,"Paper":17,"Plants":15,"Stone":13,"Textile":22,"Multiple":18};
-			var formNumbers = {"Single Flat Sheet":1,"Rolled Sheets":2,"Stacked Sheets":3,"Folded Sheets":4,"Stacked and Folded Sheets":5,"Movable Inscription":6,"Immovable Inscription":7};
-
-var dots = geojson.features;
-for (i in searchIDs) {
-	var geojsonID = geojson.features.findIndex(x => x.properties[5004] === searchIDs[i].id);
-	console.log(geojsonID);
-	const Intersection = formKeys.filter(element => searchIDs[i].forms.indexOf(element) !== -1);
-	// console.log(geojson.features[geojsonID].properties[5022]);
-	if (Intersection.length == 1 )
- {
-	 geojson.features[geojsonID].properties[5022] = mat5022Numbers[Intersection];
-
- } else {
-	 geojson.features[geojsonID].properties[5022] = mat5022Numbers["Multiple"];
- };
-};
-			categoryField = '5022';
-			showHell();
+//changeCatFieldDefault()
+function changeCatFieldDefault() {
+	pieHoverLabelText = ' Written Object';
+	categoryField = '5074';
+	showHell();
 }
+
+function changeCatFieldForms() {
+		var formKeys = ["Single Flat Sheet","Rolled Sheets","Stacked Sheets","Folded Sheets","Stacked and Folded Sheets","Movable Inscription","Immovable Inscription"]
+		var formNumbers = {"Single Flat Sheet":21,"Rolled Sheets":15,"Stacked Sheets":17,"Folded Sheets":22,"Stacked and Folded Sheets":11,"Movable Inscription":19,"Immovable Inscription":13,"Uncategorized":18};
+// geojson.properties.fields[508] = {"lookup": {"1": "Single Flat Sheet", "2": "Rolled Sheets", "3": "Stacked Sheets", "4": "Folded Sheets", "5": "Stacked and Folded Sheets", "6": "Movable Inscription", "7": "Immovable Inscription"}, "name": "Forms"};
+geojson.properties.fields[508] = JSON.parse('\{"lookup":\{"21":"Single Flat Sheet","15":"Rolled Sheets","17":"Stacked Sheets","22":"Folded Sheets","11":"Stacked and Folded Sheets","19":"Movable Inscription","13":"Immovable Inscription"\,"18":"Uncategorized"},"name":"Forms"\}');
+// console.log(JSON.stringify(geojson.properties.fields));
+for (i in searchIDs) {
+
+var geojsonID = geojson.features.findIndex(x => x.properties[5004] === searchIDs[i].id);
+// console.log(geojsonID);
+const Intersection = formKeys.filter(element => searchIDs[i].forms.indexOf(element) !== -1);
+
+if (formNumbers[Intersection]) { geojson.features[geojsonID].properties[508] = formNumbers[Intersection];}
+else {geojson.features[geojsonID].properties[508] = 18;};
+// console.log(formNumbers[Intersection]);
+};
+pieHoverLabelText = ' Form Object';
+	categoryField = '508';
+	showHell();
+}
+
+
 
 		function sortObject(obj) {
 		    var arr = [];
@@ -2422,7 +2430,7 @@ slider.oninput = function() {
 function rightBTNblink() {
 	var f = document.getElementById('right-btn-slide-toggle');
  var grayblink = setInterval(function() {f.style['background-color'] = '#fff';
- setTimeout(function() {f.style['background-color'] = '#d7dce4';}, 125);}, 250);
+ setTimeout(function() {f.style['background-color'] = 'rgba(238, 238, 238, 0.85)';}, 125);}, 250);
  setTimeout(function() {
  clearInterval(grayblink);
 }, 500);
@@ -2432,8 +2440,11 @@ function rightBTNblink() {
 window.onload = setTimeout(function () {
 	// removeAllparameter('materials');
 	// removeAllparameter('forms')
+
 	search();
 }, 800);
+
+
 	  </script>
 
 

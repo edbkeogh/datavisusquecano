@@ -459,7 +459,9 @@ showHell();
     //show the table!
     // $('#databaseBox').show();
   //  refreshMap();
+// geojson.properties.fields[508] = {"lookup": {"1": "Single Flat Sheet", "2": "Rolled Sheets", "3": "Stacked Sheets", "4": "Folded Sheets", "5": "Stacked and Folded Sheets", "6": "Movable Inscription", "7": "Immovable Inscription"}, "name": "Forms"};
       }
+
 	});
 }
 
