@@ -322,13 +322,15 @@ right-side-panel
 				#top-side-panel {
 					/*overflow-x: hidden;*/
 					position: absolute;
-					top: 0;
+					/*top: -213px;*/
+
 					left: 300px;
 					right: 25%;
 					/*width: 25%;*/
 					min-width: 300px;
-					/*height: 100%;*/
-					bottom: 75%;
+					height: 240px;
+					/*height: 35%;*/
+					/*bottom: 65%;*/
 					background-color: rgba(55, 89, 142, 0.65);
 					color: #fff;
 					padding: 5px;
@@ -1619,8 +1621,9 @@ right-side-panel
 			</div> -->
 		</span>
 		<span id="top-side-panel">
+			<button onclick="initHist()">histogram</button>
+
 <div id="histogram">
-	<button onclick="initHist()">histogram</button>
 </div>
 
 			<div id="top-btn-slide-toggle" class="slider-icon">&#9660;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>R e s u l t s&nbsp;&nbsp;T i m e l i n e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9660;</span>
@@ -2503,38 +2506,48 @@ function rightBTNblink() {
 
 
 function initHist() {
-var values = [];
+d3.select('#histogram').html("");
+
+var values2 = [];
+
 for (i in searchIDs) {
-		if (searchIDs[i].terminus_ante_quem) { values.push(searchIDs[i].terminus_ante_quem);} else {console.log(searchIDs[i].manuscript + " is missing term ante quem"); };
+		if (searchIDs[i].terminus_ante_quem) { values2.push(searchIDs[i].terminus_ante_quem);} else {console.log(searchIDs[i].manuscript + " is missing term ante quem"); };
 	};
-	refresh(values);
+console.log(values2);
+	refresh(values2);
 };
 
 
 var color = "green";
 
 // Generate a 1000 data points using normal distribution with mean=20, deviation=5
-// var values = ["-2315","520","100","-270","1250","1300","700","744","1350","155","-2375","643","1100","-334","350","-780","500","645","-324","550","390","1290","150","1647","866","1342","300","-1801","850","33","1193","600","965","400","1150","800","1833","850","300","400","200","828","-2425","134","-101","-300","1226","716","719","500","719","710","-30","1100","1000","-430","-1240","0","-587","-1545","700","1325","-601","150","-380","1410","90","1237","1225","1480","-501","-691","1323","-2680","400","1600","1350","525","759","350","900","600","354","-2901","645","875","1325","496","1100","-530","-1200","500","1577","1009","862","600","-700","230","850","178","1000","600","1025","325","150","1030","1000","640","1292","-1","-166","130","200","600","1532","1000","-1550","1000","-1450","1050","1296","683","1392","1436","-2600","-146","700","411","-2218","138","430","900","-509","1560","550","900","-2500","426","-100","1157","300","814","679","-2566","-850","700","1150","200","328","-260","1800","807","1113","1066","525","-2110","1389","413","1050","1182","-705","700","1489","-1901","906","900","534","-2100","-1601","1153","262","325","570","600","500","1039","1057","550","-204","1225","-186","825","400","-110","895","-101","-1100","100","950","512","1400","490","1444","250","-516","1200","643","-236","200","450","646","646","646","646","-3150","242","700","400","-810","546","1257","835","500","1000","515","1451","149","1100","425","867","464","500","650","-701","600","200","1054","150","-464","-3000","989","-2070","950","993","-150","-150","-150","775","300","440","1225","75","400","-3200","1700","-2250","800","400","-300","600","360","750","-430","770","-1332","-336","-394","1200","1099","900","600","1025","1500","669","48","-472","200","-1000","750","850","1871","-2600","-486","-1501","200","586","-1200","625","1000","600","1540","500","-280","800","1000","850","-100","-1750","800","-1301","897","1289","-1270","1000","700","721","1160","200","110","-600","100","600","-1425","600","464","1300","1149","795","-501","732","1030","1000","-824","500","-201","-1166","1300","-200","500","600","300","135","-2311","1380","572","1000","799","700","1224","1100"];
+var values = [-2315,520,100,-270,1250,1300,700,744,1350,155,-2375,643,1100,-334,350,-780,500,645,-324,550,390,1290,150,1647,866,1342,300,-1801,850,33,1193,600,965,400,1150,800,1833,850,300,400,200,828,-2425,134,-101,-300,1226,716,719,500,719,710,-30,1100,1000,-430,-1240,0,-587,-1545,700,1325,-601,150,-380,1410,90,1237,1225,1480,-501,-691,1323,-2680,400,1600,1350,525,759,350,900,600,354,-2901,645,875,1325,496,1100,-530,-1200,500,1577,1009,862,600,-700,230,850,178,1000,600,1025,325,150,1030,1000,640,1292,-1,-166,130,200,600,1532,1000,-1550,1000,-1450,1050,1296,683,1392,1436,-2600,-146,700,411,-2218,138,430,900,-509,1560,550,900,-2500,426,-100,1157,300,814,679,-2566,-850,700,1150,200,328,-260,1800,807,1113,1066,525,-2110,1389,413,1050,1182,-705,700,1489,-1901,906,900,534,-2100,-1601,1153,262,325,570,600,500,1039,1057,550,-204,1225,-186,825,400,-110,895,-101,-1100,100,950,512,1400,490,1444,250,-516,1200,643,-236,200,450,646,646,646,646,-3150,242,700,400,-810,546,1257,835,500,1000,515,1451,149,1100,425,867,464,500,650,-701,600,200,1054,150,-464,-3000,989,-2070,950,993,-150,-150,-150,775,300,440,1225,75,400,-3200,1700,-2250,800,400,-300,600,360,750,-430,770,-1332,-336,-394,1200,1099,900,600,1025,1500,669,48,-472,200,-1000,750,850,1871,-2600,-486,-1501,200,586,-1200,625,1000,600,1540,500,-280,800,1000,850,-100,-1750,800,-1301,897,1289,-1270,1000,700,721,1160,200,110,-600,100,600,-1425,600,464,1300,1149,795,-501,732,1030,1000,-824,500,-201,-1166,1300,-200,500,600,300,135,-2311,1380,572,1000,799,700,1224,1100];
 // var values = d3.range(1000).map(d3.random.normal(-1000, 3000));
-var values = d3.range(-3800,2022);
+// var values = d3.range(-3800,2022);
 
 // A formatter for counts.
 var formatCount = d3.format(",.0f");
 
-var margin = {top: 20, right: 30, bottom: 30, left: 30},
+var margin = {top: 20, right: 30, bottom: 75, left: 30},
     // width = 600 - margin.left - margin.right,
 		    width = document.getElementById("histogram").offsetWidth - margin.left - margin.right,
-    height = 140 - margin.top - margin.bottom;
+    // height = 140 - margin.top - margin.bottom;
+    height = document.getElementById("top-side-panel").offsetHeight - margin.top - margin.bottom;
 
 var max = d3.max(values);
 var min = d3.min(values);
 var x = d3.scale.linear()
       .domain([min, max])
       .range([0, width]);
+// let bandScale = d3.scaleBand()
+//   .domain([min,max])
+//   .range([0, width]);
+
 
 // Generate a histogram using twenty uniformly-spaced bins.
 var data = d3.layout.histogram()
-    .bins(x.ticks(12))
+    .bins(x.ticks(40))
+		// .bins([-3500,-1000,0,800,1200,1500,2000])
     (values);
 
 var yMax = d3.max(data, function(d){return d.length});
@@ -2586,11 +2599,19 @@ svg.append("g")
 /*
 * Adding refresh method to reload new data
 */
-function refresh(values){
+function refresh(values2){
   // var values = d3.range(1000).map(d3.random.normal(20, 5));
+
+	var max2 = d3.max(values2, function(d) { return parseInt(d); });
+	var min2 = d3.min(values2, function(d) { return parseInt(d); });
+	var x = d3.scale.linear()
+	      .domain([min2, max2])
+	      .range([0, width]);
+
+
   var data = d3.layout.histogram()
-    .bins(x.ticks(12))
-    (values);
+    .bins(x.ticks(40))
+    (values2);
 
   // Reset y domain using new data
   var yMax = d3.max(data, function(d){return d.length});
@@ -2600,26 +2621,69 @@ function refresh(values){
               .domain([yMin, yMax])
               .range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);
 
-  var bar = svg.selectAll(".bar").data(data);
+  //
+	//
+  // // Remove object with data
+  // bar.exit().remove();
+	//
+  // bar.transition()
+  //   .duration(1000)
+  //   .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+	//
+  // bar.select("rect")
+  //     .transition()
+  //     .duration(1000)
+  //     .attr("height", function(d) { return height - y(d.y); })
+  //     .attr("fill", function(d) { return colorScale(d.y) });
+	//
+  // bar.select("text")
+  //     .transition()
+  //     .duration(1000)
+	// 		// .attr("height", function(d) { return y(d.y) - 20; })
+  //     .text(function(d) { return formatCount(d.y); });
+	//
+	// 		// svg.append("g")
+	// 		//     // .attr("class", "x axis")
+	// 		// 		// .attr("fill", "white")
+	// 		//     // .attr("transform", "translate(0," + height + ")")
+	// 		// 		.transition()
+	// 		// 		.duration(1000)
+	// 		// 		.scale(x);
+	var xAxis = d3.svg.axis()
+	    .scale(x)
+	    .orient("bottom");
 
-  // Remove object with data
-  bar.exit().remove();
+	var svg = d3.select("#histogram").append("svg")
+	    .attr("width", width + margin.left + margin.right)
+	    .attr("height", height + margin.top + margin.bottom)
+	  .append("g")
+	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  bar.transition()
-    .duration(1000)
-    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+	var bar = svg.selectAll(".bar")
+	    .data(data)
+	  .enter().append("g")
+	    .attr("class", "bar")
+	    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
-  bar.select("rect")
-      .transition()
-      .duration(1000)
-      .attr("height", function(d) { return height - y(d.y); })
-      .attr("fill", function(d) { return colorScale(d.y) });
+	bar.append("rect")
+	    .attr("x", 1)
+	    .attr("width", (x(data[0].dx) - x(0)) - 1)
+	    .attr("height", function(d) { return height - y(d.y); })
+	    .attr("fill", function(d) { return colorScale(d.y) });
 
-  bar.select("text")
-      .transition()
-      .duration(1000)
-			// .attr("height", function(d) { return y(d.y) - 20; })
-      .text(function(d) { return formatCount(d.y); });
+	bar.append("text")
+	    .attr("dy", ".75em")
+	    .attr("y", -12)
+	    .attr("x", (x(data[0].dx) - x(0)) / 2)
+	    .attr("text-anchor", "middle")
+			// .attr("fill", "white")
+	    .text(function(d) { return formatCount(d.y); });
+
+	svg.append("g")
+	    .attr("class", "x axis")
+			.attr("fill", "white")
+	    .attr("transform", "translate(0," + height + ")")
+	    .call(xAxis);
 
 }
 
