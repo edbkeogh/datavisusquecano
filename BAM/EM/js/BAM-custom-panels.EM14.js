@@ -346,7 +346,7 @@ for (i in searchIDs) {
 
 }
 
-
+initHist();
 // put it in BAM tables
 tableMain.rows.add(results.manuscripts);
 //tableMain.rows.add(formattedresults);

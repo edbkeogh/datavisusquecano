@@ -322,7 +322,7 @@ right-side-panel
 				#top-side-panel {
 					/*overflow-x: hidden;*/
 					position: absolute;
-					/*top: -213px;*/
+					top: -213px;
 
 					left: 300px;
 					right: 25%;
@@ -809,6 +809,18 @@ right-side-panel
   shape-rendering: crispEdges;
 }
 
+.axis text {
+	transform: rotateZ(-7deg);
+	font-size: .95em;
+}
+
+	#histCTRLS {
+	background-color: rgba(238, 238, 238, 0.85);
+	text: black;
+	/*text:black;*/
+}
+
+
 
     </style>
 
@@ -909,7 +921,7 @@ right-side-panel
     <!-- the map div holds most of our application-->
     <div id="map">
     	<!-- the main navigation panel to the left - will probably have to rename this to navigation panel, etc-->
-		<span id="left-side-panel">
+		<span id="left-side-panel"  onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 			<!-- <span id="navbar-image" class="navbar-image"> -->
     		<!-- </span> -->
     		<div class="navbar-brand" id="navbar-brand">
@@ -952,7 +964,7 @@ right-side-panel
 		</div> -->
 
 						<button id="genreButton" class="accordion accordionExp"><img src="images/open-iconic/magnifying-glass.svg" class="accordianImage" alt="list icon">&nbsp;&nbsp;&nbsp;&nbsp;Select Search Parameters</button>
-<div class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
+<div class="panel">
 <div id="genreText" class="darkText">
 	<button id="searchButton" onclick="initSP()">Reinitialize Parameters</button>
 	<select id="ParamSelectorList">
@@ -1421,11 +1433,11 @@ right-side-panel
 	<br />	<br /> (.0002*this.value)^2+(.05*this.value)-->
 
 	<input id="startDateslide" type="range" min="1" max="100" value="1" oninput="showValstart(this.value)"> <br/>
-	Start Date:
+	Include Objects whose latest date of creation is in or after this year:
 	<input type="number" step="1" min="1" id="startDate"> <select id="startNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
 	<br />
 	<input id="endDateslide" type="range" min="1" max="100" value="1" oninput="showValend(this.value)"> <br/>
-	End Date:  <input type="number" step="1" min="1" id="endDate"> <select id="endNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
+	Include Objects whose earliest date of creation is in or before this year:  <input type="number" step="1" min="1" id="endDate"> <select id="endNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
 
 	<br />
 		<br />
@@ -1620,13 +1632,25 @@ right-side-panel
 
 			</div> -->
 		</span>
-		<span id="top-side-panel">
-			<button onclick="initHist()">histogram</button>
+		<span id="top-side-panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
+			<!-- <button onclick="initHist()">histogram</button> -->
+			<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+			 <!-- <div id="histCTRLS"> -->
+<!-- <p style="margin-left:10px;">- possible year of composition margin-left:10px;-->
 
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select the point in the range of possible years to display: <input type="radio" id="age1" name="age" value="tpq" onclick="initHist()" style="transform: scale(1.5);">
+  <label for="age1">Earliest</label>
+  <input type="radio" id="age2" name="age" value="mean" onclick="initHist()" style="transform: scale(1.5);" checked/>
+  <label for="age2">Middle</label>
+  <input type="radio" id="age3" name="age" value="taq" onclick="initHist()" style="transform: scale(1.5);">
+  <label for="age3">Latest</label>
+	 <!-- <p style="margin-left:10px;">- possible year of composition</p> -->
+  <!-- <input type="submit" value="Submit"> -->
+<!-- </div> -->
 <div id="histogram">
 </div>
 
-			<div id="top-btn-slide-toggle" class="slider-icon">&#9660;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>R e s u l t s&nbsp;&nbsp;T i m e l i n e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9660;</span>
+			<div id="top-btn-slide-toggle" class="slider-icon" onclick="topsidetoggle()">&#9660;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>R e s u l t s&nbsp;&nbsp;T i m e l i n e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9660;</span>
 				</div>
 
 		</span>
@@ -1637,7 +1661,7 @@ right-side-panel
 
     <!-- BAM functionality. Only add what you need!  -->
     <script src="js/BAM-core-functionality.EM9.js"></script>
-    <script src="js/BAM-custom-panels.EM12.js"></script>
+    <script src="js/BAM-custom-panels.EM14.js"></script>
     <script src="js/BAM-custom-menu.EM6.Tlaunch.js"></script>
     <!-- <script src="js/BAM-datatables.js"></script> -->
     <!-- <script src="js/BAM-map-functionality.js"></script> -->
@@ -1791,21 +1815,28 @@ var passed_SD = {};
 
 var newheight = window.innerHeight -42
 document.getElementById('low-side-panel').style.top = newheight + 'px'
-window.addEventListener('resize', function(event){
-  newheight = window.innerHeight - 42;
-	document.getElementById('low-side-panel').style.top = newheight + 'px'
-	$('#low-btn-slide-toggle').html('&#9650;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>W r i t t e n&nbsp;&nbsp;&nbsp;O b j e c t&nbsp;&nbsp;&nbsp;R e s u l t s&nbsp;&nbsp;T a b l e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9650;</span>');
-	informationToggle2 = false;
-});
+// window.addEventListener('resize', function(event){
+//   newheight = window.innerHeight - 42;
+// 	document.getElementById('low-side-panel').style.top = newheight + 'px'
+// 	$('#low-btn-slide-toggle').html('&#9650;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>W r i t t e n&nbsp;&nbsp;&nbsp;O b j e c t&nbsp;&nbsp;&nbsp;R e s u l t s&nbsp;&nbsp;T a b l e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9650;</span>');
+// 	informationToggle2 = false;
+// });
 var newwidth = window.innerWidth -28
 document.getElementById('right-side-panel').style.left = newwidth + 'px'
 window.addEventListener('resize', function(event){
+	initHist();
   newwidth = window.innerWidth - 28;
 	document.getElementById('right-side-panel').style.left = newwidth + 'px'
 	document.getElementById('right-side-panel').style.bottom = '42px'
 	$('#right-btn-slide-toggle').html('&#9664;<b><br/><br/><br/><br/><br/><br/><br/>C<br/>o<br/>n<br/>t<br/>r<br/>o<br/>l<br/><br/>P<br/>a<br/>n<br/>e<br/>l</b><div id="btn-bottom" style="position:absolute;bottom:15px;">&#9664;</div>');
 	informationToggle = true;
+	newheight = window.innerHeight - 42;
+	document.getElementById('low-side-panel').style.top = newheight + 'px'
+	$('#low-btn-slide-toggle').html('&#9650;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>W r i t t e n&nbsp;&nbsp;&nbsp;O b j e c t&nbsp;&nbsp;&nbsp;R e s u l t s&nbsp;&nbsp;T a b l e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9650;</span>');
+	informationToggle2 = false;
+
 });
+
 
 var manuscriptmetadata = {"id": "ID", "manuscript": "Written Object", "languages": "Language(s)", "script": "Script System (Language) - Format", "geopolitical_context": "Geopolitical Context", "materials": "Material(s)", "forms": "Form(s)", "terminus_post_quem": "Terminus <i>post quem</i>", "terminus_ante_quem": "Terminus <i>ante quem</i>", "content": "Content", "religious_affiliation": "Religious Affiliation", "bilingual": "Multilingual(Y/N)", "bilingual_format": "Multilingual Format", "second_language": "Secondary Language(s)", "second_script": "Secondary Script(s)", "place_of_composition": "Place of Composition", "latitude": "Latitude", "longitude": "Longitude", "scribe": "Scribe", "patron": "Patron", "dimension_width": "Width", "dimension_height": "Height", "number_of_folios": "Number of Folios", "palimpsest": "Palimpsest/Recycled(Y/N)", "illuminated": "Illuminated(Y/N)", "colophon": "Colophon(Y/N)", "place_of_colophon": "Colophon Place", "year_of_colophon": "Colophon Year", "text_of_colophon": "Text of Colophon", "current_location": "Current Location", "shelfmark": "Shelfmark", "bibliography": "Bibliography", "entry_researcher": "Entry Researcher", "zotero": "Zotero"}
 			//k these don't do what I want, they broke leaflet
@@ -2508,99 +2539,146 @@ function rightBTNblink() {
 function initHist() {
 d3.select('#histogram').html("");
 
+
 var values2 = [];
 
+if (searchIDs.length < 2) {
+var midpoint = ((parseInt(searchIDs[i].terminus_post_quem) + parseInt(searchIDs[i].terminus_ante_quem)) *.5);
+	var singleentry = "<p>There is only one result. Earliest: " + searchIDs[0].terminus_post_quem + " Midpoint: " + midpoint + " Latest: " +searchIDs[i].terminus_ante_quem  + "</p>"
+	d3.select('#histogram').html(singleentry);
+} else {
+
 for (i in searchIDs) {
+	if (document.getElementById('age1').checked) {
+		if (searchIDs[i].terminus_post_quem) { values2.push(searchIDs[i].terminus_post_quem);} else {console.log(searchIDs[i].manuscript + " is missing term post quem"); };
+
+	} else
+	if (document.getElementById('age2').checked) {
+
+		if (searchIDs[i].terminus_ante_quem && searchIDs[i].terminus_post_quem) {
+			// console.log(searchIDs[i].terminus_post_quem);
+			// console.log(searchIDs[i].terminus_ante_quem);
+
+var midpoint = ((parseInt(searchIDs[i].terminus_post_quem) + parseInt(searchIDs[i].terminus_ante_quem)) *.5);
+			values2.push(midpoint);
+		} else {
+			console.log(searchIDs[i].manuscript + " is missing term ante quem OR term post quem"); };
+
+	} else
+	if (document.getElementById('age3').checked) {
 		if (searchIDs[i].terminus_ante_quem) { values2.push(searchIDs[i].terminus_ante_quem);} else {console.log(searchIDs[i].manuscript + " is missing term ante quem"); };
+
+	};
+
+	//searchIDs[i][timepoint]
+		// if (searchIDs[i].terminus_ante_que) { values2.push(searchIDs[i].terminus_ante_quem);} else {console.log(searchIDs[i].manuscript + " is missing term ante quem"); };
+		// if (searchIDs[i][timepoint]) { values2.push(searchIDs[i][timepoint]);} else {console.log(searchIDs[i].manuscript + " is missing term ante quem"); };
 	};
 console.log(values2);
 	refresh(values2);
 };
+};
 
-
+//
+// var color = "green";
+//
+// // Generate a 1000 data points using normal distribution with mean=20, deviation=5
+// var values = [-2315,520,100,-270,1250,1300,700,744,1350,155,-2375,643,1100,-334,350,-780,500,645,-324,550,390,1290,150,1647,866,1342,300,-1801,850,33,1193,600,965,400,1150,800,1833,850,300,400,200,828,-2425,134,-101,-300,1226,716,719,500,719,710,-30,1100,1000,-430,-1240,0,-587,-1545,700,1325,-601,150,-380,1410,90,1237,1225,1480,-501,-691,1323,-2680,400,1600,1350,525,759,350,900,600,354,-2901,645,875,1325,496,1100,-530,-1200,500,1577,1009,862,600,-700,230,850,178,1000,600,1025,325,150,1030,1000,640,1292,-1,-166,130,200,600,1532,1000,-1550,1000,-1450,1050,1296,683,1392,1436,-2600,-146,700,411,-2218,138,430,900,-509,1560,550,900,-2500,426,-100,1157,300,814,679,-2566,-850,700,1150,200,328,-260,1800,807,1113,1066,525,-2110,1389,413,1050,1182,-705,700,1489,-1901,906,900,534,-2100,-1601,1153,262,325,570,600,500,1039,1057,550,-204,1225,-186,825,400,-110,895,-101,-1100,100,950,512,1400,490,1444,250,-516,1200,643,-236,200,450,646,646,646,646,-3150,242,700,400,-810,546,1257,835,500,1000,515,1451,149,1100,425,867,464,500,650,-701,600,200,1054,150,-464,-3000,989,-2070,950,993,-150,-150,-150,775,300,440,1225,75,400,-3200,1700,-2250,800,400,-300,600,360,750,-430,770,-1332,-336,-394,1200,1099,900,600,1025,1500,669,48,-472,200,-1000,750,850,1871,-2600,-486,-1501,200,586,-1200,625,1000,600,1540,500,-280,800,1000,850,-100,-1750,800,-1301,897,1289,-1270,1000,700,721,1160,200,110,-600,100,600,-1425,600,464,1300,1149,795,-501,732,1030,1000,-824,500,-201,-1166,1300,-200,500,600,300,135,-2311,1380,572,1000,799,700,1224,1100];
+// // var values = d3.range(1000).map(d3.random.normal(-1000, 3000));
+// // var values = d3.range(-3800,2022);
+//
+// // A formatter for counts.
+// var formatCount = d3.format(",.0f");
+//
+// var margin = {top: 20, right: 30, bottom: 75, left: 30},
+//     // width = 600 - margin.left - margin.right,
+// 		    width = document.getElementById("histogram").offsetWidth - margin.left - margin.right,
+//     // height = 140 - margin.top - margin.bottom;
+//     height = document.getElementById("top-side-panel").offsetHeight - margin.top - margin.bottom;
+//
+// var max = d3.max(values);
+// var min = d3.min(values);
+// var x = d3.scale.linear()
+//       .domain([min, max])
+//       .range([0, width]);
+// // let bandScale = d3.scaleBand()
+// //   .domain([min,max])
+// //   .range([0, width]);
+//
+//
+// // Generate a histogram using twenty uniformly-spaced bins.
+// var data = d3.layout.histogram()
+//     .bins(x.ticks(40))
+// 		// .bins([-3500,-1000,0,800,1200,1500,2000])
+//     (values);
+//
+// var yMax = d3.max(data, function(d){return d.length});
+// var yMin = d3.min(data, function(d){return d.length});
+// var colorScale = d3.scale.linear()
+//             .domain([yMin, yMax])
+//             .range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);
+//
+// var y = d3.scale.linear()
+//     .domain([0, yMax])
+//     .range([height, 0]);
+//
+// var xAxis = d3.svg.axis()
+// // .tickFormat(d3.time.format("%Y"))
+// // .tickFormat(function (d) {if (d<0) {return (-d) + " BCE"} else { return d}; console.log(d)})
+// // .tickFormat(function (d) {Math.abs(d)})
+//     .scale(x)
+//     .orient("bottom");
+//
+// var svg = d3.select("#histogram").append("svg")
+//     .attr("width", width + margin.left + margin.right)
+//     .attr("height", height + margin.top + margin.bottom)
+//   .append("g")
+//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+//
+// var bar = svg.selectAll(".bar")
+//     .data(data)
+//   .enter().append("g")
+//     .attr("class", "bar")
+//     .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+//
+// bar.append("rect")
+//     .attr("x", 1)
+//     .attr("width", (x(data[0].dx) - x(0)) - 1)
+//     .attr("height", function(d) { return height - y(d.y); })
+//     .attr("fill", function(d) { return colorScale(d.y) });
+//
+// bar.append("text")
+//     .attr("dy", ".75em")
+//     .attr("y", -12)
+//     .attr("x", (x(data[0].dx) - x(0)) / 2)
+//     .attr("text-anchor", "middle")
+// 		// .attr("fill", "white")
+//     .text(function(d) { return formatCount(d.y); });
+//
+// svg.append("g")
+//     .attr("class", "x axis")
+// 		.attr("fill", "white")
+//     .attr("transform", "translate(0," + height + ")")
+//     .call(xAxis);
+//
+//
+ /*
+* Adding refresh method to reload new data
+*/
+function refresh(values2){
+  // var values = d3.range(1000).map(d3.random.normal(20, 5));
 var color = "green";
 
-// Generate a 1000 data points using normal distribution with mean=20, deviation=5
-var values = [-2315,520,100,-270,1250,1300,700,744,1350,155,-2375,643,1100,-334,350,-780,500,645,-324,550,390,1290,150,1647,866,1342,300,-1801,850,33,1193,600,965,400,1150,800,1833,850,300,400,200,828,-2425,134,-101,-300,1226,716,719,500,719,710,-30,1100,1000,-430,-1240,0,-587,-1545,700,1325,-601,150,-380,1410,90,1237,1225,1480,-501,-691,1323,-2680,400,1600,1350,525,759,350,900,600,354,-2901,645,875,1325,496,1100,-530,-1200,500,1577,1009,862,600,-700,230,850,178,1000,600,1025,325,150,1030,1000,640,1292,-1,-166,130,200,600,1532,1000,-1550,1000,-1450,1050,1296,683,1392,1436,-2600,-146,700,411,-2218,138,430,900,-509,1560,550,900,-2500,426,-100,1157,300,814,679,-2566,-850,700,1150,200,328,-260,1800,807,1113,1066,525,-2110,1389,413,1050,1182,-705,700,1489,-1901,906,900,534,-2100,-1601,1153,262,325,570,600,500,1039,1057,550,-204,1225,-186,825,400,-110,895,-101,-1100,100,950,512,1400,490,1444,250,-516,1200,643,-236,200,450,646,646,646,646,-3150,242,700,400,-810,546,1257,835,500,1000,515,1451,149,1100,425,867,464,500,650,-701,600,200,1054,150,-464,-3000,989,-2070,950,993,-150,-150,-150,775,300,440,1225,75,400,-3200,1700,-2250,800,400,-300,600,360,750,-430,770,-1332,-336,-394,1200,1099,900,600,1025,1500,669,48,-472,200,-1000,750,850,1871,-2600,-486,-1501,200,586,-1200,625,1000,600,1540,500,-280,800,1000,850,-100,-1750,800,-1301,897,1289,-1270,1000,700,721,1160,200,110,-600,100,600,-1425,600,464,1300,1149,795,-501,732,1030,1000,-824,500,-201,-1166,1300,-200,500,600,300,135,-2311,1380,572,1000,799,700,1224,1100];
-// var values = d3.range(1000).map(d3.random.normal(-1000, 3000));
-// var values = d3.range(-3800,2022);
-
-// A formatter for counts.
 var formatCount = d3.format(",.0f");
 
-var margin = {top: 20, right: 30, bottom: 75, left: 30},
+var margin = {top: 20, right: 30, bottom: 80, left: 30},
     // width = 600 - margin.left - margin.right,
 		    width = document.getElementById("histogram").offsetWidth - margin.left - margin.right,
     // height = 140 - margin.top - margin.bottom;
     height = document.getElementById("top-side-panel").offsetHeight - margin.top - margin.bottom;
 
-var max = d3.max(values);
-var min = d3.min(values);
-var x = d3.scale.linear()
-      .domain([min, max])
-      .range([0, width]);
-// let bandScale = d3.scaleBand()
-//   .domain([min,max])
-//   .range([0, width]);
 
-
-// Generate a histogram using twenty uniformly-spaced bins.
-var data = d3.layout.histogram()
-    .bins(x.ticks(40))
-		// .bins([-3500,-1000,0,800,1200,1500,2000])
-    (values);
-
-var yMax = d3.max(data, function(d){return d.length});
-var yMin = d3.min(data, function(d){return d.length});
-var colorScale = d3.scale.linear()
-            .domain([yMin, yMax])
-            .range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);
-
-var y = d3.scale.linear()
-    .domain([0, yMax])
-    .range([height, 0]);
-
-var xAxis = d3.svg.axis()
-    .scale(x)
-    .orient("bottom");
-
-var svg = d3.select("#histogram").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var bar = svg.selectAll(".bar")
-    .data(data)
-  .enter().append("g")
-    .attr("class", "bar")
-    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
-
-bar.append("rect")
-    .attr("x", 1)
-    .attr("width", (x(data[0].dx) - x(0)) - 1)
-    .attr("height", function(d) { return height - y(d.y); })
-    .attr("fill", function(d) { return colorScale(d.y) });
-
-bar.append("text")
-    .attr("dy", ".75em")
-    .attr("y", -12)
-    .attr("x", (x(data[0].dx) - x(0)) / 2)
-    .attr("text-anchor", "middle")
-		// .attr("fill", "white")
-    .text(function(d) { return formatCount(d.y); });
-
-svg.append("g")
-    .attr("class", "x axis")
-		.attr("fill", "white")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
-
-/*
-* Adding refresh method to reload new data
-*/
-function refresh(values2){
-  // var values = d3.range(1000).map(d3.random.normal(20, 5));
+	// var width = document.getElementById("histogram").offsetWidth - margin.left - margin.right;
 
 	var max2 = d3.max(values2, function(d) { return parseInt(d); });
 	var min2 = d3.min(values2, function(d) { return parseInt(d); });
@@ -2616,7 +2694,12 @@ function refresh(values2){
   // Reset y domain using new data
   var yMax = d3.max(data, function(d){return d.length});
   var yMin = d3.min(data, function(d){return d.length});
-  y.domain([0, yMax]);
+  // y.domain([0, yMax]);
+
+	var y = d3.scale.linear()
+	    .domain([0, yMax])
+	    .range([height, 0]);
+
   var colorScale = d3.scale.linear()
               .domain([yMin, yMax])
               .range([d3.rgb(color).brighter(), d3.rgb(color).darker()]);
@@ -2650,8 +2733,13 @@ function refresh(values2){
 	// 		// 		.duration(1000)
 	// 		// 		.scale(x);
 	var xAxis = d3.svg.axis()
+	.tickFormat(function (d) {if (d<0) {return (-d) + " BCE"} else { return d};})
+	// .tickFormat(function (d) {Math.abs(d)})
+	// .tickSize(5)
 	    .scale(x)
 	    .orient("bottom");
+
+
 
 	var svg = d3.select("#histogram").append("svg")
 	    .attr("width", width + margin.left + margin.right)
@@ -2685,8 +2773,38 @@ function refresh(values2){
 	    .attr("transform", "translate(0," + height + ")")
 	    .call(xAxis);
 
+
+
 }
 
+
+var top_toggle = false;
+
+function topsidetoggle() {
+
+	console.log(top_toggle);
+	if (top_toggle === true) {
+		// document.getElementById('top-side-panel').style.top = "-213px";
+		$("#top-side-panel").animate({
+				top: "-213px",
+				}, 500, function() {
+			$("#top-btn-slide-toggle").html('&#9660;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>R e s u l t s&nbsp;&nbsp;T i m e l i n e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9660;</span>');
+//$('#top-btn-slide-toggle').html('&#9660;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>R e s u l t s&nbsp;&nbsp;T i m e l i n e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9660;</span>');
+});
+		top_toggle = false;
+	} else if (top_toggle === false) {
+		$("#top-side-panel").animate({
+				top: "0px",
+		}, 500, function() {
+			$("#top-btn-slide-toggle").html('&#9650;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>R e s u l t s&nbsp;&nbsp;T i m e l i n e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9650;</span>');
+});
+		// document.getElementById('top-side-panel').style.top = "0px";
+		// $('#top-btn-slide-toggle').html('&#9650;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>R e s u l t s&nbsp;&nbsp;T i m e l i n e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9650;</span>');
+		top_toggle = true;
+	// });
+
+};
+}
 
 //need this for some reason - helps load everything at the right time
 window.onload = setTimeout(function () {
