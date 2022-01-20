@@ -149,8 +149,9 @@ width: 100%;
 } */
 
 #searchButton {
-	margin-top: 10px;
-	margin-right: 10px;
+	/*margin-top: 10px;*/
+	/*margin-right: 10px;*/
+		margin:10px;
 	position:relative;
 	font-size: large;
 /*float: right;*/
@@ -273,6 +274,13 @@ right-side-panel
 
         }
 
+.fancybutton {
+	/*.button {*/
+		border-radius: 12px;
+		padding: 10;
+
+	/*}*/
+}
 
         #left-btn-slide-toggle {
 					/*height: 90%;*/
@@ -814,11 +822,21 @@ right-side-panel
 	font-size: .95em;
 }
 
-	#histCTRLS {
-	background-color: rgba(238, 238, 238, 0.85);
-	text: black;
-	/*text:black;*/
-}
+
+/*#histCTRLS {
+background-color: rgba(238, 238, 238, 0.85);
+text: black;
+text:black;
+}*/
+
+/*#underMAP  {
+	postion: absolute;
+	height: 500px;
+	width: 400px;
+	top:100px
+	left:100px;
+	z-index: 5000;
+}*/
 
 
 
@@ -882,6 +900,16 @@ right-side-panel
 </head>
 
 <body>
+	<div id="underMAP">
+		<button onclick="map._layers[23].setUrl('https://api.maptiler.com/tiles/satellite-mediumres-2018/{z}/{x}/{y}.jpg?key=wJFPJ1cR5IcFz4Uk1e3X');
+		">MapTiler - Satellite</button>
+	<!-- <br/> -->
+	<button onclick="map._layers[23].setUrl('http://{s}.sm.mapstack.stamen.com/toner-background/{z}/{x}/{y}.png');
+	">Mapstack - Toner - no labels</button>
+
+	<button onclick="map._layers[23].setUrl('http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}');
+	">USGS</button>
+	</div>
     <div id="panelHolder">
     </div>
 
@@ -1433,11 +1461,11 @@ right-side-panel
 	<br />	<br /> (.0002*this.value)^2+(.05*this.value)-->
 
 	<input id="startDateslide" type="range" min="1" max="100" value="1" oninput="showValstart(this.value)"> <br/>
-	Include Objects whose latest date of creation is in or after this year:
+	Include Objects whose latest date of production is in or after this year:
 	<input type="number" step="1" min="1" id="startDate"> <select id="startNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
 	<br />
 	<input id="endDateslide" type="range" min="1" max="100" value="1" oninput="showValend(this.value)"> <br/>
-	Include Objects whose earliest date of creation is in or before this year:  <input type="number" step="1" min="1" id="endDate"> <select id="endNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
+	Include Objects whose earliest date of production is in or before this year:  <input type="number" step="1" min="1" id="endDate"> <select id="endNegOrPos"><option value="bc">BCE</option><option value="ce">CE</option></select>
 
 	<br />
 		<br />
@@ -1460,6 +1488,7 @@ right-side-panel
 	<!-- <button onclick="showallMap()">Show All</button> -->
 	<!-- <button onclick="resize()"><i class="fas">&#xf31e;</i></button> -->
 	<br/>
+	<!-- class="fancybutton" -->
 	<button onclick="changeCatFieldMats()">Color markers by material</button>
 	<br/>
 	<button onclick="changeCatFieldDefault()">Color multimanuscript corpora</button>
@@ -1467,7 +1496,20 @@ right-side-panel
 	<button onclick="changeCatFieldForms()">Color markers by form</button>
 	<br/>
 	<p style="color: black">Change base map</p>
+<br/>
+	<button onclick="map._layers[23].setUrl('https://api.maptiler.com/tiles/satellite-mediumres-2018/{z}/{x}/{y}.jpg?key=wJFPJ1cR5IcFz4Uk1e3X');
+	">MapTiler - Satellite</button>
+<br/>
+<button onclick="map._layers[23].setUrl('http://{s}.sm.mapstack.stamen.com/toner-background/{z}/{x}/{y}.png');
+">Mapstack - Toner - no labels</button>
+<br/>
+<button onclick="map._layers[23].setUrl('http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}');
+">USGS</button>
+<br/>
+<br/>
+<button onclick="showALLmaps()">Show all options</button>
 
+<div id="fullMAPoptions" style="display:none;">
 	<button onclick="map._layers[23].setUrl('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png');
 	">Open Street Map</button>
 	<br/>
@@ -1526,15 +1568,15 @@ right-side-panel
 ">Stamen Terrain</button>
 <br/>
 <br/>
-<button onclick="map._layers[23].setUrl('http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png');
-">Esri Satellite</button>
+<!-- <button onclick="map._layers[23].setUrl('http://a.tile.stamen.com/terrain/{z}/{x}/{y}.png'); -->
+<!-- ">Esri Satellite</button> -->
 <br/>
 <!-- http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z} -->
 
 <!-- <button onclick="map._layers[23].setUrl('http://{s}.sm.mapstack.stamen.com/darkmatter/{z}/{x}/{y}.png');
 ">Mapstack - Darkmatter</button>
 <br/> -->
-
+</div>
 <br/>
 <br/>
 <button id="addAWMCbutton" onclick="setAWMCnumber()">add AWMC overlay</button>
@@ -2806,6 +2848,10 @@ function topsidetoggle() {
 };
 }
 
+
+function showALLmaps() {
+	document.getElementById('fullMAPoptions').style.display = 'inherit';
+}
 //need this for some reason - helps load everything at the right time
 window.onload = setTimeout(function () {
 	// removeAllparameter('materials');
