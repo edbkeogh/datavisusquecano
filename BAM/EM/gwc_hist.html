@@ -90,6 +90,9 @@
 				    content: "...";
 				}
 
+#databaseBox {
+	margin-top: 5px;
+}
 
 #mapLeg p {
 	margin: 2px;
@@ -1483,7 +1486,8 @@ text:black;
 <!-- <input type="button" onclick="toggleWitnessTable()" class="accordion"><img src="images/list.svg" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Witness Table</input> -->
 <button id="mapPanel" class="accordion accordionExp"><img src="images/open-iconic/map-2x.png" class="accordianImage" alt="info">&nbsp;&nbsp;&nbsp;&nbsp;Map Controls [in development]</button>
 
-<div id="mapLegend" class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
+<!-- <div id="mapLegend" class="panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()"> -->
+	<div id="mapLegend" class="panel">
 	<!-- <button onclick="clearMap()">Clear Map</button> -->
 	<!-- <button onclick="showallMap()">Show All</button> -->
 	<!-- <button onclick="resize()"><i class="fas">&#xf31e;</i></button> -->
@@ -1677,7 +1681,7 @@ text:black;
 		<span id="top-side-panel" onmouseenter="myEnterFunction()" onmouseleave="myExitFunction()">
 			<!-- <button onclick="initHist()">histogram</button> -->
 			<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-			 <!-- <div id="histCTRLS"> -->
+			 <div id="histCTRLS">
 <!-- <p style="margin-left:10px;">- possible year of composition margin-left:10px;-->
 
 				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Select the point in the range of possible years to display: <input type="radio" id="age1" name="age" value="tpq" onclick="initHist()" style="transform: scale(1.5);">
@@ -1688,7 +1692,7 @@ text:black;
   <label for="age3">Latest</label>
 	 <!-- <p style="margin-left:10px;">- possible year of composition</p> -->
   <!-- <input type="submit" value="Submit"> -->
-<!-- </div> -->
+</div>
 <div id="histogram">
 </div>
 
@@ -1855,7 +1859,7 @@ var witnessIcon = L.Icon({
 
 var passed_SD = {};
 
-var newheight = window.innerHeight -42
+var newheight = window.innerHeight -44;
 document.getElementById('low-side-panel').style.top = newheight + 'px'
 // window.addEventListener('resize', function(event){
 //   newheight = window.innerHeight - 42;
@@ -1863,16 +1867,16 @@ document.getElementById('low-side-panel').style.top = newheight + 'px'
 // 	$('#low-btn-slide-toggle').html('&#9650;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>W r i t t e n&nbsp;&nbsp;&nbsp;O b j e c t&nbsp;&nbsp;&nbsp;R e s u l t s&nbsp;&nbsp;T a b l e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9650;</span>');
 // 	informationToggle2 = false;
 // });
-var newwidth = window.innerWidth -28
+var newwidth = window.innerWidth -27
 document.getElementById('right-side-panel').style.left = newwidth + 'px'
 window.addEventListener('resize', function(event){
 	initHist();
-  newwidth = window.innerWidth - 28;
+  newwidth = window.innerWidth - 27;
 	document.getElementById('right-side-panel').style.left = newwidth + 'px'
 	document.getElementById('right-side-panel').style.bottom = '42px'
 	$('#right-btn-slide-toggle').html('&#9664;<b><br/><br/><br/><br/><br/><br/><br/>C<br/>o<br/>n<br/>t<br/>r<br/>o<br/>l<br/><br/>P<br/>a<br/>n<br/>e<br/>l</b><div id="btn-bottom" style="position:absolute;bottom:15px;">&#9664;</div>');
 	informationToggle = true;
-	newheight = window.innerHeight - 42;
+	newheight = window.innerHeight - 44;
 	document.getElementById('low-side-panel').style.top = newheight + 'px'
 	$('#low-btn-slide-toggle').html('&#9650;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>W r i t t e n&nbsp;&nbsp;&nbsp;O b j e c t&nbsp;&nbsp;&nbsp;R e s u l t s&nbsp;&nbsp;T a b l e</b><span id="resultTableBRC" style="position:absolute;right:20px;">&#9650;</span>');
 	informationToggle2 = false;
@@ -2450,7 +2454,7 @@ function changeCatFieldForms() {
 		var formKeys = ["Single Flat Sheet","Rolled Sheets","Stacked Sheets","Folded Sheets","Stacked and Folded Sheets","Movable Inscription","Immovable Inscription"]
 		var formNumbers = {"Single Flat Sheet":21,"Rolled Sheets":15,"Stacked Sheets":17,"Folded Sheets":22,"Stacked and Folded Sheets":11,"Movable Inscription":19,"Immovable Inscription":13,"Uncategorized":18};
 // geojson.properties.fields[508] = {"lookup": {"1": "Single Flat Sheet", "2": "Rolled Sheets", "3": "Stacked Sheets", "4": "Folded Sheets", "5": "Stacked and Folded Sheets", "6": "Movable Inscription", "7": "Immovable Inscription"}, "name": "Forms"};
-geojson.properties.fields[508] = JSON.parse('\{"lookup":\{"21":"Single Flat Sheet","15":"Rolled Sheets","17":"Stacked Sheets","22":"Folded Sheets","11":"Stacked and Folded Sheets","19":"Movable Inscription","13":"Immovable Inscription"\,"18":"Uncategorized"},"name":"Forms"\}');
+geojson.properties.fields[508] = JSON.parse('\{"lookup":\{"21":"Single Flat Sheet","15":"Rolled Sheets","17":"Stacked Sheets","22":"Folded Sheets","11":"Stacked and Folded Sheets","19":"Movable Inscription","13":"Immovable Inscription","18":"Uncategorized"},"name":"Forms"\}');
 // console.log(JSON.stringify(geojson.properties.fields));
 for (i in searchIDs) {
 
@@ -2713,7 +2717,7 @@ var color = "green";
 
 var formatCount = d3.format(",.0f");
 
-var margin = {top: 20, right: 30, bottom: 80, left: 30},
+var margin = {top: 15, right: 30, bottom: 80, left: 30},
     // width = 600 - margin.left - margin.right,
 		    width = document.getElementById("histogram").offsetWidth - margin.left - margin.right,
     // height = 140 - margin.top - margin.bottom;

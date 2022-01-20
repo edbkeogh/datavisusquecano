@@ -195,5 +195,3 @@ function populateBamDataTableFromNode(columns, node, holder) {
     	document.getElementById(paramDiv).classList.add('hideSearch');
     };
     }
-
-    
