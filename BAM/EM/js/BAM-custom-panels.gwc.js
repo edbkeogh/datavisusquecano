@@ -294,7 +294,7 @@ function search() {
 	// large array for each paramType
 	paramTypes.forEach(function(paramType) {
 		data[paramType] = searchData[paramType];
-    // console.log(data[paramType]);
+    console.log(data[paramType]);
 	});
   if (document.getElementById('manuscriptName-search').value) {
     data['manuscriptName'] = document.getElementById('manuscriptName-search').value;
@@ -313,11 +313,11 @@ function search() {
 	$.ajax({
 		type: 'POST',
 		// url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-    url: 'https://silent-gh.com/api_IM7-13-22.php',
-    // url: 'https://silent-gh.com/api_gwc7-13-22.php',
+    // url: 'https://silent-gh.com/api_IM7-13-22.php',
+    url: 'https://silent-gh.com/api_gwc7-13-22.php',
 		data: data,
 		success: function(res) {
-      // console.log(res);
+      console.log(res);
 			let results = JSON.parse(res);
       console.log(results);
 xx = []
@@ -777,11 +777,11 @@ clearParams();
 $.ajax({
   type: 'POST',
   // url: 'https://s-lib024.lib.uiowa.edu/greekandlatincanons/eurasian_manuscripts/inc/api.php',
-    url: 'https://silent-gh.com/api_IM7-13-22.php',
-    // url: 'https://silent-gh.com/api_gwc7-13-22.php',
+    // url: 'https://silent-gh.com/api_IM7-13-22.php',
+    url: 'https://silent-gh.com/api_gwc7-13-22.php',
   data: {'functionName': 'getUniqueValues2'},
   success: function(res) {
-		// console.log(res);
+		console.log(res);
 		let results = JSON.parse(res);
 returns = results
 console.log(results);
