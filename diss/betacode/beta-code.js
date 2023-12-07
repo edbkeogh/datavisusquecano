@@ -85,7 +85,7 @@ function _longestKeyLength (obj) {
 //   - followed by a punctuation character
 // REGEX NOTE: word boundary \b doesn't work well with unicode
 function _sigmaToEndOfWordSigma (string) {
-  return string.replace(/σ(?=[,.:;·\s]|$)/g, 'ς');
+  return string.replace(/σ(?=[,.:;·\s\d]|$)/g, 'ς');
 }
 
 function _min (a, b) {
@@ -625,7 +625,16 @@ module.exports={
   "*(\\|W": "ᾫ",
   "*)=|W": "ᾮ",
   "*(=|W": "ᾯ",
-  "#": "ʹ"
+  "#": "ʹ",
+  "1": "1",
+  "2": "2",
+  "3": "3",
+  "4": "4",
+  "5": "5",
+  "6": "6",
+  "7": "7",
+  "8": "8",
+  "9": "9"
 }
 
 },{}],3:[function(require,module,exports){

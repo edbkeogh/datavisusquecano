@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <link rel="icon" href="data:,">
+<style>
+
+body {
+  font: 12px Arial;
+  width: 90%;
+}
+
+path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+span {
+    font: 20px Arial;
+    padding: 2px;
+    opacity: 1;
+    /*float: left;*/
+    display: inline-block;
+}
+
+/*span:after {content:/n;}*/
+
+div {
+  float: left;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    /*width: 60px;*/
+    /*height: 28px;*/
+    padding: 2px;
+    font: 20px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+/*div.words {
+  position:relative;
+  padding: 2px;
+  background-color: lightgray;
+
+}*/
+
+</style>
+</head>
+<body>
+<div class="controls">
+  <button onclick="prepDivs()">prepDivs</button>
+  <button onclick="showWords()">Show Words</button>
+  show chapters from <input type="number" id="start"> to <input type="number" id="end">
+</div>
+<br/>
+  <!-- <div class="words"></div> -->
+<script src="../d3.v3.min.js"></script>
+<script src="../betacode/beta-code.js"></script>
+<script>
+var test = [];
+var test2 = [];
+var d_text = [];
+var d_words = [];
+var d_words2 = "{";
+
+var x_offset = 0;
+var y_offset = 0;
+
+var counter = 0;
+// var i = 0;
+
+var margin = {top: 30, right: 20, bottom: 30, left: 50},
+    width = 1000 - margin.left - margin.right,
+    height = 270 - margin.top - margin.bottom;
+
+var divv = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+    // .style("font-size", 40);
+    //
+    // var svgContainer = d3.select("body").append("svg")
+    //                                       .attr("width",200)
+    //                                       .attr("height",200);
+
+
+    // var svg = d3.select("body")
+    //   .append("svg")
+    //       .attr("width", width + margin.left + margin.right)
+    //       .attr("height", height + margin.top + margin.bottom)
+      // .append("g")
+      //     .attr("transform",
+      //           "translate(" + margin.left + "," + margin.top + ")");
+
+
+function showWords() {
+
+d3.xml("LSJ.xml", function(error, data) {
+  if (error) throw error;
+
+  // Convert the XML document to an array of objects.
+  // Note that querySelectorAll returns a NodeList, not a proper Array,
+  // so we must use map.call to invoke array methods.
+//   d_text = [].map.call(data.querySelectorAll("sentence"), function(sentence) {
+//     return {
+//       // for ( i = 0; i < data.querySelectorAll("sentence").length; i++) {}
+//       sentence: sentence.getAttribute("id"),
+//       location: sentence.getAttribute("location"), //these 2 work
+//       word_form_beta: sentence.querySelector("word").getAttribute("form"),
+//       word_form_uni: betaCodeToGreek(sentence.querySelector("word").getAttribute("form"))
+//
+// //
+//
+//       // frequency: +sentence.querySelector("location").textContent //only goood for grabbing text inside a xml, all our values are attributes
+//
+//     };
+//   }); //end data creation
+//
+test = data;
+
+
+test2 = data.childNodes[0].childNodes[3].childNodes[1];
+
+
+
+d_text = data.getElementsByTagName('div0')
+console.log(d_text.length);
+// for (let i = 0; i < d_text.length; i++) {
+  for (let i = 0; i < (d_text.length); i++) {
+// for (i in d_text) {
+  var es = d_text[i].getElementsByTagName('entry');
+  var tr = []
+  var trans = ''
+  console.log(i);
+  // console.log(t2)
+  for (j in es) {
+    trans = '';
+    // console.log(j);
+    // if (es[j].getElementsByTagName('trans')[0].childNodes[0].textContent != Error) {
+    //   console.log(es[j].getElementsByTagName('trans')[0].childNodes[0].textContent);
+    // };
+    try {
+
+      tr = es[j].getElementsByTagName('trans')
+
+      for (k in tr) {
+        var defnummer = +k+1
+        trans += '(' + defnummer + ')' + tr[k].childNodes[0].textContent;
+      }
+      // console.log(es[j].getElementsByTagName('trans')[0].childNodes[0].textContent);
+      // d_words.push('{'+ es + ': ' + tr + '}');
+// console.log(tr);
+    }
+    catch(err) {
+      // console.log('that didnt work for ' + es[j].textContent);
+    }
+
+//    tr = es[j].getElementsByTagName('trans')[0].childNodes[0].textContent
+// tr = es[j].getElementsByTagName('trans')[0]
+try {
+  // tr = es[j].getElementsByTagName('trans')[0].childNodes[0].textContent;
+  // console.log(es[j].getElementsByTagName('trans')[0].childNodes[0].textContent);
+// console.log(es[j].attributes[0].value + ' ' + trans);
+const map1 = new Map();
+var wordkey = betaCodeToGreek(es[j].attributes[0].value);
+var word_def = JSON.parse('{"' + wordkey + '": "' + trans + '"}');
+var word_def2 = '"' + wordkey + '" : "' + trans + '", ';
+d_words2 += word_def2;
+console.log(word_def);
+  d_words.push(word_def);
+// console.log(tr);
+} catch(err) {
+counter = counter + 1;
+}
+  };
+  // console.log(es);
+  // console.log(tr);
+
+};
+// console.log(data);
+// console.log(test);
+// console.log(test2);
+//test2.getElementsByTagName('entry')[0].getAttribute('key')
+
+
+//   d_words = [].map.call(data.querySelectorAll("word"), function(word) {
+//     return {
+//       // for ( i = 0; i < data.querySelectorAll("sentence").length; i++) {}
+//       sentence: word.parentNode.attributes[0].value,
+//       location: word.parentNode.attributes[1].value,
+//       word_place_in_sentence: word.attributes[1].value,
+//       word_form_beta: word.attributes[0].value,
+//       word_form_uni: betaCodeToGreek(word.attributes[0].value),
+//       lemma: word.children[0].attributes[1].value,
+//       pos: word.children[0].attributes[2].value,
+//       fil: checkLemma(word.children[0].attributes[1].value)
+//
+// }
+
+
+
+});
+}
+
+
+// console.log(data);
+// test = data;
+// test2 = data.querySelectorAll("word");
+// console.log(d_text);
+// });
+// };
+
+function checkLemma(lemmavalue) {
+// console.log(lemmavalue);
+if (lemmavalue === "false") {return "red" ;
+}  else {
+    return "black";
+}
+};
+
+function punctGetter(sentence) {
+  punctHolder = []
+ for (let i = 0; i < sentence.getElementsByTagName("punct").length; i++) {punctHolder.push(senthold[i].attributes[0].value)};
+return punctHolder;
+};
+
+function prepDivs(){
+
+};
+
+// TODO dictionary form for unlemmed should be re functioned to simply state that it hasn't been tagged
+</script>
+</body>
