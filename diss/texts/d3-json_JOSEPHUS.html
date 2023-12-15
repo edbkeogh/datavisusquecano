@@ -64,10 +64,10 @@ div.tooltip {
   <button onclick="showWords()">Show Words</button>
   Work:
   <select id="workSelector" onchange="workUpdater()">
-    <option value="DiBJ2.json">De bello Judaico</option>
+    <option value="DiBJ2.json">de Bello Judaico</option>
     <option value="DiAJ2.json">Antiquitates Judaicae</option>
-    <option value="DiCA_pretty2.json">De bello Judaico</option>
-    <option value="DiVita2_pretty.json">De bello Judaico</option>
+    <option value="DiCA_pretty2.json">Contra Apionem</option>
+    <option value="DiVita2_pretty.json">Josephi vita</option>
     <!-- <option value="DiBJ2.json">Maccabees 4</option> -->
   </select>
   Book:
@@ -94,12 +94,16 @@ div.tooltip {
 <br/>
 
   <div class="words" id="wordbox"></div>
-<script src="//d3js.org/d3.v3.min.js"></script>
+<script src="../d3.v3.min.js"></script>
 <script src="../betacode/beta-code.js"></script>
 <!-- <script src="LSJ1.js"></script> -->
 <!-- <script src="LSJ2.js"></script> -->
 <script src="sdefs.js"></script>
-<script src="VtO.js"></script>
+<script src="vitaTermOcc.js"></script>
+<script src="AJtermOcc.js"></script>
+<script src="BJtermOcc.js"></script>
+<script src="CAtermOcc.js"></script>
+<!-- <script src="VtO.js"></script> -->
 <script>
 
 var jwork = "DiBJ2.json";
@@ -121,8 +125,9 @@ var prepositionColor = "black";
 var particleColor = "black";
 var conjunctionColor = "black";
 var unknownColor = "red";
-
+var termOcc = BJtermOcc;
 var books = [];
+var uk = 'unknown';
 
 var colorChart = {"adverb": adverbColor, "verb": verbColor, "article": articleColor, "noun": nounColor, "pronoun": pronounColor, "adjective": adjectiveColor, "preposition": prepositionColor, "particle": particleColor, "conjunction": conjunctionColor, "unknown": unknownColor};
 
@@ -290,7 +295,7 @@ d3.select(this).style("color", "steelblue")
 
                 .style("opacity", .9);
 
-           divv	.html("Betacode:<b> " + d.form + "</b><br/>Dictionary Form:<b> "  + betaCodeToGreek(d.lemma.entry||d.form) + "</b><br/>Part of Speech:<b> "  + d.lemma.POS + "</b><br/>Parsing:<b> "  + splitAnalyses(d.lemma.analyses) + quickdef  + "</b>" )
+           divv	.html("Betacode:<b> " + d.form + "</b><br/>Dictionary Form:<b> "  + betaCodeToGreek(d.lemma.entry||d.form) + "</b><br/>Occurences:<b> " + termOcc[betaCodeToGreek(d.lemma.entry)||uk]  + "</b><br/>Part of Speech:<b> "  + d.lemma.POS + "</b><br/>Parsing:<b> "  + splitAnalyses(d.lemma.analyses) + quickdef  + "</b>" )
                 // .style("left", (d3.event.pageX) + "px")
                     // divv	.html(d.form)
 
@@ -299,7 +304,7 @@ d3.select(this).style("color", "steelblue")
             }})
         .on("mouseout", function(d) {
 // d3.select(this).style("color", function(d) {return checkLemma(d)});
-d3.select(this).style("color",  function(d) {if (d.lemma) { if (d.lemma.entry) {console.log(d); return colorChart[d.lemma.POS];
+d3.select(this).style("color",  function(d) {if (d.lemma) { if (d.lemma.entry) { return colorChart[d.lemma.POS];
 }
                    else {return "red"}
                  }
@@ -339,12 +344,71 @@ function updateColor() {
   var colorUpdater = document.getElementById('POScolorSelector').value;
   var newColor = document.getElementById('POScolor').value;
   colorChart[colorUpdater] = newColor;
+  var bksorted = books.sort();
+  for (i in bksorted) {
+  var bookopt = bksorted[i];
+  var el = document.createElement("option");
+  el.textContent = bookopt;
+  el.value = bookopt;
+  document.getElementById('bookSelector').appendChild(el);
+  };
   showWords();
 };
 
 function workUpdater() {
   jwork = document.getElementById('workSelector').value;
-  updateSections();
+  books = [];
+  d_words = [];
+  switch(jwork) {
+  case 'DiBJ2.json':
+termOcc = BJtermOcc;
+    break;
+  case 'DiAJ2.json':
+termOcc = AJtermOcc;
+    break;
+    case 'DiCA_pretty2.json':
+termOcc = CAtermOcc;
+      break;
+      case 'DiVita2_pretty.json':
+termOcc = vitaTermOcc;
+        break;
+  default:
+    console.log(termOcc);
+};
+  const parent = document.getElementById("bookSelector")
+while (parent.firstChild) {
+    parent.firstChild.remove()
+};
+  d3.json(jwork, function(error, data) {
+    if (error) return "error";
+  console.log(data);
+  test = data;
+  d_text = data.sentences;
+
+  for (i in d_text) {if (books.includes(d_text[i].location.split(".")[0])) {} else {books.push(d_text[i].location.split(".")[0])}};
+console.log(books);
+var bksorted = books.sort();
+for (i in bksorted) {
+var bookopt = bksorted[i];
+var el = document.createElement("option");
+el.textContent = bookopt;
+el.value = bookopt;
+document.getElementById('bookSelector').appendChild(el);
+};
+
+  d_book = d_text.filter(function(v) {return v.location.split(".")[0] === document.getElementById('bookSelector').value});
+
+        if (Math.floor(d_book[0].location)) {
+          document.getElementById("start").value = Math.floor(d_book[0].location.split(".")[1]);
+
+        } else {
+        document.getElementById("start").value = "0";
+        }
+  console.log(d_book[d_book.length-1].location);
+  document.getElementById("end").value = Math.floor(d_book[d_book.length-1].location.split(".")[1]);
+
+
+  });
 };
 
 function updateSections() {
