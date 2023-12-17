@@ -170,7 +170,7 @@ var divv = d3.select("body").append("div")
 
       for (i in d_text) {if (books.includes(d_text[i].location.split(".")[0])) {} else {books.push(d_text[i].location.split(".")[0])}};
 console.log(books);
-var bksorted = books.sort();
+var bksorted = books.sort(compareNumbers);
 for (i in bksorted) {
   var bookopt = bksorted[i];
   var el = document.createElement("option");
@@ -266,8 +266,8 @@ d3.select('#wordbox')
                 //  .attr("background", "yellow")
                 //  .style("color", function(d) {return checkLemma(d)})
                 //  .style("color", "black")
-                .style("background-color", word_background_color)
-                // .style("background-color", function (d) {wordBGcolor(d)})
+                // .style("background-color", '#df65b0')
+                .style("background-color", function (d) {return wordBGcolor(d)})
 
                  .style("color", function(d) {if (d.lemma) { if (d.lemma.entry) {return colorChart[d.lemma.POS]}
                    else {return "red"}
@@ -325,8 +325,8 @@ d3.select(this).style("color",  function(d) {if (d.lemma) { if (d.lemma.entry) {
                     return "gray"
                  }
  })
-            .style("background-color", word_background_color)
-// .style("background-color", function (d) {wordBGcolor(d)})
+            // .style("background-color", word_background_color)
+.style("background-color", function (d) {return wordBGcolor(d)})
             divv.transition()
                 .duration(500)
 
@@ -352,11 +352,30 @@ d3.select(this).style("color",  function(d) {if (d.lemma) { if (d.lemma.entry) {
 
 function wordBGcolor(t) {
   console.log(t);
-
+var colorterm = '';
   if (t.type === 'word') {
-  var colorterm =   betaCodeToGreek(t.lemma.entry)||t.lemma.id;
-    var colorOUT = color_scale[corpusFreq[corpusFreq.findIndex(x => x.term === colorterm )].class-1]
-return colorOUT;
+
+  if (t.lemma.entry) {
+    var ct = betaCodeToGreek(t.lemma.entry);
+    colorterm = ct.toLowerCase();
+  } else {
+    colorterm = 'unknown';
+  };
+
+  var corpusIndex = corpusFreq.findIndex(x => x.term === colorterm );
+// console.log(corpusIndex);
+if (corpusIndex !== -1) {
+  var corpusClass = corpusFreq[corpusIndex].class;
+  // console.log(corpusClass);
+    // var colorOUT = color_scale[corpusFreq[corpusFreq.findIndex(x => x.term === colorterm )].class-1];
+// return colorOUT;
+var colorOUT = color_scale[corpusClass];
+    return colorOUT;
+} else {
+  return '#EDCA1D';
+};
+// console.log(colorOUT);
+
   } else {
     return '#fff';
   }
@@ -367,7 +386,7 @@ function updateColor() {
   var colorUpdater = document.getElementById('POScolorSelector').value;
   var newColor = document.getElementById('POScolor').value;
   colorChart[colorUpdater] = newColor;
-  var bksorted = books.sort();
+  var bksorted = books.sort(compareNumbers);
   for (i in bksorted) {
   var bookopt = bksorted[i];
   var el = document.createElement("option");
@@ -420,7 +439,7 @@ while (parent.firstChild) {
 
   for (i in d_text) {if (books.includes(d_text[i].location.split(".")[0])) {} else {books.push(d_text[i].location.split(".")[0])}};
 console.log(books);
-var bksorted = books.sort();
+var bksorted = books.sort(compareNumbers);
 for (i in bksorted) {
 var bookopt = bksorted[i];
 var el = document.createElement("option");
@@ -514,6 +533,9 @@ else
 
 };
 
+function compareNumbers(a, b) {
+  return a - b;
+};
 // TODO dictionary form for unlemmed should be re functioned to simply state that it hasn't been tagged
 </script>
 </body>
