@@ -286,7 +286,7 @@ d3.select('#wordbox')
                 .style("background-color", function (d) {return wordBGcolor(d)})
 
                  .style("color", function(d) {if (d.lemma) { if (d.lemma.entry) {return colorChart[d.lemma.POS]}
-                   else {return unknownColor }
+                   else {return colorChart['unknown'] }
                  }
                  else if (d.type === "punct")
                  {
@@ -330,9 +330,9 @@ d3.select(this).style("color", "steelblue")
             }})
         .on("mouseout", function(d) {
 // d3.select(this).style("color", function(d) {return checkLemma(d)});
-d3.select(this).style("color",  function(d) {if (d.lemma) { if (d.lemma.entry) { return colorChart[d.lemma.POS];
+d3.select(this).style("color",  function(d) { console.log(d); if (d.lemma) { if (d.lemma.entry) { return colorChart[d.lemma.POS];
 }
-                   else {return unknownColor }
+                   else {return colorChart['unknown'] }
                  }
                  else if (d.type === "punct")
                  {
@@ -516,7 +516,7 @@ function findDefinition2(entry) {
 function checkLemma(lemmavalue) {
 // console.log(lemmavalue);
 if (lemmavalue.lemma) {
-if (lemmavalue.lemma.id === "unknown") {return "red" ;
+if (lemmavalue.lemma.id === "unknown") {return "blue" ;
 } else {return "black";}
 }  else {
     return "black";
