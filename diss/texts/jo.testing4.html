@@ -70,6 +70,7 @@ div.tooltip {
 </style>
 </head>
 <body>
+  This tool has been developed using data sets from the <a href="http://www.perseus.tufts.edu/">Perseus Digital Library</a>, the <a href="https://logeion.uchicago.edu/">Logeion Online Dictionary</a>, and the <a href="https://www.turing.ac.uk/news/publications/diorisis-ancient-greek-corpus">Dioris Ancient Greek Corpus</a></br></br>
 <div class="controls">
   <!-- <button onclick="prepDivs()">prepDivs</button> -->
 
@@ -320,8 +321,9 @@ d3.select(this).style("color", "steelblue")
 
 
                 .style("opacity", .9);
-
-           divv	.html("Betacode:<b> " + d.form + "</b><br/>Dictionary Form:<b> "  + betaCodeToGreek(d.lemma.entry||d.form) + "</b><br/>Count in Work:<b> " + findOcc(d.lemma)+ "</b><br/>Count in Corpus:<b> " + findOcc(d.lemma)  + "</b><br/>Part of Speech:<b> "  + d.lemma.POS + "</b><br/>Parsing:<b> "  + splitAnalyses(d.lemma.analyses) + quickdef  + "</b>" )
+//play with the order here a bit
+//           divv	.html("Betacode:<b> " + d.form + "</b><br/>Dictionary Form:<b> "  + betaCodeToGreek(d.lemma.entry||d.form) + "</b><br/>Count in Work:<b> " + findOcc(d.lemma)+ "</b><br/>Count in Corpus:<b> " + corpusCount(d)  + "</b><br/>Part of Speech:<b> "  + d.lemma.POS + "</b><br/>Parsing:<b> "  + splitAnalyses(d.lemma.analyses) + quickdef  + "</b>" )
+  divv	.html("Betacode:<b> " + d.form + "</b><br/>Dictionary Form:<b> "  + betaCodeToGreek(d.lemma.entry||d.form) + quickdef + "</b><br/>Part of Speech:<b> "  + d.lemma.POS + "</b><br/>Parsing:<b> "  + splitAnalyses(d.lemma.analyses) + "</b>Count in Work:<b> " + findOcc(d.lemma)+ "</b><br/>Count in Corpus:<b> " + corpusCount(d)   +  "</b>" )
                 // .style("left", (d3.event.pageX) + "px")
                     // divv	.html(d.form)
 
@@ -567,11 +569,13 @@ count = +i+1;
   return textholder;
 } else
 if (analyses.length === 0) {
-  return "unknown";
+  return "unknown<br/>";
 }
 else
 {
-  return analyses[0];
+  var analysis = "";
+   analysis = analyses[0] + "<br/>";
+  return analysis;
 }
 
 };
