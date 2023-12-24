@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<head>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="/pcp.css"></script>
+</head>
+<body>
+<INPUT TYPE="button" onClick="history.go(0)" VALUE="Reset">
+</body>
+	
+	  <script>
+	  // Fuente original: https://bl.ocks.org/jasondavies/1341281
+		var margin = {
+			top: 30,
+			right: 10,
+			bottom: 10,
+			left: 10
+		  },
+		  width = 960 - margin.left - margin.right,
+		  height = 500 - margin.top - margin.bottom;
+
+		var x = d3.scale.ordinal().rangePoints([0, width], 1),
+		  y = {},
+		  dragging = {};
+
+		var line = d3.svg.line(),
+		  axis = d3.svg.axis().orient("left"),
+		  background,
+		  foreground;
+
+		var svg = d3.select("body").append("svg")
+		  .attr("width", width + margin.left + margin.right)
+		  .attr("height", height + margin.top + margin.bottom)
+		  .append("g")
+		  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		var notas = [
+			{
+					"Nombre": "Emily",
+					"Matematicas": "10",
+					"Ciencias": "10",
+					"Historia":  "8",
+					"Geografia":  "8",
+					"Lengua": "10"
+			},
+			{
+					"Nombre": "Cooper",
+					"Matematicas": "10",
+					"Ciencias": "7",
+					"Historia": "2",
+					"Geografia": "8",
+					"Lengua": "10"
+			},
+			{
+					"Nombre": "Sharon",
+					"Matematicas": "9",
+					"Ciencias": "9",
+					"Historia": "9",
+					"Geografia": "9",
+					"Lengua": "0"
+			},
+			{
+					"Nombre": "Gage",
+					"Matematicas": "9",
+					"Ciencias": "1",
+					"Historia": "8",
+					"Geografia": "9",
+					"Lengua": "10"
+			},
+			{
+					"Nombre": "Gavin",
+					"Matematicas": "7",
+					"Ciencias": "10",
+					"Historia": "2",
+					"Geografia": "2",
+					"Lengua": "10"
+			},
+			{
+					"Nombre": "Chaim",
+					"Matematicas": "10",
+					"Ciencias": "8",
+					"Historia":  "3",
+					"Geografia": "8",
+					"Lengua":  "7"
+			},
+			{
+					"Nombre": "Yoko",
+					"Matematicas": "7",
+					"Ciencias": "10",
+					"Historia": "8",
+					"Geografia": "10",
+					"Lengua": "8"
+			},
+			{
+					"Nombre": "Maile",
+					"Matematicas": "7",
+					"Ciencias": "8",
+					"Historia": "8",
+					"Geografia": "9",
+					"Lengua": "10"
+			},
+			{
+					"Nombre": "Lawrence",
+					"Matematicas": "7",
+					"Ciencias": "7",
+					"Historia": "8",
+					"Geografia":  "8",
+					"Lengua": "9"
+			},
+			{
+					"Nombre": "Petra",
+					"Matematicas": "7",
+					"Ciencias": "7",
+					"Historia": "1",
+					"Geografia": "10",
+					"Lengua": "0"
+			},
+			{
+					"Nombre": "Piper",
+					"Matematicas":  "2",
+					"Ciencias": "7",
+					"Historia": "9",
+					"Geografia": "9",
+					"Lengua":  "7"
+			},
+			{
+					"Nombre": "Jacob",
+					"Matematicas": "3",
+					"Ciencias":  "2",
+					"Historia": "2",
+					"Geografia": "7",
+					"Lengua": "3"
+			},
+			{
+					"Nombre": "Kirsten",
+					"Matematicas": "1",
+					"Ciencias": "10",
+					"Historia": "3",
+					"Geografia": "1",
+					"Lengua": "3"
+			},
+			{
+					"Nombre": "Cain",
+					"Matematicas":  "8",
+					"Ciencias": "8",
+					"Historia": "0",
+					"Geografia": "3",
+					"Lengua": "10"
+			},
+			{
+					"Nombre": "Lacy",
+					"Matematicas": "7",
+					"Ciencias": "8",
+					"Historia": "7",
+					"Geografia": "7",
+					"Lengua": "10"
+			},
+			{
+					"Nombre": "Acton",
+					"Matematicas": "7",
+					"Ciencias": "8",
+					"Historia":  "7",
+					"Geografia": "7",
+					"Lengua": "7"
+			},
+			{
+					"Nombre": "Edan",
+					"Matematicas": "7",
+					"Ciencias": "10",
+					"Historia": "1",
+					"Geografia": "9",
+					"Lengua":  "10"
+			},
+			{
+					"Nombre": "Emma",
+					"Matematicas": "1",
+					"Ciencias": "9",
+					"Historia": "10",
+					"Geografia": "9",
+					"Lengua": "10"
+			},
+			{
+					"Nombre": "Inga",
+					"Matematicas": "8",
+					"Ciencias": "7",
+					"Historia": "7",
+					"Geografia": "2",
+					"Lengua": "8"
+			},
+			{
+					"Nombre": "Tyler",
+					"Matematicas": "3",
+					"Ciencias": "0",
+					"Historia":  "2",
+					"Geografia": "2",
+					"Lengua": "9"
+			}];
+
+		var tooltip = d3.select("body")
+			.append("div")
+			.style("position", "absolute")
+			.style("z-index", "10")
+			.style("visibility", "hidden")
+			.text("a simple tooltip")
+			.attr("class","tooltip");
+			
+		// Extract the list of dimensions and create a scale for each.
+		x.domain(dimensions = d3.keys(notas[0]).filter(function(d) {
+		  return d != "Nombre" && (y[d] = d3.scale.linear()
+			.domain(d3.extent(notas, function(p) {
+			  return +p[d];
+			}))
+			.range([height, 0]));
+		}));
+		
+		
+		// Add grey background lines for context.
+		background = svg.append("g")
+		  .attr("class", "background")
+		  .selectAll("path")
+		  .data(notas)
+		  .enter().append("path")
+		  .attr("d", path);
+
+		// Add blue foreground lines for focus.
+		foreground = svg.append("g")
+		  .attr("class", "foreground")
+		  .selectAll("path")
+		  .data(notas)
+		  .enter().append("path")
+		  .attr("d", path)
+		  .on("mouseover", function(n){
+			d3.select(this)
+			.transition().duration(100)
+			.style({'stroke' : '#F00'});
+			tooltip.text(n.Nombre);
+			return tooltip.style("visibility", "visible");
+			})
+			.on("mousemove", function(){
+			return tooltip
+				.style("top", (event.pageY-10)+"px")
+				.style("left",(event.pageX+10)+"px");
+			})
+			.on("mouseout", function(d){
+			d3.select(this)
+				.transition().duration(100)
+				.style({'stroke': 'steelblue' })
+				.style({'stroke-width' : '2'});
+			return tooltip.style("visibility", "hidden");
+			});
+
+		// Add a group element for each dimension.
+		var g = svg.selectAll(".dimension")
+		  .data(dimensions)
+		  .enter().append("g")
+		  .attr("class", "dimension")
+		  .attr("transform", function(d) {
+			return "translate(" + x(d) + ")";
+		  })
+		  .call(d3.behavior.drag()
+			.origin(function(d) {
+			  return {
+				x: x(d)
+			  };
+			})
+			.on("dragstart", function(d) {
+			  dragging[d] = x(d);
+			  background.attr("visibility", "hidden");
+			})
+			.on("drag", function(d) {
+			  dragging[d] = Math.min(width, Math.max(0, d3.event.x));
+			  foreground.attr("d", path);
+			  dimensions.sort(function(a, b) {
+				return position(a) - position(b);
+			  });
+			  x.domain(dimensions);
+			  g.attr("transform", function(d) {
+				return "translate(" + position(d) + ")";
+			  })
+			})
+			.on("dragend", function(d) {
+			  delete dragging[d];
+			  transition(d3.select(this)).attr("transform", "translate(" + x(d) + ")");
+			  transition(foreground).attr("d", path);
+			  background
+				.attr("d", path)
+				.transition()
+				.delay(500)
+				.duration(0)
+				.attr("visibility", null);
+			}));
+
+		// Add an axis and title.
+		g.append("g")
+		  .attr("class", "axis")
+		  .each(function(d) {
+			d3.select(this).call(axis.scale(y[d]));
+		  })
+		  .append("text")
+		  .style("text-anchor", "middle")
+		  .attr("y", -9)
+		  .text(function(d) {
+			return d;
+		  });
+
+		// Add and store a brush for each axis.
+		g.append("g")
+		  .attr("class", "brush")
+		  .each(function(d) {
+			d3.select(this).call(y[d].brush = d3.svg.brush().y(y[d]).on("brushstart", brushstart).on("brush", brush));
+		  })
+		  .selectAll("rect")
+		  .attr("x", -8)
+		  .attr("width", 16);
+
+		function position(d) {
+		  var v = dragging[d];
+		  return v == null ? x(d) : v;
+		}
+
+		function transition(g) {
+		  return g.transition().duration(500);
+		}
+		
+		// Returns the path for a given data point.
+		function path(d) {
+		  return line(dimensions.map(function(p) {
+			return [position(p), y[p](d[p])];
+		  }));
+		}
+
+		function brushstart() {
+		  d3.event.sourceEvent.stopPropagation();
+		}
+
+		// Handles a brush event, toggling the display of foreground lines.
+		function brush() {
+		  var actives = dimensions.filter(function(p) {
+			  return !y[p].brush.empty();
+			}),
+			extents = actives.map(function(p) {
+			  return y[p].brush.extent();
+			});
+		  foreground.style("display", function(d) {
+			return actives.every(function(p, i) {
+			  return extents[i][0] <= d[p] && d[p] <= extents[i][1];
+			}) ? null : "none";
+		  });
+		}
+
+		
+	// The table generation function
+	function tabulate(data, columns) {
+		var table = d3.select("body").append("table")
+				.attr("style", "margin-left: 250px"),
+			thead = table.append("thead"),
+			tbody = table.append("tbody");
+
+		// append the header row
+		thead.append("tr")
+			.selectAll("th")
+			.data(columns)
+			.enter()
+			.append("th")
+				.text(function(column) { return column; });
+
+		// create a row for each object in the data
+		var rows = tbody.selectAll("tr")
+			.data(notas)
+			.enter()
+			.append("tr");
+
+		// create a cell in each row for each column
+		var cells = rows.selectAll("td")
+			.data(function(row) {
+				return columns.map(function(column) {
+					return {column: column, value: row[column]};
+				});
+			})
+			.enter()
+			.append("td")
+			.attr("style", "font-family: Courier") // sets the font style
+				.html(function(d) { return d.value; });
+		
+		return table;
+	}
+
+	// render the table
+	 var peopleTable = tabulate(notas, ["Nombre", "Matematicas","Ciencias", "Historia","Geografia", "Lengua"]);
+	 
+		
+	  </script>
+	  
+
+	  
+	

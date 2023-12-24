@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <link rel="icon" href="data:,">
+<style>
+
+body {
+  font: 12px Arial;
+  width: 90%;
+}
+
+path {
+    stroke: steelblue;
+    stroke-width: 2;
+    fill: none;
+}
+
+span {
+    font: 25px Arial;
+    padding: 3px;
+    opacity: 1;
+    /*float: left;*/
+    display: inline-block;
+}
+
+/*span:after {content:/n;}*/
+
+div {
+  float: left;
+}
+
+div.tooltip {
+    position: absolute;
+    text-align: center;
+    /*width: 60px;*/
+    /*height: 28px;*/
+    padding: 2px;
+    font: 20px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+#wordbox {
+  /*height: 90%;*/
+  width: 100%;
+  padding: 10px
+
+}
+
+#POScolorSelector {
+  visibility: hidden;
+}
+
+#POScolor {
+  visibility: hidden;
+}
+
+#POScolorButton {
+  visibility: hidden;
+}
+/*div.words {
+  position:relative;
+  padding: 2px;
+  background-color: lightgray;
+
+}*/
+
+</style>
+</head>
+<body>
+  This tool has been developed using data sets from the <a href="http://www.perseus.tufts.edu/">Perseus Digital Library</a>, the <a href="https://logeion.uchicago.edu/">Logeion Online Dictionary</a>, and the <a href="https://www.turing.ac.uk/news/publications/diorisis-ancient-greek-corpus">Dioris Ancient Greek Corpus</a>. Files have been modified for use in this application.</br></br>
+<div class="controls">
+  <!-- <button onclick="prepDivs()">prepDivs</button> -->
+
+  <button onclick="showWords()">Show Words</button>
+  check to highlight words by corpus frequency:
+   <input type="checkbox" id="wbgcolorCheck" name="wordBGcolor" value="unchecked">
+
+  Work:
+  <select id="workSelector" onchange="workUpdater()">
+    <option value="DiBJ2.json">de Bello Judaico</option>
+    <option value="DiAJ3.json">Antiquitates Judaicae</option>
+    <option value="DiCA_pretty2.json">Contra Apionem</option>
+    <option value="DiVita2_pretty.json">Josephi vita</option>
+    <!-- <option value="DiBJ2.json">Maccabees 4</option> -->
+  </select>
+  Book:
+  <select id="bookSelector" name="bk" onchange="updateSections()">
+  </select>
+  show sections from <input type="number" id="start"> to <input type="number" id="end">
+  <!-- //Math.floor(X) -->
+  <button id="wcc" onclick="wordColorAdjust()">change word colors by part of speech</button>
+<select id="POScolorSelector" name="POScs">
+  <option value="adverb">adverb</option>
+  <option value="verb">verb</option>
+  <option value="article">article</option>
+  <option value="noun">noun</option>
+   <option value="pronoun">pronoun</option>
+    <option value="adjective">adjective</option>
+     <option value="preposition">preposition</option>
+      <option value="particle">particle</option>
+       <option value="conjunction">conjunction</option>
+        <option value="unknown">unknown</option>
+</select>
+<input type="text" id="POScolor"><button id="POScolorButton" onclick="updateColor()">update color</button>
+
+</div>
+<br/>
+<br/>
+
+  <div class="words" id="wordbox"></div>
+<script src="../d3.v3.min.js"></script>
+<script src="../beta-code.js"></script>
+<!-- <script src="LSJ1.js"></script> -->
+<!-- <script src="LSJ2.js"></script> -->
+<script src="sdefs.js"></script>
+<script src="vitaTermOcc.js"></script>
+<script src="AJtermOcc.js"></script>
+<script src="BJtermOcc.js"></script>
+<script src="CAtermOcc.js"></script>
+<script src="corpusFreq.js"></script>
+
+
+
+<!-- <script src="VtO.js"></script> -->
+<script>
+
+var jwork = "DiBJ2.json";
+var test = [];
+var test2 = [];
+var d_text = [];
+var d_book = [];
+var d_words = [];
+var startLoc = "";
+var x_offset = 0;
+var y_offset = 0;
+var adverbColor = "black";
+var verbColor = "black";
+var articleColor = "black";
+var nounColor = "black";
+var pronounColor = "black";
+var adjectiveColor = "black";
+var prepositionColor = "black";
+var particleColor = "black";
+var conjunctionColor = "black";
+var unknownColor = "red";
+var termOcc = BJtermOcc;
+var books = [];
+var uk = 'unknown';
+
+var color_scale = ['#f7f4f9','#e7e1ef','#d4b9da','#c994c7','#df65b0','#e7298a','#ce1256','#980043','#67001f'];
+var word_background_color = '#fff';
+
+var colorChart = {"adverb": adverbColor, "verb": verbColor, "article": articleColor, "noun": nounColor, "pronoun": pronounColor, "adjective": adjectiveColor, "preposition": prepositionColor, "particle": particleColor, "conjunction": conjunctionColor, "unknown": unknownColor};
+
+
+// var i = 0;
+
+var margin = {top: 30, right: 20, bottom: 30, left: 50},
+    width = 1000 - margin.left - margin.right,
+    height = 270 - margin.top - margin.bottom;
+
+var divv = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0)
+    // .style("font-size", 40);
+    //
+    // var svgContainer = d3.select("body").append("svg")
+    //                                       .attr("width",200)
+    //                                       .attr("height",200);
+
+
+    // var svg = d3.select("body")
+    //   .append("svg")
+    //       .attr("width", width + margin.left + margin.right)
+    //       .attr("height", height + margin.top + margin.bottom)
+      // .append("g")
+      //     .attr("transform",
+      //           "translate(" + margin.left + "," + margin.top + ")");
+      d3.json(jwork, function(error, data) {
+        if (error) return "error";
+      console.log(data);
+      test = data;
+      d_text = data.sentences;
+
+      for (i in d_text) {if (books.includes(d_text[i].location.split(".")[0])) {} else {books.push(d_text[i].location.split(".")[0])}};
+console.log(books);
+var bksorted = books.sort(compareNumbers);
+for (i in bksorted) {
+  var bookopt = bksorted[i];
+  var el = document.createElement("option");
+   el.textContent = bookopt;
+   el.value = bookopt;
+   document.getElementById('bookSelector').appendChild(el);
+};
+      // for (i in d_text) {
+      //   // d_words.push(d_text[i].id);
+      //   var locInfo = {};
+      //   locInfo = {type:"location", form:  d_text[i].location + " [" + d_text[i].id + "]"};
+      // d_words.push(locInfo)
+      //   for (j in d_text[i].tokens) {
+      //
+      //   d_words.push(d_text[i].tokens[j]);
+      //   console.log(d_words[counter]);
+      //   console.log(d_text[i].tokens[j].lemma);
+      // if (d_text[i].tokens[j].lemma) {
+      //
+      //   d_words[counter].lemma.push(d_text[i].tokens[j].lemma);
+      //
+      // }
+        // counter = counter + 1;
+
+      // TODO the above gives me the punctuation, but only useful in so much as it lets me grab the last piece.
+
+      d_book = d_text.filter(function(v) {return v.location.split(".")[0] === document.getElementById('bookSelector').value});
+
+            if (Math.floor(d_book[0].location)) {
+              document.getElementById("start").value = Math.floor(d_book[0].location.split(".")[1]);
+
+            } else {
+            document.getElementById("start").value = "0";
+            }
+      console.log(d_book[d_book.length-1].location);
+      document.getElementById("end").value = Math.floor(d_book[d_book.length-1].location.split(".")[1]);
+
+
+      }); //end of text loading
+
+
+
+function showWords() {
+  document.getElementById('wordbox').innerHTML = "";
+// var counter = 0
+d_words = [];
+ // startLoc = Math.floor(d_book[i].location);
+for (i in d_book) {
+  // if (isNaN(startLoc)) {
+  //   // startLoc = d_book[i].location.replace("t","0");
+  //   console.log(startLoc);
+  // };
+//  console.log(document.getElementById("start").value);
+// console.log(d_book[i].location.split(".")[1]);
+//   console.log(document.getElementById("end").value);
+  if (document.getElementById("start").value <= Math.floor(d_book[i].location.split(".")[1]) && Math.floor(d_book[i].location.split(".")[1]) <= document.getElementById("end").value)
+  {
+  // d_words.push(d_book[i].id);
+  var locInfo = {};
+  locInfo = {type:"location", form:  d_book[i].location + " [" + d_book[i].id + "]"};
+  console.log(d_book[i].location);
+d_words.push(locInfo)
+  for (j in d_book[i].tokens) {
+
+  d_words.push(d_book[i].tokens[j]);
+};
+};
+}
+// console.log(d_sents);
+// console.log(d_words);
+
+// function showWords()
+
+d3.select('#wordbox')
+    .selectAll('div.words')
+    .data(d_words)
+    .enter()
+    .append('div') // doesn't seem to have been doing anything
+    .append('span')
+    // .text(function (d) { return d.word_form_uni; })
+    //.text(function (d) { return d.word_form_uni; })  //real working line test follows
+        .html(function (d) { return betaCodeToGreek(d.form);}
+//           // console.log(d.word_place_in_sentence);
+
+
+
+// else {           return d.word_form_uni }
+// ;
+
+          )
+                //  .attr("font-family", "sans-serif")
+                 .attr("font-size", "20px")
+                //  .attr("background", "yellow")
+                //  .style("color", function(d) {return checkLemma(d)})
+                //  .style("color", "black")
+                // .style("background-color", '#df65b0')
+                .style("background-color", function (d) {return wordBGcolor(d)})
+
+                 .style("color", function(d) {if (d.lemma) { if (d.lemma.entry) {return colorChart[d.lemma.POS]}
+                   else {return colorChart['unknown'] }
+                 }
+                 else if (d.type === "punct")
+                 {
+                   return "black"
+                 } else if (d.type === "location"){
+                    return "gray"
+                 }
+                  })
+                //  .attr("x", function (d, i) {
+                //      var x_pos = d3.select(this).node().getComputedTextLength() + 10;
+                //      x_offset = x_offset + x_pos;
+                //      if (x_offset > 800) {x_offset = 0};
+                //     //  console.log(x_offset);
+                //     //  console.log(d3.select(this).node().getComputedTextLength());
+                //      return x_offset - x_pos + margin.left})
+                     .on("mouseover", function(d) {
+                       if (d.lemma) {
+                         var quickdef = ""
+                          if (findDefinition(betaCodeToGreek(d.lemma.entry||d.form))) {
+                            var defcontent = findDefinition(betaCodeToGreek(d.lemma.entry||d.form));
+                        quickdef =  "</b><br/>Quick Definition(s): <b>" + defcontent };
+                        // else if (findDefinition2(betaCodeToGreek(d.lemma.entry||d.form))) {
+                          // var defcontent = findDefinition2(betaCodeToGreek(d.lemma.entry||d.form));
+                      // quickdef =  "</b><br/>Quick Definition(s): <b>" + defcontent };
+
+                      //  console.log(this);
+d3.select(this).style("color", "steelblue")
+.style("background-color", "yellow");
+            divv.transition()
+                .duration(200)
+
+
+                .style("opacity", .9);
+//play with the order here a bit
+//           divv	.html("Betacode:<b> " + d.form + "</b><br/>Dictionary Form:<b> "  + betaCodeToGreek(d.lemma.entry||d.form) + "</b><br/>Count in Work:<b> " + findOcc(d.lemma)+ "</b><br/>Count in Corpus:<b> " + corpusCount(d)  + "</b><br/>Part of Speech:<b> "  + d.lemma.POS + "</b><br/>Parsing:<b> "  + splitAnalyses(d.lemma.analyses) + quickdef  + "</b>" )
+  divv	.html("Betacode:<b> " + d.form + "</b><br/>Dictionary Form:<b> "  + betaCodeToGreek(d.lemma.entry||d.form) + quickdef + "</b><br/>Part of Speech:<b> "  + d.lemma.POS + "</b><br/>Parsing:<b> "  + splitAnalyses(d.lemma.analyses) + "</b>Count in Work:<b> " + findOcc(d.lemma)+ "</b><br/>Count in Corpus:<b> " + corpusCount(d)   +  "</b>" )
+                // .style("left", (d3.event.pageX) + "px")
+                    // divv	.html(d.form)
+
+                .style("left", (d3.event.pageX) + "px")
+                .style("top", (d3.event.pageY + 28) + "px");
+            }})
+        .on("mouseout", function(d) {
+// d3.select(this).style("color", function(d) {return checkLemma(d)});
+d3.select(this).style("color",  function(d) { console.log(d); if (d.lemma) { if (d.lemma.entry) { return colorChart[d.lemma.POS];
+}
+                   else {return colorChart['unknown'] }
+                 }
+                 else if (d.type === "punct")
+                 {
+                   return "black"
+                 } else if (d.type === "location"){
+                    return "gray"
+                 }
+ })
+            // .style("background-color", word_background_color)
+.style("background-color", function (d) {return wordBGcolor(d)})
+            divv.transition()
+                .duration(500)
+
+                .style("opacity", 0);
+                  })
+                  .on("click", function(d) {
+                    window.open(
+        'https://logeion.uchicago.edu/' + betaCodeToGreek(d.lemma.entry||d.form),
+        '_blank' // <- This is what makes it open in a new window.
+      );
+ });
+
+
+
+
+// console.log(data);
+
+// test2 = data.querySelectorAll("word");
+// console.log(d_text);
+// });
+// };
+};
+
+function corpusCount(t) {
+var corpusTerm = "";
+
+  if (t.lemma.entry) {
+    var ct = betaCodeToGreek(t.lemma.entry);
+    corpusTerm = ct.toLowerCase();
+  } else {
+    corpusTerm = 'unknown';
+  };
+
+  var corpusIndex = corpusFreq.findIndex(x => x.term === corpusTerm );
+// console.log(corpusIndex);
+if (corpusIndex !== -1) {
+  var corpusOcc = corpusFreq[corpusIndex].occ;
+  // console.log(corpusClass);
+    // var colorOUT = color_scale[corpusFreq[corpusFreq.findIndex(x => x.term === colorterm )].class-1];
+// return colorOUT;
+// var colorOUT = color_scale[corpusClass];
+    return corpusOcc;
+} else {
+  return '';
+};
+}
+
+function wordBGcolor(t) {
+  if (document.getElementById('wbgcolorCheck').checked) {
+  // console.log(t);
+var colorterm = '';
+  if (t.type === 'word') {
+
+  if (t.lemma.entry) {
+    var ct = betaCodeToGreek(t.lemma.entry);
+    colorterm = ct.toLowerCase();
+  } else {
+    colorterm = 'unknown';
+  };
+
+  var corpusIndex = corpusFreq.findIndex(x => x.term === colorterm );
+// console.log(corpusIndex);
+if (corpusIndex !== -1) {
+  var corpusClass = corpusFreq[corpusIndex].class;
+  // console.log(corpusClass);
+    // var colorOUT = color_scale[corpusFreq[corpusFreq.findIndex(x => x.term === colorterm )].class-1];
+// return colorOUT;
+var colorOUT = color_scale[corpusClass];
+    return colorOUT;
+} else {
+  return '#EDCA1D';
+};
+// console.log(colorOUT);
+
+  } else {
+    return '#fff';
+  }
+} else {
+    return '#fff';
+}
+};
+
+function updateColor() {
+  var colorUpdater = document.getElementById('POScolorSelector').value;
+  var newColor = document.getElementById('POScolor').value;
+  colorChart[colorUpdater] = newColor;
+  var bksorted = books.sort(compareNumbers);
+  for (i in bksorted) {
+  var bookopt = bksorted[i];
+  var el = document.createElement("option");
+  el.textContent = bookopt;
+  el.value = bookopt;
+  document.getElementById('bookSelector').appendChild(el);
+  };
+  showWords();
+};
+
+function findOcc(lemma) {
+  // console.log(lemma);
+  if (lemma.id === 'unknown') {
+    var unknowns = termOcc['unknown'] + ' unknowns';
+    return unknowns;
+  } else {
+return termOcc[betaCodeToGreek(lemma.entry)];
+  };
+};
+
+function workUpdater() {
+  jwork = document.getElementById('workSelector').value;
+  books = [];
+  d_words = [];
+  switch(jwork) {
+  case 'DiBJ2.json':
+termOcc = BJtermOcc;
+    break;
+  case 'DiAJ3.json':
+termOcc = AJtermOcc;
+    break;
+    case 'DiCA_pretty2.json':
+termOcc = CAtermOcc;
+      break;
+      case 'DiVita2_pretty.json':
+termOcc = vitaTermOcc;
+        break;
+  default:
+    console.log(termOcc);
+};
+  const parent = document.getElementById("bookSelector")
+while (parent.firstChild) {
+    parent.firstChild.remove()
+};
+  d3.json(jwork, function(error, data) {
+    if (error) return "error";
+  console.log(data);
+  test = data;
+  d_text = data.sentences;
+
+  for (i in d_text) {if (books.includes(d_text[i].location.split(".")[0])) {} else {books.push(d_text[i].location.split(".")[0])}};
+console.log(books);
+var bksorted = books.sort(compareNumbers);
+for (i in bksorted) {
+var bookopt = bksorted[i];
+var el = document.createElement("option");
+el.textContent = bookopt;
+el.value = bookopt;
+document.getElementById('bookSelector').appendChild(el);
+};
+
+  d_book = d_text.filter(function(v) {return v.location.split(".")[0] === document.getElementById('bookSelector').value});
+
+        if (Math.floor(d_book[0].location)) {
+          document.getElementById("start").value = Math.floor(d_book[0].location.split(".")[1]);
+
+        } else {
+        document.getElementById("start").value = "0";
+        }
+  console.log(d_book[d_book.length-1].location);
+  document.getElementById("end").value = Math.floor(d_book[d_book.length-1].location.split(".")[1]);
+
+
+  });
+};
+
+function updateSections() {
+
+  d_book = d_text.filter(function(v) {return v.location.split(".")[0] === document.getElementById('bookSelector').value});
+
+console.log(d_book);
+        if (Math.floor(d_book[0].location)) {
+          document.getElementById("start").value = d_book[0].location.split(".")[1];
+
+        } else {
+        document.getElementById("start").value = "0";
+        console.log("check this because your start section defaulted" + d_book[d_book.length-1].location);
+        }
+  // console.log("check this" + d_book[d_book.length-1].location);
+  document.getElementById("end").value = Math.floor(d_book[d_book.length-1].location.split(".")[1]);
+
+};
+
+function findDefinition(entry) {
+  return biglsj[entry];
+};
+
+
+
+function findDefinition1(entry) {
+  return lsj[entry];
+};
+
+function findDefinition2(entry) {
+  return lsj2[entry];
+};
+
+function checkLemma(lemmavalue) {
+// console.log(lemmavalue);
+if (lemmavalue.lemma) {
+if (lemmavalue.lemma.id === "unknown") {return "blue" ;
+} else {return "black";}
+}  else {
+    return "black";
+}
+};
+
+function punctGetter(sentence) {
+  punctHolder = []
+ for (let i = 0; i < sentence.getElementsByTagName("punct").length; i++) {punctHolder.push(senthold[i].attributes[0].value)};
+return punctHolder;
+};
+
+function splitAnalyses(analyses){
+  //TODO make these a switch
+if (analyses.length > 1) {
+  var  textholder = ""
+  var count = 0;
+    for (i in analyses) {
+count = +i+1;
+      textholder += " " + +count + "- " + analyses[i] + "<br/>";
+// console.log(analyses);
+// console.log(textholder);
+  };
+  return textholder;
+} else
+if (analyses.length === 0) {
+  return "unknown<br/>";
+}
+else
+{
+  var analysis = "";
+   analysis = analyses[0] + "<br/>";
+  return analysis;
+}
+
+};
+
+function wordColorAdjust() {
+  document.getElementById('POScolorSelector').style.visibility = 'visible';
+  document.getElementById('POScolor').style.visibility = 'visible';
+  document.getElementById('POScolorButton').style.visibility = 'visible';
+  document.getElementById('wcc').style.display = 'none';
+
+};
+
+function compareNumbers(a, b) {
+  return a - b;
+};
+// TODO dictionary form for unlemmed should be re functioned to simply state that it hasn't been tagged
+</script>
+</body>
