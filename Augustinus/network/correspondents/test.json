@@ -122,7 +122,7 @@
     {"source": 0, "target": 30, "weight": 3}
     ],
   "nodes": [
-    {"size": 177, "score": 0.879032, "id": "Test", "type": "star"},
+    {"size": 177, "score": 0.879032, "id": "Test", "type": "diamond"},
   {"size": 12, "score": 0.469828, "id": "Nebridius", "type": "circle"},
   {"size": 2, "score": 0.469828, "id": "Maximus of Madaura", "type": "circle"},
   {"size": 6, "score": 0.495455, "id": "Paulinus and Therasia", "type": "circle"},
