@@ -51,7 +51,7 @@ var linkw = d3.scale.linear()
 
 var force = d3.layout.force()
   .linkDistance(function(d) {
-                    return ((300 / d.weight) + 40)
+                    return ((500 / d.weight) + 40)
                         })
   .charge(-300)
   .size([w,h]);
