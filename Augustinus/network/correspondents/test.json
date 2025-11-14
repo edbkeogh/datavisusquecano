@@ -86,11 +86,7 @@
 {"source": 361, "target": 82, "weight": 10},
 {"source": 361, "target": 83, "weight": 10},
 {"source": 361, "target": 84, "weight": 10},
-{"source": 361, "target": 85, "weight": 10},
-{"source": 22, "target": 86, "weight": 10},
-{"source": 22, "target": 87, "weight": 10},
-{"source": 22, "target": 88, "weight": 10},
-{"source": 22, "target": 89, "weight": 10}
+{"source": 361, "target": 85, "weight": 10}
 
 
   
