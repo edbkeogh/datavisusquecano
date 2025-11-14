@@ -126,7 +126,7 @@
     ],
   "nodes": [
  
-    {"size": 1, "score": 0.1, "id": "placeholder", "type": "cross"},
+    {"size": 1, "score": 0.1, "id": "placeholder", "type": "cross", "title": "place3" },
 {"size": 5, "score": 0.5, "id": "Aaron L Odom", "type": "circle", "title": "Professor-Tenure System" },
 {"size": 5, "score": 0.5, "id": "Ardeshir Azadnia", "type": "circle", "title": "Senior Specialist - Teacher-Continuing" },
 {"size": 5, "score": 0.5, "id": "Aldric Revel", "type": "circle", "title": "Assistant Professor-FRIB/NSCL Facult" },
